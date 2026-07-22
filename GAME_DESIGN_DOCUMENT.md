@@ -235,11 +235,11 @@ Short poetic or satirical consequence line.
 Cards still need hidden metadata for scoring and balancing:
 
 ```text
-Fun - Level 2 or 3 - Node - Positive/Negative
-Money - Level 2 or 3 - Node - Positive/Negative
+Fun - Target Level - Node - Positive/Negative
+Money - Target Level - Node - Positive/Negative
 ```
 
-The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.
+The target level must be a non-root level in the current tree. The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.
 
 ## Tone
 

@@ -35,10 +35,57 @@ The game interprets the theme through product updates. Every shipped change move
 - Hand size is 3 cards.
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
-- Each card affects one Fun node and one Money node.
+- Each card has hidden effects on one Fun node and one Money node.
 - Level 2 node effects are +/- 3.
 - Level 3 node effects are +/- 1.
 - Tree nodes are categories only. They do not store values or propagate effects.
+- The player does not see the affected nodes, positive/negative labels, or point values on the card.
+
+## How The Trees Are Used
+
+The Fun and Money trees are design tools. They guide the theme of each update card, help keep the deck varied, and give every card a clear internal reason for how it affects players and investors.
+
+They are not player-facing stat sheets. The player should read the update as a plausible patch note, not as a spreadsheet row.
+
+Example:
+
+```text
+Fun node: Experience / Clarity / Negative
+Money node: Growth / Retention / Positive
+```
+
+This could inspire an update like:
+
+```text
+STREAMLINED ONBOARDING
+
+New players now receive fewer prompts before reaching the store.
+
+SIGNAL
+The tutorial got shorter. So did the explanation for why the button is glowing.
+```
+
+Internally, this card makes the experience less clear for players but improves retention metrics. The card does not show `Clarity -1` or `Retention +1`.
+
+Another example:
+
+```text
+Fun node: Attachment / Trust / Positive
+Money node: Revenue / Conversion / Negative
+```
+
+This could inspire:
+
+```text
+REMOVED EXIT POPUP
+
+The game no longer asks players if they are absolutely sure they want to leave the shop.
+
+SIGNAL
+Trust improved immediately. So did the number of people escaping the funnel.
+```
+
+Internally, this improves player trust while reducing conversion pressure. The player sees the update and its satirical consequence, not the hidden scoring math.
 
 ## Fun Tree
 
@@ -64,7 +111,7 @@ MONEY
    └─ Retention
 ```
 
-## Card Format
+## Player-Facing Card Format
 
 ```text
 CARD TITLE
@@ -73,10 +120,18 @@ Short description of the update.
 
 SIGNAL
 Short poetic or satirical consequence line.
+```
 
+## Internal Card Metadata
+
+Cards still need hidden metadata for scoring and balancing:
+
+```text
 Fun - Level N - Node - Positive/Negative (+/-points)
 Money - Level N - Node - Positive/Negative (+/-points)
 ```
+
+This metadata is for the game logic and deck authoring process only.
 
 ## Tone
 

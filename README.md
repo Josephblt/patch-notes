@@ -2,9 +2,9 @@
 
 A satirical card game where you ship updates players and investors can disagree on in the language of professionally deniable hostility.
 
-You play as the person deciding what goes into each update. Every card is a proposed change to the game: some make players happier, some make investors happier, and some make the word "better" depend heavily on who is reading the report.
+You play as the person choosing which proposed updates make it into each release. Every card is a possible change to the game: some make players happier, some make investors happier, and some make the word "better" depend heavily on who is reading the report.
 
-Each sprint, choose which updates to ship, which to discard and release. After 10 releases, the game looks back at what your decisions did to Fun and Money, then gives you the kind of ending a product team would describe as "a learning opportunity."
+Each sprint, choose which updates to include in the release and which to discard. After 10 releases, the game looks back at what your decisions did to Fun and Money, then gives you the kind of ending a product team would describe as "a learning opportunity."
 
 ## Play
 

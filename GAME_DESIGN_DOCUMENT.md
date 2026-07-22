@@ -7,7 +7,7 @@ Patch Notes is a satirical text/card game about shipping game updates under pres
 - Players want Fun.
 - Investors want Money.
 
-The player reads proposed update cards, chooses what to ship or discard, and watches how those decisions affect the game's relationship with both groups.
+The player reads proposed update cards, chooses which ones make it into the release, and watches how those decisions affect the game's relationship with both groups.
 
 The joke is not that every update is bad. The joke is that every update can be explained as progress, even when the cost lands somewhere inconvenient.
 

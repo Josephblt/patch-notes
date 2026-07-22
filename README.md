@@ -4,7 +4,7 @@ A satirical card game where you ship updates players and investors can disagree 
 
 You play as the person deciding what goes into each update. Every card is a proposed change to the game: some make players happier, some make investors happier, and some make the word "better" depend heavily on who is reading the report.
 
-Each round, choose which updates to ship and which to discard. After 10 rounds, the game looks back at what your decisions did to Fun and Money, then gives you the kind of ending a product team would describe as "a learning opportunity."
+Each release, choose which updates to ship and which to discard. After 10 releases, the game looks back at what your decisions did to Fun and Money, then gives you the kind of ending a product team would describe as "a learning opportunity."
 
 ## Play
 

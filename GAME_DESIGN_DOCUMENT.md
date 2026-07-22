@@ -48,7 +48,36 @@ The game interprets the theme through product updates. Every shipped change move
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
 - Each card has hidden effects on one Fun node and one Money node.
+- Each hidden effect has a level and a positive or negative direction.
+- The effect level determines how many points the card adds or removes.
 - The player does not see the affected nodes, positive/negative labels, or point values on the card.
+
+## Point Formula
+
+Point value is inversely proportional to the effect's level number. Lower-numbered levels are broader and worth more; higher-numbered levels are narrower and worth less.
+
+Use this formula:
+
+```text
+points = 2 * (maxLevel - level) + 1
+```
+
+For the current three-level trees:
+
+```text
+Level 1 -> 5 points
+Level 2 -> 3 points
+Level 3 -> 1 point
+```
+
+Each card effect also has a direction:
+
+```text
+Positive -> add points
+Negative -> remove points
+```
+
+So a `Level 2 Positive` effect is `+3`, and a `Level 3 Negative` effect is `-1`.
 
 ## Fun Tree
 
@@ -67,10 +96,10 @@ The Fun tree describes what players get from the game. It exists to keep "fun" f
 ### Fun Levels
 
 - Level 1 is the root: Fun.
-- Level 2 nodes are broad themes worth +/- 3 points.
-- Level 3 nodes are specific themes worth +/- 1 point.
+- Level 2 nodes are broad themes.
+- Level 3 nodes are specific themes.
 
-Level 2 effects are stronger because they affect a broad part of the player experience. Level 3 effects are smaller because they target a narrower theme.
+Point values come from the point formula. Lower-numbered effects are stronger because they affect a broader part of the player experience. Higher-numbered effects are smaller because they target a narrower theme.
 
 The tree nodes are categories only. They do not store values or propagate effects upward. If a card affects `Clarity -1`, only the hidden Fun score changes by -1. `Experience` is used to organize the theme; it does not receive its own separate value.
 
@@ -126,10 +155,10 @@ The Money tree describes what investors get from the game. It keeps "money" from
 ### Money Levels
 
 - Level 1 is the root: Money.
-- Level 2 nodes are broad themes worth +/- 3 points.
-- Level 3 nodes are specific themes worth +/- 1 point.
+- Level 2 nodes are broad themes.
+- Level 3 nodes are specific themes.
 
-Like the Fun tree, Money nodes are categories only. They guide design and hidden scoring. They do not appear on player-facing cards.
+Like the Fun tree, Money point values come from the point formula. Money nodes are categories only. They guide design and hidden scoring. They do not appear on player-facing cards.
 
 ### Money Themes
 
@@ -206,11 +235,11 @@ Short poetic or satirical consequence line.
 Cards still need hidden metadata for scoring and balancing:
 
 ```text
-Fun - Level N - Node - Positive/Negative (+/-points)
-Money - Level N - Node - Positive/Negative (+/-points)
+Fun - Level N - Node - Positive/Negative
+Money - Level N - Node - Positive/Negative
 ```
 
-This metadata is for the game logic and deck authoring process only.
+The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.
 
 ## Tone
 

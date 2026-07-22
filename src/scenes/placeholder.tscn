@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://1lt16m3uu65y"]
+
+[node name="Placeholder" type="CanvasLayer" unique_id=52309980]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1321296621]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1953322442]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "PATCH NOTES
+
+Eternal Realms of Feature Creep: Early Access is Forever"
+horizontal_alignment = 1
+vertical_alignment = 1

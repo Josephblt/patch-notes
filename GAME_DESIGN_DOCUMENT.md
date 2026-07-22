@@ -218,7 +218,6 @@ This metadata is for the game logic and deck authoring process only.
 - Satirical.
 - Dry and specific.
 - Postmortem-like.
-- Funny, but not goofy.
 - Corporate enough to be plausible.
 - Mean enough to have a pulse.
 

@@ -36,56 +36,7 @@ The game interprets the theme through product updates. Every shipped change move
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
 - Each card has hidden effects on one Fun node and one Money node.
-- Level 2 node effects are +/- 3.
-- Level 3 node effects are +/- 1.
-- Tree nodes are categories only. They do not store values or propagate effects.
 - The player does not see the affected nodes, positive/negative labels, or point values on the card.
-
-## How The Trees Are Used
-
-The Fun and Money trees are design tools. They guide the theme of each update card, help keep the deck varied, and give every card a clear internal reason for how it affects players and investors.
-
-They are not player-facing stat sheets. The player should read the update as a plausible patch note, not as a spreadsheet row.
-
-Example:
-
-```text
-Fun node: Experience / Clarity / Negative
-Money node: Growth / Retention / Positive
-```
-
-This could inspire an update like:
-
-```text
-STREAMLINED ONBOARDING
-
-New players now receive fewer prompts before reaching the store.
-
-SIGNAL
-The tutorial got shorter. So did the explanation for why the button is glowing.
-```
-
-Internally, this card makes the experience less clear for players but improves retention metrics. The card does not show `Clarity -1` or `Retention +1`.
-
-Another example:
-
-```text
-Fun node: Attachment / Trust / Positive
-Money node: Revenue / Conversion / Negative
-```
-
-This could inspire:
-
-```text
-REMOVED EXIT POPUP
-
-The game no longer asks players if they are absolutely sure they want to leave the shop.
-
-SIGNAL
-Trust improved immediately. So did the number of people escaping the funnel.
-```
-
-Internally, this improves player trust while reducing conversion pressure. The player sees the update and its satirical consequence, not the hidden scoring math.
 
 ## Fun Tree
 
@@ -99,6 +50,53 @@ FUN
    └─ Trust
 ```
 
+The Fun tree describes what players get from the game. It exists to keep "fun" from becoming one vague number. A card should not just make the game more or less fun; it should affect a specific kind of player value.
+
+### Fun Levels
+
+- Level 1 is the root: Fun.
+- Level 2 nodes are broad themes worth +/- 3 points.
+- Level 3 nodes are specific themes worth +/- 1 point.
+
+Level 2 effects are stronger because they affect a broad part of the player experience. Level 3 effects are smaller because they target a narrower theme.
+
+The tree nodes are categories only. They do not store values or propagate effects upward. If a card affects `Clarity -1`, only the hidden Fun score changes by -1. `Experience` is used to organize the theme; it does not receive its own separate value.
+
+### Fun Themes
+
+`Experience` is about the moment-to-moment act of playing the game.
+
+- `Feel` covers responsiveness, satisfaction, pacing, friction, and whether the game feels good in the hands.
+- `Clarity` covers whether players understand what is happening, what changed, and what the game expects from them.
+
+`Attachment` is about the player's longer-term relationship with the game.
+
+- `Meaning` covers whether the game feels worthwhile, expressive, memorable, or emotionally resonant.
+- `Trust` covers whether players believe the game respects them, their time, and their expectations.
+
+These themes exist to guide card writing. They force each update to have a satirical target. An update that hurts `Trust` should feel different from one that hurts `Feel`, even if both reduce Fun.
+
+### Fun Example
+
+Internal theme:
+
+```text
+Fun node: Experience / Clarity / Negative
+```
+
+Possible update card:
+
+```text
+STREAMLINED TOOLTIP STRATEGY
+
+Several tutorial prompts have been removed to reduce early-session interruption.
+
+SIGNAL
+Players now reach confusion faster and with fewer clicks.
+```
+
+This card hurts `Clarity` because the update makes the game less understandable. The player sees the patch-note language and consequence line, not `Clarity -1`.
+
 ## Money Tree
 
 ```text
@@ -110,6 +108,75 @@ MONEY
    ├─ Reach
    └─ Retention
 ```
+
+The Money tree describes what investors get from the game. It keeps "money" from being only raw revenue. A card can improve the business by increasing spending, improving conversion, reaching more people, or keeping people in the product longer.
+
+### Money Levels
+
+- Level 1 is the root: Money.
+- Level 2 nodes are broad themes worth +/- 3 points.
+- Level 3 nodes are specific themes worth +/- 1 point.
+
+Like the Fun tree, Money nodes are categories only. They guide design and hidden scoring. They do not appear on player-facing cards.
+
+### Money Themes
+
+`Revenue` is about extracting value from the current audience.
+
+- `Spending` covers how much players pay.
+- `Conversion` covers how effectively players are moved toward payment or other business goals.
+
+`Growth` is about expanding or preserving the audience.
+
+- `Reach` covers discoverability, virality, marketability, and new-user acquisition.
+- `Retention` covers whether players keep coming back.
+
+These themes exist so investor pressure has different flavors. A card that improves `Reach` should feel different from one that improves `Spending`, even if both increase Money.
+
+### Money Example
+
+Internal theme:
+
+```text
+Money node: Revenue / Conversion / Positive
+```
+
+Possible update card:
+
+```text
+OPTIMIZED STORE RETURN PATH
+
+Closing the shop now returns players to a curated offer instead of the previous screen.
+
+SIGNAL
+The back button has been promoted to a strategic revenue surface.
+```
+
+This card improves `Conversion` because it pushes players back toward a business goal. The player sees the update and its satirical framing, not `Conversion +1`.
+
+## How The Trees Are Used Together
+
+Each card has one hidden Fun effect and one hidden Money effect. The pairing creates the design tension.
+
+Example internal pairing:
+
+```text
+Fun node: Experience / Clarity / Negative
+Money node: Growth / Retention / Positive
+```
+
+Possible update card:
+
+```text
+STREAMLINED ONBOARDING
+
+New players now receive fewer prompts before reaching the store.
+
+SIGNAL
+The tutorial got shorter. So did the explanation for why the button is glowing.
+```
+
+Internally, this card makes the experience less clear for players but improves retention metrics. The card does not show `Clarity -1` or `Retention +1`.
 
 ## Player-Facing Card Format
 

@@ -36,9 +36,9 @@ The game interprets the theme through product updates. Every shipped change move
 1. Draw a hand of update cards.
 2. Choose which update to ship.
 3. Discard the rest.
-4. Apply the shipped card's Fun and Money effects.
+4. Apply the shipped card's hidden effects to the active scoring trees.
 5. Repeat for 10 sprints.
-6. Receive an ending based on the final state of Fun and Money.
+6. Receive an ending based on the final state and path of the active scoring trees.
 
 ## Rules
 
@@ -47,7 +47,9 @@ The game interprets the theme through product updates. Every shipped change move
 - Hand size is 3 cards.
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
-- Each card has hidden effects on one Fun node and one Money node.
+- The current scoring trees are Fun and Money.
+- Additional scoring trees can be added later without changing the card metadata shape.
+- Each card has hidden effects against the active scoring trees.
 - Each hidden effect has a targetable level and a positive or negative direction.
 - The effect level determines how many points the card adds or removes.
 - Level 1 root nodes are not targetable by cards.
@@ -197,7 +199,7 @@ This card improves `Conversion` because it pushes players back toward a business
 
 ## How The Trees Are Used Together
 
-Each card has one hidden Fun effect and one hidden Money effect. The pairing creates the design tension.
+Each card has hidden effects on the active scoring trees. In the current design, that means one Fun effect and one Money effect. The pairing creates the design tension.
 
 Example internal pairing:
 
@@ -235,11 +237,10 @@ Short poetic or satirical consequence line.
 Cards still need hidden metadata for scoring and balancing:
 
 ```text
-Fun - Target Level - Node - Positive/Negative
-Money - Target Level - Node - Positive/Negative
+Tree - Target Level - Node - Positive/Negative
 ```
 
-The target level must be a non-root level in the current tree. The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.
+The tree name identifies which scoring tree the effect changes. The target level must be a non-root level in that tree. The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.
 
 ## Tone
 
@@ -273,5 +274,5 @@ The community called it something less printable.
 
 - The player does not have to ship exactly one card per sprint.
 - Discarded cards do not have delayed consequences.
-- Ending selection should consider the path taken, not only the final Fun and Money totals.
+- Ending selection should consider the path taken, not only the final scoring totals.
 - The game flow should not be artificially constrained to stop scores from climbing. If a run goes off the rails, that is part of the story.

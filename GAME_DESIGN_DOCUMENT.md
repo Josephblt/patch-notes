@@ -25,7 +25,7 @@ The game interprets the theme through product updates. Every shipped change move
 2. Choose which update to ship.
 3. Discard the rest.
 4. Apply the shipped card's Fun and Money effects.
-5. Repeat for 10 releases.
+5. Repeat for 10 sprints.
 6. Receive an ending based on the final state of Fun and Money.
 
 ## Rules
@@ -160,7 +160,7 @@ Most players left within the first week, loudly and permanently. The few who sta
 
 ## Open Design Questions
 
-- Whether the player should ship exactly one card per release.
+- Whether the player should ship exactly one card per sprint.
 - Whether discarded cards should have any delayed consequences.
 - Whether ending bands should use only final Fun/Money totals or also track the path taken.
 - How much friction is needed to keep scores from climbing too easily.

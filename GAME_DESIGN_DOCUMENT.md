@@ -7,9 +7,21 @@ Patch Notes is a satirical text/card game about shipping game updates under pres
 - Players want Fun.
 - Investors want Money.
 
-The player reads proposed update cards, chooses which ones make it into the release, and watches how those decisions affect the game's relationship with both groups.
+The player assumes the role of C.L.U.T.T.E.R. - Content Launch and Update Triage Technical Executive Representative - an important position on the team creating Eternal Realms of Feature Creep: Early Access is Forever, an open-world MMORPG roguelike survival crafting extraction soulslike deckbuilder looter shooter farming racing sim and cozy sandbox.
+
+As C.L.U.T.T.E.R., the player decides which proposed updates make it into each release. Every card is a possible improvement to the game, at least according to someone in the meeting. Some updates are better for players, some are better for investors, and some make the word "better" depend entirely on who is reading the report.
 
 The joke is not that every update is bad. The joke is that every update can be explained as progress, even when the cost lands somewhere inconvenient.
+
+## In-Universe Game
+
+Eternal Realms of Feature Creep: Early Access is Forever is the game being patched inside Patch Notes. Its genre pile is intentionally absurd:
+
+```text
+open-world MMORPG roguelike survival crafting extraction soulslike deckbuilder looter shooter farming racing sim and cozy sandbox
+```
+
+The title and genre describe a game trying to be every successful trend at once. That makes it a good target for update cards: every new feature can sound like progress while adding more pressure, clutter, monetization, confusion, or instability.
 
 ## Jam Theme
 
@@ -222,12 +234,16 @@ Example voice:
 
 ```text
 WHALE FARM
-Most players left within the first week, loudly and permanently. The few who stayed spent enough money to make the dashboard look beautiful. Investors called it "a focused high-value audience." The community called it something less printable.
+
+Most players left within the first week, loudly and permanently. The few who stayed spent enough money to make the dashboard look beautiful.
+
+Investors called it "a focused high-value audience."
+The community called it something less printable.
 ```
 
-## Open Design Questions
+## Design Decisions
 
-- Whether the player should ship exactly one card per sprint.
-- Whether discarded cards should have any delayed consequences.
-- Whether ending bands should use only final Fun/Money totals or also track the path taken.
-- How much friction is needed to keep scores from climbing too easily.
+- The player does not have to ship exactly one card per sprint.
+- Discarded cards do not have delayed consequences.
+- Ending selection should consider the path taken, not only the final Fun and Money totals.
+- The game flow should not be artificially constrained to stop scores from climbing. If a run goes off the rails, that is part of the story.

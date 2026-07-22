@@ -48,8 +48,9 @@ The game interprets the theme through product updates. Every shipped change move
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
 - Each card has hidden effects on one Fun node and one Money node.
-- Each hidden effect has a level and a positive or negative direction.
+- Each hidden effect has a targetable level and a positive or negative direction.
 - The effect level determines how many points the card adds or removes.
+- Level 1 root nodes are not targetable by cards.
 - The player does not see the affected nodes, positive/negative labels, or point values on the card.
 
 ## Point Formula
@@ -62,10 +63,9 @@ Use this formula:
 points = 2 * (maxLevel - level) + 1
 ```
 
-For the current three-level trees:
+For the current three-level trees, Level 1 is the root and is not directly affected by cards. Valid card effects use Level 2 or Level 3:
 
 ```text
-Level 1 -> 5 points
 Level 2 -> 3 points
 Level 3 -> 1 point
 ```
@@ -95,7 +95,7 @@ The Fun tree describes what players get from the game. It exists to keep "fun" f
 
 ### Fun Levels
 
-- Level 1 is the root: Fun.
+- Level 1 is the root: Fun. Cards do not directly affect this node.
 - Level 2 nodes are broad themes.
 - Level 3 nodes are specific themes.
 
@@ -154,7 +154,7 @@ The Money tree describes what investors get from the game. It keeps "money" from
 
 ### Money Levels
 
-- Level 1 is the root: Money.
+- Level 1 is the root: Money. Cards do not directly affect this node.
 - Level 2 nodes are broad themes.
 - Level 3 nodes are specific themes.
 
@@ -235,8 +235,8 @@ Short poetic or satirical consequence line.
 Cards still need hidden metadata for scoring and balancing:
 
 ```text
-Fun - Level N - Node - Positive/Negative
-Money - Level N - Node - Positive/Negative
+Fun - Level 2 or 3 - Node - Positive/Negative
+Money - Level 2 or 3 - Node - Positive/Negative
 ```
 
 The level and direction determine the signed point value through the point formula. This metadata is for the game logic and deck authoring process only.

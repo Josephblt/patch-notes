@@ -19,6 +19,8 @@ jobs:
     name: Validate and publish Web export
     runs-on: ubuntu-latest
     env:
+      WEB_BUILD_DIR: build/web
+      ASSET_DIR: dist
       TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
 
     steps:
@@ -27,19 +29,23 @@ jobs:
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
 
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.7.1
+          use-dotnet: false
+          include-templates: true
+
       - name: Validate Godot Web export
-        id: validate-web
-        uses: ./.github/actions/validate-godot-web
+        run: bash .github/scripts/validate-godot-web-export.sh "$WEB_BUILD_DIR"
 
       - name: Define release asset
-        run: |
-          echo "ASSET_DIR=dist" >> "$GITHUB_ENV"
-          echo "ASSET_NAME=patch-notes-web-${TAG_NAME}.zip" >> "$GITHUB_ENV"
+        run: echo "ASSET_NAME=patch-notes-web-${TAG_NAME}.zip" >> "$GITHUB_ENV"
 
       - name: Package Web build
         run: |
           mkdir -p "$ASSET_DIR"
-          cd "${{ steps.validate-web.outputs.build-dir }}"
+          cd "$WEB_BUILD_DIR"
           zip -qr "$GITHUB_WORKSPACE/$ASSET_DIR/$ASSET_NAME" .
 
       - name: Create GitHub release
@@ -67,4 +73,4 @@ jobs:
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
           ITCH_TARGET: josephblt-games/patch-notes:web
-        run: butler push "${{ steps.validate-web.outputs.build-dir }}" "$ITCH_TARGET" --userversion "$TAG_NAME"
+        run: butler push "$WEB_BUILD_DIR" "$ITCH_TARGET" --userversion "$TAG_NAME"

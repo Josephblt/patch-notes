@@ -1,14 +1,23 @@
-name: CI
+name: Validate and Deploy Pages
 
 on:
   push:
     branches:
       - main
-  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  validate-godot:
-    name: Validate Godot project
+  validate-and-build:
+    name: Validate and build Web export
     runs-on: ubuntu-latest
 
     steps:
@@ -22,10 +31,32 @@ jobs:
           use-dotnet: false
           include-templates: true
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
       - name: Import project
         run: godot --headless --path src --import
 
-      - name: Check Web export
+      - name: Build Web export
         run: |
-          mkdir -p /tmp/patch-notes-web
-          godot --headless --path src --export-release "Web" /tmp/patch-notes-web/index.html
+          mkdir -p build/web
+          godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
+          touch build/web/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: build/web
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: validate-and-build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

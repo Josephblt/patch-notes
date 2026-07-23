@@ -1,4 +1,4 @@
-name: Publish
+name: Validate and Publish itch.io
 
 on:
   push:
@@ -15,9 +15,11 @@ permissions:
   contents: write
 
 jobs:
-  publish:
-    name: Publish
+  validate-and-publish:
+    name: Validate and publish Web export
     runs-on: ubuntu-latest
+    env:
+      TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
 
     steps:
       - name: Checkout
@@ -42,8 +44,6 @@ jobs:
           touch build/web/.nojekyll
 
       - name: Package Web build
-        env:
-          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
         run: |
           cd build/web
           zip -qr "$GITHUB_WORKSPACE/dist/patch-notes-web-${TAG_NAME}.zip" .
@@ -51,7 +51,6 @@ jobs:
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
         run: |
           if gh release view "$TAG_NAME" >/dev/null 2>&1; then
             gh release upload "$TAG_NAME" "dist/patch-notes-web-${TAG_NAME}.zip" --clobber
@@ -74,6 +73,4 @@ jobs:
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
           ITCH_TARGET: josephblt-games/patch-notes:web
-          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
         run: butler push build/web "$ITCH_TARGET" --userversion "$TAG_NAME"
-

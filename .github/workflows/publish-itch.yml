@@ -14,14 +14,16 @@ on:
 permissions:
   contents: write
 
+env:
+  WEB_BUILD_DIR: build/web
+  ASSET_DIR: dist
+  TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+  ASSET_NAME: patch-notes-web-${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}.zip
+
 jobs:
-  validate-and-publish:
-    name: Validate and publish Web export
+  validate-and-package:
+    name: Validate and package Web export
     runs-on: ubuntu-latest
-    env:
-      WEB_BUILD_DIR: build/web
-      ASSET_DIR: dist
-      TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
 
     steps:
       - name: Checkout
@@ -40,12 +42,54 @@ jobs:
         run: bash .github/scripts/validate-godot-web-export.sh "$WEB_BUILD_DIR"
 
       - name: Package Web build
-        run: bash .github/scripts/package-web-build.sh "$WEB_BUILD_DIR" "$ASSET_DIR" "$TAG_NAME"
+        run: bash .github/scripts/package-web-build.sh "$WEB_BUILD_DIR" "$ASSET_DIR" "$ASSET_NAME"
+
+      - name: Upload Web build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: web-build
+          path: ${{ env.WEB_BUILD_DIR }}
+
+      - name: Upload release asset artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-asset
+          path: ${{ env.ASSET_DIR }}/${{ env.ASSET_NAME }}
+
+  publish-github-release:
+    name: Publish GitHub release
+    needs: validate-and-package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download release asset
+        uses: actions/download-artifact@v4
+        with:
+          name: release-asset
+          path: ${{ env.ASSET_DIR }}
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: bash .github/scripts/create-github-release.sh "$TAG_NAME" "$ASSET_PATH"
+        run: bash .github/scripts/create-github-release.sh "$TAG_NAME" "$ASSET_DIR/$ASSET_NAME"
+
+  publish-itch:
+    name: Publish itch.io build
+    needs: validate-and-package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download Web build
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: ${{ env.WEB_BUILD_DIR }}
 
       - name: Install Butler
         run: bash .github/scripts/install-butler.sh

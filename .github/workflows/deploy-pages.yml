@@ -24,24 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Setup Godot
-        uses: chickensoft-games/setup-godot@v2
-        with:
-          version: 4.7.1
-          use-dotnet: false
-          include-templates: true
-
       - name: Configure Pages
         uses: actions/configure-pages@v6
 
-      - name: Import project
-        run: godot --headless --path src --import
-
-      - name: Build Web export
-        run: |
-          mkdir -p build/web
-          godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
-          touch build/web/.nojekyll
+      - name: Validate Godot Web export
+        uses: ./.github/actions/validate-godot-web
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

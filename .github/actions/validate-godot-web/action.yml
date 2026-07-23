@@ -1,0 +1,23 @@
+name: Validate Godot Web export
+description: Set up Godot, import the project, and build the Web export.
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Godot
+      uses: chickensoft-games/setup-godot@v2
+      with:
+        version: 4.7.1
+        use-dotnet: false
+        include-templates: true
+
+    - name: Import project
+      shell: bash
+      run: godot --headless --path src --import
+
+    - name: Build Web export
+      shell: bash
+      run: |
+        mkdir -p build/web
+        godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
+        touch build/web/.nojekyll

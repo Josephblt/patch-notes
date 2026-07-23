@@ -27,24 +27,12 @@ jobs:
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
 
-      - name: Setup Godot
-        uses: chickensoft-games/setup-godot@v2
-        with:
-          version: 4.7.1
-          use-dotnet: false
-          include-templates: true
-
-      - name: Import project
-        run: godot --headless --path src --import
-
-      - name: Build Web export
-        run: |
-          mkdir -p build/web dist
-          godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
-          touch build/web/.nojekyll
+      - name: Validate Godot Web export
+        uses: ./.github/actions/validate-godot-web
 
       - name: Package Web build
         run: |
+          mkdir -p dist
           cd build/web
           zip -qr "$GITHUB_WORKSPACE/dist/patch-notes-web-${TAG_NAME}.zip" .
 

@@ -39,38 +39,19 @@ jobs:
       - name: Validate Godot Web export
         run: bash .github/scripts/validate-godot-web-export.sh "$WEB_BUILD_DIR"
 
-      - name: Define release asset
-        run: echo "ASSET_NAME=patch-notes-web-${TAG_NAME}.zip" >> "$GITHUB_ENV"
-
       - name: Package Web build
-        run: |
-          mkdir -p "$ASSET_DIR"
-          cd "$WEB_BUILD_DIR"
-          zip -qr "$GITHUB_WORKSPACE/$ASSET_DIR/$ASSET_NAME" .
+        run: bash .github/scripts/package-web-build.sh "$WEB_BUILD_DIR" "$ASSET_DIR" "$TAG_NAME"
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
-            gh release upload "$TAG_NAME" "$ASSET_DIR/$ASSET_NAME" --clobber
-          else
-            gh release create "$TAG_NAME" \
-              "$ASSET_DIR/$ASSET_NAME" \
-              --title "$TAG_NAME" \
-              --notes "Godot Web build for $TAG_NAME."
-          fi
+        run: bash .github/scripts/create-github-release.sh "$TAG_NAME" "$ASSET_PATH"
 
       - name: Install Butler
-        run: |
-          curl -fsSL -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
-          unzip -q butler.zip
-          chmod +x butler
-          sudo mv butler /usr/local/bin/butler
-          butler -V
+        run: bash .github/scripts/install-butler.sh
 
       - name: Upload Web build to itch.io
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
           ITCH_TARGET: josephblt-games/patch-notes:web
-        run: butler push "$WEB_BUILD_DIR" "$ITCH_TARGET" --userversion "$TAG_NAME"
+        run: bash .github/scripts/upload-itch-web-build.sh "$WEB_BUILD_DIR" "$ITCH_TARGET" "$TAG_NAME"

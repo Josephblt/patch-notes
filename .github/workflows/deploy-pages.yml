@@ -28,12 +28,13 @@ jobs:
         uses: actions/configure-pages@v6
 
       - name: Validate Godot Web export
+        id: validate-web
         uses: ./.github/actions/validate-godot-web
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: build/web
+          path: ${{ steps.validate-web.outputs.build-dir }}
 
   deploy:
     name: Deploy to GitHub Pages

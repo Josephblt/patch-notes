@@ -1,9 +1,19 @@
 name: Validate Godot Web export
 description: Set up Godot, import the project, and build the Web export.
 
+outputs:
+  build-dir:
+    description: Directory containing the generated Web export.
+    value: ${{ steps.paths.outputs.build-dir }}
+
 runs:
   using: composite
   steps:
+    - name: Define output paths
+      id: paths
+      shell: bash
+      run: echo "build-dir=build/web" >> "$GITHUB_OUTPUT"
+
     - name: Setup Godot
       uses: chickensoft-games/setup-godot@v2
       with:
@@ -18,6 +28,7 @@ runs:
     - name: Build Web export
       shell: bash
       run: |
-        mkdir -p build/web
-        godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
-        touch build/web/.nojekyll
+        build_dir="${{ steps.paths.outputs.build-dir }}"
+        mkdir -p "$build_dir"
+        godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/$build_dir/index.html"
+        touch "$build_dir/.nojekyll"

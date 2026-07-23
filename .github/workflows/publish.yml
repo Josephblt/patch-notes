@@ -1,0 +1,79 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to publish, for example v0.1.0'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref }}
+
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: 4.7.1
+          use-dotnet: false
+          include-templates: true
+
+      - name: Import project
+        run: godot --headless --path src --import
+
+      - name: Build Web export
+        run: |
+          mkdir -p build/web dist
+          godot --headless --path src --export-release "Web" "$GITHUB_WORKSPACE/build/web/index.html"
+          touch build/web/.nojekyll
+
+      - name: Package Web build
+        env:
+          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          cd build/web
+          zip -qr "$GITHUB_WORKSPACE/dist/patch-notes-web-${TAG_NAME}.zip" .
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: |
+          if gh release view "$TAG_NAME" >/dev/null 2>&1; then
+            gh release upload "$TAG_NAME" "dist/patch-notes-web-${TAG_NAME}.zip" --clobber
+          else
+            gh release create "$TAG_NAME" \
+              "dist/patch-notes-web-${TAG_NAME}.zip" \
+              --title "$TAG_NAME" \
+              --notes "Godot Web build for $TAG_NAME."
+          fi
+
+      - name: Install Butler
+        run: |
+          curl -fsSL -o butler.zip https://broth.itch.zone/butler/linux-amd64/LATEST/archive/default
+          unzip -q butler.zip
+          chmod +x butler
+          sudo mv butler /usr/local/bin/butler
+          butler -V
+
+      - name: Upload Web build to itch.io
+        env:
+          BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
+          ITCH_TARGET: josephblt-games/patch-notes:web
+          TAG_NAME: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+        run: butler push build/web "$ITCH_TARGET" --userversion "$TAG_NAME"
+

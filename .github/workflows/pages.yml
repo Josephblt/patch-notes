@@ -32,7 +32,7 @@ jobs:
           include-templates: true
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Import project
         run: godot --headless --path src --import
@@ -60,4 +60,3 @@ jobs:
       - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v5
-

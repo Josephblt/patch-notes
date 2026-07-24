@@ -14,7 +14,7 @@ var dealt_count: int = 0
 
 func _ready() -> void:
 	score_trees = ScoreTree.load_many_from_json_dir(SCORE_TREE_DIR)
-	feature_deck = FeatureDeckBuilder.build_from_score_trees(score_trees)
+	feature_deck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle()
 	deal_button.pressed.connect(_on_deal_button_pressed)
 
@@ -23,7 +23,7 @@ func _ready() -> void:
 	_print_line("Test scene")
 	_print_line("Source: %s" % SCORE_TREE_DIR)
 	_print_line("Trees loaded: %d" % score_trees.size())
-	_print_line("Deck Count: %d" % feature_deck.remaining_count())
+	_print_line("Deck Count: %d" % feature_deck._available_cards.size())
 
 	for score_tree: ScoreTree in score_trees:
 		_print_line("")
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 
 func _on_deal_button_pressed() -> void:
-	if feature_deck == null or not feature_deck.has_cards():
+	if feature_deck == null or not feature_deck._available_cards.size() > 0:
 		_print_line("")
 		_print_line("Deck Count: 0")
 		_print_line("Deck is empty.")
@@ -42,53 +42,48 @@ func _on_deal_button_pressed() -> void:
 		return
 
 	feature_deck.shuffle()
-	var drawn_cards: Array[FeatureCard] = feature_deck.draw(1)
-
-	if drawn_cards.is_empty():
-		_print_line("")
-		_print_line("No card drawn.")
-		return
+	var drawn_card: FeatureCard = feature_deck.draw()
 
 	dealt_count += 1
 	_print_line("")
 	_print_line("Deal %d" % dealt_count)
-	_print_line("Deck Count: %d" % feature_deck.remaining_count())
-	_print_lines(_describe_card(drawn_cards[0]))
+	_print_line("Deck Count: %d" % feature_deck._available_cards.size())
+	_print_lines(_describe_card(drawn_card))
 
-	if not feature_deck.has_cards():
+	if not feature_deck._available_cards.size() == 0:
 		deal_button.disabled = true
 
 
 func _describe_card(card: FeatureCard) -> Array[String]:
 	var lines: Array[String] = []
 
-	lines.append("Card: %s" % card.title)
-	lines.append("UID: %s" % card.uid)
-	lines.append("Description: %s" % card.description)
-	lines.append("Consequence: %s" % card.consequence)
+	lines.append("Card: %s" % card.get_title())
+	lines.append("UID: %s" % card.get_uid())
+	lines.append("Description: %s" % card.get_description())
+	lines.append("Consequence: %s" % card.get_consequence())
 	lines.append("Effects:")
 
-	for effect: FeatureEffect in card.effects:
+	for effect: FeatureEffect in card.get_effects():
 		lines.append("  %s" % _describe_effect(effect))
 
 	return lines
 
 
 func _describe_effect(effect: FeatureEffect) -> String:
-	var score_tree: ScoreTree = _find_score_tree(effect.tree_uid)
+	var score_tree: ScoreTree = _find_score_tree(effect.get_tree_uid())
 
 	if score_tree == null:
 		return "%s %s" % [
 			_format_signed_points(0),
-			effect.node_uid,
+			effect.get_node_uid(),
 		]
 
-	var node: ScoreTreeNode = score_tree.get_node(effect.node_uid)
+	var node: ScoreTreeNode = score_tree.get_node(effect.get_node_uid())
 
 	return "%s %s / %s" % [
 		_format_signed_points(score_tree.get_signed_points_for_effect(effect)),
-		score_tree.display_name,
-		node.display_name,
+		score_tree.get_display_name(),
+		node.get_display_name(),
 	]
 
 
@@ -126,8 +121,8 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 	for node: ScoreTreeNode in targetable_nodes:
 		lines.append("  L%d %s -> %d points" % [
 			node.level,
-			node.display_name,
-			score_tree.get_points_for_node(node.uid),
+			node._display_name,
+			score_tree.get_points_for_node(node._uid),
 		])
 
 	return lines

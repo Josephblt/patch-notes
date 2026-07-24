@@ -1,0 +1,38 @@
+{
+  "uid": "dd9b76f5-0442-4993-bae1-10407f59ff0f",
+  "display_name": "Money",
+  "children": [
+    {
+      "uid": "f4594704-d9d2-4bbe-a73c-963b4c729d0d",
+      "display_name": "Revenue",
+      "children": [
+        {
+          "uid": "2f48887a-2490-4113-90a8-2ba6ee19a140",
+          "display_name": "Spending",
+          "children": []
+        },
+        {
+          "uid": "946f5a64-19ca-4ffd-9154-48d31119e9e4",
+          "display_name": "Conversion",
+          "children": []
+        }
+      ]
+    },
+    {
+      "uid": "e687ff16-f79c-4261-a986-9e2402e6e0d0",
+      "display_name": "Growth",
+      "children": [
+        {
+          "uid": "31cf77c3-352f-4783-845a-04e9f9d9af9c",
+          "display_name": "Reach",
+          "children": []
+        },
+        {
+          "uid": "accd5bcc-0034-484f-8f83-e0bc6f734c01",
+          "display_name": "Retention",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

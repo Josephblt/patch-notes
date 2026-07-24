@@ -1,0 +1,38 @@
+{
+  "uid": "5e84e06f-1995-47c4-af77-31950422b780",
+  "display_name": "Fun",
+  "children": [
+    {
+      "uid": "f5e6dfa4-5ae1-4acc-bf7b-a7e9bb5d393f",
+      "display_name": "Experience",
+      "children": [
+        {
+          "uid": "d209e7a0-2594-47b2-8bd6-dc641a6a1acc",
+          "display_name": "Feel",
+          "children": []
+        },
+        {
+          "uid": "aac8fff4-7af0-4de8-a1db-52b04bd802e1",
+          "display_name": "Clarity",
+          "children": []
+        }
+      ]
+    },
+    {
+      "uid": "bce2ca4d-0f81-4493-a7d9-d73e3490bc86",
+      "display_name": "Attachment",
+      "children": [
+        {
+          "uid": "f1addb81-cbe8-4dca-b3b5-4066bf77a10d",
+          "display_name": "Meaning",
+          "children": []
+        },
+        {
+          "uid": "8caa9fdd-0c02-4b70-93f4-db8bf20fe155",
+          "display_name": "Trust",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

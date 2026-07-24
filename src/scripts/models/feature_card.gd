@@ -4,7 +4,7 @@ extends RefCounted
 var uid: String
 var title: String
 var description: String
-var signal_text: String
+var consequence: String
 var effects: Array[FeatureEffect]
 
 
@@ -12,13 +12,13 @@ func _init(
 	card_uid: String,
 	card_title: String,
 	card_description: String,
-	card_signal: String,
+	card_consequence: String,
 	card_effects: Array[FeatureEffect] = []
 ) -> void:
 	uid = card_uid
 	title = card_title
 	description = card_description
-	signal_text = card_signal
+	consequence = card_consequence
 	effects = card_effects.duplicate()
 
 
@@ -48,8 +48,8 @@ func validate() -> Array[String]:
 	if description.is_empty():
 		errors.append("Feature card description is required: %s" % uid)
 
-	if signal_text.is_empty():
-		errors.append("Feature card signal is required: %s" % uid)
+	if consequence.is_empty():
+		errors.append("Feature card consequence is required: %s" % uid)
 
 	if effects.is_empty():
 		errors.append("Feature card must define at least one effect: %s" % uid)

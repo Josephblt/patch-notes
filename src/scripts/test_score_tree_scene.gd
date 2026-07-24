@@ -2,7 +2,7 @@ extends CanvasLayer
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
 
-@onready var output_label: Label = $Label
+@onready var output_label: Label = $ScrollContainer/Label
 
 
 func _ready() -> void:

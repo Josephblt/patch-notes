@@ -1,8 +1,8 @@
 class_name FeatureDeckBuilder
 extends RefCounted
 
-const POSITIVE_LABEL := "positive"
-const NEGATIVE_LABEL := "negative"
+const POSITIVE_LABEL: String = "positive"
+const NEGATIVE_LABEL: String = "negative"
 
 
 static func build_from_score_trees(score_trees: Array[ScoreTree]) -> FeatureDeck:

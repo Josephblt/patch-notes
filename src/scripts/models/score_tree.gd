@@ -47,6 +47,36 @@ static func load_from_json_file(path: String) -> ScoreTree:
 	return ScoreTree.from_json(root_data)
 
 
+static func load_many_from_json_dir(path: String) -> Array[ScoreTree]:
+	var trees: Array[ScoreTree] = []
+	var dir: DirAccess = DirAccess.open(path)
+
+	if dir == null:
+		push_error("Could not open score tree JSON directory: %s" % path)
+		return trees
+
+	var file_names: Array[String] = []
+
+	dir.list_dir_begin()
+	var file_name: String = dir.get_next()
+	while not file_name.is_empty():
+		if not dir.current_is_dir() and file_name.get_extension().to_lower() == "json":
+			file_names.append(file_name)
+
+		file_name = dir.get_next()
+
+	dir.list_dir_end()
+	file_names.sort()
+
+	for json_file_name: String in file_names:
+		var tree: ScoreTree = ScoreTree.load_from_json_file(path.path_join(json_file_name))
+
+		if tree != null:
+			trees.append(tree)
+
+	return trees
+
+
 static func from_json(root_data: Dictionary) -> ScoreTree:
 	var tree_uid: String = root_data.get("uid", "")
 	var tree_display_name: String = root_data.get("display_name", "")
@@ -132,6 +162,22 @@ func get_children(parent_uid: String) -> Array[ScoreTreeNode]:
 			children.append(node)
 
 	return children
+
+
+func get_targetable_nodes() -> Array[ScoreTreeNode]:
+	var targetable_nodes: Array[ScoreTreeNode] = []
+	var node_uids: Array[String] = []
+
+	for node: ScoreTreeNode in nodes.values():
+		if is_valid_effect_target(node.uid):
+			node_uids.append(node.uid)
+
+	node_uids.sort()
+
+	for node_uid: String in node_uids:
+		targetable_nodes.append(get_node(node_uid))
+
+	return targetable_nodes
 
 
 func get_path_to_root(node_uid: String) -> Array[ScoreTreeNode]:

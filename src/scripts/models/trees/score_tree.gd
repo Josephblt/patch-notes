@@ -93,7 +93,7 @@ func get_path_to_root(node_uid: String) -> Array[ScoreTreeNode]:
 	while true:
 		path.push_front(current)
 
-		if current.is_root():
+		if current.get_parent_uid().is_empty():
 			break
 
 		current = get_parent(current.get_uid())

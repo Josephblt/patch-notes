@@ -13,7 +13,7 @@ var dealt_count: int = 0
 
 
 func _ready() -> void:
-	score_trees = ScoreTree.load_many_from_json_dir(SCORE_TREE_DIR)
+	score_trees = ScoreTreeLoader.load_many_from_json_dir(SCORE_TREE_DIR)
 	feature_deck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle()
 	deal_button.pressed.connect(_on_deal_button_pressed)
@@ -23,7 +23,7 @@ func _ready() -> void:
 	_print_line("Test scene")
 	_print_line("Source: %s" % SCORE_TREE_DIR)
 	_print_line("Trees loaded: %d" % score_trees.size())
-	_print_line("Deck Count: %d" % feature_deck._available_cards.size())
+	_print_line("Deck Count: %d" % feature_deck.get_available_card_count())
 
 	for score_tree: ScoreTree in score_trees:
 		_print_line("")
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 
 func _on_deal_button_pressed() -> void:
-	if feature_deck == null or not feature_deck._available_cards.size() > 0:
+	if feature_deck == null or not feature_deck.has_cards():
 		_print_line("")
 		_print_line("Deck Count: 0")
 		_print_line("Deck is empty.")
@@ -47,10 +47,10 @@ func _on_deal_button_pressed() -> void:
 	dealt_count += 1
 	_print_line("")
 	_print_line("Deal %d" % dealt_count)
-	_print_line("Deck Count: %d" % feature_deck._available_cards.size())
+	_print_line("Deck Count: %d" % feature_deck.get_available_card_count())
 	_print_lines(_describe_card(drawn_card))
 
-	if not feature_deck._available_cards.size() == 0:
+	if not feature_deck.has_cards():
 		deal_button.disabled = true
 
 
@@ -89,7 +89,7 @@ func _describe_effect(effect: FeatureEffect) -> String:
 
 func _find_score_tree(tree_uid: String) -> ScoreTree:
 	for score_tree: ScoreTree in score_trees:
-		if score_tree.uid == tree_uid:
+		if score_tree.get_uid() == tree_uid:
 			return score_tree
 
 	return null
@@ -107,9 +107,9 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 	var validation_errors: Array[String] = score_tree.validate()
 	var targetable_nodes: Array[ScoreTreeNode] = score_tree.get_targetable_nodes()
 
-	lines.append("%s" % score_tree.display_name)
-	lines.append("UID: %s" % score_tree.uid)
-	lines.append("Nodes: %d" % score_tree.nodes.size())
+	lines.append("%s" % score_tree.get_display_name())
+	lines.append("UID: %s" % score_tree.get_uid())
+	lines.append("Nodes: %d" % score_tree.get_node_count())
 	lines.append("Targetable nodes: %d" % targetable_nodes.size())
 	lines.append("Max level: %d" % score_tree.get_max_level())
 	lines.append("Validation: %s" % _format_validation_status(validation_errors))
@@ -120,9 +120,9 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 
 	for node: ScoreTreeNode in targetable_nodes:
 		lines.append("  L%d %s -> %d points" % [
-			node.level,
-			node._display_name,
-			score_tree.get_points_for_node(node._uid),
+			node.get_level(),
+			node.get_display_name(),
+			score_tree.get_points_for_node(node.get_uid()),
 		])
 
 	return lines

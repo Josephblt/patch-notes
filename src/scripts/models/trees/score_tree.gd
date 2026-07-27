@@ -19,118 +19,24 @@ func _init(
 	nodes = tree_nodes
 
 
-static func load_many_from_json_dir(path: String) -> Array[ScoreTree]:
-	var trees: Array[ScoreTree] = []
-	var dir: DirAccess = DirAccess.open(path)
-
-	if dir == null:
-		push_error("Could not open score tree JSON directory: %s" % path)
-		return trees
-
-	var file_names: Array[String] = []
-
-	dir.list_dir_begin()
-	var file_name: String = dir.get_next()
-	while not file_name.is_empty():
-		if not dir.current_is_dir() and file_name.get_extension().to_lower() == "json":
-			file_names.append(file_name)
-
-		file_name = dir.get_next()
-
-	dir.list_dir_end()
-	file_names.sort()
-
-	for json_file_name: String in file_names:
-		var tree: ScoreTree = ScoreTree.load_from_json_file(path.path_join(json_file_name))
-
-		if tree != null:
-			trees.append(tree)
-
-	return trees
+func get_uid() -> String:
+	return uid
 
 
-static func load_from_json_file(path: String) -> ScoreTree:
-	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
-
-	if file == null:
-		push_error("Could not open score tree JSON file: %s" % path)
-		return null
-
-	var json_text: String = file.get_as_text()
-	var json: JSON = JSON.new()
-	var parse_result: Error = json.parse(json_text)
-
-	if parse_result != OK:
-		push_error("Could not parse score tree JSON file: %s. %s" % [
-			path,
-			json.get_error_message(),
-		])
-		return null
-
-	var data: Variant = json.data
-
-	if not data is Dictionary:
-		push_error("Score tree JSON root must be an object: %s" % path)
-		return null
-
-	var root_data: Dictionary = data as Dictionary
-	return ScoreTree.from_json(root_data)
+func get_display_name() -> String:
+	return display_name
 
 
-static func from_json(root_data: Dictionary) -> ScoreTree:
-	var tree_uid: String = root_data.get("uid", "")
-	var tree_display_name: String = root_data.get("display_name", "")
-
-	var tree: ScoreTree = ScoreTree.new(
-		tree_uid,
-		tree_display_name,
-		tree_uid
-	)
-
-	_add_node_from_json(tree, root_data, "", 1)
-
-	return tree
+func get_root_uid() -> String:
+	return root_uid
 
 
-static func _add_node_from_json(
-	tree: ScoreTree,
-	node_data: Dictionary,
-	parent_uid: String,
-	level: int
-) -> void:
-	var node_uid: String = node_data.get("uid", "")
-	var node_display_name: String = node_data.get("display_name", "")
-
-	var node: ScoreTreeNode = ScoreTreeNode.new(
-		node_uid,
-		node_display_name,
-		parent_uid,
-		level
-	)
-
-	tree.add_node(node)
-
-	var children_data: Variant = node_data.get("children", [])
-
-	if not children_data is Array:
-		push_error("Score tree node children must be an array: %s" % node_uid)
-		return
-
-	for child_data: Variant in children_data:
-		if not child_data is Dictionary:
-			push_error("Score tree child must be an object under node: %s" % node_uid)
-			continue
-
-		_add_node_from_json(
-			tree,
-			child_data as Dictionary,
-			node_uid,
-			level + 1
-		)
+func get_node_count() -> int:
+	return nodes.size()
 
 
 func add_node(node: ScoreTreeNode) -> void:
-	nodes[node._uid] = node
+	nodes[node.get_uid()] = node
 
 
 func has_node(node_uid: String) -> bool:
@@ -151,14 +57,14 @@ func is_root_node(node_uid: String) -> bool:
 
 func get_parent(node_uid: String) -> ScoreTreeNode:
 	var node: ScoreTreeNode = get_node(node_uid)
-	return get_node(node.parent_uid)
+	return get_node(node.get_parent_uid())
 
 
 func get_children(parent_uid: String) -> Array[ScoreTreeNode]:
 	var children: Array[ScoreTreeNode] = []
 
 	for node: ScoreTreeNode in nodes.values():
-		if node.parent_uid == parent_uid:
+		if node.get_parent_uid() == parent_uid:
 			children.append(node)
 
 	return children
@@ -169,8 +75,8 @@ func get_targetable_nodes() -> Array[ScoreTreeNode]:
 	var node_uids: Array[String] = []
 
 	for node: ScoreTreeNode in nodes.values():
-		if is_valid_effect_target(node._uid):
-			node_uids.append(node._uid)
+		if is_valid_effect_target(node.get_uid()):
+			node_uids.append(node.get_uid())
 
 	node_uids.sort()
 
@@ -190,7 +96,7 @@ func get_path_to_root(node_uid: String) -> Array[ScoreTreeNode]:
 		if current.is_root():
 			break
 
-		current = get_parent(current._uid)
+		current = get_parent(current.get_uid())
 
 	return path
 
@@ -199,15 +105,15 @@ func get_max_level() -> int:
 	var max_level: int = 0
 
 	for node: ScoreTreeNode in nodes.values():
-		if node.level > max_level:
-			max_level = node.level
+		if node.get_level() > max_level:
+			max_level = node.get_level()
 
 	return max_level
 
 
 func get_points_for_node(node_uid: String) -> int:
 	var node: ScoreTreeNode = get_node(node_uid)
-	return 2 * (get_max_level() - node.level) + 1
+	return 2 * (get_max_level() - node.get_level()) + 1
 
 
 func get_signed_points_for_effect(effect: FeatureEffect) -> int:
@@ -246,28 +152,28 @@ func validate() -> Array[String]:
 		errors.append("Root node does not exist.")
 
 	for node: ScoreTreeNode in nodes.values():
-		if node._uid.is_empty():
+		if node.get_uid().is_empty():
 			errors.append("Node uid is required.")
 
-		if node._display_name.is_empty():
-			errors.append("Node display name is required: %s" % node._uid)
+		if node.get_display_name().is_empty():
+			errors.append("Node display name is required: %s" % node.get_uid())
 
-		if node.level < 1:
-			errors.append("Node level must be 1 or higher: %s" % node._uid)
+		if node.get_level() < 1:
+			errors.append("Node level must be 1 or higher: %s" % node.get_uid())
 
-		if node._uid == root_uid:
+		if node.get_uid() == root_uid:
 			if not node.is_root():
-				errors.append("Root node cannot have a parent: %s" % node._uid)
+				errors.append("Root node cannot have a parent: %s" % node.get_uid())
 
-			if node.level != 1:
-				errors.append("Root node must be level 1: %s" % node._uid)
+			if node.get_level() != 1:
+				errors.append("Root node must be level 1: %s" % node.get_uid())
 		else:
 			if node.is_root():
-				errors.append("Only the root node can be parentless: %s" % node._uid)
-			elif not nodes.has(node.parent_uid):
+				errors.append("Only the root node can be parentless: %s" % node.get_uid())
+			elif not nodes.has(node.get_parent_uid()):
 				errors.append("Node parent does not exist: %s -> %s" % [
-					node._uid,
-					node.parent_uid,
+					node.get_uid(),
+					node.get_parent_uid(),
 				])
 
 	errors.append_array(_validate_no_cycles())
@@ -283,15 +189,15 @@ func _validate_no_cycles() -> Array[String]:
 		var current: ScoreTreeNode = node
 
 		while not current.is_root():
-			if seen.has(current._uid):
-				errors.append("Cycle detected at node: %s" % current._uid)
+			if seen.has(current.get_uid()):
+				errors.append("Cycle detected at node: %s" % current.get_uid())
 				break
 
-			seen[current._uid] = true
+			seen[current.get_uid()] = true
 
-			if not nodes.has(current.parent_uid):
+			if not nodes.has(current.get_parent_uid()):
 				break
 
-			current = get_parent(current._uid)
+			current = get_parent(current.get_uid())
 
 	return errors

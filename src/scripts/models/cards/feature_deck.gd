@@ -17,5 +17,9 @@ func has_cards() -> bool:
 	return not _available_cards.is_empty()
 
 
+func get_available_card_count() -> int:
+	return _available_cards.size()
+
+
 func draw() -> FeatureCard:
 	return _available_cards.pop_front()

@@ -10,6 +10,11 @@ static func build(score_trees: Array[ScoreTree]) -> FeatureDeck:
 
 	for score_tree: ScoreTree in score_trees:
 		var target_effects: Array[FeatureEffect] = _build_feature_effects(score_tree)
+
+		if target_effects.is_empty():
+			push_error("Score tree has no targetable effect options: %s" % score_tree.get_uid())
+			return FeatureDeck.new()
+
 		feature_effect_groups.append(target_effects)
 
 	var feature_effect_combinations: Array = _build_feature_effect_combinations(feature_effect_groups)
@@ -31,13 +36,13 @@ static func _build_feature_effects(score_tree: ScoreTree) -> Array[FeatureEffect
 
 	for node: ScoreTreeNode in score_tree.get_targetable_nodes():
 		feature_effects.append(FeatureEffect.new(
-			score_tree.uid,
-			node._uid,
+			score_tree.get_uid(),
+			node.get_uid(),
 			FeatureEffect.Impact.POSITIVE
 		))
 		feature_effects.append(FeatureEffect.new(
-			score_tree.uid,
-			node._uid,
+			score_tree.get_uid(),
+			node.get_uid(),
 			FeatureEffect.Impact.NEGATIVE
 		))
 

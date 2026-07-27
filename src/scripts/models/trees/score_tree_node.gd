@@ -35,5 +35,9 @@ func get_level() -> int:
 	return _level
 
 
+func is_root() -> bool:
+	return not has_parent()
+
+
 func has_parent() -> bool:
 	return not _parent_uid.is_empty()

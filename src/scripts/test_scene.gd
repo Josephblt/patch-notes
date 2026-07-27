@@ -104,7 +104,6 @@ func _format_signed_points(points: int) -> String:
 
 func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 	var lines: Array[String] = []
-	var validation_errors: Array[String] = score_tree.validate()
 	var targetable_nodes: Array[ScoreTreeNode] = score_tree.get_targetable_nodes()
 
 	lines.append("%s" % score_tree.get_display_name())
@@ -112,11 +111,6 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 	lines.append("Nodes: %d" % score_tree.get_node_count())
 	lines.append("Targetable nodes: %d" % targetable_nodes.size())
 	lines.append("Max level: %d" % score_tree.get_max_level())
-	lines.append("Validation: %s" % _format_validation_status(validation_errors))
-
-	if not validation_errors.is_empty():
-		for error: String in validation_errors:
-			lines.append("  ! %s" % error)
 
 	for node: ScoreTreeNode in targetable_nodes:
 		lines.append("  L%d %s -> %d points" % [
@@ -147,13 +141,6 @@ func _render_console() -> void:
 
 func _scroll_console_to_bottom() -> void:
 	console_scroll.scroll_vertical = int(console_scroll.get_v_scroll_bar().max_value)
-
-
-func _format_validation_status(validation_errors: Array[String]) -> String:
-	if validation_errors.is_empty():
-		return "OK"
-
-	return "%d errors" % validation_errors.size()
 
 
 func _join_lines(lines: Array[String]) -> String:

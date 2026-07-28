@@ -83,6 +83,6 @@ func get_max_level() -> int:
 	return max_level
 
 
-func get_points_for_node(node_uid: String) -> int:
+func get_points(node_uid: String) -> int:
 	var node: ScoreTreeNode = get_node(node_uid)
 	return 2 * (get_max_level() - node.get_level()) + 1

@@ -116,7 +116,7 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 		lines.append("  L%d %s -> %d points" % [
 			node.get_level(),
 			node.get_display_name(),
-			score_tree.get_points_for_node(node.get_uid()),
+			score_tree.get_points(node.get_uid()),
 		])
 
 	return lines
@@ -128,7 +128,7 @@ func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> i
 	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
 		impact = -1
 
-	return score_tree.get_points_for_node(effect.get_node_uid()) * impact
+	return score_tree.get_points(effect.get_node_uid()) * impact
 
 
 func _collect_effect_nodes(score_tree: ScoreTree) -> Array[ScoreTreeNode]:

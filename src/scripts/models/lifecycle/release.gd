@@ -48,21 +48,3 @@ func ship() -> bool:
 
 	_shipped = true
 	return true
-
-
-func get_shipped_cards() -> Array[FeatureCard]:
-	var shipped_cards: Array[FeatureCard] = []
-
-	for sprint: Sprint in _sprints:
-		shipped_cards.append_array(sprint.get_selected_cards())
-
-	return shipped_cards
-
-
-func get_discarded_cards() -> Array[FeatureCard]:
-	var discarded_cards: Array[FeatureCard] = []
-
-	for sprint: Sprint in _sprints:
-		discarded_cards.append_array(sprint.get_discarded_cards())
-
-	return discarded_cards

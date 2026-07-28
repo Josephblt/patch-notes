@@ -21,6 +21,16 @@ func _init(
 	_max_level = _calculate_max_level()
 
 
+func _calculate_max_level() -> int:
+	var max_level: int = 0
+
+	for node: ScoreTreeNode in nodes.values():
+		if node.get_level() > max_level:
+			max_level = node.get_level()
+
+	return max_level
+
+
 func get_node(node_uid: String) -> ScoreTreeNode:
 	return nodes[node_uid] as ScoreTreeNode
 
@@ -46,16 +56,6 @@ func get_children(parent_uid: String) -> Array[ScoreTreeNode]:
 
 func get_max_level() -> int:
 	return _max_level
-
-
-func _calculate_max_level() -> int:
-	var max_level: int = 0
-
-	for node: ScoreTreeNode in nodes.values():
-		if node.get_level() > max_level:
-			max_level = node.get_level()
-
-	return max_level
 
 
 func get_uid() -> String:

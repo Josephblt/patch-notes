@@ -82,8 +82,42 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 toggle_mode = true
-text = "Card 1"
+text = ""
 clip_text = true
+autowrap_mode = 3
+
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+text = "Card 1"
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Description"
+autowrap_mode = 3
+
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Consequence"
 autowrap_mode = 3
 
 [node name="CardButton2" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
@@ -92,8 +126,42 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 toggle_mode = true
-text = "Card 2"
+text = ""
 clip_text = true
+autowrap_mode = 3
+
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+text = "Card 2"
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Description"
+autowrap_mode = 3
+
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Consequence"
 autowrap_mode = 3
 
 [node name="CardButton3" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
@@ -102,8 +170,42 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 toggle_mode = true
-text = "Card 3"
+text = ""
 clip_text = true
+autowrap_mode = 3
+
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 15
+text = "Card 3"
+autowrap_mode = 3
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Description"
+autowrap_mode = 3
+
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 13
+text = "Consequence"
 autowrap_mode = 3
 
 [node name="SelectedUpdatesScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]

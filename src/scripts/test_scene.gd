@@ -8,6 +8,9 @@ var game_run: GameRun
 var current_sprint: Sprint
 var current_sprint_cards: Array[FeatureCard] = []
 var card_buttons: Array[Button] = []
+var card_title_labels: Array[Label] = []
+var card_description_labels: Array[Label] = []
+var card_consequence_labels: Array[Label] = []
 
 @onready var state_label: Label = $MarginContainer/VBoxContainer/StateLabel
 @onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel
@@ -27,6 +30,21 @@ func _ready() -> void:
 		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1,
 		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2,
 		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3,
+	]
+	card_title_labels = [
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/TitleLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/TitleLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/TitleLabel,
+	]
+	card_description_labels = [
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/DescriptionLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/DescriptionLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/DescriptionLabel,
+	]
+	card_consequence_labels = [
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/ConsequenceLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/ConsequenceLabel,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/ConsequenceLabel,
 	]
 
 	start_sprint_button.pressed.connect(_on_start_sprint_button_pressed)
@@ -143,22 +161,27 @@ func _render_card_buttons() -> void:
 
 		card_button.visible = true
 		card_button.disabled = current_sprint == null or current_sprint.is_submitted()
+		card_button.text = ""
 
 		if not has_card:
-			card_button.text = " "
+			_render_card_button_content(card_index, null)
 			card_button.button_pressed = false
 			continue
 
 		var card: FeatureCard = current_sprint_cards[card_index]
-		card_button.text = _format_card_button_text(card)
+		_render_card_button_content(card_index, card)
 
 
-func _format_card_button_text(card: FeatureCard) -> String:
-	return "%s\n\n\n%s\n\n\n%s" % [
-		card.get_title(),
-		card.get_description(),
-		card.get_consequence(),
-	]
+func _render_card_button_content(card_index: int, card: FeatureCard) -> void:
+	if card == null:
+		card_title_labels[card_index].text = ""
+		card_description_labels[card_index].text = ""
+		card_consequence_labels[card_index].text = ""
+		return
+
+	card_title_labels[card_index].text = card.get_title()
+	card_description_labels[card_index].text = card.get_description()
+	card_consequence_labels[card_index].text = card.get_consequence()
 
 
 func _format_scores() -> String:

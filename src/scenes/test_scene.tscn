@@ -49,14 +49,6 @@ theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 20
 text = "Preview loading..."
 
-[node name="SelectedEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(720, 74)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
-theme_override_font_sizes/font_size = 18
-text = "Selected updates: none"
-autowrap_mode = 3
-
 [node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 34)
 layout_mode = 2
@@ -115,4 +107,18 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 toggle_mode = true
 text = "Card 3"
+autowrap_mode = 3
+
+[node name="SelectedUpdatesScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 132)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer/SelectedUpdatesScroll"]
+custom_minimum_size = Vector2(720, 132)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
+theme_override_font_sizes/font_size = 18
+text = "Selected updates: none"
 autowrap_mode = 3

@@ -77,7 +77,7 @@ static func _build_card(
 	effects: Array[FeatureEffect],
 	score_trees_by_uid: Dictionary[String, ScoreTree]
 ) -> FeatureCard:
-	var title: String = "UNSCOPED UPDATE"
+	var title: String = "UNSCOPED CHANGE"
 	var description: String = "A proposed change arrived without enough context to make anyone comfortable."
 	var consequence: String = "The meeting approved it after changing the subject twice."
 	var fun_effect: FeatureEffect = _find_effect_for_tree(effects, "Fun", score_trees_by_uid)
@@ -145,7 +145,7 @@ static func _build_card_title(
 	money_effect: FeatureEffect,
 	score_trees_by_uid: Dictionary[String, ScoreTree]
 ) -> String:
-	return "%s %s UPDATE" % [
+	return "%s %s" % [
 		_build_title_token(fun_effect, score_trees_by_uid),
 		_build_title_token(money_effect, score_trees_by_uid),
 	]

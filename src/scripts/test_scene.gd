@@ -160,7 +160,6 @@ func _format_card_button_text(card: FeatureCard) -> String:
 	lines.append("")
 	lines.append(card.get_description())
 	lines.append("")
-	lines.append("SIGNAL")
 	lines.append(card.get_consequence())
 
 	return _join_lines(lines)

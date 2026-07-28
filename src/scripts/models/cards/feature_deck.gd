@@ -13,11 +13,11 @@ func shuffle() -> void:
 	_available_cards.shuffle()
 
 
-func has_cards() -> bool:
+func can_draw() -> bool:
 	return not _available_cards.is_empty()
 
 
-func get_available_card_count() -> int:
+func size() -> int:
 	return _available_cards.size()
 
 

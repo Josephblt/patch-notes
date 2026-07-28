@@ -54,7 +54,7 @@ custom_minimum_size = Vector2(720, 74)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 18
-text = "Selected effects: none"
+text = "Selected updates: none"
 autowrap_mode = 3
 
 [node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -91,7 +91,7 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="CardButton1" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 132)
+custom_minimum_size = Vector2(220, 240)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
@@ -100,7 +100,7 @@ text = "Card 1"
 autowrap_mode = 3
 
 [node name="CardButton2" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 132)
+custom_minimum_size = Vector2(220, 240)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
@@ -109,7 +109,7 @@ text = "Card 2"
 autowrap_mode = 3
 
 [node name="CardButton3" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 132)
+custom_minimum_size = Vector2(220, 240)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16

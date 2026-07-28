@@ -126,7 +126,7 @@ func _render_state() -> void:
 		state_label.text = "Run complete."
 		score_label.text = "Scores: %s" % _format_scores()
 		preview_label.text = "Preview: %s" % _format_preview_scores()
-		selected_effects_label.text = _format_selected_effects()
+		selected_effects_label.text = _format_selected_updates()
 		start_sprint_button.disabled = true
 		submit_sprint_button.disabled = true
 		ship_release_button.disabled = true
@@ -151,7 +151,7 @@ func _render_state() -> void:
 	]
 	score_label.text = "Scores: %s" % _format_scores()
 	preview_label.text = "Preview: %s" % _format_preview_scores()
-	selected_effects_label.text = _format_selected_effects()
+	selected_effects_label.text = _format_selected_updates()
 
 	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
 	submit_sprint_button.disabled = (
@@ -183,10 +183,11 @@ func _format_card_button_text(card: FeatureCard) -> String:
 	var lines: Array[String] = []
 
 	lines.append(card.get_title())
+	lines.append("")
+	lines.append(card.get_description())
+	lines.append("")
+	lines.append("SIGNAL")
 	lines.append(card.get_consequence())
-
-	for effect: FeatureEffect in card.get_effects():
-		lines.append(_describe_effect(effect))
 
 	return _join_lines(lines)
 
@@ -225,7 +226,7 @@ func _format_preview_scores() -> String:
 	return output
 
 
-func _format_selected_effects() -> String:
+func _format_selected_updates() -> String:
 	var selected_cards: Array[FeatureCard] = []
 	var release: Release = game_run.get_current_release()
 
@@ -236,20 +237,12 @@ func _format_selected_effects() -> String:
 		selected_cards.append_array(current_sprint.get_selected_cards())
 
 	if selected_cards.is_empty():
-		return "Selected effects: none"
+		return "Selected updates: none"
 
-	var lines: Array[String] = ["Selected effects:"]
+	var lines: Array[String] = ["Selected updates:"]
 
 	for card: FeatureCard in selected_cards:
-		var effect_text: String = ""
-
-		for effect: FeatureEffect in card.get_effects():
-			if not effect_text.is_empty():
-				effect_text += " | "
-
-			effect_text += _describe_effect(effect)
-
-		lines.append(effect_text)
+		lines.append(card.get_title())
 
 	return _join_lines(lines)
 
@@ -259,48 +252,6 @@ func _format_bool(value: bool) -> String:
 		return "yes"
 
 	return "no"
-
-
-func _describe_effect(effect: FeatureEffect) -> String:
-	var score_tree: ScoreTree = _find_score_tree(effect.get_tree_uid())
-
-	if score_tree == null:
-		return "%s %s" % [
-			_format_signed_points(0),
-			effect.get_node_uid(),
-		]
-
-	var node: ScoreTreeNode = score_tree.get_node(effect.get_node_uid())
-
-	return "%s %s / %s" % [
-		_format_signed_points(_calculate_effect_points(score_tree, effect)),
-		score_tree.get_display_name(),
-		node.get_display_name(),
-	]
-
-
-func _find_score_tree(tree_uid: String) -> ScoreTree:
-	for score_tree: ScoreTree in score_trees:
-		if score_tree.get_uid() == tree_uid:
-			return score_tree
-
-	return null
-
-
-func _format_signed_points(points: int) -> String:
-	if points >= 0:
-		return "+%d" % points
-
-	return "%d" % points
-
-
-func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
-	var impact: int = 1
-
-	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
-		impact = -1
-
-	return score_tree.get_points(effect.get_node_uid()) * impact
 
 
 func _join_lines(lines: Array[String]) -> String:

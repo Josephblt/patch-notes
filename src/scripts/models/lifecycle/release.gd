@@ -19,6 +19,10 @@ func get_number() -> int:
 	return _number
 
 
+func get_sprint_count() -> int:
+	return _sprints.size()
+
+
 func is_ready_to_ship() -> bool:
 	if _sprints.size() != SPRINT_COUNT:
 		return false
@@ -32,6 +36,24 @@ func is_ready_to_ship() -> bool:
 
 func is_shipped() -> bool:
 	return _shipped
+
+
+func get_selected_card_count() -> int:
+	var selected_card_count: int = 0
+
+	for sprint: Sprint in _sprints:
+		selected_card_count += sprint.get_selected_card_count()
+
+	return selected_card_count
+
+
+func get_discarded_card_count() -> int:
+	var discarded_card_count: int = 0
+
+	for sprint: Sprint in _sprints:
+		discarded_card_count += sprint.get_discarded_card_count()
+
+	return discarded_card_count
 
 
 func add_sprint(sprint: Sprint) -> bool:

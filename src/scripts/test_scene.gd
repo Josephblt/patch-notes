@@ -4,6 +4,7 @@ const SCORE_TREE_DIR: String = "res://data/score_trees"
 
 var score_trees: Array[ScoreTree] = []
 var feature_deck: FeatureDeck
+var game_run: GameRun
 var console_lines: Array[String] = []
 var dealt_count: int = 0
 
@@ -16,6 +17,7 @@ func _ready() -> void:
 	score_trees = ScoreTreeLoader.load_many_from_json_dir(SCORE_TREE_DIR)
 	feature_deck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle()
+	game_run = GameRun.new(feature_deck)
 	deal_button.pressed.connect(_on_deal_button_pressed)
 
 	_print_line("PATCH NOTES")
@@ -30,7 +32,10 @@ func _ready() -> void:
 		_print_lines(_describe_score_tree(score_tree))
 
 	_print_line("")
-	_print_line("Press Deal to draw a random card.")
+	_print_lines(_describe_release_demo())
+
+	_print_line("")
+	_print_line("Press Deal to draw another random card from the remaining deck.")
 
 
 func _on_deal_button_pressed() -> void:
@@ -67,6 +72,56 @@ func _describe_card(card: FeatureCard) -> Array[String]:
 		lines.append("  %s" % _describe_effect(effect))
 
 	return lines
+
+
+func _describe_release_demo() -> Array[String]:
+	var lines: Array[String] = []
+	var release: Release = game_run.get_current_release()
+
+	lines.append("Release %d" % release.get_number())
+	lines.append("Ready before sprints: %s" % _format_bool(release.is_ready_to_ship()))
+
+	for sprint_index: int in range(Release.SPRINT_COUNT):
+		var sprint: Sprint = game_run.start_sprint()
+
+		if sprint == null:
+			lines.append("Sprint %d: could not draw %d cards" % [
+				sprint_index + 1,
+				GameRun.CARDS_PER_SPRINT,
+			])
+			continue
+
+		var sprint_cards: Array[FeatureCard] = sprint.get_feature_cards()
+
+		if not sprint_cards.is_empty():
+			sprint.select_card(sprint_cards[0].get_uid())
+
+		game_run.submit_sprint(sprint)
+		lines.append("Sprint %d: drew %d, selected %d, discarded %d, submitted %s" % [
+			sprint.get_number(),
+			sprint_cards.size(),
+			sprint.get_selected_card_count(),
+			sprint.get_discarded_card_count(),
+			_format_bool(sprint.is_submitted()),
+		])
+
+	lines.append("Release sprints: %d" % release.get_sprint_count())
+	lines.append("Release selected cards: %d" % release.get_selected_card_count())
+	lines.append("Release discarded cards: %d" % release.get_discarded_card_count())
+	lines.append("Ready after sprints: %s" % _format_bool(release.is_ready_to_ship()))
+	lines.append("Ship release: %s" % _format_bool(game_run.ship_current_release()))
+	lines.append("Release shipped: %s" % _format_bool(release.is_shipped()))
+	lines.append("Game releases created: %d" % game_run.get_release_count())
+	lines.append("Deck Count after release demo: %d" % feature_deck.get_size())
+
+	return lines
+
+
+func _format_bool(value: bool) -> String:
+	if value:
+		return "yes"
+
+	return "no"
 
 
 func _describe_effect(effect: FeatureEffect) -> String:

@@ -92,28 +92,14 @@ static func _build_card(
 			money_effect,
 			score_trees_by_uid
 		)
-		var primary_copy: Dictionary[String, String] = _choose_primary_copy(
-			fun_effect,
-			fun_copy,
-			money_effect,
-			money_copy
-		)
-		var secondary_copy: Dictionary[String, String] = money_copy
-
-		if primary_copy == money_copy:
-			secondary_copy = fun_copy
-
-		title = "%s / %s" % [
-			primary_copy["title"],
-			secondary_copy["title"],
-		]
+		title = _build_card_title(fun_effect, money_effect, score_trees_by_uid)
 		description = "%s %s" % [
-			primary_copy["description"],
-			secondary_copy["description"],
+			fun_copy["description"],
+			money_copy["description"],
 		]
 		consequence = "%s %s" % [
-			primary_copy["consequence"],
-			secondary_copy["consequence"],
+			fun_copy["consequence"],
+			money_copy["consequence"],
 		]
 
 	return FeatureCard.new(
@@ -139,21 +125,6 @@ static func _find_effect_for_tree(
 	return null
 
 
-static func _choose_primary_copy(
-	fun_effect: FeatureEffect,
-	fun_copy: Dictionary[String, String],
-	money_effect: FeatureEffect,
-	money_copy: Dictionary[String, String]
-) -> Dictionary[String, String]:
-	if (
-		money_effect.get_impact() == FeatureEffect.Impact.POSITIVE
-		and fun_effect.get_impact() == FeatureEffect.Impact.NEGATIVE
-	):
-		return money_copy
-
-	return fun_copy
-
-
 static func _build_effect_copy(
 	effect: FeatureEffect,
 	score_trees_by_uid: Dictionary[String, ScoreTree]
@@ -167,6 +138,98 @@ static func _build_effect_copy(
 		return _build_fun_copy(node_name, is_positive)
 
 	return _build_money_copy(node_name, is_positive)
+
+
+static func _build_card_title(
+	fun_effect: FeatureEffect,
+	money_effect: FeatureEffect,
+	score_trees_by_uid: Dictionary[String, ScoreTree]
+) -> String:
+	return "%s %s UPDATE" % [
+		_build_title_token(fun_effect, score_trees_by_uid),
+		_build_title_token(money_effect, score_trees_by_uid),
+	]
+
+
+static func _build_title_token(
+	effect: FeatureEffect,
+	score_trees_by_uid: Dictionary[String, ScoreTree]
+) -> String:
+	var score_tree: ScoreTree = score_trees_by_uid.get(effect.get_tree_uid()) as ScoreTree
+	var node: ScoreTreeNode = score_tree.get_node(effect.get_node_uid())
+	var node_name: String = node.get_display_name()
+	var is_positive: bool = effect.get_impact() == FeatureEffect.Impact.POSITIVE
+
+	if score_tree.get_display_name() == "Fun":
+		if node_name == "Experience":
+			if is_positive:
+				return "POLISHED"
+
+			return "DELIBERATE"
+
+		if node_name == "Feel":
+			if is_positive:
+				return "RESPONSIVE"
+
+			return "WEIGHTY"
+
+		if node_name == "Clarity":
+			if is_positive:
+				return "READABLE"
+
+			return "STREAMLINED"
+
+		if node_name == "Attachment":
+			if is_positive:
+				return "IDENTITY"
+
+			return "RESET"
+
+		if node_name == "Meaning":
+			if is_positive:
+				return "LORE"
+
+			return "CONDENSED"
+
+		if is_positive:
+			return "PROMISE"
+
+		return "ROADMAP"
+
+	if node_name == "Revenue":
+		if is_positive:
+			return "PREMIUM"
+
+		return "GOODWILL"
+
+	if node_name == "Spending":
+		if is_positive:
+			return "COSMETIC"
+
+		return "LOW-PRESSURE"
+
+	if node_name == "Conversion":
+		if is_positive:
+			return "FUNNEL"
+
+		return "DIRECT"
+
+	if node_name == "Growth":
+		if is_positive:
+			return "BROADCAST"
+
+		return "NICHE"
+
+	if node_name == "Reach":
+		if is_positive:
+			return "CREATOR"
+
+		return "QUALITY"
+
+	if is_positive:
+		return "DAILY"
+
+	return "RESPECT"
 
 
 static func _build_fun_copy(node_name: String, is_positive: bool) -> Dictionary[String, String]:

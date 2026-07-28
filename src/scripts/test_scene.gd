@@ -243,8 +243,21 @@ func _format_selected_updates() -> String:
 
 	for card: FeatureCard in selected_cards:
 		lines.append(card.get_title())
+		lines.append(_format_card_effects(card))
 
 	return _join_lines(lines)
+
+
+func _format_card_effects(card: FeatureCard) -> String:
+	var effect_text: String = ""
+
+	for effect: FeatureEffect in card.get_effects():
+		if not effect_text.is_empty():
+			effect_text += " | "
+
+		effect_text += _describe_effect(effect)
+
+	return effect_text
 
 
 func _format_bool(value: bool) -> String:
@@ -252,6 +265,48 @@ func _format_bool(value: bool) -> String:
 		return "yes"
 
 	return "no"
+
+
+func _describe_effect(effect: FeatureEffect) -> String:
+	var score_tree: ScoreTree = _find_score_tree(effect.get_tree_uid())
+
+	if score_tree == null:
+		return "%s %s" % [
+			_format_signed_points(0),
+			effect.get_node_uid(),
+		]
+
+	var node: ScoreTreeNode = score_tree.get_node(effect.get_node_uid())
+
+	return "%s %s / %s" % [
+		_format_signed_points(_calculate_effect_points(score_tree, effect)),
+		score_tree.get_display_name(),
+		node.get_display_name(),
+	]
+
+
+func _find_score_tree(tree_uid: String) -> ScoreTree:
+	for score_tree: ScoreTree in score_trees:
+		if score_tree.get_uid() == tree_uid:
+			return score_tree
+
+	return null
+
+
+func _format_signed_points(points: int) -> String:
+	if points >= 0:
+		return "+%d" % points
+
+	return "%d" % points
+
+
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+	var impact: int = 1
+
+	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
+		impact = -1
+
+	return score_tree.get_points(effect.get_node_uid()) * impact
 
 
 func _join_lines(lines: Array[String]) -> String:

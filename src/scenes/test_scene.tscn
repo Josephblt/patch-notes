@@ -35,6 +35,20 @@ theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 22
 text = "Loading run state..."
 
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 22
+text = "Scores loading..."
+
+[node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
+theme_override_font_sizes/font_size = 20
+text = "Loading..."
+
 [node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -86,17 +100,4 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 toggle_mode = true
 text = "Card 3"
-autowrap_mode = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
-custom_minimum_size = Vector2(720, 0)
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 24
-text = "Loading score trees..."
 autowrap_mode = 3

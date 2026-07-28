@@ -50,6 +50,16 @@ func get_selected_card_count() -> int:
 	return _selected_card_uids.size()
 
 
+func get_selected_cards() -> Array[FeatureCard]:
+	var selected_cards: Array[FeatureCard] = []
+
+	for feature_card: FeatureCard in _feature_cards:
+		if _is_card_selected(feature_card.get_uid()):
+			selected_cards.append(feature_card)
+
+	return selected_cards
+
+
 func get_discarded_card_count() -> int:
 	return _feature_cards.size() - _selected_card_uids.size()
 

@@ -6,15 +6,23 @@ const RELEASE_COUNT: int = 4
 const CARDS_PER_SPRINT: int = 3
 
 var _feature_deck: FeatureDeck
+var _score_trees: Dictionary[String, ScoreTree]
+var _scores: Dictionary[String, int]
 var _releases: Array[Release]
 var _current_release: Release
 
 
-func _init(run_feature_deck: FeatureDeck) -> void:
+func _init(run_feature_deck: FeatureDeck, run_score_trees: Array[ScoreTree] = []) -> void:
 	_feature_deck = run_feature_deck
+	_score_trees = {}
+	_scores = {}
 	_releases = []
 	_current_release = Release.new(1)
 	_releases.append(_current_release)
+
+	for score_tree: ScoreTree in run_score_trees:
+		_score_trees[score_tree.get_uid()] = score_tree
+		_scores[score_tree.get_uid()] = 0
 
 
 func get_current_release() -> Release:
@@ -23,6 +31,10 @@ func get_current_release() -> Release:
 
 func get_release_count() -> int:
 	return _releases.size()
+
+
+func get_score(tree_uid: String) -> int:
+	return int(_scores.get(tree_uid, 0))
 
 
 func start_sprint() -> Sprint:
@@ -54,6 +66,8 @@ func ship_current_release() -> bool:
 	if _current_release == null or not _current_release.ship():
 		return false
 
+	_apply_release_scores(_current_release)
+
 	if _releases.size() == RELEASE_COUNT:
 		_current_release = null
 		return true
@@ -61,3 +75,23 @@ func ship_current_release() -> bool:
 	_current_release = Release.new(_releases.size() + 1)
 	_releases.append(_current_release)
 	return true
+
+
+func _apply_release_scores(release: Release) -> void:
+	for card: FeatureCard in release.get_selected_cards():
+		for effect: FeatureEffect in card.get_effects():
+			var score_tree: ScoreTree = _score_trees.get(effect.get_tree_uid()) as ScoreTree
+
+			if score_tree == null:
+				continue
+
+			_scores[score_tree.get_uid()] += _calculate_effect_points(score_tree, effect)
+
+
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+	var impact: int = 1
+
+	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
+		impact = -1
+
+	return score_tree.get_points(effect.get_node_uid()) * impact

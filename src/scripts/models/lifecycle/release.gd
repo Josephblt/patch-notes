@@ -47,6 +47,15 @@ func get_selected_card_count() -> int:
 	return selected_card_count
 
 
+func get_selected_cards() -> Array[FeatureCard]:
+	var selected_cards: Array[FeatureCard] = []
+
+	for sprint: Sprint in _sprints:
+		selected_cards.append_array(sprint.get_selected_cards())
+
+	return selected_cards
+
+
 func get_discarded_card_count() -> int:
 	var discarded_card_count: int = 0
 

@@ -19,20 +19,8 @@ func get_number() -> int:
 	return _number
 
 
-func get_sprints() -> Array[Sprint]:
-	return _sprints.duplicate()
-
-
-func get_sprint_count() -> int:
-	return _sprints.size()
-
-
-func is_full() -> bool:
-	return get_sprint_count() == SPRINT_COUNT
-
-
 func is_ready_to_ship() -> bool:
-	if not is_full():
+	if _sprints.size() != SPRINT_COUNT:
 		return false
 
 	for sprint: Sprint in _sprints:
@@ -47,7 +35,7 @@ func is_shipped() -> bool:
 
 
 func add_sprint(sprint: Sprint) -> bool:
-	if _shipped or is_full() or sprint == null:
+	if _shipped or _sprints.size() == SPRINT_COUNT or sprint == null:
 		return false
 
 	_sprints.append(sprint)

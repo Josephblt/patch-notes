@@ -37,9 +37,9 @@
   },
   {
     "uid": "update-013",
-    "title": "COMMITTED INTERACTION TIMING PILOT",
-    "description": "The change softens one part of the product while sharpening another part that can be measured. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
-    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The economy found the pause between frustration and quitting.",
+    "title": "EXPEDITED CRAFTING TIMERS",
+    "description": "Early weapon and armor crafting now uses real-time job timers, with premium currency available to speed up workshop completion.",
+    "consequence": "The first hour learned to wait. The revenue model learned to help.",
     "effects": [
       {
         "tree": "Fun",
@@ -55,9 +55,9 @@
   },
   {
     "uid": "update-014",
-    "title": "COMMITTED INTERACTION TIMING RELIEF",
-    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
-    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Revenue meetings became quieter in the way elevators get quiet.",
+    "title": "MANDATORY CAMP SETUP",
+    "description": "New players must now place a starter camp, assign storage zones, name three crafting stations, and confirm a base layout before leaving the tutorial island.",
+    "consequence": "Players met the sandbox by filling out paperwork. The store had to wait outside.",
     "effects": [
       {
         "tree": "Fun",

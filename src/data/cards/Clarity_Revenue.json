@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-049",
+    "title": "PLAIN LANGUAGE QUESTING PILOT",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Quest text now says what to do before explaining which ancient committee made it necessary. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-050",
+    "title": "PLAIN LANGUAGE QUESTING RELIEF",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Quest text now says what to do before explaining which ancient committee made it necessary. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-061",
+    "title": "MINIMAL GUIDANCE MODE PILOT",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-062",
+    "title": "MINIMAL GUIDANCE MODE RELIEF",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  }
+]

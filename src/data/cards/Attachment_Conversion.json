@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-077",
+    "title": "PERSISTENT CAMP IDENTITY RETURN PATH",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-078",
+    "title": "PERSISTENT CAMP IDENTITY ESCAPE ROUTE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-089",
+    "title": "CLEAN SLATE SEASONING RETURN PATH",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Everyone started together, especially the people who had already finished. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-090",
+    "title": "CLEAN SLATE SEASONING ESCAPE ROUTE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Everyone started together, especially the people who had already finished. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

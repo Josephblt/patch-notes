@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-003",
+    "title": "WEAPON FEEL PASS",
+    "description": "Starter weapons now hit faster, cancel cleaner, and preview matching cosmetic variants after the player completes the first combat trial.",
+    "consequence": "The sword finally felt worth swinging. The matching sword finally felt worth selling.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-004",
+    "title": "CORPSE RUN CLEANUP",
+    "description": "Players now recover dropped loot from the nearest shrine instead of running back through the entire extraction swamp after every early death.",
+    "consequence": "The swamp became less educational. Insurance purchases became less urgent.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-015",
+    "title": "COMMITTED INTERACTION TIMING WARDROBE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-016",
+    "title": "COMMITTED INTERACTION TIMING COOLDOWN",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  }
+]

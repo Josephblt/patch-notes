@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-005",
+    "title": "SMOOTH FIRST SWING RETURN PATH",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-006",
+    "title": "SMOOTH FIRST SWING ESCAPE ROUTE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-017",
+    "title": "COMMITTED INTERACTION TIMING RETURN PATH",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-018",
+    "title": "COMMITTED INTERACTION TIMING ESCAPE ROUTE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

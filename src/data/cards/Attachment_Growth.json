@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-079",
+    "title": "PERSISTENT CAMP IDENTITY WELCOME PASS",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-080",
+    "title": "PERSISTENT CAMP IDENTITY EXPERT MODE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-091",
+    "title": "CLEAN SLATE SEASONING WELCOME PASS",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Everyone started together, especially the people who had already finished. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-092",
+    "title": "CLEAN SLATE SEASONING EXPERT MODE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Everyone started together, especially the people who had already finished. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  }
+]

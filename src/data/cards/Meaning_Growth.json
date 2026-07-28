@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-103",
+    "title": "FACTION MEMORY PASS WELCOME PASS",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-104",
+    "title": "FACTION MEMORY PASS EXPERT MODE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-115",
+    "title": "NARRATIVE COMPRESSION SPRINT WELCOME PASS",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-116",
+    "title": "NARRATIVE COMPRESSION SPRINT EXPERT MODE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  }
+]

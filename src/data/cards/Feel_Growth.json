@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-031",
+    "title": "READABLE HIT REACTIONS WELCOME PASS",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-032",
+    "title": "READABLE HIT REACTIONS EXPERT MODE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-043",
+    "title": "GROUNDED TRAVERSAL PASS WELCOME PASS",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-044",
+    "title": "GROUNDED TRAVERSAL PASS EXPERT MODE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  }
+]

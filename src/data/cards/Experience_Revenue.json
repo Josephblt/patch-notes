@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-001",
+    "title": "FIRST BOSS OVERHAUL",
+    "description": "The first boss has been rebuilt with clearer attacks, faster recovery windows, and a founder pack offer that appears after the victory screen.",
+    "consequence": "Players finally got a first win worth remembering. The store finally got a customer worth interrupting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-002",
+    "title": "STARTER GEAR UNLOCK",
+    "description": "The early combat pass now gives every new player a full starter kit, replacing the paid convenience bundle that used to sit beside the tutorial.",
+    "consequence": "Players stopped losing their first hour to inventory friction. Revenue stopped having such a beautiful first hour.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-013",
+    "title": "COMMITTED INTERACTION TIMING PILOT",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-014",
+    "title": "COMMITTED INTERACTION TIMING RELIEF",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-097",
+    "title": "FACTION MEMORY PASS PILOT",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-098",
+    "title": "FACTION MEMORY PASS RELIEF",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-109",
+    "title": "NARRATIVE COMPRESSION SPRINT PILOT",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-110",
+    "title": "NARRATIVE COMPRESSION SPRINT RELIEF",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  }
+]

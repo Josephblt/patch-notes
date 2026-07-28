@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-107",
+    "title": "FACTION MEMORY PASS CHECK-IN",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-108",
+    "title": "FACTION MEMORY PASS BREATHER",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-119",
+    "title": "NARRATIVE COMPRESSION SPRINT CHECK-IN",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-120",
+    "title": "NARRATIVE COMPRESSION SPRINT BREATHER",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

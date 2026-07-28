@@ -1,36 +1,36 @@
 [
   {
-    "uid": "update-141",
-    "title": "ASPIRATIONAL ROADMAP REFRESH SHOWCASE",
-    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
-    "consequence": "The roadmap survived by becoming less related to roads. Marketing finally found footage that did not require a glossary.",
+    "uid": "update-131",
+    "title": "ROADMAP DEBT PAYMENT CHECK-IN",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The calendar was promoted from reminder to game mechanic.",
     "effects": [
       {
         "tree": "Fun",
         "node": "Trust",
-        "impact": "negative"
+        "impact": "positive"
       },
       {
         "tree": "Money",
-        "node": "Reach",
+        "node": "Retention",
         "impact": "positive"
       }
     ]
   },
   {
-    "uid": "update-142",
-    "title": "ASPIRATIONAL ROADMAP REFRESH FOUNDATION",
-    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
-    "consequence": "The roadmap survived by becoming less related to roads. The game improved in ways that make terrible thumbnails.",
+    "uid": "update-132",
+    "title": "ROADMAP DEBT PAYMENT BREATHER",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Engagement dipped, but so did the farewell essays.",
     "effects": [
       {
         "tree": "Fun",
         "node": "Trust",
-        "impact": "negative"
+        "impact": "positive"
       },
       {
         "tree": "Money",
-        "node": "Reach",
+        "node": "Retention",
         "impact": "negative"
       }
     ]

@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-051",
+    "title": "PLAIN LANGUAGE QUESTING WARDROBE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Quest text now says what to do before explaining which ancient committee made it necessary. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-052",
+    "title": "PLAIN LANGUAGE QUESTING COOLDOWN",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Quest text now says what to do before explaining which ancient committee made it necessary. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-063",
+    "title": "MINIMAL GUIDANCE MODE WARDROBE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-064",
+    "title": "MINIMAL GUIDANCE MODE COOLDOWN",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  }
+]

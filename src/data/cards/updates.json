@@ -1,0 +1,2594 @@
+[
+  {
+    "uid": "update-001",
+    "title": "SMOOTH FIRST SWING PILOT",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-002",
+    "title": "SMOOTH FIRST SWING RELIEF",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-003",
+    "title": "SMOOTH FIRST SWING WARDROBE",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-004",
+    "title": "SMOOTH FIRST SWING COOLDOWN",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-005",
+    "title": "SMOOTH FIRST SWING RETURN PATH",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-006",
+    "title": "SMOOTH FIRST SWING ESCAPE ROUTE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-007",
+    "title": "SMOOTH FIRST SWING WELCOME PASS",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-008",
+    "title": "SMOOTH FIRST SWING EXPERT MODE",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-009",
+    "title": "SMOOTH FIRST SWING SHOWCASE",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-010",
+    "title": "SMOOTH FIRST SWING FOUNDATION",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-011",
+    "title": "SMOOTH FIRST SWING CHECK-IN",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-012",
+    "title": "SMOOTH FIRST SWING BREATHER",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. The opening combat pass now lets attacks cancel cleanly into dodge, loot pickup, and the inevitable tutorial popover. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Players blamed themselves for failure instead of the input queue, which design marked as a milestone. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-013",
+    "title": "COMMITTED INTERACTION TIMING PILOT",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-014",
+    "title": "COMMITTED INTERACTION TIMING RELIEF",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-015",
+    "title": "COMMITTED INTERACTION TIMING WARDROBE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-016",
+    "title": "COMMITTED INTERACTION TIMING COOLDOWN",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-017",
+    "title": "COMMITTED INTERACTION TIMING RETURN PATH",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-018",
+    "title": "COMMITTED INTERACTION TIMING ESCAPE ROUTE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-019",
+    "title": "COMMITTED INTERACTION TIMING WELCOME PASS",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-020",
+    "title": "COMMITTED INTERACTION TIMING EXPERT MODE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-021",
+    "title": "COMMITTED INTERACTION TIMING SHOWCASE",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-022",
+    "title": "COMMITTED INTERACTION TIMING FOUNDATION",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-023",
+    "title": "COMMITTED INTERACTION TIMING CHECK-IN",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-024",
+    "title": "COMMITTED INTERACTION TIMING BREATHER",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Gathering, crafting, and chest opening now include deliberate windups to make the world feel physically expensive. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Every common action gained weight. Most of it landed on the player's patience. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-025",
+    "title": "READABLE HIT REACTIONS PILOT",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-026",
+    "title": "READABLE HIT REACTIONS RELIEF",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-027",
+    "title": "READABLE HIT REACTIONS WARDROBE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-028",
+    "title": "READABLE HIT REACTIONS COOLDOWN",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-029",
+    "title": "READABLE HIT REACTIONS RETURN PATH",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-030",
+    "title": "READABLE HIT REACTIONS ESCAPE ROUTE",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-031",
+    "title": "READABLE HIT REACTIONS WELCOME PASS",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-032",
+    "title": "READABLE HIT REACTIONS EXPERT MODE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-033",
+    "title": "READABLE HIT REACTIONS SHOWCASE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-034",
+    "title": "READABLE HIT REACTIONS FOUNDATION",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-035",
+    "title": "READABLE HIT REACTIONS CHECK-IN",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-036",
+    "title": "READABLE HIT REACTIONS BREATHER",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Enemies now stagger, flash, and fall with timing that makes successful hits feel less like clerical work. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The combat log finally stopped doing all the emotional labor. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-037",
+    "title": "GROUNDED TRAVERSAL PASS PILOT",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-038",
+    "title": "GROUNDED TRAVERSAL PASS RELIEF",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-039",
+    "title": "GROUNDED TRAVERSAL PASS WARDROBE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-040",
+    "title": "GROUNDED TRAVERSAL PASS COOLDOWN",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-041",
+    "title": "GROUNDED TRAVERSAL PASS RETURN PATH",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-042",
+    "title": "GROUNDED TRAVERSAL PASS ESCAPE ROUTE",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-043",
+    "title": "GROUNDED TRAVERSAL PASS WELCOME PASS",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-044",
+    "title": "GROUNDED TRAVERSAL PASS EXPERT MODE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-045",
+    "title": "GROUNDED TRAVERSAL PASS SHOWCASE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-046",
+    "title": "GROUNDED TRAVERSAL PASS FOUNDATION",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-047",
+    "title": "GROUNDED TRAVERSAL PASS CHECK-IN",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-048",
+    "title": "GROUNDED TRAVERSAL PASS BREATHER",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-049",
+    "title": "PLAIN LANGUAGE QUESTING PILOT",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Quest text now says what to do before explaining which ancient committee made it necessary. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-050",
+    "title": "PLAIN LANGUAGE QUESTING RELIEF",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Quest text now says what to do before explaining which ancient committee made it necessary. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-051",
+    "title": "PLAIN LANGUAGE QUESTING WARDROBE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Quest text now says what to do before explaining which ancient committee made it necessary. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-052",
+    "title": "PLAIN LANGUAGE QUESTING COOLDOWN",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Quest text now says what to do before explaining which ancient committee made it necessary. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-053",
+    "title": "PLAIN LANGUAGE QUESTING RETURN PATH",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Quest text now says what to do before explaining which ancient committee made it necessary. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-054",
+    "title": "PLAIN LANGUAGE QUESTING ESCAPE ROUTE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Quest text now says what to do before explaining which ancient committee made it necessary. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-055",
+    "title": "PLAIN LANGUAGE QUESTING WELCOME PASS",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Quest text now says what to do before explaining which ancient committee made it necessary. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-056",
+    "title": "PLAIN LANGUAGE QUESTING EXPERT MODE",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Quest text now says what to do before explaining which ancient committee made it necessary. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-057",
+    "title": "PLAIN LANGUAGE QUESTING SHOWCASE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Quest text now says what to do before explaining which ancient committee made it necessary. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-058",
+    "title": "PLAIN LANGUAGE QUESTING FOUNDATION",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Quest text now says what to do before explaining which ancient committee made it necessary. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-059",
+    "title": "PLAIN LANGUAGE QUESTING CHECK-IN",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Quest text now says what to do before explaining which ancient committee made it necessary. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-060",
+    "title": "PLAIN LANGUAGE QUESTING BREATHER",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Quest text now says what to do before explaining which ancient committee made it necessary. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Players discovered the objective without consulting three tabs and a priest. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-061",
+    "title": "MINIMAL GUIDANCE MODE PILOT",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-062",
+    "title": "MINIMAL GUIDANCE MODE RELIEF",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-063",
+    "title": "MINIMAL GUIDANCE MODE WARDROBE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-064",
+    "title": "MINIMAL GUIDANCE MODE COOLDOWN",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-065",
+    "title": "MINIMAL GUIDANCE MODE RETURN PATH",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-066",
+    "title": "MINIMAL GUIDANCE MODE ESCAPE ROUTE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-067",
+    "title": "MINIMAL GUIDANCE MODE WELCOME PASS",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-068",
+    "title": "MINIMAL GUIDANCE MODE EXPERT MODE",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-069",
+    "title": "MINIMAL GUIDANCE MODE SHOWCASE",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-070",
+    "title": "MINIMAL GUIDANCE MODE FOUNDATION",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-071",
+    "title": "MINIMAL GUIDANCE MODE CHECK-IN",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-072",
+    "title": "MINIMAL GUIDANCE MODE BREATHER",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-073",
+    "title": "PERSISTENT CAMP IDENTITY PILOT",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-074",
+    "title": "PERSISTENT CAMP IDENTITY RELIEF",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-075",
+    "title": "PERSISTENT CAMP IDENTITY WARDROBE",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-076",
+    "title": "PERSISTENT CAMP IDENTITY COOLDOWN",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-077",
+    "title": "PERSISTENT CAMP IDENTITY RETURN PATH",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-078",
+    "title": "PERSISTENT CAMP IDENTITY ESCAPE ROUTE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-079",
+    "title": "PERSISTENT CAMP IDENTITY WELCOME PASS",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-080",
+    "title": "PERSISTENT CAMP IDENTITY EXPERT MODE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-081",
+    "title": "PERSISTENT CAMP IDENTITY SHOWCASE",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-082",
+    "title": "PERSISTENT CAMP IDENTITY FOUNDATION",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-083",
+    "title": "PERSISTENT CAMP IDENTITY CHECK-IN",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-084",
+    "title": "PERSISTENT CAMP IDENTITY BREATHER",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Player camps now preserve trophies, naming, and small visual scars from completed seasonal events. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The base started looking like a home instead of a storage error with rugs. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-085",
+    "title": "CLEAN SLATE SEASONING PILOT",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Everyone started together, especially the people who had already finished. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-086",
+    "title": "CLEAN SLATE SEASONING RELIEF",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Everyone started together, especially the people who had already finished. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-087",
+    "title": "CLEAN SLATE SEASONING WARDROBE",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Everyone started together, especially the people who had already finished. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-088",
+    "title": "CLEAN SLATE SEASONING COOLDOWN",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Everyone started together, especially the people who had already finished. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-089",
+    "title": "CLEAN SLATE SEASONING RETURN PATH",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Everyone started together, especially the people who had already finished. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-090",
+    "title": "CLEAN SLATE SEASONING ESCAPE ROUTE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Everyone started together, especially the people who had already finished. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-091",
+    "title": "CLEAN SLATE SEASONING WELCOME PASS",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Everyone started together, especially the people who had already finished. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-092",
+    "title": "CLEAN SLATE SEASONING EXPERT MODE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Everyone started together, especially the people who had already finished. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-093",
+    "title": "CLEAN SLATE SEASONING SHOWCASE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Everyone started together, especially the people who had already finished. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-094",
+    "title": "CLEAN SLATE SEASONING FOUNDATION",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Everyone started together, especially the people who had already finished. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-095",
+    "title": "CLEAN SLATE SEASONING CHECK-IN",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Everyone started together, especially the people who had already finished. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-096",
+    "title": "CLEAN SLATE SEASONING BREATHER",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Everyone started together, especially the people who had already finished. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-097",
+    "title": "FACTION MEMORY PASS PILOT",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-098",
+    "title": "FACTION MEMORY PASS RELIEF",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-099",
+    "title": "FACTION MEMORY PASS WARDROBE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-100",
+    "title": "FACTION MEMORY PASS COOLDOWN",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-101",
+    "title": "FACTION MEMORY PASS RETURN PATH",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-102",
+    "title": "FACTION MEMORY PASS ESCAPE ROUTE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-103",
+    "title": "FACTION MEMORY PASS WELCOME PASS",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-104",
+    "title": "FACTION MEMORY PASS EXPERT MODE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-105",
+    "title": "FACTION MEMORY PASS SHOWCASE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-106",
+    "title": "FACTION MEMORY PASS FOUNDATION",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-107",
+    "title": "FACTION MEMORY PASS CHECK-IN",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-108",
+    "title": "FACTION MEMORY PASS BREATHER",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-109",
+    "title": "NARRATIVE COMPRESSION SPRINT PILOT",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-110",
+    "title": "NARRATIVE COMPRESSION SPRINT RELIEF",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-111",
+    "title": "NARRATIVE COMPRESSION SPRINT WARDROBE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-112",
+    "title": "NARRATIVE COMPRESSION SPRINT COOLDOWN",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-113",
+    "title": "NARRATIVE COMPRESSION SPRINT RETURN PATH",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-114",
+    "title": "NARRATIVE COMPRESSION SPRINT ESCAPE ROUTE",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-115",
+    "title": "NARRATIVE COMPRESSION SPRINT WELCOME PASS",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-116",
+    "title": "NARRATIVE COMPRESSION SPRINT EXPERT MODE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-117",
+    "title": "NARRATIVE COMPRESSION SPRINT SHOWCASE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-118",
+    "title": "NARRATIVE COMPRESSION SPRINT FOUNDATION",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-119",
+    "title": "NARRATIVE COMPRESSION SPRINT CHECK-IN",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-120",
+    "title": "NARRATIVE COMPRESSION SPRINT BREATHER",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-121",
+    "title": "ROADMAP DEBT PAYMENT PILOT",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-122",
+    "title": "ROADMAP DEBT PAYMENT RELIEF",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-123",
+    "title": "ROADMAP DEBT PAYMENT WARDROBE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-124",
+    "title": "ROADMAP DEBT PAYMENT COOLDOWN",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-125",
+    "title": "ROADMAP DEBT PAYMENT RETURN PATH",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-126",
+    "title": "ROADMAP DEBT PAYMENT ESCAPE ROUTE",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-127",
+    "title": "ROADMAP DEBT PAYMENT WELCOME PASS",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-128",
+    "title": "ROADMAP DEBT PAYMENT EXPERT MODE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-129",
+    "title": "ROADMAP DEBT PAYMENT SHOWCASE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-130",
+    "title": "ROADMAP DEBT PAYMENT FOUNDATION",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-131",
+    "title": "ROADMAP DEBT PAYMENT CHECK-IN",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-132",
+    "title": "ROADMAP DEBT PAYMENT BREATHER",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-133",
+    "title": "ASPIRATIONAL ROADMAP REFRESH PILOT",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The roadmap survived by becoming less related to roads. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-134",
+    "title": "ASPIRATIONAL ROADMAP REFRESH RELIEF",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The roadmap survived by becoming less related to roads. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-135",
+    "title": "ASPIRATIONAL ROADMAP REFRESH WARDROBE",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The roadmap survived by becoming less related to roads. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-136",
+    "title": "ASPIRATIONAL ROADMAP REFRESH COOLDOWN",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The roadmap survived by becoming less related to roads. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-137",
+    "title": "ASPIRATIONAL ROADMAP REFRESH RETURN PATH",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The roadmap survived by becoming less related to roads. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-138",
+    "title": "ASPIRATIONAL ROADMAP REFRESH ESCAPE ROUTE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The roadmap survived by becoming less related to roads. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-139",
+    "title": "ASPIRATIONAL ROADMAP REFRESH WELCOME PASS",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The roadmap survived by becoming less related to roads. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-140",
+    "title": "ASPIRATIONAL ROADMAP REFRESH EXPERT MODE",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The roadmap survived by becoming less related to roads. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-141",
+    "title": "ASPIRATIONAL ROADMAP REFRESH SHOWCASE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The roadmap survived by becoming less related to roads. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-142",
+    "title": "ASPIRATIONAL ROADMAP REFRESH FOUNDATION",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The roadmap survived by becoming less related to roads. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-143",
+    "title": "ASPIRATIONAL ROADMAP REFRESH CHECK-IN",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The roadmap survived by becoming less related to roads. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-144",
+    "title": "ASPIRATIONAL ROADMAP REFRESH BREATHER",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Previously announced features have been reframed as directional pillars while the team evaluates delivery confidence. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The roadmap survived by becoming less related to roads. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

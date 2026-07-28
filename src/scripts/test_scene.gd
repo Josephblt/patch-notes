@@ -141,11 +141,11 @@ func _render_card_buttons() -> void:
 		var card_button: Button = card_buttons[card_index]
 		var has_card: bool = card_index < current_sprint_cards.size()
 
-		card_button.visible = has_card
+		card_button.visible = true
 		card_button.disabled = current_sprint == null or current_sprint.is_submitted()
 
 		if not has_card:
-			card_button.text = ""
+			card_button.text = " "
 			card_button.button_pressed = false
 			continue
 
@@ -154,15 +154,11 @@ func _render_card_buttons() -> void:
 
 
 func _format_card_button_text(card: FeatureCard) -> String:
-	var lines: Array[String] = []
-
-	lines.append(card.get_title())
-	lines.append("")
-	lines.append(card.get_description())
-	lines.append("")
-	lines.append(card.get_consequence())
-
-	return _join_lines(lines)
+	return "%s\n \n%s\n \n%s" % [
+		card.get_title(),
+		card.get_description(),
+		card.get_consequence(),
+	]
 
 
 func _format_scores() -> String:

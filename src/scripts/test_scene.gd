@@ -154,7 +154,7 @@ func _render_card_buttons() -> void:
 
 
 func _format_card_button_text(card: FeatureCard) -> String:
-	return "%s\n \n%s\n \n%s" % [
+	return "%s\n\n\n%s\n\n\n%s" % [
 		card.get_title(),
 		card.get_description(),
 		card.get_consequence(),

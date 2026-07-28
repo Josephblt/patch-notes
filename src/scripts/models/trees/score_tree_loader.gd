@@ -62,20 +62,20 @@ static func load_from_json_file(path: String) -> ScoreTree:
 static func from_json(root_data: Dictionary) -> ScoreTree:
 	var tree_uid: String = root_data.get("uid", "")
 	var tree_display_name: String = root_data.get("display_name", "")
+	var nodes: Dictionary[String, ScoreTreeNode] = {}
 
-	var tree: ScoreTree = ScoreTree.new(
+	_add_node_from_json(nodes, root_data, "", 1)
+
+	return ScoreTree.new(
 		tree_uid,
 		tree_display_name,
-		tree_uid
+		tree_uid,
+		nodes
 	)
-
-	_add_node_from_json(tree, root_data, "", 1)
-
-	return tree
 
 
 static func _add_node_from_json(
-	tree: ScoreTree,
+	nodes: Dictionary[String, ScoreTreeNode],
 	node_data: Dictionary,
 	parent_uid: String,
 	level: int
@@ -90,7 +90,7 @@ static func _add_node_from_json(
 		level
 	)
 
-	tree.add_node(node)
+	nodes[node.get_uid()] = node
 
 	var children_data: Variant = node_data.get("children", [])
 
@@ -104,7 +104,7 @@ static func _add_node_from_json(
 			continue
 
 		_add_node_from_json(
-			tree,
+			nodes,
 			child_data as Dictionary,
 			node_uid,
 			level + 1

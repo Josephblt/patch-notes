@@ -5,6 +5,7 @@ var uid: String
 var display_name: String
 var root_uid: String
 var nodes: Dictionary[String, ScoreTreeNode]
+var _max_level: int
 
 
 func _init(
@@ -17,22 +18,7 @@ func _init(
 	display_name = tree_display_name
 	root_uid = tree_root_uid
 	nodes = tree_nodes
-
-
-func get_uid() -> String:
-	return uid
-
-
-func get_display_name() -> String:
-	return display_name
-
-
-func get_root_uid() -> String:
-	return root_uid
-
-
-func add_node(node: ScoreTreeNode) -> void:
-	nodes[node.get_uid()] = node
+	_max_level = _calculate_max_level()
 
 
 func get_node(node_uid: String) -> ScoreTreeNode:
@@ -58,22 +44,11 @@ func get_children(parent_uid: String) -> Array[ScoreTreeNode]:
 	return children
 
 
-func get_path_to_root(node_uid: String) -> Array[ScoreTreeNode]:
-	var path: Array[ScoreTreeNode] = []
-	var current: ScoreTreeNode = get_node(node_uid)
-
-	while true:
-		path.push_front(current)
-
-		if current.get_parent_uid().is_empty():
-			break
-
-		current = get_parent(current.get_uid())
-
-	return path
-
-
 func get_max_level() -> int:
+	return _max_level
+
+
+func _calculate_max_level() -> int:
 	var max_level: int = 0
 
 	for node: ScoreTreeNode in nodes.values():
@@ -81,6 +56,18 @@ func get_max_level() -> int:
 			max_level = node.get_level()
 
 	return max_level
+
+
+func get_uid() -> String:
+	return uid
+
+
+func get_display_name() -> String:
+	return display_name
+
+
+func get_root_uid() -> String:
+	return root_uid
 
 
 func get_points(node_uid: String) -> int:

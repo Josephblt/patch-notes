@@ -97,28 +97,37 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 1"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 2
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 5
 
 [node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 3
 
 [node name="CardButton2" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
 custom_minimum_size = Vector2(220, 200)
@@ -141,28 +150,37 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 2"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 2
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 5
 
 [node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 3
 
 [node name="CardButton3" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
 custom_minimum_size = Vector2(220, 200)
@@ -185,28 +203,37 @@ offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 6
 
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 3"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 2
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 5
 
 [node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
+clip_text = true
 autowrap_mode = 3
+max_lines_visible = 3
 
 [node name="SelectedUpdatesScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 104)

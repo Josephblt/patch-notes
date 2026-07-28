@@ -81,7 +81,7 @@ func _describe_effect(effect: FeatureEffect) -> String:
 	var node: ScoreTreeNode = score_tree.get_node(effect.get_node_uid())
 
 	return "%s %s / %s" % [
-		_format_signed_points(score_tree.get_signed_points_for_effect(effect)),
+		_format_signed_points(_calculate_effect_points(score_tree, effect)),
 		score_tree.get_display_name(),
 		node.get_display_name(),
 	]
@@ -104,11 +104,11 @@ func _format_signed_points(points: int) -> String:
 
 func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 	var lines: Array[String] = []
-	var targetable_nodes: Array[ScoreTreeNode] = score_tree.get_targetable_nodes()
+	var targetable_nodes: Array[ScoreTreeNode] = _collect_effect_nodes(score_tree)
 
 	lines.append("%s" % score_tree.get_display_name())
 	lines.append("UID: %s" % score_tree.get_uid())
-	lines.append("Nodes: %d" % score_tree.get_node_count())
+	lines.append("Nodes: %d" % score_tree.nodes.size())
 	lines.append("Targetable nodes: %d" % targetable_nodes.size())
 	lines.append("Max level: %d" % score_tree.get_max_level())
 
@@ -120,6 +120,31 @@ func _describe_score_tree(score_tree: ScoreTree) -> Array[String]:
 		])
 
 	return lines
+
+
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+	var impact: int = 1
+
+	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
+		impact = -1
+
+	return score_tree.get_points_for_node(effect.get_node_uid()) * impact
+
+
+func _collect_effect_nodes(score_tree: ScoreTree) -> Array[ScoreTreeNode]:
+	var effect_nodes: Array[ScoreTreeNode] = []
+	var node_uids: Array[String] = []
+
+	for node: ScoreTreeNode in score_tree.nodes.values():
+		if node.get_uid() != score_tree.get_root_uid():
+			node_uids.append(node.get_uid())
+
+	node_uids.sort()
+
+	for node_uid: String in node_uids:
+		effect_nodes.append(score_tree.get_node(node_uid))
+
+	return effect_nodes
 
 
 func _print_line(line: String) -> void:

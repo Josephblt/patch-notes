@@ -30,16 +30,23 @@ static func build(score_trees: Array[ScoreTree]) -> FeatureDeck:
 
 static func _build_feature_effects(score_tree: ScoreTree) -> Array[FeatureEffect]:
 	var feature_effects: Array[FeatureEffect] = []
+	var node_uids: Array[String] = []
 
-	for node: ScoreTreeNode in score_tree.get_targetable_nodes():
+	for node: ScoreTreeNode in score_tree.nodes.values():
+		if node.get_uid() != score_tree.get_root_uid():
+			node_uids.append(node.get_uid())
+
+	node_uids.sort()
+
+	for node_uid: String in node_uids:
 		feature_effects.append(FeatureEffect.new(
 			score_tree.get_uid(),
-			node.get_uid(),
+			node_uid,
 			FeatureEffect.Impact.POSITIVE
 		))
 		feature_effects.append(FeatureEffect.new(
 			score_tree.get_uid(),
-			node.get_uid(),
+			node_uid,
 			FeatureEffect.Impact.NEGATIVE
 		))
 

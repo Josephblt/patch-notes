@@ -1,6 +1,13 @@
 extends CanvasLayer
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
+const CARD_MIN_HEIGHT: int = 260
+const CARD_VERTICAL_PADDING: int = 20
+const CARD_SECTION_SPACING: int = 12
+const CARD_TITLE_CHARS_PER_LINE: int = 23
+const CARD_BODY_CHARS_PER_LINE: int = 30
+const CARD_TITLE_LINE_HEIGHT: int = 18
+const CARD_BODY_LINE_HEIGHT: int = 16
 
 var score_trees: Array[ScoreTree] = []
 var feature_deck: FeatureDeck
@@ -12,13 +19,13 @@ var card_title_labels: Array[Label] = []
 var card_description_labels: Array[Label] = []
 var card_consequence_labels: Array[Label] = []
 
-@onready var state_label: Label = $MarginContainer/VBoxContainer/StateLabel
-@onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel
-@onready var preview_label: Label = $MarginContainer/VBoxContainer/PreviewLabel
-@onready var selected_effects_label: Label = $MarginContainer/VBoxContainer/SelectedUpdatesScroll/SelectedEffectsLabel
-@onready var start_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/StartSprintButton
-@onready var submit_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/SubmitSprintButton
-@onready var ship_release_button: Button = $MarginContainer/VBoxContainer/ButtonRow/ShipReleaseButton
+@onready var state_label: Label = $MarginContainer/RunScroll/VBoxContainer/StateLabel
+@onready var score_label: Label = $MarginContainer/RunScroll/VBoxContainer/ScoreLabel
+@onready var preview_label: Label = $MarginContainer/RunScroll/VBoxContainer/PreviewLabel
+@onready var selected_effects_label: Label = $MarginContainer/RunScroll/VBoxContainer/SelectedUpdatesScroll/SelectedEffectsLabel
+@onready var start_sprint_button: Button = $MarginContainer/RunScroll/VBoxContainer/ButtonRow/StartSprintButton
+@onready var submit_sprint_button: Button = $MarginContainer/RunScroll/VBoxContainer/ButtonRow/SubmitSprintButton
+@onready var ship_release_button: Button = $MarginContainer/RunScroll/VBoxContainer/ButtonRow/ShipReleaseButton
 
 
 func _ready() -> void:
@@ -27,24 +34,24 @@ func _ready() -> void:
 	feature_deck.shuffle()
 	game_run = GameRun.new(feature_deck, score_trees)
 	card_buttons = [
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3,
 	]
 	card_title_labels = [
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/TitleLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/TitleLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/TitleLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent/TitleLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent/TitleLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent/TitleLabel,
 	]
 	card_description_labels = [
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/DescriptionLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/DescriptionLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/DescriptionLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent/DescriptionLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent/DescriptionLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent/DescriptionLabel,
 	]
 	card_consequence_labels = [
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent/ConsequenceLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent/ConsequenceLabel,
-		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent/ConsequenceLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent/ConsequenceLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent/ConsequenceLabel,
+		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent/ConsequenceLabel,
 	]
 
 	start_sprint_button.pressed.connect(_on_start_sprint_button_pressed)
@@ -177,11 +184,52 @@ func _render_card_button_content(card_index: int, card: FeatureCard) -> void:
 		card_title_labels[card_index].text = ""
 		card_description_labels[card_index].text = ""
 		card_consequence_labels[card_index].text = ""
+		_resize_card_button(card_index, CARD_MIN_HEIGHT)
 		return
 
 	card_title_labels[card_index].text = card.get_title()
 	card_description_labels[card_index].text = card.get_description()
 	card_consequence_labels[card_index].text = card.get_consequence()
+	_resize_card_button(card_index, _estimate_card_height(card))
+
+
+func _resize_card_button(card_index: int, card_height: int) -> void:
+	var current_size: Vector2 = card_buttons[card_index].custom_minimum_size
+	card_buttons[card_index].custom_minimum_size = Vector2(
+		current_size.x,
+		max(CARD_MIN_HEIGHT, card_height)
+	)
+
+
+func _estimate_card_height(card: FeatureCard) -> int:
+	return (
+		CARD_VERTICAL_PADDING
+		+ _estimate_text_height(
+			card.get_title(),
+			CARD_TITLE_CHARS_PER_LINE,
+			CARD_TITLE_LINE_HEIGHT
+		)
+		+ _estimate_text_height(
+			card.get_description(),
+			CARD_BODY_CHARS_PER_LINE,
+			CARD_BODY_LINE_HEIGHT
+		)
+		+ _estimate_text_height(
+			card.get_consequence(),
+			CARD_BODY_CHARS_PER_LINE,
+			CARD_BODY_LINE_HEIGHT
+		)
+		+ CARD_SECTION_SPACING
+	)
+
+
+func _estimate_text_height(text: String, chars_per_line: int, line_height: int) -> int:
+	var line_count: int = 0
+
+	for paragraph: String in text.split("\n"):
+		line_count += max(1, int(ceil(float(paragraph.length()) / chars_per_line)))
+
+	return line_count * line_height
 
 
 func _format_scores() -> String:

@@ -24,60 +24,62 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="RunScroll" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/RunScroll"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="StateLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer"]
 custom_minimum_size = Vector2(720, 34)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 22
 text = "Loading run state..."
 
-[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer"]
 custom_minimum_size = Vector2(720, 34)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 22
 text = "Scores loading..."
 
-[node name="PreviewLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="PreviewLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer"]
 custom_minimum_size = Vector2(720, 34)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 20
 text = "Preview loading..."
 
-[node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="StartSprintButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+[node name="StartSprintButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ButtonRow"]
 custom_minimum_size = Vector2(150, 44)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Start Sprint"
 
-[node name="SubmitSprintButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+[node name="SubmitSprintButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ButtonRow"]
 custom_minimum_size = Vector2(150, 44)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Submit Sprint"
 
-[node name="ShipReleaseButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+[node name="ShipReleaseButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ButtonRow"]
 custom_minimum_size = Vector2(150, 44)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Ship Release"
 
-[node name="CardButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(720, 200)
+[node name="CardButtonContainer" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CardButton1" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 200)
+[node name="CardButton1" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 260)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
@@ -86,7 +88,7 @@ text = ""
 clip_text = true
 autowrap_mode = 3
 
-[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1"]
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -99,38 +101,29 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
-custom_minimum_size = Vector2(0, 32)
+[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 1"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 2
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
-custom_minimum_size = Vector2(0, 80)
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 5
 
-[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
-custom_minimum_size = Vector2(0, 48)
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 3
 
-[node name="CardButton2" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 200)
+[node name="CardButton2" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 260)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
@@ -139,7 +132,7 @@ text = ""
 clip_text = true
 autowrap_mode = 3
 
-[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2"]
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -152,38 +145,29 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
-custom_minimum_size = Vector2(0, 32)
+[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 2"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 2
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
-custom_minimum_size = Vector2(0, 80)
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 5
 
-[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
-custom_minimum_size = Vector2(0, 48)
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 3
 
-[node name="CardButton3" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
-custom_minimum_size = Vector2(220, 200)
+[node name="CardButton3" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 260)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
@@ -192,7 +176,7 @@ text = ""
 clip_text = true
 autowrap_mode = 3
 
-[node name="CardContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3"]
+[node name="CardContent" type="VBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -205,42 +189,33 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
-custom_minimum_size = Vector2(0, 32)
+[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 15
 text = "Card 3"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 2
 
-[node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
-custom_minimum_size = Vector2(0, 80)
+[node name="DescriptionLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Description"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 5
 
-[node name="ConsequenceLabel" type="Label" parent="MarginContainer/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
-custom_minimum_size = Vector2(0, 48)
+[node name="ConsequenceLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton3/CardContent"]
 layout_mode = 2
 mouse_filter = 2
 theme_override_font_sizes/font_size = 13
 text = "Consequence"
-clip_text = true
 autowrap_mode = 3
-max_lines_visible = 3
 
-[node name="SelectedUpdatesScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+[node name="SelectedUpdatesScroll" type="ScrollContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
 custom_minimum_size = Vector2(720, 104)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SelectedEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer/SelectedUpdatesScroll"]
+[node name="SelectedEffectsLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/SelectedUpdatesScroll"]
 custom_minimum_size = Vector2(720, 104)
 layout_mode = 2
 size_flags_horizontal = 3

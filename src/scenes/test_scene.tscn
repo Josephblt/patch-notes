@@ -42,6 +42,21 @@ theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 22
 text = "Scores loading..."
 
+[node name="PreviewLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
+theme_override_font_sizes/font_size = 20
+text = "Preview loading..."
+
+[node name="SelectedEffectsLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 74)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
+theme_override_font_sizes/font_size = 18
+text = "Selected effects: none"
+autowrap_mode = 3
+
 [node name="MessageLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(720, 34)
 layout_mode = 2

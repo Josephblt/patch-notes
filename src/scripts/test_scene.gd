@@ -11,6 +11,8 @@ var card_buttons: Array[Button] = []
 
 @onready var state_label: Label = $MarginContainer/VBoxContainer/StateLabel
 @onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel
+@onready var preview_label: Label = $MarginContainer/VBoxContainer/PreviewLabel
+@onready var selected_effects_label: Label = $MarginContainer/VBoxContainer/SelectedEffectsLabel
 @onready var message_label: Label = $MarginContainer/VBoxContainer/MessageLabel
 @onready var start_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/StartSprintButton
 @onready var submit_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/SubmitSprintButton
@@ -123,6 +125,8 @@ func _render_state() -> void:
 	if release == null:
 		state_label.text = "Run complete."
 		score_label.text = "Scores: %s" % _format_scores()
+		preview_label.text = "Preview: %s" % _format_preview_scores()
+		selected_effects_label.text = _format_selected_effects()
 		start_sprint_button.disabled = true
 		submit_sprint_button.disabled = true
 		ship_release_button.disabled = true
@@ -146,6 +150,8 @@ func _render_state() -> void:
 		_format_bool(release.is_ready_to_ship()),
 	]
 	score_label.text = "Scores: %s" % _format_scores()
+	preview_label.text = "Preview: %s" % _format_preview_scores()
+	selected_effects_label.text = _format_selected_effects()
 
 	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
 	submit_sprint_button.disabled = current_sprint == null
@@ -199,6 +205,50 @@ func _format_scores() -> String:
 		]
 
 	return output
+
+
+func _format_preview_scores() -> String:
+	var output: String = ""
+
+	for score_tree: ScoreTree in score_trees:
+		if not output.is_empty():
+			output += " | "
+
+		output += "%s %d" % [
+			score_tree.get_display_name(),
+			game_run.get_preview_score(score_tree.get_uid(), current_sprint),
+		]
+
+	return output
+
+
+func _format_selected_effects() -> String:
+	var selected_cards: Array[FeatureCard] = []
+	var release: Release = game_run.get_current_release()
+
+	if release != null:
+		selected_cards.append_array(release.get_selected_cards())
+
+	if current_sprint != null:
+		selected_cards.append_array(current_sprint.get_selected_cards())
+
+	if selected_cards.is_empty():
+		return "Selected effects: none"
+
+	var lines: Array[String] = ["Selected effects:"]
+
+	for card: FeatureCard in selected_cards:
+		var effect_text: String = ""
+
+		for effect: FeatureEffect in card.get_effects():
+			if not effect_text.is_empty():
+				effect_text += " | "
+
+			effect_text += _describe_effect(effect)
+
+		lines.append(effect_text)
+
+	return _join_lines(lines)
 
 
 func _format_bool(value: bool) -> String:

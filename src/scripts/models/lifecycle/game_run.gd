@@ -37,6 +37,24 @@ func get_score(tree_uid: String) -> int:
 	return int(_scores.get(tree_uid, 0))
 
 
+func get_preview_score(tree_uid: String, pending_sprint: Sprint = null) -> int:
+	var preview_score: int = get_score(tree_uid)
+
+	if _current_release != null:
+		preview_score += _calculate_cards_points(
+			_current_release.get_selected_cards(),
+			tree_uid
+		)
+
+	if pending_sprint != null:
+		preview_score += _calculate_cards_points(
+			pending_sprint.get_selected_cards(),
+			tree_uid
+		)
+
+	return preview_score
+
+
 func start_sprint() -> Sprint:
 	if _current_release == null or _current_release.is_ready_to_ship():
 		return null
@@ -78,14 +96,29 @@ func ship_current_release() -> bool:
 
 
 func _apply_release_scores(release: Release) -> void:
-	for card: FeatureCard in release.get_selected_cards():
+	for score_tree_uid: String in _scores.keys():
+		_scores[score_tree_uid] += _calculate_cards_points(
+			release.get_selected_cards(),
+			score_tree_uid
+		)
+
+
+func _calculate_cards_points(cards: Array[FeatureCard], tree_uid: String) -> int:
+	var points: int = 0
+
+	for card: FeatureCard in cards:
 		for effect: FeatureEffect in card.get_effects():
-			var score_tree: ScoreTree = _score_trees.get(effect.get_tree_uid()) as ScoreTree
+			if effect.get_tree_uid() != tree_uid:
+				continue
+
+			var score_tree: ScoreTree = _score_trees.get(tree_uid) as ScoreTree
 
 			if score_tree == null:
 				continue
 
-			_scores[score_tree.get_uid()] += _calculate_effect_points(score_tree, effect)
+			points += _calculate_effect_points(score_tree, effect)
+
+	return points
 
 
 func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:

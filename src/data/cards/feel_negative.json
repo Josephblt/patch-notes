@@ -1,0 +1,218 @@
+[
+  {
+    "uid": "update-037",
+    "title": "SOCIAL PROOF LAYER: GROUNDED TRAVERSAL PASS",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-038",
+    "title": "TRUST EXERCISE: GROUNDED TRAVERSAL PASS",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-039",
+    "title": "STOREFRONT MERCY: GROUNDED TRAVERSAL PASS",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-040",
+    "title": "TUTORIAL CONTRACT: GROUNDED TRAVERSAL PASS",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-041",
+    "title": "CREATOR FACING PASS: GROUNDED TRAVERSAL PASS",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-042",
+    "title": "COMBAT ECONOMY: GROUNDED TRAVERSAL PASS",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-043",
+    "title": "OFFER SURFACE: GROUNDED TRAVERSAL PASS",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-044",
+    "title": "PROGRESSION AUDIT: GROUNDED TRAVERSAL PASS",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-045",
+    "title": "FRICTION BUDGET: GROUNDED TRAVERSAL PASS",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-046",
+    "title": "RETENTION REWRITE: GROUNDED TRAVERSAL PASS",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-047",
+    "title": "EVENT SPINE: GROUNDED TRAVERSAL PASS",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The character moves like they read the physics spec and took it personally. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-048",
+    "title": "SEASONAL ALIGNMENT: GROUNDED TRAVERSAL PASS",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Jumping, mounting, and rolling now preserve more momentum debt so movement feels heavier and more authored. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The character moves like they read the physics spec and took it personally. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

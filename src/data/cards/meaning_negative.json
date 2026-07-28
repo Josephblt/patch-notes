@@ -1,0 +1,218 @@
+[
+  {
+    "uid": "update-109",
+    "title": "OFFER SURFACE: NARRATIVE COMPRESSION SPRINT",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-110",
+    "title": "PROGRESSION AUDIT: NARRATIVE COMPRESSION SPRINT",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-111",
+    "title": "FRICTION BUDGET: NARRATIVE COMPRESSION SPRINT",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-112",
+    "title": "RETENTION REWRITE: NARRATIVE COMPRESSION SPRINT",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-113",
+    "title": "EVENT SPINE: NARRATIVE COMPRESSION SPRINT",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-114",
+    "title": "SEASONAL ALIGNMENT: NARRATIVE COMPRESSION SPRINT",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-115",
+    "title": "SOCIAL PROOF LAYER: NARRATIVE COMPRESSION SPRINT",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-116",
+    "title": "TRUST EXERCISE: NARRATIVE COMPRESSION SPRINT",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-117",
+    "title": "STOREFRONT MERCY: NARRATIVE COMPRESSION SPRINT",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-118",
+    "title": "TUTORIAL CONTRACT: NARRATIVE COMPRESSION SPRINT",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-119",
+    "title": "CREATOR FACING PASS: NARRATIVE COMPRESSION SPRINT",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-120",
+    "title": "COMBAT ECONOMY: NARRATIVE COMPRESSION SPRINT",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Side stories now resolve faster so players can return to reward tracks before the mood becomes measurable. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The kingdom's grief was preserved as a tooltip and two currencies. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

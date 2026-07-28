@@ -1,0 +1,218 @@
+[
+  {
+    "uid": "update-121",
+    "title": "COMBAT ECONOMY: ROADMAP DEBT PAYMENT",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-122",
+    "title": "OFFER SURFACE: ROADMAP DEBT PAYMENT",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-123",
+    "title": "PROGRESSION AUDIT: ROADMAP DEBT PAYMENT",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-124",
+    "title": "FRICTION BUDGET: ROADMAP DEBT PAYMENT",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-125",
+    "title": "RETENTION REWRITE: ROADMAP DEBT PAYMENT",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-126",
+    "title": "EVENT SPINE: ROADMAP DEBT PAYMENT",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-127",
+    "title": "SEASONAL ALIGNMENT: ROADMAP DEBT PAYMENT",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-128",
+    "title": "SOCIAL PROOF LAYER: ROADMAP DEBT PAYMENT",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-129",
+    "title": "TRUST EXERCISE: ROADMAP DEBT PAYMENT",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-130",
+    "title": "STOREFRONT MERCY: ROADMAP DEBT PAYMENT",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-131",
+    "title": "TUTORIAL CONTRACT: ROADMAP DEBT PAYMENT",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-132",
+    "title": "CREATOR FACING PASS: ROADMAP DEBT PAYMENT",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Three long-promised fixes ship with direct patch notes, no event wrapper, and no commemorative bundle. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Players reacted with suspicion to a promise being kept in daylight. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "uid": "update-061",
+    "title": "EVENT SPINE: MINIMAL GUIDANCE MODE",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-062",
+    "title": "SEASONAL ALIGNMENT: MINIMAL GUIDANCE MODE",
+    "description": "The patch turns a design concern into a calendar decision and calls that production maturity. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-063",
+    "title": "SOCIAL PROOF LAYER: MINIMAL GUIDANCE MODE",
+    "description": "The feature asks players to perform progress for each other before asking whether the progress is good. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-064",
+    "title": "TRUST EXERCISE: MINIMAL GUIDANCE MODE",
+    "description": "The update spends credibility in one place and tries to earn it back somewhere else. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-065",
+    "title": "STOREFRONT MERCY: MINIMAL GUIDANCE MODE",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Declining the shop now returns players to a smaller, friendlier offer instead of the game.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The back button became a polite hallway with prices.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-066",
+    "title": "TUTORIAL CONTRACT: MINIMAL GUIDANCE MODE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Shop exits now send players back to the last activity without a second offer or educational delay.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The funnel lost a wall and several people escaped through it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-067",
+    "title": "CREATOR FACING PASS: MINIMAL GUIDANCE MODE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-068",
+    "title": "COMBAT ECONOMY: MINIMAL GUIDANCE MODE",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-069",
+    "title": "OFFER SURFACE: MINIMAL GUIDANCE MODE",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-070",
+    "title": "PROGRESSION AUDIT: MINIMAL GUIDANCE MODE",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-071",
+    "title": "FRICTION BUDGET: MINIMAL GUIDANCE MODE",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-072",
+    "title": "RETENTION REWRITE: MINIMAL GUIDANCE MODE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. Several prompts have been removed so discovery can emerge naturally from confusion and patch forum archaeology. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "The tutorial got shorter. So did the time before players asked what was happening. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

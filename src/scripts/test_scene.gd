@@ -13,7 +13,6 @@ var card_buttons: Array[Button] = []
 @onready var score_label: Label = $MarginContainer/VBoxContainer/ScoreLabel
 @onready var preview_label: Label = $MarginContainer/VBoxContainer/PreviewLabel
 @onready var selected_effects_label: Label = $MarginContainer/VBoxContainer/SelectedUpdatesScroll/SelectedEffectsLabel
-@onready var message_label: Label = $MarginContainer/VBoxContainer/MessageLabel
 @onready var start_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/StartSprintButton
 @onready var submit_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/SubmitSprintButton
 @onready var ship_release_button: Button = $MarginContainer/VBoxContainer/ButtonRow/ShipReleaseButton
@@ -37,7 +36,6 @@ func _ready() -> void:
 	for card_index: int in range(card_buttons.size()):
 		card_buttons[card_index].pressed.connect(_on_card_button_pressed.bind(card_index))
 
-	_set_message("Start a sprint.")
 	_render_state()
 
 
@@ -45,15 +43,10 @@ func _on_start_sprint_button_pressed() -> void:
 	current_sprint = game_run.start_sprint()
 
 	if current_sprint == null:
-		_set_message("No sprint available.")
 		_render_state()
 		return
 
 	current_sprint_cards = current_sprint.get_feature_cards()
-	_set_message("Release %d, sprint %d." % [
-		game_run.get_current_release().get_number(),
-		current_sprint.get_number(),
-	])
 	_render_state()
 
 
@@ -65,17 +58,11 @@ func _on_card_button_pressed(card_index: int) -> void:
 		return
 
 	var card: FeatureCard = current_sprint_cards[card_index]
-	var did_change_selection: bool = false
-	var action_label: String = "Deselected"
 
 	if card_buttons[card_index].button_pressed:
-		did_change_selection = current_sprint.select_card(card.get_uid())
-		action_label = "Selected"
+		current_sprint.select_card(card.get_uid())
 	else:
-		did_change_selection = current_sprint.deselect_card(card.get_uid())
-
-	if did_change_selection:
-		_set_message("%s: %s" % [action_label, card.get_title()])
+		current_sprint.deselect_card(card.get_uid())
 
 	_render_state()
 
@@ -84,18 +71,9 @@ func _on_submit_sprint_button_pressed() -> void:
 	if current_sprint == null:
 		return
 
-	var submitted_sprint_number: int = current_sprint.get_number()
-
 	if not game_run.submit_sprint(current_sprint):
-		_set_message("Pick at least one card before submitting sprint %d." % submitted_sprint_number)
 		_render_state()
 		return
-
-	_set_message("Sprint %d submitted. Selected %d, discarded %d." % [
-		submitted_sprint_number,
-		current_sprint.get_selected_card_count(),
-		current_sprint.get_discarded_card_count(),
-	])
 
 	current_sprint = null
 	current_sprint_cards = []
@@ -108,14 +86,10 @@ func _on_ship_release_button_pressed() -> void:
 	if release == null:
 		return
 
-	var shipped_release_number: int = release.get_number()
-
 	if not game_run.ship_current_release():
-		_set_message("Release %d is not ready." % shipped_release_number)
 		_render_state()
 		return
 
-	_set_message("Release %d shipped. Scores updated." % shipped_release_number)
 	_render_state()
 
 
@@ -190,10 +164,6 @@ func _format_card_button_text(card: FeatureCard) -> String:
 	lines.append(card.get_consequence())
 
 	return _join_lines(lines)
-
-
-func _set_message(message: String) -> void:
-	message_label.text = message
 
 
 func _format_scores() -> String:

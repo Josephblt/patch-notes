@@ -1,0 +1,182 @@
+[
+  {
+    "uid": "update-091",
+    "title": "CLEAN SLATE SEASONING WELCOME PASS",
+    "description": "The change softens one part of the product while sharpening another part that can be measured. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Early sessions now surface clearer genre hooks for players who have not memorized the wiki by birth.",
+    "consequence": "Everyone started together, especially the people who had already finished. The game waved at strangers without asking them to craft a spreadsheet first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-092",
+    "title": "CLEAN SLATE SEASONING EXPERT MODE",
+    "description": "The change is pitched as onboarding, but it quietly rewires what the team thinks a beginner is worth. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. New systems lean into late-game complexity for players already fluent in the existing disaster.",
+    "consequence": "Everyone started together, especially the people who had already finished. The audience got smaller, sharper, and much harder to onboard at parties.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-093",
+    "title": "CLEAN SLATE SEASONING SHOWCASE",
+    "description": "The update makes the game easier to explain from the outside, with consequences for those still inside. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Boss intros and failure states now create cleaner moments for streams, trailers, and context-free yelling.",
+    "consequence": "Everyone started together, especially the people who had already finished. Marketing finally found footage that did not require a glossary.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-094",
+    "title": "CLEAN SLATE SEASONING FOUNDATION",
+    "description": "The update treats combat feel and monetization pressure as one shared pacing problem. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Several improvements focus on crash fixes, save safety, and boring reliability instead of visible beats.",
+    "consequence": "Everyone started together, especially the people who had already finished. The game improved in ways that make terrible thumbnails.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-095",
+    "title": "CLEAN SLATE SEASONING CHECK-IN",
+    "description": "The feature moves a player-facing convenience into the same room as a business goal. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Consecutive logins now build toward escalating rewards that reset just slowly enough to feel merciful.",
+    "consequence": "Everyone started together, especially the people who had already finished. The calendar was promoted from reminder to game mechanic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-096",
+    "title": "CLEAN SLATE SEASONING BREATHER",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. Old progression hooks have been flattened so returning players can experience the new season from a more equal baseline. Daily chores have been shortened so players can leave before the evening becomes a second job.",
+    "consequence": "Everyone started together, especially the people who had already finished. Engagement dipped, but so did the farewell essays.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-097",
+    "title": "FACTION MEMORY PASS PILOT",
+    "description": "The patch claims to simplify progression, then decides whose confusion counts as acceptable loss. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. The upgrade flow now presents higher-value bundles at the exact moment players run out of patience.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. The economy found the pause between frustration and quitting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-098",
+    "title": "FACTION MEMORY PASS RELIEF",
+    "description": "The change decides which delays are atmosphere and which delays are invoices. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Several paid shortcuts have been moved into baseline progression to reduce accusations of hostage design.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Revenue meetings became quieter in the way elevators get quiet.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-099",
+    "title": "FACTION MEMORY PASS WARDROBE",
+    "description": "The feature rebuilds routine play around the moment a player considers leaving. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Outfits now include prestige variants, matching effects, and a bundle preview that understands insecurity.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Self-expression gained tiers, timers, and a receipt.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-100",
+    "title": "FACTION MEMORY PASS COOLDOWN",
+    "description": "The release frames the feature as seasonal structure, while burying the real priority in the reward cadence. NPCs now remember a handful of faction choices and respond with small grudges instead of universal politeness. Limited-time labels and countdown nudges have been softened across the event shop.",
+    "consequence": "The world developed a memory just large enough to be inconvenient. Players felt less hunted. The dashboard noticed immediately.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  }
+]

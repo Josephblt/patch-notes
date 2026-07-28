@@ -2,7 +2,7 @@ class_name FeatureDeckBuilder
 extends RefCounted
 
 
-const DEFAULT_CARD_DATA_PATH: String = "res://data/cards/updates.json"
+const DEFAULT_CARD_DATA_PATH: String = "res://data/cards"
 
 
 static func build(

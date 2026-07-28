@@ -5,10 +5,15 @@ const SCORE_TREE_DIR: String = "res://data/score_trees"
 var score_trees: Array[ScoreTree] = []
 var feature_deck: FeatureDeck
 var game_run: GameRun
+var current_sprint: Sprint
+var current_sprint_cards: Array[FeatureCard] = []
 var console_lines: Array[String] = []
-var dealt_count: int = 0
+var card_buttons: Array[Button] = []
 
-@onready var deal_button: Button = $MarginContainer/VBoxContainer/DealButton
+@onready var state_label: Label = $MarginContainer/VBoxContainer/StateLabel
+@onready var start_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/StartSprintButton
+@onready var submit_sprint_button: Button = $MarginContainer/VBoxContainer/ButtonRow/SubmitSprintButton
+@onready var ship_release_button: Button = $MarginContainer/VBoxContainer/ButtonRow/ShipReleaseButton
 @onready var console_scroll: ScrollContainer = $MarginContainer/VBoxContainer/ScrollContainer
 @onready var output_label: Label = $MarginContainer/VBoxContainer/ScrollContainer/Label
 
@@ -18,11 +23,22 @@ func _ready() -> void:
 	feature_deck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle()
 	game_run = GameRun.new(feature_deck)
-	deal_button.pressed.connect(_on_deal_button_pressed)
+	card_buttons = [
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton1,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton2,
+		$MarginContainer/VBoxContainer/CardButtonContainer/CardButton3,
+	]
+
+	start_sprint_button.pressed.connect(_on_start_sprint_button_pressed)
+	submit_sprint_button.pressed.connect(_on_submit_sprint_button_pressed)
+	ship_release_button.pressed.connect(_on_ship_release_button_pressed)
+
+	for card_index: int in range(card_buttons.size()):
+		card_buttons[card_index].pressed.connect(_on_card_button_pressed.bind(card_index))
 
 	_print_line("PATCH NOTES")
 	_print_line("")
-	_print_line("Test scene")
+	_print_line("Interactive lifecycle test")
 	_print_line("Source: %s" % SCORE_TREE_DIR)
 	_print_line("Trees loaded: %d" % score_trees.size())
 	_print_line("Deck Count: %d" % feature_deck.get_size())
@@ -32,31 +48,151 @@ func _ready() -> void:
 		_print_lines(_describe_score_tree(score_tree))
 
 	_print_line("")
-	_print_lines(_describe_release_demo())
-
-	_print_line("")
-	_print_line("Press Deal to draw another random card from the remaining deck.")
+	_print_line("Start a sprint, select cards, submit 4 sprints, then ship the release.")
+	_render_state()
 
 
-func _on_deal_button_pressed() -> void:
-	if feature_deck == null or not feature_deck.can_draw():
+func _on_start_sprint_button_pressed() -> void:
+	current_sprint = game_run.start_sprint()
+
+	if current_sprint == null:
 		_print_line("")
-		_print_line("Deck Count: 0")
-		_print_line("Deck is empty.")
-		deal_button.disabled = true
+		_print_line("Could not start sprint. Ship the release or check deck count.")
+		_render_state()
 		return
 
-	feature_deck.shuffle()
-	var drawn_card: FeatureCard = feature_deck.draw()
-
-	dealt_count += 1
+	current_sprint_cards = current_sprint.get_feature_cards()
 	_print_line("")
-	_print_line("Deal %d" % dealt_count)
+	_print_line("Release %d / Sprint %d started" % [
+		game_run.get_current_release().get_number(),
+		current_sprint.get_number(),
+	])
 	_print_line("Deck Count: %d" % feature_deck.get_size())
-	_print_lines(_describe_card(drawn_card))
 
-	if not feature_deck.can_draw():
-		deal_button.disabled = true
+	for card: FeatureCard in current_sprint_cards:
+		_print_lines(_describe_card(card))
+
+	_render_state()
+
+
+func _on_card_button_pressed(card_index: int) -> void:
+	if current_sprint == null or current_sprint.is_submitted():
+		return
+
+	if card_index >= current_sprint_cards.size():
+		return
+
+	var card: FeatureCard = current_sprint_cards[card_index]
+	var did_change_selection: bool = false
+
+	if card_buttons[card_index].button_pressed:
+		did_change_selection = current_sprint.select_card(card.get_uid())
+	else:
+		did_change_selection = current_sprint.deselect_card(card.get_uid())
+
+	if did_change_selection:
+		_print_line("Selection changed: %s" % card.get_title())
+
+	_render_state()
+
+
+func _on_submit_sprint_button_pressed() -> void:
+	if current_sprint == null:
+		return
+
+	var submitted_sprint_number: int = current_sprint.get_number()
+
+	if not game_run.submit_sprint(current_sprint):
+		_print_line("")
+		_print_line("Could not submit sprint %d." % submitted_sprint_number)
+		_render_state()
+		return
+
+	_print_line("")
+	_print_line("Sprint %d submitted: selected %d, discarded %d" % [
+		submitted_sprint_number,
+		current_sprint.get_selected_card_count(),
+		current_sprint.get_discarded_card_count(),
+	])
+
+	current_sprint = null
+	current_sprint_cards = []
+	_render_state()
+
+
+func _on_ship_release_button_pressed() -> void:
+	var release: Release = game_run.get_current_release()
+
+	if release == null:
+		return
+
+	var shipped_release_number: int = release.get_number()
+
+	if not game_run.ship_current_release():
+		_print_line("")
+		_print_line("Release %d is not ready to ship." % shipped_release_number)
+		_render_state()
+		return
+
+	_print_line("")
+	_print_line("Release %d shipped." % shipped_release_number)
+	_render_state()
+
+
+func _render_state() -> void:
+	var release: Release = game_run.get_current_release()
+
+	if release == null:
+		state_label.text = "Run complete. Deck: %d" % feature_deck.get_size()
+		start_sprint_button.disabled = true
+		submit_sprint_button.disabled = true
+		ship_release_button.disabled = true
+		_render_card_buttons()
+		return
+
+	state_label.text = "Release %d | Sprints %d/%d | Selected %d | Discarded %d | Ready %s | Deck %d" % [
+		release.get_number(),
+		release.get_sprint_count(),
+		Release.SPRINT_COUNT,
+		release.get_selected_card_count(),
+		release.get_discarded_card_count(),
+		_format_bool(release.is_ready_to_ship()),
+		feature_deck.get_size(),
+	]
+
+	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
+	submit_sprint_button.disabled = current_sprint == null
+	ship_release_button.disabled = current_sprint != null or not release.is_ready_to_ship()
+	_render_card_buttons()
+
+
+func _render_card_buttons() -> void:
+	for card_index: int in range(card_buttons.size()):
+		var card_button: Button = card_buttons[card_index]
+		var has_card: bool = card_index < current_sprint_cards.size()
+
+		card_button.visible = has_card
+		card_button.disabled = current_sprint == null or current_sprint.is_submitted()
+
+		if not has_card:
+			card_button.text = ""
+			card_button.button_pressed = false
+			continue
+
+		var card: FeatureCard = current_sprint_cards[card_index]
+		card_button.text = _format_card_button_text(card)
+
+
+func _format_card_button_text(card: FeatureCard) -> String:
+	var lines: Array[String] = []
+
+	lines.append(card.get_title())
+	lines.append(card.get_consequence())
+
+	for effect: FeatureEffect in card.get_effects():
+		lines.append(_describe_effect(effect))
+
+	return _join_lines(lines)
 
 
 func _describe_card(card: FeatureCard) -> Array[String]:
@@ -70,49 +206,6 @@ func _describe_card(card: FeatureCard) -> Array[String]:
 
 	for effect: FeatureEffect in card.get_effects():
 		lines.append("  %s" % _describe_effect(effect))
-
-	return lines
-
-
-func _describe_release_demo() -> Array[String]:
-	var lines: Array[String] = []
-	var release: Release = game_run.get_current_release()
-
-	lines.append("Release %d" % release.get_number())
-	lines.append("Ready before sprints: %s" % _format_bool(release.is_ready_to_ship()))
-
-	for sprint_index: int in range(Release.SPRINT_COUNT):
-		var sprint: Sprint = game_run.start_sprint()
-
-		if sprint == null:
-			lines.append("Sprint %d: could not draw %d cards" % [
-				sprint_index + 1,
-				GameRun.CARDS_PER_SPRINT,
-			])
-			continue
-
-		var sprint_cards: Array[FeatureCard] = sprint.get_feature_cards()
-
-		if not sprint_cards.is_empty():
-			sprint.select_card(sprint_cards[0].get_uid())
-
-		game_run.submit_sprint(sprint)
-		lines.append("Sprint %d: drew %d, selected %d, discarded %d, submitted %s" % [
-			sprint.get_number(),
-			sprint_cards.size(),
-			sprint.get_selected_card_count(),
-			sprint.get_discarded_card_count(),
-			_format_bool(sprint.is_submitted()),
-		])
-
-	lines.append("Release sprints: %d" % release.get_sprint_count())
-	lines.append("Release selected cards: %d" % release.get_selected_card_count())
-	lines.append("Release discarded cards: %d" % release.get_discarded_card_count())
-	lines.append("Ready after sprints: %s" % _format_bool(release.is_ready_to_ship()))
-	lines.append("Ship release: %s" % _format_bool(game_run.ship_current_release()))
-	lines.append("Release shipped: %s" % _format_bool(release.is_shipped()))
-	lines.append("Game releases created: %d" % game_run.get_release_count())
-	lines.append("Deck Count after release demo: %d" % feature_deck.get_size())
 
 	return lines
 

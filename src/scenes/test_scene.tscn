@@ -28,12 +28,65 @@ theme_override_constants/margin_bottom = 28
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="DealButton" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(120, 44)
+[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(720, 34)
 layout_mode = 2
-size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 22
-text = "Deal"
+text = "Loading run state..."
+
+[node name="ButtonRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="StartSprintButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Start Sprint"
+
+[node name="SubmitSprintButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Submit Sprint"
+
+[node name="ShipReleaseButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonRow"]
+custom_minimum_size = Vector2(150, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Ship Release"
+
+[node name="CardButtonContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CardButton1" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 132)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Card 1"
+autowrap_mode = 3
+
+[node name="CardButton2" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 132)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Card 2"
+autowrap_mode = 3
+
+[node name="CardButton3" type="Button" parent="MarginContainer/VBoxContainer/CardButtonContainer"]
+custom_minimum_size = Vector2(220, 132)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Card 3"
+autowrap_mode = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

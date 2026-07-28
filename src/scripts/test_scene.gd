@@ -23,7 +23,7 @@ func _ready() -> void:
 	_print_line("Test scene")
 	_print_line("Source: %s" % SCORE_TREE_DIR)
 	_print_line("Trees loaded: %d" % score_trees.size())
-	_print_line("Deck Count: %d" % feature_deck.size())
+	_print_line("Deck Count: %d" % feature_deck.get_size())
 
 	for score_tree: ScoreTree in score_trees:
 		_print_line("")

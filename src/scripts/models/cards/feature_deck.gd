@@ -9,17 +9,17 @@ func _init(cards: Array[FeatureCard] = []) -> void:
 	_available_cards = cards.duplicate()
 
 
-func shuffle() -> void:
-	_available_cards.shuffle()
+func get_size() -> int:
+	return _available_cards.size()
 
 
 func can_draw() -> bool:
 	return not _available_cards.is_empty()
 
 
-func size() -> int:
-	return _available_cards.size()
-
-
 func draw() -> FeatureCard:
 	return _available_cards.pop_front()
+
+
+func shuffle() -> void:
+	_available_cards.shuffle()

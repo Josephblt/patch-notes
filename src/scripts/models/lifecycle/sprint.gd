@@ -65,7 +65,7 @@ func get_discarded_card_count() -> int:
 
 
 func submit() -> bool:
-	if _submitted:
+	if _submitted or _selected_card_uids.is_empty():
 		return false
 
 	_submitted = true

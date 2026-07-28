@@ -87,7 +87,7 @@ func _on_submit_sprint_button_pressed() -> void:
 	var submitted_sprint_number: int = current_sprint.get_number()
 
 	if not game_run.submit_sprint(current_sprint):
-		_set_message("Could not submit sprint %d." % submitted_sprint_number)
+		_set_message("Pick at least one card before submitting sprint %d." % submitted_sprint_number)
 		_render_state()
 		return
 
@@ -154,7 +154,10 @@ func _render_state() -> void:
 	selected_effects_label.text = _format_selected_effects()
 
 	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
-	submit_sprint_button.disabled = current_sprint == null
+	submit_sprint_button.disabled = (
+		current_sprint == null
+		or current_sprint.get_selected_card_count() == 0
+	)
 	ship_release_button.disabled = current_sprint != null or not release.is_ready_to_ship()
 	_render_card_buttons()
 

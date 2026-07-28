@@ -75,7 +75,8 @@ func submit_sprint(sprint: Sprint) -> bool:
 		return false
 
 	if not sprint.is_submitted():
-		sprint.submit()
+		if not sprint.submit():
+			return false
 
 	return _current_release.add_sprint(sprint)
 

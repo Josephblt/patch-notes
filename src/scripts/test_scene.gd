@@ -47,7 +47,7 @@ func _on_deal_button_pressed() -> void:
 	dealt_count += 1
 	_print_line("")
 	_print_line("Deal %d" % dealt_count)
-	_print_line("Deck Count: %d" % feature_deck.size())
+	_print_line("Deck Count: %d" % feature_deck.get_size())
 	_print_lines(_describe_card(drawn_card))
 
 	if not feature_deck.can_draw():

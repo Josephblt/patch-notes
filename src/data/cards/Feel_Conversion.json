@@ -3,7 +3,7 @@
     "uid": "update-029",
     "title": "MARKET STALL HANDOFF",
     "description": "Farmers now pass purchased goods across the stall with a small wrapped bundle animation, a wooden stamp sound, and exactly enough ceremony to make buying carrots feel official.",
-    "consequence": "The market gets a better handshake. The buy button gets manners.",
+    "consequence": "The market gets a better handshake. The carrots leave with ceremony.",
     "effects": [
       {
         "tree": "Fun",

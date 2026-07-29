@@ -21,7 +21,7 @@
     "uid": "update-012",
     "title": "ONE PRICE FRONTIER",
     "description": "The game now opens as a single paid frontier pass with no referral quests, install bonuses, creator codes, friend-invite popups, or limited-time newcomer bundles.",
-    "consequence": "The first hour gets cleaner. The growth plan loses every trick at the door.",
+    "consequence": "The first hour gets cleaner. The welcome mat stops doing magic tricks.",
     "effects": [
       {
         "tree": "Fun",
@@ -39,7 +39,7 @@
     "uid": "update-023",
     "title": "CREATOR DROP STORM",
     "description": "Early missions now shower players with limited creator-branded weapons, animated loot beams, referral crates, and a rotating \"everyone is using this\" loadout banner.",
-    "consequence": "The arsenal becomes an ad break. The growth chart gets confetti cannons.",
+    "consequence": "The arsenal becomes an ad break. The confetti cannons find their safest target.",
     "effects": [
       {
         "tree": "Fun",

@@ -21,7 +21,7 @@
     "uid": "update-004",
     "title": "DRAFT REFUND RULE",
     "description": "Card shops now let players undo one purchase per floor after testing the card in combat, refunding the full cost if the run survives.",
-    "consequence": "Players stop treating every shop like a tax audit. The economy loses its favorite kind of mistake.",
+    "consequence": "Players stop treating every shop like a tax audit. The receipt learns humility.",
     "effects": [
       {
         "tree": "Fun",
@@ -57,7 +57,7 @@
     "uid": "update-016",
     "title": "STARTER DECK INSPECTION",
     "description": "New runs now begin with a mandatory deck inspection screen that flags weak cards, recommends removals, and blocks the first encounter until every warning is dismissed.",
-    "consequence": "The run gets a lecture before it gets a turn. The shop watches players close the game with exact procedural accuracy.",
+    "consequence": "The run gets a lecture before it gets a turn. The shop window fogs up behind the checklist.",
     "effects": [
       {
         "tree": "Fun",

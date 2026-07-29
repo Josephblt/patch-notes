@@ -21,7 +21,7 @@
     "uid": "update-002",
     "title": "STARTER GEAR UNLOCK",
     "description": "The early combat pass now gives every new player a full starter kit, replacing the paid convenience bundle that used to sit beside the tutorial.",
-    "consequence": "Players stop losing their first hour to inventory friction. Revenue stops having such a beautiful first hour.",
+    "consequence": "Players stop losing their first hour to inventory friction. The tutorial bundle sits beside them, dressed for the wrong party.",
     "effects": [
       {
         "tree": "Fun",
@@ -39,7 +39,7 @@
     "uid": "update-013",
     "title": "EXPEDITED CRAFTING TIMERS",
     "description": "Early weapon and armor crafting now uses real-time job timers, with premium currency available to speed up workshop completion.",
-    "consequence": "The first hour learns to wait. The revenue model learns to help.",
+    "consequence": "The first hour learns to wait. The forge discovers urgency is a billable material.",
     "effects": [
       {
         "tree": "Fun",

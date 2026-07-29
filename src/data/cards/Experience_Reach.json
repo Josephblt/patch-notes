@@ -21,7 +21,7 @@
     "uid": "update-008",
     "title": "PRIVATE HARVEST FESTIVAL",
     "description": "Farm events now generate small invite-only festivals for neighbors already in the player’s valley, with shared cooking tables, crop judging, and no global announcement feed.",
-    "consequence": "The valley gets warmer. The growth dashboard gets less to brag about.",
+    "consequence": "The valley gets warmer. The megaphone gets left in the barn.",
     "effects": [
       {
         "tree": "Fun",

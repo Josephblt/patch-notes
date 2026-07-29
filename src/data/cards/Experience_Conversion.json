@@ -3,7 +3,7 @@
     "uid": "update-005",
     "title": "TEST DRIVE ISLAND",
     "description": "The vehicle bay now lets players test premium mounts on a private stunt island before buying, complete with timed jumps, destructible billboards, and one suspiciously forgiving landing ramp.",
-    "consequence": "Players finally understand what the expensive tires are for. The buy button stops looking theoretical.",
+    "consequence": "Players finally understand what the expensive tires are for. The showroom stops speaking in thumbnails.",
     "effects": [
       {
         "tree": "Fun",
@@ -39,7 +39,7 @@
     "uid": "update-017",
     "title": "BONFIRE REVIVE OFFER",
     "description": "Failed extraction runs now pause at the nearest bonfire with a limited revive offer, letting players keep their loot if they buy back in before the ashes settle.",
-    "consequence": "Death becomes less final. The payment screen becomes extremely well timed.",
+    "consequence": "Death becomes less final. The bonfire learns when to clear its throat.",
     "effects": [
       {
         "tree": "Fun",
@@ -57,7 +57,7 @@
     "uid": "update-018",
     "title": "LOADOUT RECEIPT REVIEW",
     "description": "Every run now opens with a receipt-style audit of equipped weapons, card sleeves, ammo skins, and expired trial boosts before the player can ready up.",
-    "consequence": "The build screen becomes legally thorough. Players leave before finding anything to buy.",
+    "consequence": "The build screen becomes legally thorough. The receipt arrives before the fantasy.",
     "effects": [
       {
         "tree": "Fun",

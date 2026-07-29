@@ -21,7 +21,7 @@
     "uid": "update-010",
     "title": "VACATION MODE MAP",
     "description": "The world map now highlights scenic routes, quiet fishing spots, and low-pressure story errands while hiding streak timers, urgent dailies, and limited-event alarms.",
-    "consequence": "The journey gets room to breathe. The retention machine loses several blinking lights.",
+    "consequence": "The journey gets room to breathe. Several blinking lights finally learn silence.",
     "effects": [
       {
         "tree": "Fun",

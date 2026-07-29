@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-033",
+    "title": "EXTRACTION SNAPSHOT STAMP",
+    "description": "Successful extractions now end with a crisp dossier snapshot, stamped loot icons, squad poses, and a satisfying paper-thunk as the run summary lands on screen.",
+    "consequence": "The escape gets a clean little click.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-034",
+    "title": "DEEPER NIGHT LIGHTING",
+    "description": "Night scenes now use darker shadows, warmer campfire falloff, and less ambient blue fill so forests, caves, and abandoned cabins feel properly unlit.",
+    "consequence": "The dark gets its job back. The screenshots lose their manners.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-045",
+    "title": "OVERSIZED CRIT BURSTS",
+    "description": "Critical hits now trigger larger damage numbers, brighter hit sparks, and a brief camera punch so big shots read clearly in clips, trailers, and chaotic squad fights.",
+    "consequence": "Every headshot arrives with stage directions.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-046",
+    "title": "REALISTIC MUD SEASON",
+    "description": "Spring fields now build up sticky mud after rain, slowing footwork, dulling tool swings, and leaving the whole farm pleasantly authentic and slightly miserable.",
+    "consequence": "The season gets heavier boots.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  }
+]

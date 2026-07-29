@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-027",
+    "title": "FOIL CARD THWACK",
+    "description": "Premium foil cards now land with a heavier table slap, brighter edge flash, and a tiny crowd gasp when played into a combo chain.",
+    "consequence": "The deck gets more tactile. The cosmetic shop gets sound effects with a price tag.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-028",
+    "title": "FREE DECORATION NUDGE",
+    "description": "Building mode now lets players rotate, snap, tint, and preview every basic decoration for free before placing it, including the tiny rug that somehow controls the mood of the entire room.",
+    "consequence": "The house gets easier to love. The catalog loses its cover charge.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-039",
+    "title": "TACTICAL BACKPACK FUMBLE",
+    "description": "Default backpacks now open with a slower zipper animation and stricter slot drag, while premium field packs keep quick-swap pockets, cleaner clicks, and fewer moments of inventory shame.",
+    "consequence": "Loot management gets stickier. The better bag starts sounding like mercy.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-040",
+    "title": "SPLINTER DAMAGE WORKBENCH",
+    "description": "Basic workbenches now require a longer hold, rougher tool scrape, and a small failed-craft shudder before producing anything more complicated than a sad plank.",
+    "consequence": "Crafting gets texture in the least generous sense. The workshop loses its upgrade appetite.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  }
+]

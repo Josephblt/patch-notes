@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-005",
+    "title": "TEST DRIVE ISLAND",
+    "description": "The vehicle bay now lets players test premium mounts on a private stunt island before buying, complete with timed jumps, destructible billboards, and one suspiciously forgiving landing ramp.",
+    "consequence": "Players finally understood what the expensive tires were for. The buy button stopped looking theoretical.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-006",
+    "title": "COMMUNAL SEED LIBRARY",
+    "description": "The village market now lets players borrow seasonal seeds from a shared library, grow the crop once, and return a portion of the harvest instead of buying the starter pack.",
+    "consequence": "The farm got friendlier. The checkout flow discovered the political dangers of vegetables.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-017",
+    "title": "BONFIRE REVIVE OFFER",
+    "description": "Failed extraction runs now pause at the nearest bonfire with a limited revive offer, letting players keep their loot if they buy back in before the ashes settle.",
+    "consequence": "Death became less final. The payment screen became extremely well timed.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-018",
+    "title": "LOADOUT RECEIPT REVIEW",
+    "description": "Every run now opens with a receipt-style audit of equipped weapons, card sleeves, ammo skins, and expired trial boosts before the player can ready up.",
+    "consequence": "The build screen became legally thorough. Players left before finding anything to buy.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Experience",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

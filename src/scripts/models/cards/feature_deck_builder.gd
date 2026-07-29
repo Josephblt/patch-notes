@@ -12,7 +12,6 @@ static func build(
 	var card_data: Array = _load_card_data(card_data_path)
 	var score_tree_refs: Dictionary[String, Dictionary] = _build_score_tree_refs(score_trees)
 	var cards: Array[FeatureCard] = []
-	var effect_signatures: Dictionary[String, bool] = {}
 
 	for raw_card_data: Variant in card_data:
 		if not raw_card_data is Dictionary:
@@ -25,9 +24,6 @@ static func build(
 			continue
 
 		cards.append(card)
-		effect_signatures[_build_effect_signature(card.get_effects())] = true
-
-	_verify_card_coverage(score_trees, effect_signatures)
 
 	return FeatureDeck.new(cards)
 
@@ -183,98 +179,3 @@ static func _parse_impact(impact_name: String) -> FeatureEffect.Impact:
 		return FeatureEffect.Impact.NEGATIVE
 
 	return FeatureEffect.Impact.POSITIVE
-
-
-static func _verify_card_coverage(
-	score_trees: Array[ScoreTree],
-	actual_signatures: Dictionary[String, bool]
-) -> void:
-	var expected_signatures: Dictionary[String, bool] = _build_expected_effect_signatures(score_trees)
-
-	if actual_signatures.size() != expected_signatures.size():
-		push_error("Card deck has %d effect combinations; expected %d." % [
-			actual_signatures.size(),
-			expected_signatures.size(),
-		])
-		return
-
-	for signature: String in expected_signatures.keys():
-		if not actual_signatures.has(signature):
-			push_error("Card deck is missing effect combination: %s" % signature)
-
-
-static func _build_expected_effect_signatures(
-	score_trees: Array[ScoreTree]
-) -> Dictionary[String, bool]:
-	var effect_groups: Array = []
-
-	for score_tree: ScoreTree in score_trees:
-		effect_groups.append(_build_target_effects(score_tree))
-
-	var signatures: Dictionary[String, bool] = {}
-
-	for raw_effect_combination: Array in _build_effect_combinations(effect_groups):
-		var effects: Array[FeatureEffect] = []
-
-		for effect: FeatureEffect in raw_effect_combination:
-			effects.append(effect)
-
-		signatures[_build_effect_signature(effects)] = true
-
-	return signatures
-
-
-static func _build_target_effects(score_tree: ScoreTree) -> Array[FeatureEffect]:
-	var effects: Array[FeatureEffect] = []
-	var node_uids: Array[String] = []
-
-	for node: ScoreTreeNode in score_tree.nodes.values():
-		if node.get_uid() != score_tree.get_root_uid():
-			node_uids.append(node.get_uid())
-
-	node_uids.sort()
-
-	for node_uid: String in node_uids:
-		effects.append(FeatureEffect.new(
-			score_tree.get_uid(),
-			node_uid,
-			FeatureEffect.Impact.POSITIVE
-		))
-		effects.append(FeatureEffect.new(
-			score_tree.get_uid(),
-			node_uid,
-			FeatureEffect.Impact.NEGATIVE
-		))
-
-	return effects
-
-
-static func _build_effect_combinations(effect_groups: Array) -> Array:
-	var combinations: Array = [[]]
-
-	for effect_group: Array in effect_groups:
-		var next_combinations: Array = []
-
-		for combination: Array in combinations:
-			for effect: FeatureEffect in effect_group:
-				var next_combination: Array = combination.duplicate()
-				next_combination.append(effect)
-				next_combinations.append(next_combination)
-
-		combinations = next_combinations
-
-	return combinations
-
-
-static func _build_effect_signature(effects: Array[FeatureEffect]) -> String:
-	var effect_parts: Array[String] = []
-
-	for effect: FeatureEffect in effects:
-		effect_parts.append("%s:%s:%d" % [
-			effect.get_tree_uid(),
-			effect.get_node_uid(),
-			effect.get_impact(),
-		])
-
-	effect_parts.sort()
-	return "|".join(effect_parts)

@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-049",
+    "title": "HONEST BUNDLE LABELS",
+    "description": "Store bundles now show exact contents, duplicate rules, currency leftovers, and the real-money total before the confirmation button appears.",
+    "consequence": "The store learns to count out loud.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-050",
+    "title": "TRUE ODDS TOOLTIP",
+    "description": "Mystery chests now reveal exact drop rates, pity progress, duplicate conversion rules, and the statistical cruelty of buying only one.",
+    "consequence": "The mystery box has to introduce itself.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-061",
+    "title": "MYTHIC CURRENCY LAYER",
+    "description": "Premium offers now include bonus shards, event vouchers, loyalty dust, seasonal keys, and a heroic exchange rate banner that refuses to sit still.",
+    "consequence": "The price tag grows extra organs.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-062",
+    "title": "REALISTIC SEED CATALOG",
+    "description": "Seed listings now include regional lineage, moon tolerance, soil anxiety, pollinator preferences, and a foldout comparison chart before purchase.",
+    "consequence": "The seed packet becomes a pamphlet with weather opinions.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  }
+]

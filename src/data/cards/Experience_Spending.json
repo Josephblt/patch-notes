@@ -3,7 +3,7 @@
     "uid": "update-003",
     "title": "RELIC PREVIEW SHOP",
     "description": "Draft rooms now preview one upcoming relic synergy before the player commits, with optional paid rerolls for the shop inventory between encounters.",
-    "consequence": "Players started making builds on purpose. The store started calling indecision a feature.",
+    "consequence": "Players start making builds on purpose. The store starts calling indecision a feature.",
     "effects": [
       {
         "tree": "Fun",
@@ -21,7 +21,7 @@
     "uid": "update-004",
     "title": "DRAFT REFUND RULE",
     "description": "Card shops now let players undo one purchase per floor after testing the card in combat, refunding the full cost if the run survives.",
-    "consequence": "Players stopped treating every shop like a tax audit. The economy lost its favorite kind of mistake.",
+    "consequence": "Players stop treating every shop like a tax audit. The economy loses its favorite kind of mistake.",
     "effects": [
       {
         "tree": "Fun",
@@ -39,7 +39,7 @@
     "uid": "update-015",
     "title": "INSURANCE EXTRACTION TOKEN",
     "description": "Extraction runs now offer a paid insurance token that protects one backpack slot if the player dies before reaching the elevator.",
-    "consequence": "The dungeon kept its teeth. The checkout page got a helmet.",
+    "consequence": "The dungeon keeps its teeth. The checkout page gets a helmet.",
     "effects": [
       {
         "tree": "Fun",
@@ -57,7 +57,7 @@
     "uid": "update-016",
     "title": "STARTER DECK INSPECTION",
     "description": "New runs now begin with a mandatory deck inspection screen that flags weak cards, recommends removals, and blocks the first encounter until every warning is dismissed.",
-    "consequence": "The run got a lecture before it got a turn. The shop watched players close the game with exact procedural accuracy.",
+    "consequence": "The run gets a lecture before it gets a turn. The shop watches players close the game with exact procedural accuracy.",
     "effects": [
       {
         "tree": "Fun",

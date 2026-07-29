@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-053",
+    "title": "SHOWROOM SPEC CARDS",
+    "description": "Vehicle previews now show grip class, upgrade limits, cockpit view, engine sample, and which cosmetics are included before the test drive starts.",
+    "consequence": "The showroom stops mumbling through the glass.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-054",
+    "title": "PLAIN SKIN PREVIEW",
+    "description": "Weapon skins now preview under normal mission lighting with no smoke, hero pose, rarity flare, or suspiciously flattering reload camera.",
+    "consequence": "The mannequin turns on the lights.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-065",
+    "title": "CLASS BLESSING BUNDLE",
+    "description": "The new player shop now recommends one class-themed bundle with a matching mount dye, starter weapon skin, and gold-trimmed path marker before the item details expand.",
+    "consequence": "The first offer arrives already dressed for the class.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-066",
+    "title": "ARCHIVE BOOSTER FAMILIES",
+    "description": "Card pack previews now group cards by set family, variant era, sleeve lineage, and seasonal archive tab before showing the exact card pool.",
+    "consequence": "The preview opens another drawer.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Clarity",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

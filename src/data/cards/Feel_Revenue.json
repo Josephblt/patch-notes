@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-025",
+    "title": "GOLDEN RELOAD INSPECTION",
+    "description": "Premium weapon skins now include bespoke reload animations, tiny chamber-check flourishes, and a heroic magazine slap that plays only when the cosmetic is equipped.",
+    "consequence": "The gun feel gets theatrical. The store gets something expensive enough to inspect frame by frame.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-026",
+    "title": "NO-FEE RESPEC SHRINE",
+    "description": "Shrines now let players rebuild stats, weapon scaling, and spell slots without spending premium tokens, provided they kneel through one extremely judgmental animation.",
+    "consequence": "Buildcraft gets less punitive. The shrine stops begging for change.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-037",
+    "title": "PREMIUM WATERING CAN SWING",
+    "description": "The default watering can now has a slower windup and heavier stamina cost, while the polished premium can keeps the old snap, splash arc, and smug little sparkle.",
+    "consequence": "The farm chores get heavier. The upgrade button looks suspiciously ergonomic.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-038",
+    "title": "REALISTIC CLUTCH TUTORIAL",
+    "description": "Every new vehicle now requires a manual clutch calibration sequence, including stall recovery, hill starts, and a dashboard warning light that refuses to explain itself.",
+    "consequence": "The cars get more authentic in the worst direction. The showroom loses its impulse-buy smell.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Revenue",
+        "impact": "negative"
+      }
+    ]
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-029",
+    "title": "MARKET STALL HANDOFF",
+    "description": "Farmers now pass purchased goods across the stall with a small wrapped bundle animation, a wooden stamp sound, and exactly enough ceremony to make buying carrots feel official.",
+    "consequence": "The market gets a better handshake. The buy button gets manners.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-030",
+    "title": "CATALOG WINDOW SHOPPING",
+    "description": "Furniture previews now let players place ghost versions of premium items in their home, walk around them, adjust the lighting, and then leave without confirming the purchase.",
+    "consequence": "The room gets to rehearse before anything becomes furniture.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-041",
+    "title": "DEATH SCREEN SKIN INSPECT",
+    "description": "After a wipe, the death recap now rotates the killer's weapon skin for three seconds before showing damage numbers, complete with rarity flare and a tiny store tag.",
+    "consequence": "The autopsy pauses to admire the merchandise.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-042",
+    "title": "SHOWROOM DOOR ANIMATION",
+    "description": "Vehicle previews now begin with a slow unskippable door-open sequence, followed by a camera orbit that lingers on the cup holders before reaching the engine sound test.",
+    "consequence": "The test drive starts with interior monologue.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Feel",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

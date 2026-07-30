@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-129",
+    "title": "VERIFIED RAID CLIPS",
+    "description": "Shared raid clips now include route proof, squad status, loot source, and a tiny anti-fake stamp before the screaming starts in the elevator.",
+    "consequence": "The highlight reel gets a witness stand.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-130",
+    "title": "PRIVATE BUILD RECEIPTS",
+    "description": "Run summaries now keep exact relic math, weird combo ordering, and suspiciously lucky shop rolls visible only to the player unless they choose to publish them.",
+    "consequence": "The build keeps its diary off the billboard.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-141",
+    "title": "BORROWED GUESTBOOK PRAISE",
+    "description": "Home tours now open with cheerful visitor quotes, suspiciously familiar compliments, and a rotating \"people love this room\" badge before anyone actually visits.",
+    "consequence": "The guestbook starts signing itself.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-142",
+    "title": "ANTI-CHEAT SHARE QUARANTINE",
+    "description": "Screenshots and squad recaps now wait behind automated integrity review, watermark checks, and a stern upload delay that treats every victory like evidence.",
+    "consequence": "The screenshot gets detained at customs.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  }
+]

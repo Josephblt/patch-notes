@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-131",
+    "title": "OFFLINE CAMP CONFESSION",
+    "description": "When players return, camps now explain every decay tick, raider visit, spoiled stew, and suspiciously missing plank in a plain log signed by the system itself.",
+    "consequence": "The camp leaves a signed confession.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-132",
+    "title": "VACATION STREAK RECEIPT",
+    "description": "Daily streaks now show exactly what pauses, what expires, and what waits politely while the player is away, including a little calendar stamp labeled \"go live outside.\"",
+    "consequence": "The streak timer learns paid leave.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-143",
+    "title": "LIVE GARAGE PROGRESS",
+    "description": "Car upgrades now send workshop photos, mechanic notes, dyno whispers, and shifting completion estimates as the crew tunes each part through a more detailed build process.",
+    "consequence": "The garage keeps sending postcards from almost done.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-144",
+    "title": "FAIRNESS LOGIN SEARCH",
+    "description": "Every new run now begins with deck integrity checks, shuffle verification, anti-cheat seals, and a solemn reminder that honest players have nothing to worry about.",
+    "consequence": "The login screen pats everyone down for dice.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

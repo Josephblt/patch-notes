@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-077",
+    "title": "ADOPTION DAY PREVIEW",
+    "description": "The pet adoption screen now lets players hear each animal's tiny greeting, see favorite foods, preview sleeping spots, and test one name before confirming.",
+    "consequence": "The adoption form starts wagging first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-078",
+    "title": "BORROWED SOFA WEEKEND",
+    "description": "Neighbors can now lend furniture for a weekend trial, letting players live with a premium couch, lamp, or suspiciously emotional rug before deciding anything.",
+    "consequence": "The sofa becomes a houseguest before it becomes furniture.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-089",
+    "title": "INSTANT BOND TOKEN",
+    "description": "Companions now offer a paid bonding token that unlocks loyal idle poses, greeting lines, and trust animations without the usual shared quest history.",
+    "consequence": "Friendship arrives preassembled.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-090",
+    "title": "ACCOUNT-SAFE CALLSIGNS",
+    "description": "Squadmates, pets, and favorite weapons now display moderated archetype labels in purchase previews instead of custom names or old run nicknames.",
+    "consequence": "The companion introduces itself as a category.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

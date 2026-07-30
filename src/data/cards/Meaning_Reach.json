@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-105",
+    "title": "BLOODSTAIN EULOGIES",
+    "description": "Player death marks now preserve the final build, last mistake, and one tiny epitaph that other wanderers can read before deciding whether to repeat the tragedy.",
+    "consequence": "The bloodstain gets candles and a comment section.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-106",
+    "title": "SECRET ENDING LOCKBOX",
+    "description": "Rare endings now hide their final room, boss title, and reward art from previews and share cards until the player reaches them personally.",
+    "consequence": "The finale shuts the theater doors.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-117",
+    "title": "VIRAL GRAVE EMOTES",
+    "description": "Squad wipes now trigger branded death poses, animated farewell stickers, and auto-framed defeat cards sized perfectly for every social feed that still has shame left.",
+    "consequence": "The funeral learns thumbnail face.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-118",
+    "title": "CANON-SAFE LEGEND FILTER",
+    "description": "Player legends now replace custom names, strange choices, and embarrassing heroic accidents with approved archetype labels before any recap leaves the game.",
+    "consequence": "The legend becomes patch-note compliant.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Reach",
+        "impact": "negative"
+      }
+    ]
+  }
+]

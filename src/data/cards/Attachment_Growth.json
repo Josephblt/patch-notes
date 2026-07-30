@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-079",
+    "title": "MENTOR HOMESTEAD INVITES",
+    "description": "New players can now begin inside a veteran's homestead, with a guest bed, starter chores, shared meals, and a small mailbox for their first party invite.",
+    "consequence": "The first town has someone waiting.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-080",
+    "title": "ROOTED WORLD START",
+    "description": "New saves now begin with one named camp lineage, persistent scars in the terrain, and no seasonal reset pitch interrupting the first shelter.",
+    "consequence": "The camp chooses roots over flyers.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-091",
+    "title": "CROSSOVER SQUAD ROTATION",
+    "description": "The starter squad now cycles through limited crossover allies with branded callouts, temporary poses, and event bios that leave before anyone drops their guard.",
+    "consequence": "The squad photo keeps changing faces.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-092",
+    "title": "STARTER VILLAGE ROTATION",
+    "description": "The opening village now randomizes shopkeepers, neighbor names, festival hosts, and welcome letters each run so no two first weeks feel officially identical.",
+    "consequence": "The welcome sign forgets who painted it.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Growth",
+        "impact": "negative"
+      }
+    ]
+  }
+]

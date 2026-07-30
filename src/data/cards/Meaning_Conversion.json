@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-101",
+    "title": "OATH LAP SHOWROOM",
+    "description": "Vehicle previews now end with a ceremonial test lap where the driver swears loyalty to the car, the pit crew rings a tiny chrome bell, and the engine signs the decision in smoke.",
+    "consequence": "The test drive gets knighted in public.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-102",
+    "title": "EARNED ARMOR PILGRIMAGE",
+    "description": "Armor previews now show the shrine, boss wound, and miserable little staircase tied to each set, nudging players toward earning the look before buying a clean replica.",
+    "consequence": "The cloak asks for a story before a cart.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-113",
+    "title": "CHOSEN ONE STARTER PACK",
+    "description": "New characters can now buy a destiny bundle with prophecy robes, glowing ancestor approval, and a private cutscene where the ancient order guesses their name correctly enough.",
+    "consequence": "The ancient prophecy finds the express lane.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-114",
+    "title": "STANDARDIZED FATE PREVIEW",
+    "description": "Run-ending previews now flatten legendary deaths, cursed victories, and impossible combo endings into tidy badge categories before showing the unlock offer.",
+    "consequence": "The apocalypse gets filed under completion rewards.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Meaning",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Conversion",
+        "impact": "negative"
+      }
+    ]
+  }
+]

@@ -34,17 +34,25 @@ The game interprets the theme through product updates. Every shipped change move
 ## Core Loop
 
 1. Draw a hand of update cards.
-2. Choose which update to ship.
+2. Choose at least one update to ship.
 3. Discard the rest.
-4. Apply the shipped card's hidden effects to the active scoring trees.
-5. Repeat for 10 sprints.
-6. Receive an ending based on the final state and path of the active scoring trees.
+4. Repeat for 4 sprints to complete a release.
+5. Ship the release and apply the shipped cards' hidden effects to the active scoring trees.
+6. Repeat for 4 releases.
+7. Receive an ending based on the final state and path of the active scoring trees.
 
 ## Rules
 
 - Fun starts at 0.
 - Money starts at 0.
 - Hand size is 3 cards.
+- Each sprint requires the player to ship at least 1 card.
+- The player may ship 1, 2, or all 3 cards from the sprint hand.
+- Unshipped cards are discarded.
+- Each release contains 4 sprints.
+- A full run contains 4 releases.
+- A full run contains 16 sprints total.
+- A full run ships between 16 and 48 cards, depending on player choices.
 - The full possible deck has 144 unique cards.
 - No card can be drawn twice.
 - The current scoring trees are Fun and Money.
@@ -80,6 +88,74 @@ Negative -> remove points
 ```
 
 So a `Level 2 Positive` effect is `+3`, and a `Level 3 Negative` effect is `-1`.
+
+## Score Range
+
+Each shipped card affects Fun once and Money once. Since a sprint hand contains 3 cards and a full run contains 16 sprints, the player ships between 16 and 48 cards per run.
+
+A single card can change each scoring tree by `-3`, `-1`, `+1`, or `+3`.
+
+For a 16-sprint run, the theoretical raw range for each scoring tree is:
+
+```text
+Minimum: -96
+Maximum: +96
+```
+
+This comes from the authored deck distribution, not from assuming every card could be worth `+3` forever. For each score tree, the 144-card deck currently contains:
+
+```text
+24 cards worth +3
+48 cards worth +1
+48 cards worth -1
+24 cards worth -3
+```
+
+The best possible 48-card selection for one tree is:
+
+```text
+24 cards * +3 = +72
+24 cards * +1 = +24
+Total = +96
+```
+
+The worst possible 48-card selection mirrors that at `-96`.
+
+Because the player can choose different numbers of cards per sprint, score interpretation should account for variable shipped-card count. A final score can be normalized to a 0-100 range from the raw `-96..+96` axis:
+
+```text
+normalized_score = round(((raw_score + 96) / 192) * 100)
+```
+
+This maps:
+
+```text
+-96 -> 0
+  0 -> 50
++96 -> 100
+```
+
+Release score updates should use release deltas instead of final normalized totals. A release contains 4 sprints, so it ships between 4 and 12 cards. The theoretical raw delta range for each release score tree is `-36..+36`.
+
+## Score Bands
+
+Final score interpretation starts with five equal normalized bands per scoring tree:
+
+```text
+0-19    Very Low
+20-39   Low
+40-59   Mixed
+60-79   High
+80-100  Very High
+```
+
+With the current Fun and Money trees, this creates a `5 x 5` final result grid:
+
+```text
+25 final score combinations
+```
+
+These bands are the first balancing pass. They should be treated as tunable once playtesting and simulation show where real runs tend to land.
 
 ## Fun Tree
 

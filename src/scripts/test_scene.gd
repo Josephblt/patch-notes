@@ -12,8 +12,10 @@ const CARD_BODY_LINE_HEIGHT: int = 16
 var score_trees: Array[ScoreTree] = []
 var feature_deck: FeatureDeck
 var game_run: GameRun
+var score_interpreter: ScoreInterpreter
 var current_sprint: Sprint
 var current_sprint_cards: Array[FeatureCard] = []
+var last_release_update_text: String = ""
 var card_buttons: Array[Button] = []
 var card_title_labels: Array[Label] = []
 var card_description_labels: Array[Label] = []
@@ -33,6 +35,7 @@ func _ready() -> void:
 	feature_deck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle()
 	game_run = GameRun.new(feature_deck, score_trees)
+	score_interpreter = ScoreInterpreter.load_default()
 	card_buttons = [
 		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1,
 		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton2,
@@ -66,6 +69,7 @@ func _ready() -> void:
 
 func _on_start_sprint_button_pressed() -> void:
 	current_sprint = game_run.start_sprint()
+	last_release_update_text = ""
 
 	if current_sprint == null:
 		_render_state()
@@ -111,10 +115,17 @@ func _on_ship_release_button_pressed() -> void:
 	if release == null:
 		return
 
+	var previous_fun_score: int = _get_score_by_tree_name("Fun")
+	var previous_money_score: int = _get_score_by_tree_name("Money")
+
 	if not game_run.ship_current_release():
 		_render_state()
 		return
 
+	last_release_update_text = _format_release_update(
+		_get_score_by_tree_name("Fun") - previous_fun_score,
+		_get_score_by_tree_name("Money") - previous_money_score
+	)
 	_render_state()
 
 
@@ -124,7 +135,7 @@ func _render_state() -> void:
 	if release == null:
 		state_label.text = "Run complete."
 		score_label.text = "Scores: %s" % _format_scores()
-		preview_label.text = "Preview: %s" % _format_preview_scores()
+		preview_label.text = _format_final_result()
 		selected_effects_label.text = _format_selected_updates()
 		start_sprint_button.disabled = true
 		submit_sprint_button.disabled = true
@@ -149,7 +160,7 @@ func _render_state() -> void:
 		_format_bool(release.is_ready_to_ship()),
 	]
 	score_label.text = "Scores: %s" % _format_scores()
-	preview_label.text = "Preview: %s" % _format_preview_scores()
+	preview_label.text = _format_status_detail()
 	selected_effects_label.text = _format_selected_updates()
 
 	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
@@ -239,9 +250,19 @@ func _format_scores() -> String:
 		if not output.is_empty():
 			output += " | "
 
-		output += "%s %d" % [
+		var raw_score: int = game_run.get_score(score_tree.get_uid())
+		var normalized_score: int = score_interpreter.normalize(
+			raw_score,
+			ScoreInterpreter.FINAL_MIN_RAW_SCORE,
+			ScoreInterpreter.FINAL_MAX_RAW_SCORE
+		)
+		var score_band: ScoreBand = score_interpreter.get_band(normalized_score)
+
+		output += "%s %d (%d%% %s)" % [
 			score_tree.get_display_name(),
-			game_run.get_score(score_tree.get_uid()),
+			raw_score,
+			normalized_score,
+			_format_score_band(score_band),
 		]
 
 	return output
@@ -260,6 +281,41 @@ func _format_preview_scores() -> String:
 		]
 
 	return output
+
+
+func _format_status_detail() -> String:
+	if not last_release_update_text.is_empty():
+		return last_release_update_text
+
+	return "Preview: %s" % _format_preview_scores()
+
+
+func _format_release_update(fun_delta: int, money_delta: int) -> String:
+	var release_update: Dictionary = score_interpreter.evaluate_release_delta(
+		fun_delta,
+		money_delta
+	)
+	var update_data: Dictionary = release_update.get("update", {})
+
+	return "Release update: %s | Fun %s | Money %s\n%s" % [
+		update_data.get("title", "Unclassified Release"),
+		_format_signed_points(fun_delta),
+		_format_signed_points(money_delta),
+		update_data.get("summary", ""),
+	]
+
+
+func _format_final_result() -> String:
+	var final_result: Dictionary = score_interpreter.evaluate_final_scores(
+		_get_score_by_tree_name("Fun"),
+		_get_score_by_tree_name("Money")
+	)
+	var result_data: Dictionary = final_result.get("result", {})
+
+	return "Final result: %s\n%s" % [
+		result_data.get("title", "Unclassified Result"),
+		result_data.get("summary", ""),
+	]
 
 
 func _format_selected_updates() -> String:
@@ -329,11 +385,26 @@ func _find_score_tree(tree_uid: String) -> ScoreTree:
 	return null
 
 
+func _get_score_by_tree_name(tree_name: String) -> int:
+	for score_tree: ScoreTree in score_trees:
+		if score_tree.get_display_name() == tree_name:
+			return game_run.get_score(score_tree.get_uid())
+
+	return 0
+
+
 func _format_signed_points(points: int) -> String:
 	if points >= 0:
 		return "+%d" % points
 
 	return "%d" % points
+
+
+func _format_score_band(score_band: ScoreBand) -> String:
+	if score_band == null:
+		return "Unbanded"
+
+	return score_band.get_display_name()
 
 
 func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:

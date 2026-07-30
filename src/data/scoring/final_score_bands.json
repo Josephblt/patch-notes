@@ -1,0 +1,32 @@
+[
+  {
+    "uid": "very_low",
+    "display_name": "Very Low",
+    "min_score": 0,
+    "max_score": 19
+  },
+  {
+    "uid": "low",
+    "display_name": "Low",
+    "min_score": 20,
+    "max_score": 39
+  },
+  {
+    "uid": "mixed",
+    "display_name": "Mixed",
+    "min_score": 40,
+    "max_score": 59
+  },
+  {
+    "uid": "high",
+    "display_name": "High",
+    "min_score": 60,
+    "max_score": 79
+  },
+  {
+    "uid": "very_high",
+    "display_name": "Very High",
+    "min_score": 80,
+    "max_score": 100
+  }
+]

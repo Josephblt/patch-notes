@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-123",
+    "title": "REFUNDABLE COMBO CART",
+    "description": "Card shops now let players test a paid combo bundle in a tiny practice hand, then refund it once if the synergy collapses like a tutorial written by committee.",
+    "consequence": "The shop lets the receipt touch grass first.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-124",
+    "title": "HONEST INSURANCE RECEIPT",
+    "description": "Gear insurance now lists exactly which backpack slots, cursed trinkets, suspicious keys, and emotionally expensive helmets it will actually bring home.",
+    "consequence": "The backpack stops buying umbrellas for rocks.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-135",
+    "title": "PRE-CHECKED COMFORT BASKET",
+    "description": "Decoration plans now arrive with recommended trims, matching lamps, premium rug cousins, and one tasteful little checkbox already nodding like it pays rent.",
+    "consequence": "The rug learns to invite its relatives.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-136",
+    "title": "VILLAGE SCRIP WALLET",
+    "description": "Camp vendors now split purchases across local scrip, favor chits, rain tokens, and emergency plank credit so every trade feels more grounded and less believable.",
+    "consequence": "The wallet becomes a side quest nobody trusts.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Trust",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Spending",
+        "impact": "negative"
+      }
+    ]
+  }
+]

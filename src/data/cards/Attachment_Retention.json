@@ -1,0 +1,74 @@
+[
+  {
+    "uid": "update-083",
+    "title": "PORCH MEMORY ROUTINE",
+    "description": "Each evening, companions, neighbors, and visiting pets can leave small remarks, found objects, and weather complaints on the farmhouse porch.",
+    "consequence": "The porch starts saving a chair.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-084",
+    "title": "COMPANION EPILOGUE LETTERS",
+    "description": "Finished companion arcs now end with handwritten letters, keepsake objects, and a quiet goodbye scene instead of looping daily favor requests forever.",
+    "consequence": "The story learns how to say goodnight.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "positive"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  },
+  {
+    "uid": "update-095",
+    "title": "FRIENDSHIP STAMP ALBUM",
+    "description": "Companion bonds now fill stamp pages with tiers, checkmarks, foil borders, and repeatable visit marks instead of messy little remembered conversations.",
+    "consequence": "The relationship becomes a punch card.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "positive"
+      }
+    ]
+  },
+  {
+    "uid": "update-096",
+    "title": "AUTO-ROSTER CLEANUP",
+    "description": "Inactive squadmates now slide into an archived roster with generic status tags, compact portraits, and no old mission notes cluttering the team screen.",
+    "consequence": "The squad list learns to forget politely.",
+    "effects": [
+      {
+        "tree": "Fun",
+        "node": "Attachment",
+        "impact": "negative"
+      },
+      {
+        "tree": "Money",
+        "node": "Retention",
+        "impact": "negative"
+      }
+    ]
+  }
+]

@@ -64,6 +64,16 @@ func get_discarded_card_count() -> int:
 	return _feature_cards.size() - _selected_card_uids.size()
 
 
+func get_discarded_cards() -> Array[FeatureCard]:
+	var discarded_cards: Array[FeatureCard] = []
+
+	for feature_card: FeatureCard in _feature_cards:
+		if not _is_card_selected(feature_card.get_uid()):
+			discarded_cards.append(feature_card)
+
+	return discarded_cards
+
+
 func submit() -> bool:
 	if _submitted or _selected_card_uids.is_empty():
 		return false

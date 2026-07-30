@@ -65,6 +65,15 @@ func get_discarded_card_count() -> int:
 	return discarded_card_count
 
 
+func get_discarded_cards() -> Array[FeatureCard]:
+	var discarded_cards: Array[FeatureCard] = []
+
+	for sprint: Sprint in _sprints:
+		discarded_cards.append_array(sprint.get_discarded_cards())
+
+	return discarded_cards
+
+
 func add_sprint(sprint: Sprint) -> bool:
 	if _shipped or _sprints.size() == SPRINT_COUNT or sprint == null:
 		return false

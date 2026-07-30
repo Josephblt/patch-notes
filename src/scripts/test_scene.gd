@@ -15,7 +15,7 @@ var game_run: GameRun
 var score_interpreter: ScoreInterpreter
 var current_sprint: Sprint
 var current_sprint_cards: Array[FeatureCard] = []
-var last_release_update_text: String = ""
+var last_release_report: ReleaseReport
 var card_buttons: Array[Button] = []
 var card_title_labels: Array[Label] = []
 var card_description_labels: Array[Label] = []
@@ -69,7 +69,7 @@ func _ready() -> void:
 
 func _on_start_sprint_button_pressed() -> void:
 	current_sprint = game_run.start_sprint()
-	last_release_update_text = ""
+	last_release_report = null
 
 	if current_sprint == null:
 		_render_state()
@@ -115,17 +115,11 @@ func _on_ship_release_button_pressed() -> void:
 	if release == null:
 		return
 
-	var previous_fun_score: int = _get_score_by_tree_name("Fun")
-	var previous_money_score: int = _get_score_by_tree_name("Money")
-
 	if not game_run.ship_current_release():
 		_render_state()
 		return
 
-	last_release_update_text = _format_release_update(
-		_get_score_by_tree_name("Fun") - previous_fun_score,
-		_get_score_by_tree_name("Money") - previous_money_score
-	)
+	last_release_report = game_run.get_last_release_report()
 	_render_state()
 
 
@@ -284,13 +278,15 @@ func _format_preview_scores() -> String:
 
 
 func _format_status_detail() -> String:
-	if not last_release_update_text.is_empty():
-		return last_release_update_text
+	if last_release_report != null:
+		return _format_release_update(last_release_report)
 
 	return "Preview: %s" % _format_preview_scores()
 
 
-func _format_release_update(fun_delta: int, money_delta: int) -> String:
+func _format_release_update(release_report: ReleaseReport) -> String:
+	var fun_delta: int = _get_report_score_delta(release_report, "Fun")
+	var money_delta: int = _get_report_score_delta(release_report, "Money")
 	var release_update: Dictionary = score_interpreter.evaluate_release_delta(
 		fun_delta,
 		money_delta
@@ -319,6 +315,9 @@ func _format_final_result() -> String:
 
 
 func _format_selected_updates() -> String:
+	if last_release_report != null:
+		return _format_release_report(last_release_report)
+
 	var selected_cards: Array[FeatureCard] = []
 	var release: Release = game_run.get_current_release()
 
@@ -338,6 +337,37 @@ func _format_selected_updates() -> String:
 		lines.append(_format_card_effects(card))
 
 	return _join_lines(lines)
+
+
+func _format_release_report(release_report: ReleaseReport) -> String:
+	var lines: Array[String] = [
+		"Release %d report" % release_report.get_release_number(),
+		"Got in:",
+	]
+
+	_append_card_titles(lines, release_report.get_shipped_cards())
+	lines.append("")
+	lines.append("Got out:")
+	_append_card_titles(lines, release_report.get_discarded_cards())
+	lines.append("")
+	lines.append("Score update:")
+
+	for score_tree: ScoreTree in score_trees:
+		lines.append("%s %s" % [
+			score_tree.get_display_name(),
+			_format_signed_points(release_report.get_score_delta(score_tree.get_uid())),
+		])
+
+	return _join_lines(lines)
+
+
+func _append_card_titles(lines: Array[String], cards: Array[FeatureCard]) -> void:
+	if cards.is_empty():
+		lines.append("- none")
+		return
+
+	for card: FeatureCard in cards:
+		lines.append("- %s" % card.get_title())
 
 
 func _format_card_effects(card: FeatureCard) -> String:
@@ -389,6 +419,14 @@ func _get_score_by_tree_name(tree_name: String) -> int:
 	for score_tree: ScoreTree in score_trees:
 		if score_tree.get_display_name() == tree_name:
 			return game_run.get_score(score_tree.get_uid())
+
+	return 0
+
+
+func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> int:
+	for score_tree: ScoreTree in score_trees:
+		if score_tree.get_display_name() == tree_name:
+			return release_report.get_score_delta(score_tree.get_uid())
 
 	return 0
 

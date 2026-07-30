@@ -10,6 +10,7 @@ var _score_trees: Dictionary[String, ScoreTree]
 var _scores: Dictionary[String, int]
 var _releases: Array[Release]
 var _current_release: Release
+var _last_release_report: ReleaseReport
 
 
 func _init(run_feature_deck: FeatureDeck, run_score_trees: Array[ScoreTree] = []) -> void:
@@ -18,6 +19,7 @@ func _init(run_feature_deck: FeatureDeck, run_score_trees: Array[ScoreTree] = []
 	_scores = {}
 	_releases = []
 	_current_release = Release.new(1)
+	_last_release_report = null
 	_releases.append(_current_release)
 
 	for score_tree: ScoreTree in run_score_trees:
@@ -55,6 +57,10 @@ func get_preview_score(tree_uid: String, pending_sprint: Sprint = null) -> int:
 	return preview_score
 
 
+func get_last_release_report() -> ReleaseReport:
+	return _last_release_report
+
+
 func start_sprint() -> Sprint:
 	if _current_release == null or _current_release.is_ready_to_ship():
 		return null
@@ -85,7 +91,8 @@ func ship_current_release() -> bool:
 	if _current_release == null or not _current_release.ship():
 		return false
 
-	_apply_release_scores(_current_release)
+	_last_release_report = _build_release_report(_current_release)
+	_apply_release_scores(_last_release_report)
 
 	if _releases.size() == RELEASE_COUNT:
 		_current_release = null
@@ -96,12 +103,27 @@ func ship_current_release() -> bool:
 	return true
 
 
-func _apply_release_scores(release: Release) -> void:
+func _apply_release_scores(release_report: ReleaseReport) -> void:
 	for score_tree_uid: String in _scores.keys():
-		_scores[score_tree_uid] += _calculate_cards_points(
-			release.get_selected_cards(),
+		_scores[score_tree_uid] += release_report.get_score_delta(score_tree_uid)
+
+
+func _build_release_report(release: Release) -> ReleaseReport:
+	var score_deltas: Dictionary[String, int] = {}
+	var selected_cards: Array[FeatureCard] = release.get_selected_cards()
+
+	for score_tree_uid: String in _scores.keys():
+		score_deltas[score_tree_uid] = _calculate_cards_points(
+			selected_cards,
 			score_tree_uid
 		)
+
+	return ReleaseReport.new(
+		release.get_number(),
+		selected_cards,
+		release.get_discarded_cards(),
+		score_deltas
+	)
 
 
 func _calculate_cards_points(cards: Array[FeatureCard], tree_uid: String) -> int:

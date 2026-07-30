@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-001",
     "title": "FIRST BOSS OVERHAUL",
     "description": "The first boss has been rebuilt with clearer attacks, faster recovery windows, and a founder pack offer that appears after the victory screen.",
     "consequence": "Players finally get a first win worth remembering. The store finally gets a customer worth interrupting.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-002",
     "title": "STARTER GEAR UNLOCK",
     "description": "The early combat pass now gives every new player a full starter kit, replacing the paid convenience bundle that used to sit beside the tutorial.",
     "consequence": "Players stop losing their first hour to inventory friction. The tutorial bundle sits beside them, dressed for the wrong party.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-013",
     "title": "EXPEDITED CRAFTING TIMERS",
     "description": "Early weapon and armor crafting now uses real-time job timers, with premium currency available to speed up workshop completion.",
     "consequence": "The first hour learns to wait. The forge discovers urgency is a billable material.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-014",
     "title": "MANDATORY CAMP SETUP",
     "description": "New players must now place a starter camp, assign storage zones, name three crafting stations, and confirm a base layout before leaving the tutorial island.",
     "consequence": "Players meet the sandbox by filling out paperwork. The store has to wait outside.",

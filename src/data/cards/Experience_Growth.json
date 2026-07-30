@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-011",
     "title": "WELCOME DISASTER TOUR",
     "description": "New players now start with a guided airship flyover of the farm valley, extraction gate, raid volcano, kart track, and suspiciously monetized pet district before choosing a first objective.",
     "consequence": "The opening finally admits what game this is. The first hour gets a map instead of a blindfold.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-012",
     "title": "ONE PRICE FRONTIER",
     "description": "The game now opens as a single paid frontier pass with no referral quests, install bonuses, creator codes, friend-invite popups, or limited-time newcomer bundles.",
     "consequence": "The first hour gets cleaner. The welcome mat stops doing magic tricks.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-023",
     "title": "CREATOR DROP STORM",
     "description": "Early missions now shower players with limited creator-branded weapons, animated loot beams, referral crates, and a rotating \"everyone is using this\" loadout banner.",
     "consequence": "The arsenal becomes an ad break. The confetti cannons find their safest target.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-024",
     "title": "LICENSE EXAM PROLOGUE",
     "description": "New drivers must now complete a written rules test, parallel parking trial, tire pressure checklist, and three supervised laps before entering the open-world racing festival.",
     "consequence": "The starting line gets a clipboard. The festival gate gets quieter.",

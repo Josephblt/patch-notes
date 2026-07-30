@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-073",
     "title": "ENGRAVED PET COLLARS",
     "description": "Companions now keep nicknames, adoption dates, favorite snacks, and a little collar plate that can be upgraded with premium metals and tiny heroic fonts.",
     "consequence": "The pet gets a nameplate with a receipt.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-074",
     "title": "EARNED GUILD BANNERS",
     "description": "Guild halls now unlock banners through shared milestones, raid memories, and member signatures instead of selling crest packs from the hall vendor.",
     "consequence": "The banner learns who carried it.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-085",
     "title": "SEASONAL COMPANION RENTALS",
     "description": "The stable now offers limited-time companion leases with themed animations, premium saddle slots, and a cheerful return date printed beside the friendship meter.",
     "consequence": "The stable starts measuring affection in weekends.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-086",
     "title": "STANDARDIZED MEMORY ALBUM",
     "description": "Player albums now compress old screenshots, gifts, camp notes, and named discoveries into tidy account-safe scrapbook stickers for faster profile loading.",
     "consequence": "The scrapbook forgets which hands made it.",

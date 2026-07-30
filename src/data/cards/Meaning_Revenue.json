@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-097",
     "title": "PATRON SHRINE PLAQUES",
     "description": "Rebuilt villages now add shrine plaques for players who fund restoration bundles, placing their names beside repaired wells, new bridges, and suspiciously tasteful premium lanterns.",
     "consequence": "The village learns to say thank you in precious metals.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-098",
     "title": "EARNED WEAPON NAMES",
     "description": "Legendary tools and weapons now gain names from the journey that shaped them, using boss scars, harvest records, and expedition history instead of paid inscription slots.",
     "consequence": "The blade gets a reason instead of a receipt.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-109",
     "title": "DESTINY TITLE PASS",
     "description": "Season passes now include ornate prophecy titles, dramatic card-back crests, and staged NPC recognition for players who choose a paid destiny track before the story earns it.",
     "consequence": "The prophecy arrives already monogrammed.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-110",
     "title": "STANDARD HERO CEREMONY",
     "description": "Major milestones now use one universal celebration template, with auto-filled speeches, matching ribbon colors, and a commemorative stamp for every kind of achievement.",
     "consequence": "The triumph gets laminated.",

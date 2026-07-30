@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-009",
     "title": "PET RANCH ROUTINE",
     "description": "Base camps now include a small ranch where rescued pets can be fed, trained, renamed, assigned tiny jobs, and tucked into weatherproof beds before the next expedition.",
     "consequence": "The camp gets a reason to feel alive between runs. The daily checklist gets fur.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-010",
     "title": "VACATION MODE MAP",
     "description": "The world map now highlights scenic routes, quiet fishing spots, and low-pressure story errands while hiding streak timers, urgent dailies, and limited-event alarms.",
     "consequence": "The journey gets room to breathe. Several blinking lights finally learn silence.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-021",
     "title": "CAMP DECAY TIMER",
     "description": "Player camps now slowly lose durability while offline, with daily repair bonuses, emergency supply crates, and a cheerful reminder before anything important collapses.",
     "consequence": "Home starts needing attendance. The login button gets a maintenance schedule.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-022",
     "title": "BEDTIME ENERGY AUDIT",
     "description": "Before logging out, players must review unspent energy, unfinished crops, idle companions, expiring buffs, and a suggested list of chores they are emotionally failing to complete.",
     "consequence": "The cozy routine gets a performance review. The return path gets covered in guilt paperwork.",

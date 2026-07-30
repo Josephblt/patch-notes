@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-099",
     "title": "FOUND OBJECT FRAMES",
     "description": "Homes can now frame odd little keepsakes from races, harvests, dungeon wipes, and pet errands, with optional mats, shelf lights, and labels written in the player's own notes.",
     "consequence": "The shelf starts charging rent to memories.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-100",
     "title": "QUEST-WORN KEEPSAKES",
     "description": "Old tools, charms, and camp objects now keep visible wear from the moments they survived, making repaired gear feel worth keeping instead of replacing at the next vendor.",
     "consequence": "The old axe stops looking temporary.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-111",
     "title": "PREMIUM MEMORY STAMPS",
     "description": "Scrapbooks now offer paid stamp packs for harvest days, pet birthdays, first catches, and village festivals, letting every memory arrive with a cleaner decorative category.",
     "consequence": "The memory starts checking the sticker drawer.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-112",
     "title": "AUTOFILLED TROPHY CASE",
     "description": "Run trophies now arrange themselves automatically by rarity, date, and build type, replacing the old messy shelf where players chose which strange victories mattered.",
     "consequence": "The trophy case gets efficient and forgettable.",

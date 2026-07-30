@@ -53,12 +53,20 @@ static func _load_card_data_from_dir(path: String, dir: DirAccess) -> Array:
 	file_names.sort()
 
 	for json_file_name: String in file_names:
-		cards.append_array(_load_card_data_from_file(path.path_join(json_file_name)))
+		cards.append_array(_load_card_data_from_file(
+			path.path_join(json_file_name),
+			json_file_name.get_basename()
+		))
 
 	return cards
 
 
-static func _load_card_data_from_file(path: String) -> Array:
+static func _load_card_data_from_file(path: String, uid_namespace: String = "") -> Array:
+	var card_uid_namespace: String = uid_namespace
+
+	if card_uid_namespace.is_empty():
+		card_uid_namespace = path.get_file().get_basename()
+
 	var file: FileAccess = FileAccess.open(path, FileAccess.READ)
 
 	if file == null:
@@ -80,7 +88,27 @@ static func _load_card_data_from_file(path: String) -> Array:
 		push_error("Card JSON root must be an array: %s" % path)
 		return []
 
-	return json.data as Array
+	var cards: Array = json.data as Array
+
+	_assign_missing_card_uids(cards, card_uid_namespace)
+
+	return cards
+
+
+static func _assign_missing_card_uids(cards: Array, uid_namespace: String) -> void:
+	for card_index: int in range(cards.size()):
+		var raw_card_data: Variant = cards[card_index]
+
+		if not raw_card_data is Dictionary:
+			continue
+
+		var card_data: Dictionary = raw_card_data as Dictionary
+		var card_uid: String = card_data.get("uid", "")
+
+		if not card_uid.is_empty():
+			continue
+
+		card_data["uid"] = "%s/%03d" % [uid_namespace, card_index + 1]
 
 
 static func _build_score_tree_refs(score_trees: Array[ScoreTree]) -> Dictionary[String, Dictionary]:

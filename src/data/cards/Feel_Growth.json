@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-031",
     "title": "FIRST SWING HEROICS",
     "description": "New characters now get a polished opening combat kit with weighty basic attacks, forgiving animation cancels, and a starter ultimate that makes the tutorial boar look legally dramatic.",
     "consequence": "The first swing arrives before the wiki.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-032",
     "title": "HANDMADE TOOL GRIP",
     "description": "Starter tools now gain small grip marks, weight shifts, and repair scars as players use them, making the same axe feel gradually personal instead of immediately replaceable.",
     "consequence": "The axe starts remembering the hand.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-043",
     "title": "NEON STARTER CONFETTI",
     "description": "The opening mission now floods each pickup with rarity beams, splash text, weapon callouts, and a complimentary victory pose before the player has learned where crouch lives.",
     "consequence": "The first pickup comes with a parade permit.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-044",
     "title": "PRE-RACE MIRROR CALIBRATION",
     "description": "Before the first event, drivers must manually adjust seat height, mirror angles, steering deadzone, brake pressure, and dashboard brightness inside a silent garage tutorial.",
     "consequence": "The festival starts by asking the chair for consent.",

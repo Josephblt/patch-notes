@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-081",
     "title": "HARVEST GUESTBOOK",
     "description": "Festival harvests now create a small guestbook with neighbor notes, pet paw stamps, crop photos, and one shareable page for the year's best absurd vegetable.",
     "consequence": "The harvest gets witnesses.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-082",
     "title": "PRIVATE MEMORY GARDEN",
     "description": "Homes can now grow a quiet memory garden where old gifts, companion visits, and finished projects become small flowers only the household can name.",
     "consequence": "The garden keeps its voice down.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-093",
     "title": "MASCOT REACTION FRAMES",
     "description": "End screens now replace squad snapshots with seasonal mascot reactions, branded victory poses, and sticker-ready frames built for instant sharing.",
     "consequence": "The family photo learns branding.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-094",
     "title": "ANONYMOUS FESTIVAL CROWD",
     "description": "Town festivals now fill empty spaces with rotating crowd NPCs, generic cheers, and temporary guild flags instead of familiar villagers with old grudges.",
     "consequence": "The parade forgets who waved.",

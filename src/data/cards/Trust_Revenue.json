@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-121",
     "title": "DRAGON AUDITED CHESTS",
     "description": "Mystery chests now show exact odds, duplicate rules, pity distance, and maximum spend under the supervision of a tiny contract dragon wearing half-moon spectacles.",
     "consequence": "The loot box gets a notary with wings.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-122",
     "title": "NO AMBUSH STORE DOOR",
     "description": "Bonfire shops now stop opening surprise offers after deaths, boss wins, and suspiciously emotional cutscenes, waiting instead behind one honest menu prompt.",
     "consequence": "The store stops hiding behind the fog wall.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-133",
     "title": "LAST-LAP MERCY TOKEN",
     "description": "Final-lap crashes now pause just long enough to offer a premium rewind token, complete with pit crew sympathy, heroic tire smoke, and a countdown that breathes too close.",
     "consequence": "The finish line starts selling alibis.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-134",
     "title": "IMMERSIVE HAGGLE PRICES",
     "description": "Merchants now rewrite prices through faction mood, local taxes, hero reputation, moon weather, and regional bargaining folklore before showing the same sword twice.",
     "consequence": "The merchant invents folklore for the receipt.",

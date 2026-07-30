@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-059",
     "title": "SEASON PLANNER ALMANAC",
     "description": "The farm calendar now previews crop windows, festival prep, rainfall odds, and animal care reminders on one illustrated seasonal page.",
     "consequence": "The season gets a spine.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-060",
     "title": "ROUTE OUTCOME FORECAST",
     "description": "Before choosing a path, the map now previews likely boss types, reward pools, shop density, and whether the next room is secretly a mistake.",
     "consequence": "The maze starts giving straight answers.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-071",
     "title": "KEYWORD FAMILY TREE",
     "description": "Cards now show related mechanics through expandable ancestry lines, cousin keywords, retired rules, and a little binder tab for every argument the system remembers.",
     "consequence": "The rulebook grows roots.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-072",
     "title": "WEEKLY GOAL CONSTELLATION",
     "description": "Weekly objectives now appear as a star chart of linked errands, bonus paths, guild favors, and glowing side-branches that rearrange after reset.",
     "consequence": "The calendar discovers astrology.",

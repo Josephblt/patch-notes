@@ -60,8 +60,8 @@ static func load_from_json_file(path: String) -> ScoreTree:
 
 
 static func from_json(root_data: Dictionary) -> ScoreTree:
-	var tree_uid: String = root_data.get("uid", "")
 	var tree_display_name: String = root_data.get("display_name", "")
+	var tree_uid: String = _get_node_uid(root_data, "", tree_display_name)
 	var nodes: Dictionary[String, ScoreTreeNode] = {}
 
 	_add_node_from_json(nodes, root_data, "", 1)
@@ -80,8 +80,8 @@ static func _add_node_from_json(
 	parent_uid: String,
 	level: int
 ) -> void:
-	var node_uid: String = node_data.get("uid", "")
 	var node_display_name: String = node_data.get("display_name", "")
+	var node_uid: String = _get_node_uid(node_data, parent_uid, node_display_name)
 
 	var node: ScoreTreeNode = ScoreTreeNode.new(
 		node_uid,
@@ -90,7 +90,7 @@ static func _add_node_from_json(
 		level
 	)
 
-	nodes[node.get_uid()] = node
+	nodes[node_uid] = node
 
 	var children_data: Variant = node_data.get("children", [])
 
@@ -109,3 +109,19 @@ static func _add_node_from_json(
 			node_uid,
 			level + 1
 		)
+
+
+static func _get_node_uid(
+	node_data: Dictionary,
+	parent_uid: String,
+	display_name: String
+) -> String:
+	var authored_uid: String = node_data.get("uid", "")
+
+	if not authored_uid.is_empty():
+		return authored_uid
+
+	if parent_uid.is_empty():
+		return display_name
+
+	return "%s/%s" % [parent_uid, display_name]

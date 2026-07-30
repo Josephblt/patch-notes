@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-103",
     "title": "LEGENDARY WIPE RECAP",
     "description": "Failed extractions now end with a dramatic squad dossier showing last stands, heroic mistakes, suspicious bravery, and one shareable casualty stamp shaped like a tiny corporate medal.",
     "consequence": "The wipe gets a press kit and a eulogy.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-104",
     "title": "CAMPFIRE OATH START",
     "description": "New worlds now begin with players carving a personal oath into the first camp marker, skipping referral banners, seasonal invite boosts, and the usual frontier welcome circus.",
     "consequence": "The campfire chooses a vow over a billboard.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-115",
     "title": "CROSSOVER PROPHECY PARADE",
     "description": "The opening quest now rotates through guest mascots, sponsored destiny banners, limited kart robes, and a ceremonial starting horn that changes brands every weekend.",
     "consequence": "The call to adventure gets a brand calendar.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-116",
     "title": "ORIGIN STORY WIZARD",
     "description": "Character creation now generates a personalized heroic backstory through twelve motivation sliders, three trauma presets, and a mandatory destiny questionnaire before spawning.",
     "consequence": "The backstory arrives with multiple choice fatigue.",

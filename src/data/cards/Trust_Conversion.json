@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-125",
     "title": "CLEAR TEST DRIVE WAIVER",
     "description": "Vehicle trials now explain handling limits, included cosmetics, refund rules, and what the showroom means by \"race-ready\" before the engine starts flirting with the wallet.",
     "consequence": "The showroom stops doing magic tricks with the keys.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-126",
     "title": "DAYLIGHT SKIN PREVIEW",
     "description": "Weapon skins now preview under normal mission lighting, plain reload speed, and zero heroic smoke so players can see exactly how much dragon paint is actually on the rifle.",
     "consequence": "The weapon model meets daylight and loses its speechwriter.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-137",
     "title": "CONFESSION ALTAR OFFER",
     "description": "After a boss death, the chapel now offers a limited revive blessing with solemn bells, gold-trimmed regret, and a countdown that pretends urgency is a sacrament.",
     "consequence": "The altar learns pressure sales in Latin.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-138",
     "title": "FRAUD-PROOF MOUNT CHECKOUT",
     "description": "Mount purchases now require stable verification, faction address matching, saddle intent confirmation, and one armored security screen before the preview can move.",
     "consequence": "The checkout puts on plate armor and blocks the door.",

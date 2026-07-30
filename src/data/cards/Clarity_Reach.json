@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-057",
     "title": "CLEAN RAID RECAP",
     "description": "After each extraction, the run summary now shows the route taken, major finds, squad saves, and final escape timing on one readable dossier card.",
     "consequence": "The raid leaves footprints instead of smoke.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-058",
     "title": "PLAIN TRAIL SIGNAGE",
     "description": "World routes now use clear place names, distance markers, and biome icons instead of joke labels, trending tags, and seasonal billboard callouts.",
     "consequence": "The trail stops shouting its own postcard.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-069",
     "title": "VIRAL RELIC NICKNAMES",
     "description": "High-rarity drops now arrive with rotating community nicknames, streamer stamps, and dramatic subtitle cards before their actual stats settle into the tooltip.",
     "consequence": "The loot table starts wearing a stage name.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-070",
     "title": "VILLAGE NOTICE DIALECT",
     "description": "Festival notices now use local idioms, neighbor shorthand, crop slang, and handwritten arrows that make perfect sense to whoever already lives there.",
     "consequence": "The notice board learns inside jokes.",

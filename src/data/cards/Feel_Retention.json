@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-035",
     "title": "MORNING BELL ROUTINE",
     "description": "Each farm morning now begins with a soft bell, gentle tool pickup sounds, dew on the crop rows, and a short stretch animation before the first chore.",
     "consequence": "The day gets a handle to pick up.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-036",
     "title": "ONE-SWIPE HARVEST",
     "description": "Mature crop rows can now be harvested with one smooth held sweep, chaining pickup, sorting, and basket drop-off into a single satisfying pass through the field.",
     "consequence": "The field stops taking an afternoon.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-047",
     "title": "MODULAR TOOL SOCKETS",
     "description": "Axes, picks, and shovels now accept swappable heads, grips, counterweights, and charm slots, each changing swing arcs, stamina cost, and material yield in small incompatible ways.",
     "consequence": "The toolbox gets interesting enough to trip over.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-048",
     "title": "HELPFUL CARD COACH",
     "description": "New runs now include a cheerful MS Office-style paperclip advisor that highlights recommended cards, explains risky plays, warns before unusual combos, and asks for confirmation when the deck starts doing anything weird.",
     "consequence": "The deck gets MS Office supervision vibes.",

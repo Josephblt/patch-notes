@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-051",
     "title": "ROOM COST PREVIEW",
     "description": "Decoration mode now previews the full material cost of a room plan, including missing rugs, wall trim, lamp variants, and the suspiciously necessary premium fern.",
     "consequence": "The room learns to name its missing pieces.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-052",
     "title": "CRAFTING CART AUTOFILL",
     "description": "Workshop plans now show owned materials, safe substitutes, and exact leftover counts before opening the supply shop for anything the player already has in a chest.",
     "consequence": "The shopping list stops pretending to be a quest.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-063",
     "title": "SYNERGY AURA PACKS",
     "description": "Card shop offers now glow when they might fit the current deck, using vague combo halos, rotating keywords, and a small oracle sparkle over the expensive picks.",
     "consequence": "The shop starts winking in tooltips.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-064",
     "title": "HEIRLOOM BARTER PRICES",
     "description": "The village market now lists seed prices through seasonal favor marks, neighbor IOUs, soil stamps, and a handwritten exchange chart pinned behind the pumpkin crate.",
     "consequence": "The price tag starts speaking farmer.",

@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-007",
     "title": "PUBLIC MEGASTRUCTURE BLUEPRINTS",
     "description": "Players can now publish fortress, farm, and racetrack blueprints directly to the world map, where visitors can tour them, rate them, and accidentally make the creator famous.",
     "consequence": "The sandbox gets landmarks worth visiting. Marketing discovers unpaid urban planning.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-008",
     "title": "PRIVATE HARVEST FESTIVAL",
     "description": "Farm events now generate small invite-only festivals for neighbors already in the player’s valley, with shared cooking tables, crop judging, and no global announcement feed.",
     "consequence": "The valley gets warmer. The megaphone gets left in the barn.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-019",
     "title": "MANDATORY RIVAL CAM",
     "description": "Extraction deaths now cut to a sponsored rival squad still inside the zone, complete with loadout tags, follow prompts, and a countdown to their next firefight.",
     "consequence": "Defeat gets louder. The audience gets somewhere else to click.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-020",
     "title": "GUILD HALL PERMIT OFFICE",
     "description": "New guild halls now require a notarized build permit, three officer signatures, zoning approval from the nearest mayor NPC, and a linked social account before construction can begin.",
     "consequence": "The fantasy becomes municipal. The share prompt is locked behind zoning compliance.",

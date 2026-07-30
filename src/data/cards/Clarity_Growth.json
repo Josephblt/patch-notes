@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-055",
     "title": "ROLE COMPASS INTRO",
     "description": "New characters now get a clean role compass that explains tanking, healing, crafting, racing, farming, and dungeon jobs before the first objective is chosen.",
     "consequence": "The map learns how to introduce a continent.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-056",
     "title": "HONEST SCOPE WARNING",
     "description": "The new game screen now explains expected session length, base upkeep, extraction risk, crafting depth, and how much spreadsheet weather the frontier contains.",
     "consequence": "The welcome sign includes the mountain.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-067",
     "title": "FEATURED STARTER LOADOUT",
     "description": "The opening screen now pushes one loud featured build with creator tags, neon role badges, three weapon nicknames, and a giant recommended stamp over the details.",
     "consequence": "The first loadout arrives wearing campaign paint.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-068",
     "title": "ARCHIVE-FIRST TUTORIAL",
     "description": "The tutorial now opens with faction history, relic families, and seasonal card identities before easing into the basic turn flow.",
     "consequence": "The first lesson starts on chapter two.",

@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-107",
     "title": "CAMP ANNIVERSARY SMOKE",
     "description": "Long-running camps now mark survival anniversaries with crooked banner poles, campfire smoke shapes, and a tiny recap of every ridiculous thing that failed to kill the player.",
     "consequence": "The camp starts keeping birthday candles in the ash pile.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-108",
     "title": "FINAL VOW FUNERAL",
     "description": "Completed NPC questlines now end with a real burial rite, a named grave, and no repeat favor loop quietly waiting behind the chapel like a bored intern.",
     "consequence": "The questline learns to stay buried.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-119",
     "title": "DESTINY STREAK LEDGER",
     "description": "Runs now convert omens, prophecies, cursed bargains, and heroic sacrifices into a daily stamped ledger with escalating fate bonuses for consecutive attempts.",
     "consequence": "The pilgrimage becomes punch-card theology.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-120",
     "title": "SANITIZED LEGACY VAULT",
     "description": "Old victories now move into a clean account vault with approved labels, compressed medals, and no messy squad notes cluttering the seasonal comeback screen.",
     "consequence": "The memory palace installs fluorescent lighting.",

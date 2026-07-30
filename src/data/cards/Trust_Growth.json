@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-127",
     "title": "PUBLIC ROADMAP BOARD",
     "description": "The starter town now has a live roadmap board showing known issues, delayed features, weather-dependent promises, and one brutally honest sticky note from production.",
     "consequence": "The roadmap stops wearing a fake mustache.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-128",
     "title": "NO DISGUISED INVITES",
     "description": "New players now see plain party invites, real friend referrals, and exact bonus terms instead of fake quest scrolls pretending to be urgent social destiny.",
     "consequence": "The invite button puts down the costume trunk.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-139",
     "title": "FAKE FRIEND STARTING GRID",
     "description": "Opening races now fill empty slots with almost-familiar rival names, cheerful ghost avatars, and a suspicious prompt to invite the real version before the lights turn green.",
     "consequence": "The starting line starts forging handshakes.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-140",
     "title": "WELCOME TRUST BADGES",
     "description": "The first menu now displays security seals, fairness medals, community promises, anti-scam ribbons, and a rotating assurance banner before explaining how to draw a card.",
     "consequence": "The welcome screen sweats through a blazer.",

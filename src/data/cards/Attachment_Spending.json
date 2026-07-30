@@ -1,6 +1,5 @@
 [
   {
-    "uid": "update-075",
     "title": "SOUVENIR WALL NOOK",
     "description": "Homes now include a small memory nook where pets, races, harvest festivals, and dungeon clears leave tiny display objects with optional frames and shelf trims.",
     "consequence": "The house starts keeping receipts emotionally.",
@@ -18,7 +17,6 @@
     ]
   },
   {
-    "uid": "update-076",
     "title": "HEIRLOOM TOOL REPAIR",
     "description": "Favorite tools can now be restored at camp with scratches, names, and old upgrade history intact instead of being replaced by cleaner shop versions.",
     "consequence": "The pickaxe refuses to become a shopping trip.",
@@ -36,7 +34,6 @@
     ]
   },
   {
-    "uid": "update-087",
     "title": "COMPANION LOADOUT SLOT",
     "description": "Companions now equip swappable perk modules, color kits, and tactical poses, turning their personality screen into a small rotating build menu.",
     "consequence": "The companion slot starts acting like a wardrobe.",
@@ -54,7 +51,6 @@
     ]
   },
   {
-    "uid": "update-088",
     "title": "ROTATING TAVERN CREW",
     "description": "Quest hubs now refresh support NPCs weekly with new names, temporary favors, and contract tags so the town feels busier without anyone settling in.",
     "consequence": "The tavern fills with names that do not stick.",

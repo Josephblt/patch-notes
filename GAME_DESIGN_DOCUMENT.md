@@ -121,21 +121,28 @@ Total = +96
 
 The worst possible 48-card selection mirrors that at `-96`.
 
-Because the player can choose different numbers of cards per sprint, score interpretation should account for variable shipped-card count. A final score can be normalized to a 0-100 range from the raw `-96..+96` axis:
+Because the player can choose different numbers of cards per sprint, score interpretation should account for variable shipped-card count. The full `-96..+96` span is a theoretical authored-deck extreme, not the intended interpretation range. For the first balancing pass, final scores normalize against a tighter `-72..+72` range and clamp values beyond that.
 
 ```text
-normalized_score = round(((raw_score + 96) / 192) * 100)
+normalized_score = round(((clamp(raw_score, -72, 72) + 72) / 144) * 100)
 ```
 
 This maps:
 
 ```text
--96 -> 0
+-72 -> 0
   0 -> 50
-+96 -> 100
++72 -> 100
 ```
 
-Release score updates should use release deltas instead of final normalized totals. A release contains 4 sprints, so it ships between 4 and 12 cards. The theoretical raw delta range for each release score tree is `-36..+36`.
+Release score updates should use release deltas instead of final normalized totals. A release contains 4 sprints, so it ships between 4 and 12 cards. The theoretical raw delta range for each release score tree is `-36..+36`, but release reports normalize against `-30..+30` so ordinary releases produce readable movement while only the strongest release swings hit the outer bands.
+
+Balancing audit target:
+
+- Random or indifferent play should usually land near `Mixed`.
+- Coherent player intent should visibly move final scores and release reports.
+- Extreme endings should be possible, but not the default outcome of competent play.
+- Release reports should vary during normal play without calling every modest swing catastrophic or miraculous.
 
 ## Score Bands
 
@@ -155,7 +162,7 @@ With the current Fun and Money trees, this creates a `5 x 5` final result grid:
 25 final score combinations
 ```
 
-These bands are the first balancing pass. They should be treated as tunable once playtesting and simulation show where real runs tend to land.
+These bands remain equal-width normalized bands. The main balance lever is the raw score range used before normalization.
 
 ## Fun Tree
 

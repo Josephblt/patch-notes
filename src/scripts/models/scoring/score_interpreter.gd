@@ -2,10 +2,10 @@ class_name ScoreInterpreter
 extends RefCounted
 
 
-const FINAL_MIN_RAW_SCORE: int = -96
-const FINAL_MAX_RAW_SCORE: int = 96
-const RELEASE_MIN_RAW_DELTA: int = -36
-const RELEASE_MAX_RAW_DELTA: int = 36
+const FINAL_MIN_RAW_SCORE: int = -72
+const FINAL_MAX_RAW_SCORE: int = 72
+const RELEASE_MIN_RAW_DELTA: int = -30
+const RELEASE_MAX_RAW_DELTA: int = 30
 const DEFAULT_SCORE_BANDS_PATH: String = "res://data/scoring/final_score_bands.json"
 const DEFAULT_FINAL_RESULTS_PATH: String = "res://data/scoring/final_results.json"
 const DEFAULT_RELEASE_UPDATES_PATH: String = "res://data/scoring/release_updates.json"

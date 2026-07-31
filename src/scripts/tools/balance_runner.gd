@@ -99,12 +99,14 @@ func _on_run_button_pressed() -> void:
 	var selected_seed: int = int(seed_spin_box.value)
 	var selected_output_path: String = output_path_line_edit.text
 	var selected_score_band_dividers: Array[int] = _get_score_band_dividers_from_controls()
+	var game_seeds: Array[int] = []
 
 	if random_seed_check_box.button_pressed:
-		selected_seed = _generate_random_seed()
-		seed_spin_box.value = selected_seed
+		game_seeds = _generate_random_game_seeds(selected_game_count)
+	else:
+		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
-	last_rows = await _run_dataset_with_progress(behavior, selected_game_count, selected_seed)
+	last_rows = await _run_dataset_with_progress(behavior, game_seeds)
 	_write_csv(selected_output_path, last_rows)
 	var score_axis_bound: int = _calculate_score_axis_bound()
 	graph.call(
@@ -117,19 +119,20 @@ func _on_run_button_pressed() -> void:
 
 	summary_label.text = _format_seed_summary(
 		selected_seed,
-		random_seed_check_box.button_pressed
+		random_seed_check_box.button_pressed,
+		game_seeds.size()
 	)
 	run_button.disabled = false
 
 
 func _run_dataset_with_progress(
 	behavior: String,
-	selected_game_count: int,
-	selected_seed: int
+	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
 	var progress_by_behavior: Dictionary[String, int] = {}
+	var selected_game_count: int = game_seeds.size()
 
 	for behavior_name: String in behavior_names:
 		progress_by_behavior[behavior_name] = 0
@@ -139,10 +142,9 @@ func _run_dataset_with_progress(
 
 	for behavior_index: int in range(behavior_names.size()):
 		var behavior_name: String = behavior_names[behavior_index]
-		var behavior_seed: int = selected_seed + (behavior_index * 100000)
 
 		for game_number: int in range(1, selected_game_count + 1):
-			rows.append(_play_game(behavior_name, game_number, behavior_seed + game_number))
+			rows.append(_play_game(behavior_name, game_number, game_seeds[game_number - 1]))
 			progress_by_behavior[behavior_name] = game_number
 			_render_runner_progress(behavior, selected_game_count, progress_by_behavior)
 			await get_tree().process_frame
@@ -216,15 +218,18 @@ func _parse_options() -> Dictionary:
 
 
 func run_dataset(behavior: String, selected_game_count: int, selected_seed: int) -> Array[Dictionary]:
+	return _run_dataset_with_game_seeds(
+		behavior,
+		_generate_deterministic_game_seeds(selected_game_count, selected_seed)
+	)
+
+
+func _run_dataset_with_game_seeds(behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
 
-	for behavior_index: int in range(behavior_names.size()):
-		rows.append_array(_play_behavior(
-			behavior_names[behavior_index],
-			selected_game_count,
-			selected_seed + (behavior_index * 100000)
-		))
+	for behavior_name: String in behavior_names:
+		rows.append_array(_play_behavior(behavior_name, game_seeds))
 
 	return rows
 
@@ -238,11 +243,11 @@ func _get_behaviors_to_run(behavior: String) -> Array[String]:
 	return behavior_names
 
 
-func _play_behavior(behavior: String, selected_game_count: int, selected_seed: int) -> Array[Dictionary]:
+func _play_behavior(behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 
-	for game_number: int in range(1, selected_game_count + 1):
-		rows.append(_play_game(behavior, game_number, selected_seed + game_number))
+	for game_number: int in range(1, game_seeds.size() + 1):
+		rows.append(_play_game(behavior, game_number, game_seeds[game_number - 1]))
 
 	return rows
 
@@ -473,19 +478,35 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 	return series
 
 
-func _format_seed_summary(selected_seed: int, is_random_seed: bool) -> String:
+func _format_seed_summary(
+	selected_seed: int,
+	is_random_seed: bool,
+	game_seed_count: int
+) -> String:
 	if is_random_seed:
-		return "Random Seed: %d" % selected_seed
+		return "Random Seeds: %d" % game_seed_count
 
 	return "Seed: %d" % selected_seed
 
 
+func _generate_deterministic_game_seeds(selected_game_count: int, selected_seed: int) -> Array[int]:
+	var game_seeds: Array[int] = []
 
-func _generate_random_seed() -> int:
+	for game_number: int in range(1, selected_game_count + 1):
+		game_seeds.append(selected_seed + game_number)
+
+	return game_seeds
+
+
+func _generate_random_game_seeds(selected_game_count: int) -> Array[int]:
+	var game_seeds: Array[int] = []
 	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
 	random_number_generator.randomize()
 
-	return random_number_generator.randi_range(1, 999999999)
+	for _game_number: int in range(selected_game_count):
+		game_seeds.append(random_number_generator.randi_range(1, 999999999))
+
+	return game_seeds
 
 
 func _calculate_score_axis_bound() -> int:

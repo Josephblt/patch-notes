@@ -75,6 +75,19 @@ custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
+[node name="BaselineLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(66, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Baseline"
+vertical_alignment = 1
+
+[node name="BaselineOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(108, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
 [node name="GameCountLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=310750827]
 custom_minimum_size = Vector2(70, 36)
 layout_mode = 2

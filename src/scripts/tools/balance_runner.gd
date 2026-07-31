@@ -3,6 +3,7 @@ extends CanvasLayer
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
 const BASELINE_BEHAVIOR: String = "random_count"
+const NONE_BEHAVIOR: String = "none"
 const RUNNER_B1: String = "B1"
 const RUNNER_B2: String = "B2"
 const RUNNER_RANDOM: String = "Random"
@@ -27,6 +28,7 @@ var last_rows: Array[Dictionary] = []
 
 @export var selected_behavior: String = DEFAULT_BEHAVIOR
 @export var selected_behavior_2: String = DEFAULT_BEHAVIOR_2
+@export var selected_baseline: String = BASELINE_BEHAVIOR
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
 @export var branch_points: float = DEFAULT_BRANCH_POINTS
@@ -36,6 +38,7 @@ var last_rows: Array[Dictionary] = []
 
 @onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
 @onready var behavior_2_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/Behavior2Options
+@onready var baseline_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BaselineOptions
 @onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
 @onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
@@ -75,6 +78,7 @@ func _run_from_command_line() -> void:
 	var rows: Array[Dictionary] = run_dataset(
 		options.get("behavior", selected_behavior),
 		options.get("behavior2", selected_behavior_2),
+		options.get("baseline", selected_baseline),
 		options.get("games", game_count),
 		options.get("seed", seed),
 		options.get("branch_points", branch_points),
@@ -88,6 +92,7 @@ func _run_from_command_line() -> void:
 func _configure_controls() -> void:
 	_configure_behavior_options(behavior_options, selected_behavior)
 	_configure_behavior_options(behavior_2_options, selected_behavior_2)
+	_configure_baseline_options()
 	game_count_spin_box.value = game_count
 	seed_spin_box.value = seed
 	branch_point_spin_box.value = branch_points
@@ -101,16 +106,32 @@ func _configure_controls() -> void:
 
 func _configure_behavior_options(option_button: OptionButton, behavior_to_select: String) -> void:
 	option_button.clear()
+	option_button.add_item(NONE_BEHAVIOR)
 
-	for behavior: String in _get_supported_behaviors():
+	for behavior: String in _get_score_behaviors():
 		option_button.add_item(behavior)
 
-	var selected_index: int = _get_supported_behaviors().find(behavior_to_select)
+	var behavior_options_list: Array[String] = [NONE_BEHAVIOR]
+	behavior_options_list.append_array(_get_score_behaviors())
+	var selected_index: int = behavior_options_list.find(behavior_to_select)
 
 	if selected_index < 0:
 		selected_index = 0
 
 	option_button.select(selected_index)
+
+
+func _configure_baseline_options() -> void:
+	baseline_options.clear()
+	baseline_options.add_item(RUNNER_RANDOM)
+	baseline_options.set_item_metadata(0, BASELINE_BEHAVIOR)
+	baseline_options.add_item(NONE_BEHAVIOR)
+	baseline_options.set_item_metadata(1, NONE_BEHAVIOR)
+
+	if selected_baseline == NONE_BEHAVIOR:
+		baseline_options.select(1)
+	else:
+		baseline_options.select(0)
 
 
 func _on_run_button_pressed() -> void:
@@ -121,6 +142,7 @@ func _on_run_button_pressed() -> void:
 
 	var behavior: String = behavior_options.get_item_text(behavior_options.selected)
 	var behavior_2: String = behavior_2_options.get_item_text(behavior_2_options.selected)
+	var baseline: String = str(baseline_options.get_item_metadata(baseline_options.selected))
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
 	var selected_branch_points: float = branch_point_spin_box.value
@@ -135,7 +157,7 @@ func _on_run_button_pressed() -> void:
 	else:
 		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
-	last_rows = await _run_dataset_with_progress(behavior, behavior_2, game_seeds)
+	last_rows = await _run_dataset_with_progress(behavior, behavior_2, baseline, game_seeds)
 	_write_csv(selected_output_path, last_rows)
 	var score_axis_bound: float = _calculate_score_axis_bound()
 	graph.call(
@@ -159,10 +181,11 @@ func _on_run_button_pressed() -> void:
 func _run_dataset_with_progress(
 	behavior: String,
 	behavior_2: String,
+	baseline: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
-	var runner_configs: Array[Dictionary] = _get_runner_configs(behavior, behavior_2)
+	var runner_configs: Array[Dictionary] = _get_runner_configs(behavior, behavior_2, baseline)
 	var progress_by_runner: Dictionary[String, int] = {}
 	var selected_game_count: int = game_seeds.size()
 
@@ -191,6 +214,10 @@ func _render_runner_progress(
 	progress_by_runner: Dictionary[String, int]
 ) -> void:
 	var parts: PackedStringArray = []
+
+	if runner_configs.is_empty():
+		progress_label.text = "No behaviours selected."
+		return
 
 	for runner_config: Dictionary in runner_configs:
 		var runner_name: String = runner_config["runner"]
@@ -238,6 +265,7 @@ func _parse_options() -> Dictionary:
 		"games": game_count,
 		"behavior": selected_behavior,
 		"behavior2": selected_behavior_2,
+		"baseline": selected_baseline,
 		"seed": seed,
 		"branch_points": branch_points,
 		"leaf_points": leaf_points,
@@ -251,6 +279,8 @@ func _parse_options() -> Dictionary:
 			options["behavior"] = argument.trim_prefix("--behavior=")
 		elif argument.begins_with("--behavior2="):
 			options["behavior2"] = argument.trim_prefix("--behavior2=")
+		elif argument.begins_with("--baseline="):
+			options["baseline"] = _parse_baseline_argument(argument.trim_prefix("--baseline="))
 		elif argument.begins_with("--seed="):
 			options["seed"] = argument.trim_prefix("--seed=").to_int()
 		elif argument.begins_with("--branch-points="):
@@ -263,9 +293,17 @@ func _parse_options() -> Dictionary:
 	return options
 
 
+func _parse_baseline_argument(argument_value: String) -> String:
+	if argument_value == RUNNER_RANDOM.to_lower() or argument_value == BASELINE_BEHAVIOR:
+		return BASELINE_BEHAVIOR
+
+	return NONE_BEHAVIOR
+
+
 func run_dataset(
 	behavior: String,
 	behavior_2: String,
+	baseline: String,
 	selected_game_count: int,
 	selected_seed: int,
 	selected_branch_points: float = DEFAULT_BRANCH_POINTS,
@@ -276,6 +314,7 @@ func run_dataset(
 	return _run_dataset_with_game_seeds(
 		behavior,
 		behavior_2,
+		baseline,
 		_generate_deterministic_game_seeds(selected_game_count, selected_seed)
 	)
 
@@ -283,11 +322,12 @@ func run_dataset(
 func _run_dataset_with_game_seeds(
 	behavior: String,
 	behavior_2: String,
+	baseline: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 
-	for runner_config: Dictionary in _get_runner_configs(behavior, behavior_2):
+	for runner_config: Dictionary in _get_runner_configs(behavior, behavior_2, baseline):
 		rows.append_array(_play_behavior(
 			runner_config["runner"],
 			runner_config["behavior"],
@@ -297,12 +337,19 @@ func _run_dataset_with_game_seeds(
 	return rows
 
 
-func _get_runner_configs(behavior: String, behavior_2: String) -> Array[Dictionary]:
-	return [
-		{"runner": RUNNER_B1, "behavior": behavior},
-		{"runner": RUNNER_B2, "behavior": behavior_2},
-		{"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR},
-	]
+func _get_runner_configs(behavior: String, behavior_2: String, baseline: String) -> Array[Dictionary]:
+	var runner_configs: Array[Dictionary] = []
+
+	if behavior != NONE_BEHAVIOR:
+		runner_configs.append({"runner": RUNNER_B1, "behavior": behavior})
+
+	if behavior_2 != NONE_BEHAVIOR:
+		runner_configs.append({"runner": RUNNER_B2, "behavior": behavior_2})
+
+	if baseline != NONE_BEHAVIOR:
+		runner_configs.append({"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR})
+
+	return runner_configs
 
 
 func _play_behavior(runner: String, behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
@@ -461,14 +508,12 @@ func _is_score_behavior(behavior: String) -> bool:
 	)
 
 
-func _get_supported_behaviors() -> Array[String]:
+func _get_score_behaviors() -> Array[String]:
 	var behavior_names: Array[String] = []
 
 	for fun_level: String in SCORE_LEVELS:
 		for money_level: String in SCORE_LEVELS:
 			behavior_names.append("%s_%s" % [fun_level, money_level])
-
-	behavior_names.append(BASELINE_BEHAVIOR)
 
 	return behavior_names
 

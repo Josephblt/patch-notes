@@ -23,12 +23,18 @@ var last_rows: Array[Dictionary] = []
 @export var selected_behavior: String = DEFAULT_BEHAVIOR
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
+@export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
 @onready var behavior_options: OptionButton = $MarginContainer/RunScroll/VBoxContainer/ControlRow/BehaviorOptions
 @onready var game_count_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/SeedSpinBox
+@onready var random_seed_check_box: CheckBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/RandomSeedCheckBox
 @onready var output_path_line_edit: LineEdit = $MarginContainer/RunScroll/VBoxContainer/OutputRow/OutputPathLineEdit
+@onready var band_divider_1_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider1SpinBox
+@onready var band_divider_2_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider2SpinBox
+@onready var band_divider_3_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider3SpinBox
+@onready var band_divider_4_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider4SpinBox
 @onready var run_button: Button = $MarginContainer/RunScroll/VBoxContainer/ControlRow/RunButton
 @onready var summary_label: Label = $MarginContainer/RunScroll/VBoxContainer/SummaryLabel
 @onready var graph: Control = $MarginContainer/RunScroll/VBoxContainer/Graph
@@ -46,6 +52,7 @@ func _ready() -> void:
 
 	_configure_controls()
 	run_button.pressed.connect(_on_run_button_pressed)
+	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	summary_label.text = "Ready."
 
 
@@ -75,7 +82,10 @@ func _configure_controls() -> void:
 	behavior_options.select(selected_index)
 	game_count_spin_box.value = game_count
 	seed_spin_box.value = seed
+	random_seed_check_box.button_pressed = random_seed
 	output_path_line_edit.text = output_path
+	_configure_band_divider_controls(_load_score_band_dividers())
+	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
 
 
 func _on_run_button_pressed() -> void:
@@ -88,6 +98,11 @@ func _on_run_button_pressed() -> void:
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
 	var selected_output_path: String = output_path_line_edit.text
+	var selected_score_band_dividers: Array[int] = _get_score_band_dividers_from_controls()
+
+	if random_seed_check_box.button_pressed:
+		selected_seed = _generate_random_seed()
+		seed_spin_box.value = selected_seed
 
 	last_rows = run_dataset(behavior, selected_game_count, selected_seed)
 	_write_csv(selected_output_path, last_rows)
@@ -97,11 +112,20 @@ func _on_run_button_pressed() -> void:
 		_build_frequency_series(last_rows),
 		-score_axis_bound,
 		score_axis_bound,
-		_load_score_band_dividers()
+		selected_score_band_dividers
 	)
 
-	summary_label.text = _format_summary(last_rows, selected_output_path)
+	summary_label.text = _format_summary(
+		last_rows,
+		selected_output_path,
+		selected_seed,
+		selected_score_band_dividers
+	)
 	run_button.disabled = false
+
+
+func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
+	seed_spin_box.editable = not is_random_seed
 
 
 func _parse_options() -> Dictionary:
@@ -167,6 +191,7 @@ func _play_game(behavior: String, game_number: int, selected_seed: int) -> Dicti
 	var row: Dictionary = {
 		"behavior": behavior,
 		"game": game_number,
+		"seed": selected_seed,
 		"total_selected": 0,
 	}
 
@@ -382,19 +407,35 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 	return series
 
 
-func _format_summary(rows: Array[Dictionary], selected_output_path: String) -> String:
+func _format_summary(
+	rows: Array[Dictionary],
+	selected_output_path: String,
+	selected_seed: int,
+	selected_score_band_dividers: Array[int]
+) -> String:
 	var behavior_names: Array[String] = _get_row_behavior_names(rows)
 	behavior_names.sort()
 	var score_axis_bound: int = _calculate_score_axis_bound()
 	var lines: PackedStringArray = [
 		"Wrote %s" % selected_output_path,
+		"Seed: %d" % selected_seed,
 		"Raw score axis: %d..%d" % [-score_axis_bound, score_axis_bound],
+		"Result dividers: %s" % ", ".join(_format_int_array(selected_score_band_dividers)),
 	]
 
 	for behavior: String in behavior_names:
 		lines.append(_format_behavior_summary(rows, behavior))
 
 	return "\n".join(lines)
+
+
+func _format_int_array(values: Array[int]) -> PackedStringArray:
+	var output: PackedStringArray = []
+
+	for value: int in values:
+		output.append(str(value))
+
+	return output
 
 
 func _get_row_behavior_names(rows: Array[Dictionary]) -> Array[String]:
@@ -450,6 +491,13 @@ func _format_score_list_summary(scores: Array[int]) -> String:
 	]
 
 
+func _generate_random_seed() -> int:
+	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
+	random_number_generator.randomize()
+
+	return random_number_generator.randi_range(1, 999999999)
+
+
 func _calculate_score_axis_bound() -> int:
 	var strongest_node_points: int = 0
 
@@ -502,6 +550,40 @@ func _load_score_band_dividers() -> Array[int]:
 	return dividers
 
 
+func _configure_band_divider_controls(dividers: Array[int]) -> void:
+	var band_divider_spin_boxes: Array[SpinBox] = _get_band_divider_spin_boxes()
+
+	for divider_index: int in range(band_divider_spin_boxes.size()):
+		var divider_value: int = (divider_index + 1) * 20
+
+		if divider_index < dividers.size():
+			divider_value = dividers[divider_index]
+
+		band_divider_spin_boxes[divider_index].value = divider_value
+
+
+func _get_score_band_dividers_from_controls() -> Array[int]:
+	var dividers: Array[int] = []
+
+	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
+		var divider: int = int(band_divider_spin_box.value)
+
+		if divider > 0 and divider < 100 and not dividers.has(divider):
+			dividers.append(divider)
+
+	dividers.sort()
+	return dividers
+
+
+func _get_band_divider_spin_boxes() -> Array[SpinBox]:
+	return [
+		band_divider_1_spin_box,
+		band_divider_2_spin_box,
+		band_divider_3_spin_box,
+		band_divider_4_spin_box,
+	]
+
+
 func _write_csv(path: String, rows: Array[Dictionary]) -> void:
 	var output_file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
 
@@ -512,6 +594,7 @@ func _write_csv(path: String, rows: Array[Dictionary]) -> void:
 	var headers: Array[String] = [
 		"behavior",
 		"game",
+		"seed",
 		"r1_fun",
 		"r1_money",
 		"r1_selected",

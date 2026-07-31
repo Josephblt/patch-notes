@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene format=3 uid="uid://bnjnfdr7pt8r2"]
 
-[ext_resource type="Script" path="res://scripts/tools/balance_runner.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/tools/frequency_graph.gd" id="2"]
+[ext_resource type="Script" uid="uid://c3pyyxtbiow6s" path="res://scripts/tools/balance_runner.gd" id="1"]
+[ext_resource type="Script" uid="uid://oka0c8yibh4t" path="res://scripts/tools/frequency_graph.gd" id="2"]
 
-[node name="BalanceRunner" type="CanvasLayer"]
+[node name="BalanceRunner" type="CanvasLayer" unique_id=1648812995]
 script = ExtResource("1")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=797246638]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0901961, 0.0862745, 0.0784314, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=88411247]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,27 +25,28 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 16
 
-[node name="RunScroll" type="ScrollContainer" parent="MarginContainer"]
+[node name="RunScroll" type="ScrollContainer" parent="MarginContainer" unique_id=322582664]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/RunScroll"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/RunScroll" unique_id=340716354]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer"]
+[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1788650948]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 24
 text = "Balance Runner"
 
-[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
+[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=2088022378]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BehaviorLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="BehaviorLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1848555817]
 custom_minimum_size = Vector2(76, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -53,12 +54,12 @@ theme_override_font_sizes/font_size = 15
 text = "Behavior"
 vertical_alignment = 1
 
-[node name="BehaviorOptions" type="OptionButton" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="BehaviorOptions" type="OptionButton" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1981334746]
 custom_minimum_size = Vector2(140, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
-[node name="GameCountLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="GameCountLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=310750827]
 custom_minimum_size = Vector2(70, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -66,15 +67,14 @@ theme_override_font_sizes/font_size = 15
 text = "Dataset"
 vertical_alignment = 1
 
-[node name="GameCountSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="GameCountSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1605685583]
 custom_minimum_size = Vector2(108, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 10000.0
-step = 1.0
 value = 200.0
 
-[node name="SeedLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="SeedLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=274392153]
 custom_minimum_size = Vector2(42, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -82,24 +82,30 @@ theme_override_font_sizes/font_size = 15
 text = "Seed"
 vertical_alignment = 1
 
-[node name="SeedSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="SeedSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=217918595]
 custom_minimum_size = Vector2(132, 36)
 layout_mode = 2
 max_value = 999999999.0
-step = 1.0
 value = 310731.0
 
-[node name="RunButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="RandomSeedCheckBox" type="CheckBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(134, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Random Seed"
+
+[node name="RunButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1037028322]
 custom_minimum_size = Vector2(82, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Run"
 
-[node name="OutputRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
+[node name="OutputRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=937254494]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="OutputPathLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow"]
+[node name="OutputPathLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow" unique_id=1883809893]
 custom_minimum_size = Vector2(76, 34)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -107,23 +113,63 @@ theme_override_font_sizes/font_size = 15
 text = "CSV"
 vertical_alignment = 1
 
-[node name="OutputPathLineEdit" type="LineEdit" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow"]
-custom_minimum_size = Vector2(620, 34)
+[node name="OutputPathLineEdit" type="LineEdit" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow" unique_id=197390422]
+custom_minimum_size = Vector2(820, 34)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 text = "user://balance_runner_results.csv"
 
-[node name="SummaryLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer"]
-custom_minimum_size = Vector2(700, 48)
+[node name="BandRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BandLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(124, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Result Dividers"
+vertical_alignment = 1
+
+[node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 20.0
+
+[node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 40.0
+
+[node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 60.0
+
+[node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 1.0
+max_value = 99.0
+value = 80.0
+
+[node name="SummaryLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1813098771]
+custom_minimum_size = Vector2(1000, 74)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 16
 text = "Ready."
 autowrap_mode = 3
 
-[node name="Graph" type="Control" parent="MarginContainer/RunScroll/VBoxContainer"]
-custom_minimum_size = Vector2(760, 360)
+[node name="Graph" type="Control" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1290756688]
+custom_minimum_size = Vector2(1120, 620)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

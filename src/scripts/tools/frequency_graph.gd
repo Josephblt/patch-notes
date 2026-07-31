@@ -210,18 +210,13 @@ func _draw_series(plot_rect: Rect2) -> void:
 func _draw_behavior_series(plot_rect: Rect2, frequencies: Dictionary, color: Color) -> void:
 	var previous_point: Vector2 = Vector2.ZERO
 	var has_previous_point: bool = false
+	var min_bucket: int = floori(min_score)
+	var max_bucket: int = ceili(max_score)
 
-	var scores: Array[float] = []
-
-	for score: Variant in frequencies.keys():
-		scores.append(float(score))
-
-	scores.sort()
-
-	for score: float in scores:
-		var frequency: int = frequencies.get(score, 0)
+	for score_bucket: int in range(min_bucket, max_bucket + 1):
+		var frequency: int = frequencies.get(score_bucket, 0)
 		var point: Vector2 = Vector2(
-			_score_to_x(score, plot_rect),
+			_score_to_x(float(score_bucket), plot_rect),
 			_frequency_to_y(frequency, plot_rect)
 		)
 
@@ -230,9 +225,6 @@ func _draw_behavior_series(plot_rect: Rect2, frequencies: Dictionary, color: Col
 
 		previous_point = point
 		has_previous_point = true
-
-		if scores.size() == 1:
-			draw_circle(point, 3.0, color)
 
 
 func _score_to_x(score: float, plot_rect: Rect2) -> float:

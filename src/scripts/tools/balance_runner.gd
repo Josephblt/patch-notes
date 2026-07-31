@@ -538,12 +538,14 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 			var tree_name: String = score_tree.get_display_name()
 			var column_name: String = "final_%s" % tree_name.to_lower()
 			var series_name: String = "%s %s" % [runner, tree_name]
-			var final_score: float = row[column_name]
+			var final_score_bucket: int = int(round(float(row[column_name])))
 
 			if not series.has(series_name):
 				series[series_name] = {}
 
-			series[series_name][final_score] = series[series_name].get(final_score, 0) + 1
+			series[series_name][final_score_bucket] = (
+				series[series_name].get(final_score_bucket, 0) + 1
+			)
 
 	return series
 

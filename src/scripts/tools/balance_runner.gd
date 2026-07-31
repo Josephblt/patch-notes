@@ -7,9 +7,12 @@ const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
 const DEFAULT_SEED: int = 310731
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
-const SUPPORTED_BEHAVIORS: Array[String] = [
-	"vh_vh",
-	"random_count",
+const SCORE_LEVELS: Array[String] = [
+	"vh",
+	"h",
+	"m",
+	"l",
+	"vl",
 ]
 
 var score_trees: Array[ScoreTree] = []
@@ -21,13 +24,13 @@ var last_rows: Array[Dictionary] = []
 @export var seed: int = DEFAULT_SEED
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
-@onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
-@onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
-@onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
-@onready var output_path_line_edit: LineEdit = $MarginContainer/VBoxContainer/OutputRow/OutputPathLineEdit
-@onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
-@onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
-@onready var graph: Control = $MarginContainer/VBoxContainer/Graph
+@onready var behavior_options: OptionButton = $MarginContainer/RunScroll/VBoxContainer/ControlRow/BehaviorOptions
+@onready var game_count_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/GameCountSpinBox
+@onready var seed_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/SeedSpinBox
+@onready var output_path_line_edit: LineEdit = $MarginContainer/RunScroll/VBoxContainer/OutputRow/OutputPathLineEdit
+@onready var run_button: Button = $MarginContainer/RunScroll/VBoxContainer/ControlRow/RunButton
+@onready var summary_label: Label = $MarginContainer/RunScroll/VBoxContainer/SummaryLabel
+@onready var graph: Control = $MarginContainer/RunScroll/VBoxContainer/Graph
 
 
 func _ready() -> void:
@@ -60,10 +63,10 @@ func _run_from_command_line() -> void:
 func _configure_controls() -> void:
 	behavior_options.clear()
 
-	for behavior: String in SUPPORTED_BEHAVIORS:
+	for behavior: String in _get_supported_behaviors():
 		behavior_options.add_item(behavior)
 
-	var selected_index: int = SUPPORTED_BEHAVIORS.find(selected_behavior)
+	var selected_index: int = _get_supported_behaviors().find(selected_behavior)
 
 	if selected_index < 0:
 		selected_index = 0
@@ -202,8 +205,8 @@ func _select_cards(
 	if behavior == "random_count":
 		return _select_random_count(feature_cards, random_number_generator)
 
-	if behavior == "vh_vh":
-		return _select_vh_vh(feature_cards)
+	if _is_score_behavior(behavior):
+		return _select_score_target(feature_cards, behavior)
 
 	push_error("Unsupported balance behavior: %s" % behavior)
 	return _select_random_count(feature_cards, random_number_generator)
@@ -226,7 +229,10 @@ func _select_random_count(
 	return selected_card_uids
 
 
-func _select_vh_vh(feature_cards: Array[FeatureCard]) -> Array[String]:
+func _select_score_target(feature_cards: Array[FeatureCard], behavior: String) -> Array[String]:
+	var behavior_parts: PackedStringArray = behavior.split("_")
+	var fun_level: String = behavior_parts[0]
+	var money_level: String = behavior_parts[1]
 	var best_key: Array[int] = []
 	var best_card_uids: Array[String] = []
 
@@ -239,10 +245,12 @@ func _select_vh_vh(feature_cards: Array[FeatureCard]) -> Array[String]:
 
 		var fun_delta: int = _calculate_cards_points(selected_cards, "Fun")
 		var money_delta: int = _calculate_cards_points(selected_cards, "Money")
+		var fun_fit: int = _score_axis_delta(fun_delta, fun_level)
+		var money_fit: int = _score_axis_delta(money_delta, money_level)
 		var key: Array[int] = [
-			fun_delta + money_delta,
-			min(fun_delta, money_delta),
-			-abs(fun_delta - money_delta),
+			fun_fit + money_fit,
+			min(fun_fit, money_fit),
+			-abs(fun_fit - money_fit),
 			-selected_cards.size(),
 		]
 
@@ -251,6 +259,44 @@ func _select_vh_vh(feature_cards: Array[FeatureCard]) -> Array[String]:
 			best_card_uids = _get_card_uids(selected_cards)
 
 	return best_card_uids
+
+
+func _score_axis_delta(delta: int, level: String) -> int:
+	match level:
+		"vh":
+			return delta
+		"h":
+			return -abs(delta - 3)
+		"m":
+			return -abs(delta)
+		"l":
+			return -abs(delta + 3)
+		"vl":
+			return -delta
+		_:
+			return 0
+
+
+func _is_score_behavior(behavior: String) -> bool:
+	var behavior_parts: PackedStringArray = behavior.split("_")
+
+	return (
+		behavior_parts.size() == 2
+		and SCORE_LEVELS.has(behavior_parts[0])
+		and SCORE_LEVELS.has(behavior_parts[1])
+	)
+
+
+func _get_supported_behaviors() -> Array[String]:
+	var behavior_names: Array[String] = []
+
+	for fun_level: String in SCORE_LEVELS:
+		for money_level: String in SCORE_LEVELS:
+			behavior_names.append("%s_%s" % [fun_level, money_level])
+
+	behavior_names.append(BASELINE_BEHAVIOR)
+
+	return behavior_names
 
 
 func _is_key_greater(left: Array[int], right: Array[int]) -> bool:

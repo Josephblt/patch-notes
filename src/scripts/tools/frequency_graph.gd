@@ -6,24 +6,38 @@ const BACKGROUND_COLOR: Color = Color(0.0901961, 0.0862745, 0.0784314, 1)
 const AXIS_COLOR: Color = Color(0.48, 0.50, 0.53, 1)
 const GRID_COLOR: Color = Color(0.22, 0.24, 0.25, 1)
 const TEXT_COLOR: Color = Color(0.956863, 0.937255, 0.890196, 1)
-const RANDOM_COLOR: Color = Color(0.29, 0.66, 0.95, 1)
-const SELECTED_COLOR: Color = Color(0.95, 0.70, 0.30, 1)
+const BAND_COLOR: Color = Color(0.16, 0.17, 0.17, 1)
+const BAND_LINE_COLOR: Color = Color(0.38, 0.39, 0.39, 1)
+const SERIES_COLORS: Array[Color] = [
+	Color(0.29, 0.66, 0.95, 1),
+	Color(0.35, 0.85, 0.73, 1),
+	Color(0.95, 0.70, 0.30, 1),
+	Color(0.96, 0.42, 0.42, 1),
+]
 const PADDING_LEFT: float = 58.0
 const PADDING_TOP: float = 28.0
 const PADDING_RIGHT: float = 26.0
 const PADDING_BOTTOM: float = 48.0
-const MIN_COMBINED_SCORE: int = -96
-const MAX_COMBINED_SCORE: int = 96
 
 var series_by_behavior: Dictionary[String, Dictionary] = {}
 var min_score: int = 0
 var max_score: int = 0
 var max_frequency: int = 0
+var score_band_dividers: Array[int] = []
 
 
-func set_series(next_series_by_behavior: Dictionary[String, Dictionary]) -> void:
+func set_series(
+	next_series_by_behavior: Dictionary[String, Dictionary],
+	next_min_score: int,
+	next_max_score: int,
+	next_score_band_dividers: Array[int] = []
+) -> void:
 	series_by_behavior = next_series_by_behavior
-	_recalculate_bounds()
+	min_score = next_min_score
+	max_score = next_max_score
+	score_band_dividers = next_score_band_dividers.duplicate()
+	score_band_dividers.sort()
+	_recalculate_max_frequency()
 	queue_redraw()
 
 
@@ -41,6 +55,7 @@ func _draw() -> void:
 		max(1.0, size.y - PADDING_TOP - PADDING_BOTTOM)
 	)
 
+	_draw_score_bands(plot_rect)
 	_draw_grid(plot_rect)
 	_draw_axis_labels(plot_rect)
 	_draw_series(plot_rect)
@@ -53,7 +68,7 @@ func _draw_empty_state() -> void:
 	draw_string(
 		font,
 		Vector2(24, 48),
-		"Run a dataset to plot final combined score frequency.",
+		"Run a dataset to plot final Fun and Money score frequency.",
 		HORIZONTAL_ALIGNMENT_LEFT,
 		-1,
 		font_size,
@@ -96,6 +111,41 @@ func _draw_grid(plot_rect: Rect2) -> void:
 		)
 
 
+func _draw_score_bands(plot_rect: Rect2) -> void:
+	var band_edges: Array[int] = _get_score_band_edges()
+
+	for band_index: int in range(band_edges.size() - 1):
+		if band_index % 2 != 0:
+			continue
+
+		var band_start_score: float = _normalized_score_to_raw_score(band_edges[band_index])
+		var band_end_score: float = _normalized_score_to_raw_score(band_edges[band_index + 1])
+		var band_start_x: float = _score_to_x(int(round(band_start_score)), plot_rect)
+		var band_end_x: float = _score_to_x(int(round(band_end_score)), plot_rect)
+
+		draw_rect(
+			Rect2(
+				Vector2(band_start_x, plot_rect.position.y),
+				Vector2(band_end_x - band_start_x, plot_rect.size.y)
+			),
+			BAND_COLOR,
+			true
+		)
+
+	for normalized_score: int in score_band_dividers:
+		var divider_x: float = _score_to_x(
+			int(round(_normalized_score_to_raw_score(normalized_score))),
+			plot_rect
+		)
+
+		draw_line(
+			Vector2(divider_x, plot_rect.position.y),
+			Vector2(divider_x, plot_rect.position.y + plot_rect.size.y),
+			BAND_LINE_COLOR,
+			1.0
+		)
+
+
 func _draw_axis_labels(plot_rect: Rect2) -> void:
 	var font: Font = get_theme_default_font()
 	var font_size: int = 13
@@ -105,13 +155,37 @@ func _draw_axis_labels(plot_rect: Rect2) -> void:
 	draw_string(font, Vector2(plot_rect.position.x - 16, plot_rect.position.y + plot_rect.size.y), "0", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 	draw_string(font, Vector2(plot_rect.position.x, baseline_y), str(min_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 	draw_string(font, Vector2(plot_rect.position.x + plot_rect.size.x - 30, baseline_y), str(max_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
-	draw_string(font, Vector2(plot_rect.position.x + 180, baseline_y + 16), "Final combined raw score", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
+	draw_string(font, Vector2(plot_rect.position.x + 180, baseline_y + 16), "Final raw score", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 
-	var legend_x: float = plot_rect.position.x + plot_rect.size.x - 210.0
+	for normalized_score: int in score_band_dividers:
+		var divider_x: float = _score_to_x(
+			int(round(_normalized_score_to_raw_score(normalized_score))),
+			plot_rect
+		)
+
+		draw_string(
+			font,
+			Vector2(divider_x - 8.0, baseline_y),
+			str(normalized_score),
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			font_size,
+			TEXT_COLOR
+		)
+
+	var legend_x: float = plot_rect.position.x + plot_rect.size.x - 260.0
 	var legend_y: float = plot_rect.position.y + 18.0
+	var behavior_names: Array[String] = series_by_behavior.keys()
+	behavior_names.sort()
 
-	_draw_legend_item(font, font_size, Vector2(legend_x, legend_y), "random_count", RANDOM_COLOR)
-	_draw_legend_item(font, font_size, Vector2(legend_x, legend_y + 22.0), "selected behavior", SELECTED_COLOR)
+	for behavior_index: int in range(behavior_names.size()):
+		_draw_legend_item(
+			font,
+			font_size,
+			Vector2(legend_x, legend_y + (behavior_index * 20.0)),
+			behavior_names[behavior_index],
+			_get_series_color(behavior_index)
+		)
 
 
 func _draw_legend_item(font: Font, font_size: int, position: Vector2, label: String, color: Color) -> void:
@@ -123,13 +197,14 @@ func _draw_series(plot_rect: Rect2) -> void:
 	var behavior_names: Array[String] = series_by_behavior.keys()
 	behavior_names.sort()
 
-	for behavior: String in behavior_names:
-		var color: Color = RANDOM_COLOR
+	for behavior_index: int in range(behavior_names.size()):
+		var behavior: String = behavior_names[behavior_index]
 
-		if behavior != "random_count":
-			color = SELECTED_COLOR
-
-		_draw_behavior_series(plot_rect, series_by_behavior[behavior], color)
+		_draw_behavior_series(
+			plot_rect,
+			series_by_behavior[behavior],
+			_get_series_color(behavior_index)
+		)
 
 
 func _draw_behavior_series(plot_rect: Rect2, frequencies: Dictionary, color: Color) -> void:
@@ -161,6 +236,24 @@ func _score_to_x(score: int, plot_rect: Rect2) -> float:
 	)
 
 
+func _normalized_score_to_raw_score(normalized_score: float) -> float:
+	return float(min_score) + (
+		(normalized_score / 100.0)
+		* float(max_score - min_score)
+	)
+
+
+func _get_score_band_edges() -> Array[int]:
+	var band_edges: Array[int] = [0]
+
+	for divider: int in score_band_dividers:
+		if divider > 0 and divider < 100:
+			band_edges.append(divider)
+
+	band_edges.append(100)
+	return band_edges
+
+
 func _frequency_to_y(frequency: int, plot_rect: Rect2) -> float:
 	if max_frequency == 0:
 		return plot_rect.position.y + plot_rect.size.y
@@ -172,9 +265,11 @@ func _frequency_to_y(frequency: int, plot_rect: Rect2) -> float:
 	)
 
 
-func _recalculate_bounds() -> void:
-	min_score = MIN_COMBINED_SCORE
-	max_score = MAX_COMBINED_SCORE
+func _get_series_color(series_index: int) -> Color:
+	return SERIES_COLORS[series_index % SERIES_COLORS.size()]
+
+
+func _recalculate_max_frequency() -> void:
 	max_frequency = 0
 
 	for frequencies: Dictionary in series_by_behavior.values():

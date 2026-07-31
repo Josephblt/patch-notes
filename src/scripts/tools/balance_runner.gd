@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
+const SCORE_BANDS_PATH: String = "res://data/scoring/final_score_bands.json"
 const BASELINE_BEHAVIOR: String = "random_count"
 const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
@@ -90,7 +91,14 @@ func _on_run_button_pressed() -> void:
 
 	last_rows = run_dataset(behavior, selected_game_count, selected_seed)
 	_write_csv(selected_output_path, last_rows)
-	graph.call("set_series", _build_frequency_series(last_rows))
+	var score_axis_bound: int = _calculate_score_axis_bound()
+	graph.call(
+		"set_series",
+		_build_frequency_series(last_rows),
+		-score_axis_bound,
+		score_axis_bound,
+		_load_score_band_dividers()
+	)
 
 	summary_label.text = _format_summary(last_rows, selected_output_path)
 	run_button.disabled = false
@@ -359,20 +367,29 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 
 	for row: Dictionary in rows:
 		var behavior: String = row["behavior"]
-		var final_combined: int = row["final_combined"]
 
-		if not series.has(behavior):
-			series[behavior] = {}
+		for score_tree: ScoreTree in score_trees:
+			var tree_name: String = score_tree.get_display_name()
+			var column_name: String = "final_%s" % tree_name.to_lower()
+			var series_name: String = "%s %s" % [behavior, tree_name]
+			var final_score: int = row[column_name]
 
-		series[behavior][final_combined] = series[behavior].get(final_combined, 0) + 1
+			if not series.has(series_name):
+				series[series_name] = {}
+
+			series[series_name][final_score] = series[series_name].get(final_score, 0) + 1
 
 	return series
 
 
 func _format_summary(rows: Array[Dictionary], selected_output_path: String) -> String:
-	var behavior_names: Array[String] = _build_frequency_series(rows).keys()
+	var behavior_names: Array[String] = _get_row_behavior_names(rows)
 	behavior_names.sort()
-	var lines: PackedStringArray = ["Wrote %s" % selected_output_path]
+	var score_axis_bound: int = _calculate_score_axis_bound()
+	var lines: PackedStringArray = [
+		"Wrote %s" % selected_output_path,
+		"Raw score axis: %d..%d" % [-score_axis_bound, score_axis_bound],
+	]
 
 	for behavior: String in behavior_names:
 		lines.append(_format_behavior_summary(rows, behavior))
@@ -380,38 +397,109 @@ func _format_summary(rows: Array[Dictionary], selected_output_path: String) -> S
 	return "\n".join(lines)
 
 
+func _get_row_behavior_names(rows: Array[Dictionary]) -> Array[String]:
+	var behavior_names: Array[String] = []
+
+	for row: Dictionary in rows:
+		var behavior: String = row["behavior"]
+
+		if not behavior_names.has(behavior):
+			behavior_names.append(behavior)
+
+	return behavior_names
+
+
 func _format_behavior_summary(rows: Array[Dictionary], behavior: String) -> String:
 	var count: int = 0
-	var minimum_score: int = 0
-	var maximum_score: int = 0
-	var total_score: int = 0
+	var fun_scores: Array[int] = []
+	var money_scores: Array[int] = []
 
 	for row: Dictionary in rows:
 		if row["behavior"] != behavior:
 			continue
 
-		var score: int = row["final_combined"]
-
-		if count == 0:
-			minimum_score = score
-			maximum_score = score
-		else:
-			minimum_score = min(minimum_score, score)
-			maximum_score = max(maximum_score, score)
-
-		total_score += score
+		fun_scores.append(row["final_fun"])
+		money_scores.append(row["final_money"])
 		count += 1
 
 	if count == 0:
 		return "%s: no rows" % behavior
 
-	return "%s: n=%d min=%d avg=%.2f max=%d" % [
+	return "%s: n=%d Fun %s | Money %s" % [
 		behavior,
 		count,
+		_format_score_list_summary(fun_scores),
+		_format_score_list_summary(money_scores),
+	]
+
+
+func _format_score_list_summary(scores: Array[int]) -> String:
+	var minimum_score: int = scores[0]
+	var maximum_score: int = scores[0]
+	var total_score: int = 0
+
+	for score: int in scores:
+		minimum_score = min(minimum_score, score)
+		maximum_score = max(maximum_score, score)
+		total_score += score
+
+	return "min=%d avg=%.2f max=%d" % [
 		minimum_score,
-		float(total_score) / float(count),
+		float(total_score) / float(scores.size()),
 		maximum_score,
 	]
+
+
+func _calculate_score_axis_bound() -> int:
+	var strongest_node_points: int = 0
+
+	for score_tree: ScoreTree in score_trees:
+		for node: ScoreTreeNode in score_tree.nodes.values():
+			if node.get_uid() == score_tree.get_root_uid():
+				continue
+
+			strongest_node_points = max(
+				strongest_node_points,
+				score_tree.get_points(node.get_uid())
+			)
+
+	return (
+		strongest_node_points
+		* GameRun.RELEASE_COUNT
+		* Release.SPRINT_COUNT
+		* GameRun.CARDS_PER_SPRINT
+	)
+
+
+func _load_score_band_dividers() -> Array[int]:
+	var file: FileAccess = FileAccess.open(SCORE_BANDS_PATH, FileAccess.READ)
+	var dividers: Array[int] = []
+
+	if file == null:
+		push_error("Could not open score bands JSON file: %s" % SCORE_BANDS_PATH)
+		return dividers
+
+	var json: JSON = JSON.new()
+	var parse_result: Error = json.parse(file.get_as_text())
+
+	if parse_result != OK or not json.data is Array:
+		push_error("Could not parse score bands JSON file: %s" % SCORE_BANDS_PATH)
+		return dividers
+
+	var items: Array = json.data as Array
+
+	for item: Variant in items:
+		if not item is Dictionary:
+			continue
+
+		var band: Dictionary = item as Dictionary
+		var min_score: int = int(band.get("min_score", 0))
+
+		if min_score > 0 and min_score < 100 and not dividers.has(min_score):
+			dividers.append(min_score)
+
+	dividers.sort()
+	return dividers
 
 
 func _write_csv(path: String, rows: Array[Dictionary]) -> void:

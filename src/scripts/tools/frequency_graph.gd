@@ -12,6 +12,8 @@ const PADDING_LEFT: float = 58.0
 const PADDING_TOP: float = 28.0
 const PADDING_RIGHT: float = 26.0
 const PADDING_BOTTOM: float = 48.0
+const MIN_COMBINED_SCORE: int = -96
+const MAX_COMBINED_SCORE: int = 96
 
 var series_by_behavior: Dictionary[String, Dictionary] = {}
 var min_score: int = 0
@@ -171,20 +173,10 @@ func _frequency_to_y(frequency: int, plot_rect: Rect2) -> float:
 
 
 func _recalculate_bounds() -> void:
-	min_score = 0
-	max_score = 0
+	min_score = MIN_COMBINED_SCORE
+	max_score = MAX_COMBINED_SCORE
 	max_frequency = 0
-
-	var has_score: bool = false
 
 	for frequencies: Dictionary in series_by_behavior.values():
 		for score: int in frequencies.keys():
-			if not has_score:
-				min_score = score
-				max_score = score
-				has_score = true
-			else:
-				min_score = min(min_score, score)
-				max_score = max(max_score, score)
-
 			max_frequency = max(max_frequency, frequencies[score])

@@ -9,6 +9,9 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+MIN_COMBINED_SCORE = -96
+MAX_COMBINED_SCORE = 96
+
 
 def read_rows(path: Path) -> list[dict[str, str]]:
     with path.open(newline="") as input_file:
@@ -25,9 +28,7 @@ def plot_final_combined_frequency(rows: list[dict[str, str]], output_path: Path)
         )
         for behavior in behaviors
     }
-    minimum_score = min(min(counts) for counts in series.values())
-    maximum_score = max(max(counts) for counts in series.values())
-    scores = list(range(minimum_score, maximum_score + 1))
+    scores = list(range(MIN_COMBINED_SCORE, MAX_COMBINED_SCORE + 1))
 
     plt.figure(figsize=(12, 6.5))
 

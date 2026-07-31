@@ -138,30 +138,30 @@ vertical_alignment = 1
 [node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
-min_value = 1.0
-max_value = 99.0
-value = 20.0
+min_value = -144.0
+max_value = 144.0
+value = -86.0
 
 [node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
-min_value = 1.0
-max_value = 99.0
-value = 40.0
+min_value = -144.0
+max_value = 144.0
+value = -29.0
 
 [node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
-min_value = 1.0
-max_value = 99.0
-value = 60.0
+min_value = -144.0
+max_value = 144.0
+value = 29.0
 
 [node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
-min_value = 1.0
-max_value = 99.0
-value = 80.0
+min_value = -144.0
+max_value = 144.0
+value = 86.0
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
 custom_minimum_size = Vector2(1000, 28)

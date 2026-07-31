@@ -118,10 +118,8 @@ func _draw_score_bands(plot_rect: Rect2) -> void:
 		if band_index % 2 != 0:
 			continue
 
-		var band_start_score: float = _normalized_score_to_raw_score(band_edges[band_index])
-		var band_end_score: float = _normalized_score_to_raw_score(band_edges[band_index + 1])
-		var band_start_x: float = _score_to_x(int(round(band_start_score)), plot_rect)
-		var band_end_x: float = _score_to_x(int(round(band_end_score)), plot_rect)
+		var band_start_x: float = _score_to_x(band_edges[band_index], plot_rect)
+		var band_end_x: float = _score_to_x(band_edges[band_index + 1], plot_rect)
 
 		draw_rect(
 			Rect2(
@@ -132,11 +130,8 @@ func _draw_score_bands(plot_rect: Rect2) -> void:
 			true
 		)
 
-	for normalized_score: int in score_band_dividers:
-		var divider_x: float = _score_to_x(
-			int(round(_normalized_score_to_raw_score(normalized_score))),
-			plot_rect
-		)
+	for raw_score: int in score_band_dividers:
+		var divider_x: float = _score_to_x(raw_score, plot_rect)
 
 		draw_line(
 			Vector2(divider_x, plot_rect.position.y),
@@ -157,16 +152,13 @@ func _draw_axis_labels(plot_rect: Rect2) -> void:
 	draw_string(font, Vector2(plot_rect.position.x + plot_rect.size.x - 30, baseline_y), str(max_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 	draw_string(font, Vector2(plot_rect.position.x + 180, baseline_y + 16), "Final raw score", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 
-	for normalized_score: int in score_band_dividers:
-		var divider_x: float = _score_to_x(
-			int(round(_normalized_score_to_raw_score(normalized_score))),
-			plot_rect
-		)
+	for raw_score: int in score_band_dividers:
+		var divider_x: float = _score_to_x(raw_score, plot_rect)
 
 		draw_string(
 			font,
 			Vector2(divider_x - 8.0, baseline_y),
-			str(normalized_score),
+			str(raw_score),
 			HORIZONTAL_ALIGNMENT_LEFT,
 			-1,
 			font_size,
@@ -236,21 +228,14 @@ func _score_to_x(score: int, plot_rect: Rect2) -> float:
 	)
 
 
-func _normalized_score_to_raw_score(normalized_score: float) -> float:
-	return float(min_score) + (
-		(normalized_score / 100.0)
-		* float(max_score - min_score)
-	)
-
-
 func _get_score_band_edges() -> Array[int]:
-	var band_edges: Array[int] = [0]
+	var band_edges: Array[int] = [min_score]
 
 	for divider: int in score_band_dividers:
-		if divider > 0 and divider < 100:
+		if divider > min_score and divider < max_score:
 			band_edges.append(divider)
 
-	band_edges.append(100)
+	band_edges.append(max_score)
 	return band_edges
 
 

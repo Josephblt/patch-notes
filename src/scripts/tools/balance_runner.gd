@@ -2,7 +2,6 @@ extends CanvasLayer
 
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
-const SCORE_BANDS_PATH: String = "res://data/scoring/final_score_bands.json"
 const BASELINE_BEHAVIOR: String = "random_count"
 const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
@@ -85,7 +84,7 @@ func _configure_controls() -> void:
 	seed_spin_box.value = seed
 	random_seed_check_box.button_pressed = random_seed
 	output_path_line_edit.text = output_path
-	_configure_band_divider_controls(_load_score_band_dividers())
+	_configure_band_divider_controls()
 	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
 
 
@@ -510,47 +509,29 @@ func _calculate_score_axis_bound() -> int:
 	)
 
 
-func _load_score_band_dividers() -> Array[int]:
-	var file: FileAccess = FileAccess.open(SCORE_BANDS_PATH, FileAccess.READ)
-	var dividers: Array[int] = []
-
-	if file == null:
-		push_error("Could not open score bands JSON file: %s" % SCORE_BANDS_PATH)
-		return dividers
-
-	var json: JSON = JSON.new()
-	var parse_result: Error = json.parse(file.get_as_text())
-
-	if parse_result != OK or not json.data is Array:
-		push_error("Could not parse score bands JSON file: %s" % SCORE_BANDS_PATH)
-		return dividers
-
-	var items: Array = json.data as Array
-
-	for item: Variant in items:
-		if not item is Dictionary:
-			continue
-
-		var band: Dictionary = item as Dictionary
-		var min_score: int = int(band.get("min_score", 0))
-
-		if min_score > 0 and min_score < 100 and not dividers.has(min_score):
-			dividers.append(min_score)
-
-	dividers.sort()
-	return dividers
-
-
-func _configure_band_divider_controls(dividers: Array[int]) -> void:
+func _configure_band_divider_controls() -> void:
 	var band_divider_spin_boxes: Array[SpinBox] = _get_band_divider_spin_boxes()
+	var score_axis_bound: int = _calculate_score_axis_bound()
+	var dividers: Array[int] = _get_default_raw_score_dividers(score_axis_bound)
 
 	for divider_index: int in range(band_divider_spin_boxes.size()):
-		var divider_value: int = (divider_index + 1) * 20
+		var spin_box: SpinBox = band_divider_spin_boxes[divider_index]
 
-		if divider_index < dividers.size():
-			divider_value = dividers[divider_index]
+		spin_box.min_value = -score_axis_bound
+		spin_box.max_value = score_axis_bound
+		spin_box.value = dividers[divider_index]
 
-		band_divider_spin_boxes[divider_index].value = divider_value
+
+func _get_default_raw_score_dividers(score_axis_bound: int) -> Array[int]:
+	var dividers: Array[int] = []
+
+	for divider_index: int in range(1, 5):
+		dividers.append(int(round(
+			float(-score_axis_bound)
+			+ ((float(score_axis_bound * 2) / 5.0) * divider_index)
+		)))
+
+	return dividers
 
 
 func _get_score_band_dividers_from_controls() -> Array[int]:
@@ -559,7 +540,7 @@ func _get_score_band_dividers_from_controls() -> Array[int]:
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
 		var divider: int = int(band_divider_spin_box.value)
 
-		if divider > 0 and divider < 100 and not dividers.has(divider):
+		if not dividers.has(divider):
 			dividers.append(divider)
 
 	dividers.sort()

@@ -37,6 +37,14 @@ theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 24
 text = "Balance Runner"
 
+[node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(1000, 26)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 16
+text = "Ready."
+autowrap_mode = 3
+
 [node name="ControlRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2088022378]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -156,7 +164,7 @@ max_value = 99.0
 value = 80.0
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
-custom_minimum_size = Vector2(1000, 68)
+custom_minimum_size = Vector2(1000, 28)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 16

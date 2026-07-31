@@ -36,6 +36,7 @@ var last_rows: Array[Dictionary] = []
 @onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
 @onready var band_divider_4_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider4SpinBox
 @onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
+@onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
 @onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
 @onready var graph: Control = $MarginContainer/VBoxContainer/Graph
 
@@ -104,7 +105,7 @@ func _on_run_button_pressed() -> void:
 		selected_seed = _generate_random_seed()
 		seed_spin_box.value = selected_seed
 
-	last_rows = run_dataset(behavior, selected_game_count, selected_seed)
+	last_rows = await _run_dataset_with_progress(behavior, selected_game_count, selected_seed)
 	_write_csv(selected_output_path, last_rows)
 	var score_axis_bound: int = _calculate_score_axis_bound()
 	graph.call(
@@ -115,13 +116,79 @@ func _on_run_button_pressed() -> void:
 		selected_score_band_dividers
 	)
 
-	summary_label.text = _format_summary(
-		last_rows,
-		selected_output_path,
+	summary_label.text = _format_seed_summary(
 		selected_seed,
-		selected_score_band_dividers
+		random_seed_check_box.button_pressed
 	)
 	run_button.disabled = false
+
+
+func _run_dataset_with_progress(
+	behavior: String,
+	selected_game_count: int,
+	selected_seed: int
+) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
+	var progress_by_behavior: Dictionary[String, int] = {}
+
+	for behavior_name: String in behavior_names:
+		progress_by_behavior[behavior_name] = 0
+
+	_render_runner_progress(behavior, selected_game_count, progress_by_behavior)
+	await get_tree().process_frame
+
+	for behavior_index: int in range(behavior_names.size()):
+		var behavior_name: String = behavior_names[behavior_index]
+		var behavior_seed: int = selected_seed + (behavior_index * 100000)
+
+		for game_number: int in range(1, selected_game_count + 1):
+			rows.append(_play_game(behavior_name, game_number, behavior_seed + game_number))
+			progress_by_behavior[behavior_name] = game_number
+			_render_runner_progress(behavior, selected_game_count, progress_by_behavior)
+			await get_tree().process_frame
+
+	return rows
+
+
+func _render_runner_progress(
+	selected_behavior_name: String,
+	selected_game_count: int,
+	progress_by_behavior: Dictionary[String, int]
+) -> void:
+	var parts: PackedStringArray = []
+
+	for behavior_name: String in _get_progress_behavior_names(selected_behavior_name):
+		var completed_count: int = progress_by_behavior.get(behavior_name, 0)
+		var percent_complete: int = 0
+
+		if selected_game_count > 0:
+			percent_complete = int(round(
+				(float(completed_count) / float(selected_game_count)) * 100.0
+			))
+
+		parts.append("%s - %d/%d - %d%%" % [
+			_format_progress_behavior_name(behavior_name),
+			selected_game_count,
+			completed_count,
+			percent_complete,
+		])
+
+	progress_label.text = " | ".join(parts)
+
+
+func _get_progress_behavior_names(selected_behavior_name: String) -> Array[String]:
+	if selected_behavior_name == BASELINE_BEHAVIOR:
+		return [BASELINE_BEHAVIOR]
+
+	return [selected_behavior_name, BASELINE_BEHAVIOR]
+
+
+func _format_progress_behavior_name(behavior_name: String) -> String:
+	if behavior_name == BASELINE_BEHAVIOR:
+		return "Random"
+
+	return behavior_name.to_upper()
 
 
 func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
@@ -407,88 +474,12 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 	return series
 
 
-func _format_summary(
-	rows: Array[Dictionary],
-	selected_output_path: String,
-	selected_seed: int,
-	selected_score_band_dividers: Array[int]
-) -> String:
-	var behavior_names: Array[String] = _get_row_behavior_names(rows)
-	behavior_names.sort()
-	var score_axis_bound: int = _calculate_score_axis_bound()
-	var lines: PackedStringArray = [
-		"Wrote %s" % selected_output_path,
-		"Seed: %d" % selected_seed,
-		"Raw score axis: %d..%d" % [-score_axis_bound, score_axis_bound],
-		"Result dividers: %s" % ", ".join(_format_int_array(selected_score_band_dividers)),
-	]
+func _format_seed_summary(selected_seed: int, is_random_seed: bool) -> String:
+	if is_random_seed:
+		return "Random Seed: %d" % selected_seed
 
-	for behavior: String in behavior_names:
-		lines.append(_format_behavior_summary(rows, behavior))
+	return "Seed: %d" % selected_seed
 
-	return "\n".join(lines)
-
-
-func _format_int_array(values: Array[int]) -> PackedStringArray:
-	var output: PackedStringArray = []
-
-	for value: int in values:
-		output.append(str(value))
-
-	return output
-
-
-func _get_row_behavior_names(rows: Array[Dictionary]) -> Array[String]:
-	var behavior_names: Array[String] = []
-
-	for row: Dictionary in rows:
-		var behavior: String = row["behavior"]
-
-		if not behavior_names.has(behavior):
-			behavior_names.append(behavior)
-
-	return behavior_names
-
-
-func _format_behavior_summary(rows: Array[Dictionary], behavior: String) -> String:
-	var count: int = 0
-	var fun_scores: Array[int] = []
-	var money_scores: Array[int] = []
-
-	for row: Dictionary in rows:
-		if row["behavior"] != behavior:
-			continue
-
-		fun_scores.append(row["final_fun"])
-		money_scores.append(row["final_money"])
-		count += 1
-
-	if count == 0:
-		return "%s: no rows" % behavior
-
-	return "%s: n=%d Fun %s | Money %s" % [
-		behavior,
-		count,
-		_format_score_list_summary(fun_scores),
-		_format_score_list_summary(money_scores),
-	]
-
-
-func _format_score_list_summary(scores: Array[int]) -> String:
-	var minimum_score: int = scores[0]
-	var maximum_score: int = scores[0]
-	var total_score: int = 0
-
-	for score: int in scores:
-		minimum_score = min(minimum_score, score)
-		maximum_score = max(maximum_score, score)
-		total_score += score
-
-	return "min=%d avg=%.2f max=%d" % [
-		minimum_score,
-		float(total_score) / float(scores.size()),
-		maximum_score,
-	]
 
 
 func _generate_random_seed() -> int:

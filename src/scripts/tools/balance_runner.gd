@@ -67,6 +67,9 @@ func _ready() -> void:
 
 	_configure_controls()
 	run_button.pressed.connect(_on_run_button_pressed)
+	behavior_options.item_selected.connect(_on_lane_visibility_changed)
+	behavior_2_options.item_selected.connect(_on_lane_visibility_changed)
+	baseline_options.item_selected.connect(_on_lane_visibility_changed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
 	leaf_point_spin_box.value_changed.connect(_on_level_points_changed)
@@ -258,6 +261,13 @@ func _on_level_points_changed(_value: float) -> void:
 
 
 func _on_band_dividers_changed(_value: float) -> void:
+	if last_rows.is_empty():
+		return
+
+	_update_graph()
+
+
+func _on_lane_visibility_changed(_index: int) -> void:
 	if last_rows.is_empty():
 		return
 
@@ -577,11 +587,24 @@ func _get_game_score(game_run: GameRun, tree_name: String) -> float:
 	return game_run.get_score(score_tree.get_uid())
 
 
-func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dictionary]:
+func _build_frequency_series(
+	rows: Array[Dictionary],
+	runner_configs: Array[Dictionary] = [],
+	use_runner_filter: bool = false
+) -> Dictionary[String, Dictionary]:
 	var series: Dictionary[String, Dictionary] = {}
+	var visible_runner_configs: Dictionary[String, String] = _get_visible_runner_configs(runner_configs)
 
 	for row: Dictionary in rows:
-		var runner: String = row.get("runner", row["behavior"])
+		var runner: String = str(row.get("runner", row["behavior"]))
+		var behavior: String = str(row.get("behavior", ""))
+
+		if use_runner_filter:
+			if not visible_runner_configs.has(runner):
+				continue
+
+			if visible_runner_configs[runner] != behavior:
+				continue
 
 		for score_tree: ScoreTree in score_trees:
 			var tree_name: String = score_tree.get_display_name()
@@ -599,6 +622,23 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 	return series
 
 
+func _get_visible_runner_configs(runner_configs: Array[Dictionary]) -> Dictionary[String, String]:
+	var visible_runner_configs: Dictionary[String, String] = {}
+
+	for runner_config: Dictionary in runner_configs:
+		visible_runner_configs[runner_config["runner"]] = runner_config["behavior"]
+
+	return visible_runner_configs
+
+
+func _get_selected_runner_configs() -> Array[Dictionary]:
+	return _get_runner_configs(
+		behavior_options.get_item_text(behavior_options.selected),
+		behavior_2_options.get_item_text(behavior_2_options.selected),
+		str(baseline_options.get_item_metadata(baseline_options.selected))
+	)
+
+
 func _update_graph(score_band_dividers: Array[float] = []) -> void:
 	var graph_dividers: Array[float] = score_band_dividers
 
@@ -608,7 +648,7 @@ func _update_graph(score_band_dividers: Array[float] = []) -> void:
 	var score_axis_bound: float = _calculate_score_axis_bound()
 	graph.call(
 		"set_series",
-		_build_frequency_series(last_rows),
+		_build_frequency_series(last_rows, _get_selected_runner_configs(), true),
 		-score_axis_bound,
 		score_axis_bound,
 		graph_dividers

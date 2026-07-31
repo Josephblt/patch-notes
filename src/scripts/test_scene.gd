@@ -32,9 +32,6 @@ var card_consequence_labels: Array[Label] = []
 
 func _ready() -> void:
 	score_trees = ScoreTreeLoader.load_many_from_json_dir(SCORE_TREE_DIR)
-	feature_deck = FeatureDeckBuilder.build(score_trees)
-	feature_deck.shuffle()
-	game_run = GameRun.new(feature_deck, score_trees)
 	score_interpreter = ScoreInterpreter.load_default()
 	card_buttons = [
 		$MarginContainer/RunScroll/VBoxContainer/CardButtonContainer/CardButton1,
@@ -64,10 +61,28 @@ func _ready() -> void:
 	for card_index: int in range(card_buttons.size()):
 		card_buttons[card_index].pressed.connect(_on_card_button_pressed.bind(card_index))
 
+	_start_new_run()
+
+
+func _start_new_run() -> void:
+	feature_deck = FeatureDeckBuilder.build(score_trees)
+	feature_deck.shuffle()
+	game_run = GameRun.new(feature_deck, score_trees)
+	current_sprint = null
+	current_sprint_cards = []
+	last_release_report = null
+
+	for card_button: Button in card_buttons:
+		card_button.button_pressed = false
+
 	_render_state()
 
 
 func _on_start_sprint_button_pressed() -> void:
+	if game_run.get_current_release() == null:
+		_start_new_run()
+		return
+
 	current_sprint = game_run.start_sprint()
 	last_release_report = null
 
@@ -130,8 +145,9 @@ func _render_state() -> void:
 		state_label.text = "Run complete."
 		score_label.text = "Scores: %s" % _format_scores()
 		preview_label.text = _format_final_result()
-		selected_effects_label.text = _format_selected_updates()
-		start_sprint_button.disabled = true
+		selected_effects_label.text = _format_final_report()
+		start_sprint_button.text = "Restart Run"
+		start_sprint_button.disabled = false
 		submit_sprint_button.disabled = true
 		ship_release_button.disabled = true
 		_render_card_buttons()
@@ -157,6 +173,7 @@ func _render_state() -> void:
 	preview_label.text = _format_status_detail()
 	selected_effects_label.text = _format_selected_updates()
 
+	start_sprint_button.text = "Start Sprint"
 	start_sprint_button.disabled = current_sprint != null or release.is_ready_to_ship()
 	submit_sprint_button.disabled = (
 		current_sprint == null
@@ -312,6 +329,16 @@ func _format_final_result() -> String:
 		result_data.get("title", "Unclassified Result"),
 		result_data.get("summary", ""),
 	]
+
+
+func _format_final_report() -> String:
+	var lines: Array[String] = [_format_final_result()]
+
+	if last_release_report != null:
+		lines.append("")
+		lines.append(_format_release_report(last_release_report))
+
+	return _join_lines(lines)
 
 
 func _format_selected_updates() -> String:

@@ -21,5 +21,13 @@ func draw() -> FeatureCard:
 	return _available_cards.pop_front()
 
 
-func shuffle() -> void:
-	_available_cards.shuffle()
+func shuffle(seed: int) -> void:
+	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
+	random_number_generator.seed = seed
+
+	for card_index: int in range(_available_cards.size() - 1, 0, -1):
+		var swap_index: int = random_number_generator.randi_range(0, card_index)
+		var current_card: FeatureCard = _available_cards[card_index]
+
+		_available_cards[card_index] = _available_cards[swap_index]
+		_available_cards[swap_index] = current_card

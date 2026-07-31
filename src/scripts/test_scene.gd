@@ -8,6 +8,7 @@ const CARD_TITLE_CHARS_PER_LINE: int = 23
 const CARD_BODY_CHARS_PER_LINE: int = 30
 const CARD_TITLE_LINE_HEIGHT: int = 18
 const CARD_BODY_LINE_HEIGHT: int = 16
+const TEST_SCENE_SHUFFLE_SEED: int = 310731
 
 var score_trees: Array[ScoreTree] = []
 var feature_deck: FeatureDeck
@@ -66,7 +67,7 @@ func _ready() -> void:
 
 func _start_new_run() -> void:
 	feature_deck = FeatureDeckBuilder.build(score_trees)
-	feature_deck.shuffle()
+	feature_deck.shuffle(TEST_SCENE_SHUFFLE_SEED)
 	game_run = GameRun.new(feature_deck, score_trees)
 	current_sprint = null
 	current_sprint_cards = []

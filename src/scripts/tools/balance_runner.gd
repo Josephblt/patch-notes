@@ -1,0 +1,409 @@
+extends CanvasLayer
+
+
+const SCORE_TREE_DIR: String = "res://data/score_trees"
+const BASELINE_BEHAVIOR: String = "random_count"
+const DEFAULT_GAME_COUNT: int = 200
+const DEFAULT_BEHAVIOR: String = "vh_vh"
+const DEFAULT_SEED: int = 310731
+const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
+const SUPPORTED_BEHAVIORS: Array[String] = [
+	"vh_vh",
+	"random_count",
+]
+
+var score_trees: Array[ScoreTree] = []
+var score_tree_by_name: Dictionary[String, ScoreTree] = {}
+var last_rows: Array[Dictionary] = []
+
+@export var selected_behavior: String = DEFAULT_BEHAVIOR
+@export var game_count: int = DEFAULT_GAME_COUNT
+@export var seed: int = DEFAULT_SEED
+@export var output_path: String = DEFAULT_OUTPUT_PATH
+
+@onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
+@onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
+@onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
+@onready var output_path_line_edit: LineEdit = $MarginContainer/VBoxContainer/OutputRow/OutputPathLineEdit
+@onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
+@onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
+@onready var graph: Control = $MarginContainer/VBoxContainer/Graph
+
+
+func _ready() -> void:
+	score_trees = ScoreTreeLoader.load_many_from_json_dir(SCORE_TREE_DIR)
+
+	for score_tree: ScoreTree in score_trees:
+		score_tree_by_name[score_tree.get_display_name()] = score_tree
+
+	if OS.get_cmdline_user_args().size() > 0:
+		_run_from_command_line()
+		return
+
+	_configure_controls()
+	run_button.pressed.connect(_on_run_button_pressed)
+	summary_label.text = "Ready."
+
+
+func _run_from_command_line() -> void:
+	var options: Dictionary = _parse_options()
+	var rows: Array[Dictionary] = run_dataset(
+		options.get("behavior", selected_behavior),
+		options.get("games", game_count),
+		options.get("seed", seed)
+	)
+
+	_write_csv(options.get("output", output_path), rows)
+	get_tree().quit()
+
+
+func _configure_controls() -> void:
+	behavior_options.clear()
+
+	for behavior: String in SUPPORTED_BEHAVIORS:
+		behavior_options.add_item(behavior)
+
+	var selected_index: int = SUPPORTED_BEHAVIORS.find(selected_behavior)
+
+	if selected_index < 0:
+		selected_index = 0
+
+	behavior_options.select(selected_index)
+	game_count_spin_box.value = game_count
+	seed_spin_box.value = seed
+	output_path_line_edit.text = output_path
+
+
+func _on_run_button_pressed() -> void:
+	run_button.disabled = true
+	summary_label.text = "Running..."
+
+	await get_tree().process_frame
+
+	var behavior: String = behavior_options.get_item_text(behavior_options.selected)
+	var selected_game_count: int = int(game_count_spin_box.value)
+	var selected_seed: int = int(seed_spin_box.value)
+	var selected_output_path: String = output_path_line_edit.text
+
+	last_rows = run_dataset(behavior, selected_game_count, selected_seed)
+	_write_csv(selected_output_path, last_rows)
+	graph.call("set_series", _build_frequency_series(last_rows))
+
+	summary_label.text = _format_summary(last_rows, selected_output_path)
+	run_button.disabled = false
+
+
+func _parse_options() -> Dictionary:
+	var options: Dictionary = {
+		"games": game_count,
+		"behavior": selected_behavior,
+		"seed": seed,
+		"output": output_path,
+	}
+
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--games="):
+			options["games"] = argument.trim_prefix("--games=").to_int()
+		elif argument.begins_with("--behavior="):
+			options["behavior"] = argument.trim_prefix("--behavior=")
+		elif argument.begins_with("--seed="):
+			options["seed"] = argument.trim_prefix("--seed=").to_int()
+		elif argument.begins_with("--output="):
+			options["output"] = argument.trim_prefix("--output=")
+
+	return options
+
+
+func run_dataset(behavior: String, selected_game_count: int, selected_seed: int) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
+
+	for behavior_index: int in range(behavior_names.size()):
+		rows.append_array(_play_behavior(
+			behavior_names[behavior_index],
+			selected_game_count,
+			selected_seed + (behavior_index * 100000)
+		))
+
+	return rows
+
+
+func _get_behaviors_to_run(behavior: String) -> Array[String]:
+	var behavior_names: Array[String] = [BASELINE_BEHAVIOR]
+
+	if behavior != BASELINE_BEHAVIOR:
+		behavior_names.append(behavior)
+
+	return behavior_names
+
+
+func _play_behavior(behavior: String, selected_game_count: int, selected_seed: int) -> Array[Dictionary]:
+	var rows: Array[Dictionary] = []
+
+	for game_number: int in range(1, selected_game_count + 1):
+		rows.append(_play_game(behavior, game_number, selected_seed + game_number))
+
+	return rows
+
+
+func _play_game(behavior: String, game_number: int, selected_seed: int) -> Dictionary:
+	var feature_deck: FeatureDeck = FeatureDeckBuilder.build(score_trees)
+	feature_deck.shuffle(selected_seed)
+
+	var game_run: GameRun = GameRun.new(feature_deck, score_trees)
+	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
+	random_number_generator.seed = selected_seed
+	var row: Dictionary = {
+		"behavior": behavior,
+		"game": game_number,
+		"total_selected": 0,
+	}
+
+	for release_number: int in range(1, GameRun.RELEASE_COUNT + 1):
+		var selected_count: int = 0
+
+		for _sprint_number: int in range(Release.SPRINT_COUNT):
+			var sprint: Sprint = game_run.start_sprint()
+			var selected_card_uids: Array[String] = _select_cards(
+				sprint,
+				behavior,
+				random_number_generator
+			)
+
+			selected_count += selected_card_uids.size()
+
+			for card_uid: String in selected_card_uids:
+				sprint.select_card(card_uid)
+
+			game_run.submit_sprint(sprint)
+
+		game_run.ship_current_release()
+
+		var release_report: ReleaseReport = game_run.get_last_release_report()
+		row["r%d_fun" % release_number] = _get_report_score_delta(release_report, "Fun")
+		row["r%d_money" % release_number] = _get_report_score_delta(release_report, "Money")
+		row["r%d_selected" % release_number] = selected_count
+		row["total_selected"] += selected_count
+
+	row["final_fun"] = _get_game_score(game_run, "Fun")
+	row["final_money"] = _get_game_score(game_run, "Money")
+	row["final_combined"] = row["final_fun"] + row["final_money"]
+
+	return row
+
+
+func _select_cards(
+	sprint: Sprint,
+	behavior: String,
+	random_number_generator: RandomNumberGenerator
+) -> Array[String]:
+	var feature_cards: Array[FeatureCard] = sprint.get_feature_cards()
+
+	if behavior == "random_count":
+		return _select_random_count(feature_cards, random_number_generator)
+
+	if behavior == "vh_vh":
+		return _select_vh_vh(feature_cards)
+
+	push_error("Unsupported balance behavior: %s" % behavior)
+	return _select_random_count(feature_cards, random_number_generator)
+
+
+func _select_random_count(
+	feature_cards: Array[FeatureCard],
+	random_number_generator: RandomNumberGenerator
+) -> Array[String]:
+	var selected_card_uids: Array[String] = []
+	var remaining_cards: Array[FeatureCard] = feature_cards.duplicate()
+	var selected_count: int = random_number_generator.randi_range(1, feature_cards.size())
+
+	for _selection_index: int in range(selected_count):
+		var card_index: int = random_number_generator.randi_range(0, remaining_cards.size() - 1)
+		var selected_card: FeatureCard = remaining_cards.pop_at(card_index)
+
+		selected_card_uids.append(selected_card.get_uid())
+
+	return selected_card_uids
+
+
+func _select_vh_vh(feature_cards: Array[FeatureCard]) -> Array[String]:
+	var best_key: Array[int] = []
+	var best_card_uids: Array[String] = []
+
+	for selection_mask: int in range(1, 8):
+		var selected_cards: Array[FeatureCard] = []
+
+		for card_index: int in range(feature_cards.size()):
+			if selection_mask & (1 << card_index):
+				selected_cards.append(feature_cards[card_index])
+
+		var fun_delta: int = _calculate_cards_points(selected_cards, "Fun")
+		var money_delta: int = _calculate_cards_points(selected_cards, "Money")
+		var key: Array[int] = [
+			fun_delta + money_delta,
+			min(fun_delta, money_delta),
+			-abs(fun_delta - money_delta),
+			-selected_cards.size(),
+		]
+
+		if best_key.is_empty() or _is_key_greater(key, best_key):
+			best_key = key
+			best_card_uids = _get_card_uids(selected_cards)
+
+	return best_card_uids
+
+
+func _is_key_greater(left: Array[int], right: Array[int]) -> bool:
+	for index: int in range(left.size()):
+		if left[index] > right[index]:
+			return true
+
+		if left[index] < right[index]:
+			return false
+
+	return false
+
+
+func _get_card_uids(feature_cards: Array[FeatureCard]) -> Array[String]:
+	var card_uids: Array[String] = []
+
+	for feature_card: FeatureCard in feature_cards:
+		card_uids.append(feature_card.get_uid())
+
+	return card_uids
+
+
+func _calculate_cards_points(feature_cards: Array[FeatureCard], tree_name: String) -> int:
+	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
+	var points: int = 0
+
+	for feature_card: FeatureCard in feature_cards:
+		for effect: FeatureEffect in feature_card.get_effects():
+			if effect.get_tree_uid() != score_tree.get_uid():
+				continue
+
+			points += _calculate_effect_points(score_tree, effect)
+
+	return points
+
+
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+	var impact: int = 1
+
+	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
+		impact = -1
+
+	return score_tree.get_points(effect.get_node_uid()) * impact
+
+
+func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> int:
+	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
+
+	return release_report.get_score_delta(score_tree.get_uid())
+
+
+func _get_game_score(game_run: GameRun, tree_name: String) -> int:
+	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
+
+	return game_run.get_score(score_tree.get_uid())
+
+
+func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dictionary]:
+	var series: Dictionary[String, Dictionary] = {}
+
+	for row: Dictionary in rows:
+		var behavior: String = row["behavior"]
+		var final_combined: int = row["final_combined"]
+
+		if not series.has(behavior):
+			series[behavior] = {}
+
+		series[behavior][final_combined] = series[behavior].get(final_combined, 0) + 1
+
+	return series
+
+
+func _format_summary(rows: Array[Dictionary], selected_output_path: String) -> String:
+	var behavior_names: Array[String] = _build_frequency_series(rows).keys()
+	behavior_names.sort()
+	var lines: PackedStringArray = ["Wrote %s" % selected_output_path]
+
+	for behavior: String in behavior_names:
+		lines.append(_format_behavior_summary(rows, behavior))
+
+	return "\n".join(lines)
+
+
+func _format_behavior_summary(rows: Array[Dictionary], behavior: String) -> String:
+	var count: int = 0
+	var minimum_score: int = 0
+	var maximum_score: int = 0
+	var total_score: int = 0
+
+	for row: Dictionary in rows:
+		if row["behavior"] != behavior:
+			continue
+
+		var score: int = row["final_combined"]
+
+		if count == 0:
+			minimum_score = score
+			maximum_score = score
+		else:
+			minimum_score = min(minimum_score, score)
+			maximum_score = max(maximum_score, score)
+
+		total_score += score
+		count += 1
+
+	if count == 0:
+		return "%s: no rows" % behavior
+
+	return "%s: n=%d min=%d avg=%.2f max=%d" % [
+		behavior,
+		count,
+		minimum_score,
+		float(total_score) / float(count),
+		maximum_score,
+	]
+
+
+func _write_csv(path: String, rows: Array[Dictionary]) -> void:
+	var output_file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
+
+	if output_file == null:
+		push_error("Could not write balance runner results: %s" % path)
+		return
+
+	var headers: Array[String] = [
+		"behavior",
+		"game",
+		"r1_fun",
+		"r1_money",
+		"r1_selected",
+		"r2_fun",
+		"r2_money",
+		"r2_selected",
+		"r3_fun",
+		"r3_money",
+		"r3_selected",
+		"r4_fun",
+		"r4_money",
+		"r4_selected",
+		"final_fun",
+		"final_money",
+		"final_combined",
+		"total_selected",
+	]
+
+	output_file.store_line(",".join(headers))
+
+	for row: Dictionary in rows:
+		var values: PackedStringArray = []
+
+		for header: String in headers:
+			values.append(str(row.get(header, "")))
+
+		output_file.store_line(",".join(values))
+
+	print("Wrote balance runner results: %s" % path)

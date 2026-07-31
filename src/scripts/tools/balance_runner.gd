@@ -26,18 +26,18 @@ var last_rows: Array[Dictionary] = []
 @export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
-@onready var behavior_options: OptionButton = $MarginContainer/RunScroll/VBoxContainer/ControlRow/BehaviorOptions
-@onready var game_count_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/GameCountSpinBox
-@onready var seed_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/SeedSpinBox
-@onready var random_seed_check_box: CheckBox = $MarginContainer/RunScroll/VBoxContainer/ControlRow/RandomSeedCheckBox
-@onready var output_path_line_edit: LineEdit = $MarginContainer/RunScroll/VBoxContainer/OutputRow/OutputPathLineEdit
-@onready var band_divider_1_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider1SpinBox
-@onready var band_divider_2_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider2SpinBox
-@onready var band_divider_3_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider3SpinBox
-@onready var band_divider_4_spin_box: SpinBox = $MarginContainer/RunScroll/VBoxContainer/BandRow/BandDivider4SpinBox
-@onready var run_button: Button = $MarginContainer/RunScroll/VBoxContainer/ControlRow/RunButton
-@onready var summary_label: Label = $MarginContainer/RunScroll/VBoxContainer/SummaryLabel
-@onready var graph: Control = $MarginContainer/RunScroll/VBoxContainer/Graph
+@onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
+@onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
+@onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
+@onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
+@onready var output_path_line_edit: LineEdit = $MarginContainer/VBoxContainer/OutputRow/OutputPathLineEdit
+@onready var band_divider_1_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider1SpinBox
+@onready var band_divider_2_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider2SpinBox
+@onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
+@onready var band_divider_4_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider4SpinBox
+@onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
+@onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
+@onready var graph: Control = $MarginContainer/VBoxContainer/Graph
 
 
 func _ready() -> void:

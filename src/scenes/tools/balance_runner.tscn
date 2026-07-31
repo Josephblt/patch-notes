@@ -25,28 +25,23 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 18
 theme_override_constants/margin_bottom = 16
 
-[node name="RunScroll" type="ScrollContainer" parent="MarginContainer" unique_id=322582664]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=340716354]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/RunScroll" unique_id=340716354]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 10
-
-[node name="TitleLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1788650948]
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1788650948]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 24
 text = "Balance Runner"
 
-[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=2088022378]
+[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2088022378]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BehaviorLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1848555817]
+[node name="BehaviorLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1848555817]
 custom_minimum_size = Vector2(76, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -54,12 +49,12 @@ theme_override_font_sizes/font_size = 15
 text = "Behavior"
 vertical_alignment = 1
 
-[node name="BehaviorOptions" type="OptionButton" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1981334746]
+[node name="BehaviorOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1981334746]
 custom_minimum_size = Vector2(140, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
-[node name="GameCountLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=310750827]
+[node name="GameCountLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=310750827]
 custom_minimum_size = Vector2(70, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -67,14 +62,14 @@ theme_override_font_sizes/font_size = 15
 text = "Dataset"
 vertical_alignment = 1
 
-[node name="GameCountSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1605685583]
+[node name="GameCountSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1605685583]
 custom_minimum_size = Vector2(108, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 10000.0
 value = 200.0
 
-[node name="SeedLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=274392153]
+[node name="SeedLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=274392153]
 custom_minimum_size = Vector2(42, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -82,30 +77,30 @@ theme_override_font_sizes/font_size = 15
 text = "Seed"
 vertical_alignment = 1
 
-[node name="SeedSpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=217918595]
+[node name="SeedSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=217918595]
 custom_minimum_size = Vector2(132, 36)
 layout_mode = 2
 max_value = 999999999.0
 value = 310731.0
 
-[node name="RandomSeedCheckBox" type="CheckBox" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow"]
+[node name="RandomSeedCheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/ControlRow"]
 custom_minimum_size = Vector2(134, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 15
 text = "Random Seed"
 
-[node name="RunButton" type="Button" parent="MarginContainer/RunScroll/VBoxContainer/ControlRow" unique_id=1037028322]
+[node name="RunButton" type="Button" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1037028322]
 custom_minimum_size = Vector2(82, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Run"
 
-[node name="OutputRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=937254494]
+[node name="OutputRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=937254494]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="OutputPathLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow" unique_id=1883809893]
+[node name="OutputPathLabel" type="Label" parent="MarginContainer/VBoxContainer/OutputRow" unique_id=1883809893]
 custom_minimum_size = Vector2(76, 34)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -113,18 +108,18 @@ theme_override_font_sizes/font_size = 15
 text = "CSV"
 vertical_alignment = 1
 
-[node name="OutputPathLineEdit" type="LineEdit" parent="MarginContainer/RunScroll/VBoxContainer/OutputRow" unique_id=197390422]
+[node name="OutputPathLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/OutputRow" unique_id=197390422]
 custom_minimum_size = Vector2(820, 34)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 14
 text = "user://balance_runner_results.csv"
 
-[node name="BandRow" type="HBoxContainer" parent="MarginContainer/RunScroll/VBoxContainer"]
+[node name="BandRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BandLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+[node name="BandLabel" type="Label" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(124, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
@@ -132,44 +127,44 @@ theme_override_font_sizes/font_size = 15
 text = "Result Dividers"
 vertical_alignment = 1
 
-[node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+[node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 20.0
 
-[node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+[node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 40.0
 
-[node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+[node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 60.0
 
-[node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/RunScroll/VBoxContainer/BandRow"]
+[node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
 min_value = 1.0
 max_value = 99.0
 value = 80.0
 
-[node name="SummaryLabel" type="Label" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1813098771]
-custom_minimum_size = Vector2(1000, 74)
+[node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
+custom_minimum_size = Vector2(1000, 68)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 16
 text = "Ready."
 autowrap_mode = 3
 
-[node name="Graph" type="Control" parent="MarginContainer/RunScroll/VBoxContainer" unique_id=1290756688]
-custom_minimum_size = Vector2(1120, 620)
+[node name="Graph" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1290756688]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -6,6 +6,7 @@ var display_name: String
 var root_uid: String
 var nodes: Dictionary[String, ScoreTreeNode]
 var _max_level: int
+var _points_by_level: Dictionary[int, int]
 
 
 func _init(
@@ -19,6 +20,7 @@ func _init(
 	root_uid = tree_root_uid
 	nodes = tree_nodes
 	_max_level = _calculate_max_level()
+	_points_by_level = {}
 
 
 func _calculate_max_level() -> int:
@@ -72,4 +74,13 @@ func get_root_uid() -> String:
 
 func get_points(node_uid: String) -> int:
 	var node: ScoreTreeNode = get_node(node_uid)
+	var node_level: int = node.get_level()
+
+	if _points_by_level.has(node_level):
+		return _points_by_level[node_level]
+
 	return 2 * (get_max_level() - node.get_level()) + 1
+
+
+func set_points_for_level(level: int, points: int) -> void:
+	_points_by_level[level] = points

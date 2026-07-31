@@ -3,9 +3,15 @@ extends CanvasLayer
 
 const SCORE_TREE_DIR: String = "res://data/score_trees"
 const BASELINE_BEHAVIOR: String = "random_count"
+const RUNNER_B1: String = "B1"
+const RUNNER_B2: String = "B2"
+const RUNNER_RANDOM: String = "Random"
 const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
+const DEFAULT_BEHAVIOR_2: String = "m_m"
 const DEFAULT_SEED: int = 310731
+const DEFAULT_BRANCH_POINTS: int = 3
+const DEFAULT_LEAF_POINTS: int = 1
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
 const SCORE_LEVELS: Array[String] = [
 	"vh",
@@ -20,12 +26,16 @@ var score_tree_by_name: Dictionary[String, ScoreTree] = {}
 var last_rows: Array[Dictionary] = []
 
 @export var selected_behavior: String = DEFAULT_BEHAVIOR
+@export var selected_behavior_2: String = DEFAULT_BEHAVIOR_2
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
+@export var branch_points: int = DEFAULT_BRANCH_POINTS
+@export var leaf_points: int = DEFAULT_LEAF_POINTS
 @export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
 @onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
+@onready var behavior_2_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/Behavior2Options
 @onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
 @onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
@@ -34,6 +44,8 @@ var last_rows: Array[Dictionary] = []
 @onready var band_divider_2_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider2SpinBox
 @onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
 @onready var band_divider_4_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider4SpinBox
+@onready var branch_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/BranchPointSpinBox
+@onready var leaf_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/LeafPointSpinBox
 @onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
 @onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
 @onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
@@ -53,6 +65,8 @@ func _ready() -> void:
 	_configure_controls()
 	run_button.pressed.connect(_on_run_button_pressed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
+	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
+	leaf_point_spin_box.value_changed.connect(_on_level_points_changed)
 	summary_label.text = "Ready."
 
 
@@ -60,8 +74,11 @@ func _run_from_command_line() -> void:
 	var options: Dictionary = _parse_options()
 	var rows: Array[Dictionary] = run_dataset(
 		options.get("behavior", selected_behavior),
+		options.get("behavior2", selected_behavior_2),
 		options.get("games", game_count),
-		options.get("seed", seed)
+		options.get("seed", seed),
+		options.get("branch_points", branch_points),
+		options.get("leaf_points", leaf_points)
 	)
 
 	_write_csv(options.get("output", output_path), rows)
@@ -69,23 +86,31 @@ func _run_from_command_line() -> void:
 
 
 func _configure_controls() -> void:
-	behavior_options.clear()
+	_configure_behavior_options(behavior_options, selected_behavior)
+	_configure_behavior_options(behavior_2_options, selected_behavior_2)
+	game_count_spin_box.value = game_count
+	seed_spin_box.value = seed
+	branch_point_spin_box.value = branch_points
+	leaf_point_spin_box.value = leaf_points
+	random_seed_check_box.button_pressed = random_seed
+	output_path_line_edit.text = output_path
+	_apply_score_level_points(branch_points, leaf_points)
+	_configure_band_divider_controls()
+	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
+
+
+func _configure_behavior_options(option_button: OptionButton, behavior_to_select: String) -> void:
+	option_button.clear()
 
 	for behavior: String in _get_supported_behaviors():
-		behavior_options.add_item(behavior)
+		option_button.add_item(behavior)
 
-	var selected_index: int = _get_supported_behaviors().find(selected_behavior)
+	var selected_index: int = _get_supported_behaviors().find(behavior_to_select)
 
 	if selected_index < 0:
 		selected_index = 0
 
-	behavior_options.select(selected_index)
-	game_count_spin_box.value = game_count
-	seed_spin_box.value = seed
-	random_seed_check_box.button_pressed = random_seed
-	output_path_line_edit.text = output_path
-	_configure_band_divider_controls()
-	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
+	option_button.select(selected_index)
 
 
 func _on_run_button_pressed() -> void:
@@ -95,9 +120,13 @@ func _on_run_button_pressed() -> void:
 	await get_tree().process_frame
 
 	var behavior: String = behavior_options.get_item_text(behavior_options.selected)
+	var behavior_2: String = behavior_2_options.get_item_text(behavior_2_options.selected)
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
+	var selected_branch_points: int = int(branch_point_spin_box.value)
+	var selected_leaf_points: int = int(leaf_point_spin_box.value)
 	var selected_output_path: String = output_path_line_edit.text
+	_apply_score_level_points(selected_branch_points, selected_leaf_points)
 	var selected_score_band_dividers: Array[int] = _get_score_band_dividers_from_controls()
 	var game_seeds: Array[int] = []
 
@@ -106,7 +135,7 @@ func _on_run_button_pressed() -> void:
 	else:
 		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
-	last_rows = await _run_dataset_with_progress(behavior, game_seeds)
+	last_rows = await _run_dataset_with_progress(behavior, behavior_2, game_seeds)
 	_write_csv(selected_output_path, last_rows)
 	var score_axis_bound: int = _calculate_score_axis_bound()
 	graph.call(
@@ -120,47 +149,52 @@ func _on_run_button_pressed() -> void:
 	summary_label.text = _format_seed_summary(
 		selected_seed,
 		random_seed_check_box.button_pressed,
-		game_seeds.size()
+		game_seeds.size(),
+		selected_branch_points,
+		selected_leaf_points
 	)
 	run_button.disabled = false
 
 
 func _run_dataset_with_progress(
 	behavior: String,
+	behavior_2: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
-	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
-	var progress_by_behavior: Dictionary[String, int] = {}
+	var runner_configs: Array[Dictionary] = _get_runner_configs(behavior, behavior_2)
+	var progress_by_runner: Dictionary[String, int] = {}
 	var selected_game_count: int = game_seeds.size()
 
-	for behavior_name: String in behavior_names:
-		progress_by_behavior[behavior_name] = 0
+	for runner_config: Dictionary in runner_configs:
+		progress_by_runner[runner_config["runner"]] = 0
 
-	_render_runner_progress(behavior, selected_game_count, progress_by_behavior)
+	_render_runner_progress(runner_configs, selected_game_count, progress_by_runner)
 	await get_tree().process_frame
 
-	for behavior_index: int in range(behavior_names.size()):
-		var behavior_name: String = behavior_names[behavior_index]
+	for runner_config: Dictionary in runner_configs:
+		var runner_name: String = runner_config["runner"]
+		var behavior_name: String = runner_config["behavior"]
 
 		for game_number: int in range(1, selected_game_count + 1):
-			rows.append(_play_game(behavior_name, game_number, game_seeds[game_number - 1]))
-			progress_by_behavior[behavior_name] = game_number
-			_render_runner_progress(behavior, selected_game_count, progress_by_behavior)
+			rows.append(_play_game(runner_name, behavior_name, game_number, game_seeds[game_number - 1]))
+			progress_by_runner[runner_name] = game_number
+			_render_runner_progress(runner_configs, selected_game_count, progress_by_runner)
 			await get_tree().process_frame
 
 	return rows
 
 
 func _render_runner_progress(
-	selected_behavior_name: String,
+	runner_configs: Array[Dictionary],
 	selected_game_count: int,
-	progress_by_behavior: Dictionary[String, int]
+	progress_by_runner: Dictionary[String, int]
 ) -> void:
 	var parts: PackedStringArray = []
 
-	for behavior_name: String in _get_progress_behavior_names(selected_behavior_name):
-		var completed_count: int = progress_by_behavior.get(behavior_name, 0)
+	for runner_config: Dictionary in runner_configs:
+		var runner_name: String = runner_config["runner"]
+		var completed_count: int = progress_by_runner.get(runner_name, 0)
 		var percent_complete: int = 0
 
 		if selected_game_count > 0:
@@ -169,7 +203,7 @@ func _render_runner_progress(
 			))
 
 		parts.append("%s - %d/%d - %d%%" % [
-			_format_progress_behavior_name(behavior_name),
+			_format_runner_progress_name(runner_config),
 			selected_game_count,
 			completed_count,
 			percent_complete,
@@ -178,29 +212,35 @@ func _render_runner_progress(
 	progress_label.text = " | ".join(parts)
 
 
-func _get_progress_behavior_names(selected_behavior_name: String) -> Array[String]:
-	if selected_behavior_name == BASELINE_BEHAVIOR:
-		return [BASELINE_BEHAVIOR]
+func _format_runner_progress_name(runner_config: Dictionary) -> String:
+	var runner_name: String = runner_config["runner"]
 
-	return [selected_behavior_name, BASELINE_BEHAVIOR]
+	if runner_name == RUNNER_RANDOM:
+		return RUNNER_RANDOM
 
-
-func _format_progress_behavior_name(behavior_name: String) -> String:
-	if behavior_name == BASELINE_BEHAVIOR:
-		return "Random"
-
-	return behavior_name.to_upper()
+	return "%s %s" % [runner_name, String(runner_config["behavior"]).to_upper()]
 
 
 func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
 	seed_spin_box.editable = not is_random_seed
 
 
+func _on_level_points_changed(_value: float) -> void:
+	_apply_score_level_points(
+		int(branch_point_spin_box.value),
+		int(leaf_point_spin_box.value)
+	)
+	_update_band_divider_limits()
+
+
 func _parse_options() -> Dictionary:
 	var options: Dictionary = {
 		"games": game_count,
 		"behavior": selected_behavior,
+		"behavior2": selected_behavior_2,
 		"seed": seed,
+		"branch_points": branch_points,
+		"leaf_points": leaf_points,
 		"output": output_path,
 	}
 
@@ -209,50 +249,77 @@ func _parse_options() -> Dictionary:
 			options["games"] = argument.trim_prefix("--games=").to_int()
 		elif argument.begins_with("--behavior="):
 			options["behavior"] = argument.trim_prefix("--behavior=")
+		elif argument.begins_with("--behavior2="):
+			options["behavior2"] = argument.trim_prefix("--behavior2=")
 		elif argument.begins_with("--seed="):
 			options["seed"] = argument.trim_prefix("--seed=").to_int()
+		elif argument.begins_with("--branch-points="):
+			options["branch_points"] = argument.trim_prefix("--branch-points=").to_int()
+		elif argument.begins_with("--leaf-points="):
+			options["leaf_points"] = argument.trim_prefix("--leaf-points=").to_int()
 		elif argument.begins_with("--output="):
 			options["output"] = argument.trim_prefix("--output=")
 
 	return options
 
 
-func run_dataset(behavior: String, selected_game_count: int, selected_seed: int) -> Array[Dictionary]:
+func run_dataset(
+	behavior: String,
+	behavior_2: String,
+	selected_game_count: int,
+	selected_seed: int,
+	selected_branch_points: int = DEFAULT_BRANCH_POINTS,
+	selected_leaf_points: int = DEFAULT_LEAF_POINTS
+) -> Array[Dictionary]:
+	_apply_score_level_points(selected_branch_points, selected_leaf_points)
+
 	return _run_dataset_with_game_seeds(
 		behavior,
+		behavior_2,
 		_generate_deterministic_game_seeds(selected_game_count, selected_seed)
 	)
 
 
-func _run_dataset_with_game_seeds(behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
+func _run_dataset_with_game_seeds(
+	behavior: String,
+	behavior_2: String,
+	game_seeds: Array[int]
+) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
-	var behavior_names: Array[String] = _get_behaviors_to_run(behavior)
 
-	for behavior_name: String in behavior_names:
-		rows.append_array(_play_behavior(behavior_name, game_seeds))
+	for runner_config: Dictionary in _get_runner_configs(behavior, behavior_2):
+		rows.append_array(_play_behavior(
+			runner_config["runner"],
+			runner_config["behavior"],
+			game_seeds
+		))
 
 	return rows
 
 
-func _get_behaviors_to_run(behavior: String) -> Array[String]:
-	var behavior_names: Array[String] = [BASELINE_BEHAVIOR]
+func _get_runner_configs(behavior: String, behavior_2: String) -> Array[Dictionary]:
+	return [
+		{"runner": RUNNER_B1, "behavior": behavior},
+		{"runner": RUNNER_B2, "behavior": behavior_2},
+		{"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR},
+	]
 
-	if behavior != BASELINE_BEHAVIOR:
-		behavior_names.append(behavior)
 
-	return behavior_names
-
-
-func _play_behavior(behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
+func _play_behavior(runner: String, behavior: String, game_seeds: Array[int]) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 
 	for game_number: int in range(1, game_seeds.size() + 1):
-		rows.append(_play_game(behavior, game_number, game_seeds[game_number - 1]))
+		rows.append(_play_game(runner, behavior, game_number, game_seeds[game_number - 1]))
 
 	return rows
 
 
-func _play_game(behavior: String, game_number: int, selected_seed: int) -> Dictionary:
+func _play_game(
+	runner: String,
+	behavior: String,
+	game_number: int,
+	selected_seed: int
+) -> Dictionary:
 	var feature_deck: FeatureDeck = FeatureDeckBuilder.build(score_trees)
 	feature_deck.shuffle(selected_seed)
 
@@ -260,9 +327,12 @@ func _play_game(behavior: String, game_number: int, selected_seed: int) -> Dicti
 	var random_number_generator: RandomNumberGenerator = RandomNumberGenerator.new()
 	random_number_generator.seed = selected_seed
 	var row: Dictionary = {
+		"runner": runner,
 		"behavior": behavior,
 		"game": game_number,
 		"seed": selected_seed,
+		"branch_points": _get_branch_points(),
+		"leaf_points": _get_leaf_points(),
 		"total_selected": 0,
 	}
 
@@ -462,12 +532,12 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 	var series: Dictionary[String, Dictionary] = {}
 
 	for row: Dictionary in rows:
-		var behavior: String = row["behavior"]
+		var runner: String = row.get("runner", row["behavior"])
 
 		for score_tree: ScoreTree in score_trees:
 			var tree_name: String = score_tree.get_display_name()
 			var column_name: String = "final_%s" % tree_name.to_lower()
-			var series_name: String = "%s %s" % [behavior, tree_name]
+			var series_name: String = "%s %s" % [runner, tree_name]
 			var final_score: int = row[column_name]
 
 			if not series.has(series_name):
@@ -481,12 +551,19 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 func _format_seed_summary(
 	selected_seed: int,
 	is_random_seed: bool,
-	game_seed_count: int
+	game_seed_count: int,
+	selected_branch_points: int,
+	selected_leaf_points: int
 ) -> String:
-	if is_random_seed:
-		return "Random Seeds: %d" % game_seed_count
+	var point_summary: String = "Branch: %d | Leaf: %d" % [
+		selected_branch_points,
+		selected_leaf_points,
+	]
 
-	return "Seed: %d" % selected_seed
+	if is_random_seed:
+		return "Random Seeds: %d | %s" % [game_seed_count, point_summary]
+
+	return "Seed: %d | %s" % [selected_seed, point_summary]
 
 
 func _generate_deterministic_game_seeds(selected_game_count: int, selected_seed: int) -> Array[int]:
@@ -507,6 +584,29 @@ func _generate_random_game_seeds(selected_game_count: int) -> Array[int]:
 		game_seeds.append(random_number_generator.randi_range(1, 999999999))
 
 	return game_seeds
+
+
+func _apply_score_level_points(selected_branch_points: int, selected_leaf_points: int) -> void:
+	for score_tree: ScoreTree in score_trees:
+		score_tree.set_points_for_level(score_tree.get_max_level() - 1, selected_branch_points)
+		score_tree.set_points_for_level(score_tree.get_max_level(), selected_leaf_points)
+
+
+func _get_branch_points() -> int:
+	if score_trees.is_empty():
+		return DEFAULT_BRANCH_POINTS
+
+	var score_tree: ScoreTree = score_trees[0]
+	return score_tree.get_points(score_tree.get_children(score_tree.get_root_uid())[0].get_uid())
+
+
+func _get_leaf_points() -> int:
+	if score_trees.is_empty():
+		return DEFAULT_LEAF_POINTS
+
+	var score_tree: ScoreTree = score_trees[0]
+	var branch_node: ScoreTreeNode = score_tree.get_children(score_tree.get_root_uid())[0]
+	return score_tree.get_points(score_tree.get_children(branch_node.get_uid())[0].get_uid())
 
 
 func _calculate_score_axis_bound() -> int:
@@ -541,6 +641,14 @@ func _configure_band_divider_controls() -> void:
 		spin_box.min_value = -score_axis_bound
 		spin_box.max_value = score_axis_bound
 		spin_box.value = dividers[divider_index]
+
+
+func _update_band_divider_limits() -> void:
+	var score_axis_bound: int = _calculate_score_axis_bound()
+
+	for spin_box: SpinBox in _get_band_divider_spin_boxes():
+		spin_box.min_value = -score_axis_bound
+		spin_box.max_value = score_axis_bound
 
 
 func _get_default_raw_score_dividers(score_axis_bound: int) -> Array[int]:
@@ -585,9 +693,12 @@ func _write_csv(path: String, rows: Array[Dictionary]) -> void:
 		return
 
 	var headers: Array[String] = [
+		"runner",
 		"behavior",
 		"game",
 		"seed",
+		"branch_points",
+		"leaf_points",
 		"r1_fun",
 		"r1_money",
 		"r1_selected",

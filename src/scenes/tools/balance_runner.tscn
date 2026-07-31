@@ -50,15 +50,28 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="BehaviorLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1848555817]
-custom_minimum_size = Vector2(76, 36)
+custom_minimum_size = Vector2(28, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 15
-text = "Behavior"
+text = "B1"
 vertical_alignment = 1
 
 [node name="BehaviorOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1981334746]
-custom_minimum_size = Vector2(140, 36)
+custom_minimum_size = Vector2(120, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="Behavior2Label" type="Label" parent="MarginContainer/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(28, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "B2"
+vertical_alignment = 1
+
+[node name="Behavior2Options" type="OptionButton" parent="MarginContainer/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(120, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
@@ -162,6 +175,48 @@ layout_mode = 2
 min_value = -144.0
 max_value = 144.0
 value = 86.0
+
+[node name="PointRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(124, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Level Points"
+vertical_alignment = 1
+
+[node name="BranchPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(58, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Branch"
+vertical_alignment = 1
+
+[node name="BranchPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 0.0
+max_value = 20.0
+value = 3.0
+
+[node name="LeafPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(38, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Leaf"
+vertical_alignment = 1
+
+[node name="LeafPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = 0.0
+max_value = 20.0
+value = 1.0
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
 custom_minimum_size = Vector2(1000, 28)

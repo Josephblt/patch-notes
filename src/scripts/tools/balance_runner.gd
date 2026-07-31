@@ -70,6 +70,10 @@ func _ready() -> void:
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
 	leaf_point_spin_box.value_changed.connect(_on_level_points_changed)
+
+	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
+		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
+
 	summary_label.text = "Ready."
 
 
@@ -159,14 +163,7 @@ func _on_run_button_pressed() -> void:
 
 	last_rows = await _run_dataset_with_progress(behavior, behavior_2, baseline, game_seeds)
 	_write_csv(selected_output_path, last_rows)
-	var score_axis_bound: float = _calculate_score_axis_bound()
-	graph.call(
-		"set_series",
-		_build_frequency_series(last_rows),
-		-score_axis_bound,
-		score_axis_bound,
-		selected_score_band_dividers
-	)
+	_update_graph(selected_score_band_dividers)
 
 	summary_label.text = _format_seed_summary(
 		selected_seed,
@@ -258,6 +255,13 @@ func _on_level_points_changed(_value: float) -> void:
 		leaf_point_spin_box.value
 	)
 	_update_band_divider_limits()
+
+
+func _on_band_dividers_changed(_value: float) -> void:
+	if last_rows.is_empty():
+		return
+
+	_update_graph()
 
 
 func _parse_options() -> Dictionary:
@@ -593,6 +597,22 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 			)
 
 	return series
+
+
+func _update_graph(score_band_dividers: Array[float] = []) -> void:
+	var graph_dividers: Array[float] = score_band_dividers
+
+	if graph_dividers.is_empty():
+		graph_dividers = _get_score_band_dividers_from_controls()
+
+	var score_axis_bound: float = _calculate_score_axis_bound()
+	graph.call(
+		"set_series",
+		_build_frequency_series(last_rows),
+		-score_axis_bound,
+		score_axis_bound,
+		graph_dividers
+	)
 
 
 func _format_seed_summary(

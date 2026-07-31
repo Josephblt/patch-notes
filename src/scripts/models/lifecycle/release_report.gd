@@ -5,14 +5,14 @@ extends RefCounted
 var _release_number: int
 var _shipped_cards: Array[FeatureCard]
 var _discarded_cards: Array[FeatureCard]
-var _score_deltas: Dictionary[String, int]
+var _score_deltas: Dictionary[String, float]
 
 
 func _init(
 	report_release_number: int,
 	report_shipped_cards: Array[FeatureCard] = [],
 	report_discarded_cards: Array[FeatureCard] = [],
-	report_score_deltas: Dictionary[String, int] = {}
+	report_score_deltas: Dictionary[String, float] = {}
 ) -> void:
 	_release_number = report_release_number
 	_shipped_cards = report_shipped_cards.duplicate()
@@ -32,5 +32,5 @@ func get_discarded_cards() -> Array[FeatureCard]:
 	return _discarded_cards.duplicate()
 
 
-func get_score_delta(tree_uid: String) -> int:
-	return int(_score_deltas.get(tree_uid, 0))
+func get_score_delta(tree_uid: String) -> float:
+	return float(_score_deltas.get(tree_uid, 0.0))

@@ -199,8 +199,11 @@ vertical_alignment = 1
 [node name="BranchPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
+allow_greater = true
+allow_lesser = true
 min_value = 0.0
 max_value = 20.0
+step = 0.1
 value = 3.0
 
 [node name="LeafPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
@@ -214,8 +217,11 @@ vertical_alignment = 1
 [node name="LeafPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
 custom_minimum_size = Vector2(86, 36)
 layout_mode = 2
+allow_greater = true
+allow_lesser = true
 min_value = 0.0
 max_value = 20.0
+step = 0.1
 value = 1.0
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]

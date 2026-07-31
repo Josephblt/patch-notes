@@ -33,7 +33,7 @@ static func load_default() -> ScoreInterpreter:
 	)
 
 
-func evaluate_final_scores(fun_raw_score: int, money_raw_score: int) -> Dictionary:
+func evaluate_final_scores(fun_raw_score: float, money_raw_score: float) -> Dictionary:
 	var fun_normalized: int = normalize(
 		fun_raw_score,
 		FINAL_MIN_RAW_SCORE,
@@ -58,7 +58,7 @@ func evaluate_final_scores(fun_raw_score: int, money_raw_score: int) -> Dictiona
 	}
 
 
-func evaluate_release_delta(fun_raw_delta: int, money_raw_delta: int) -> Dictionary:
+func evaluate_release_delta(fun_raw_delta: float, money_raw_delta: float) -> Dictionary:
 	var fun_normalized: int = normalize(
 		fun_raw_delta,
 		RELEASE_MIN_RAW_DELTA,
@@ -83,14 +83,14 @@ func evaluate_release_delta(fun_raw_delta: int, money_raw_delta: int) -> Diction
 	}
 
 
-func normalize(raw_score: int, min_raw_score: int, max_raw_score: int) -> int:
-	var clamped_score: int = clampi(raw_score, min_raw_score, max_raw_score)
-	var raw_range: int = max_raw_score - min_raw_score
+func normalize(raw_score: float, min_raw_score: float, max_raw_score: float) -> int:
+	var clamped_score: float = clampf(raw_score, min_raw_score, max_raw_score)
+	var raw_range: float = max_raw_score - min_raw_score
 
-	if raw_range <= 0:
+	if raw_range <= 0.0:
 		return 0
 
-	return int(round((float(clamped_score - min_raw_score) / float(raw_range)) * 100.0))
+	return int(round(((clamped_score - min_raw_score) / raw_range) * 100.0))
 
 
 func get_band(normalized_score: int) -> ScoreBand:

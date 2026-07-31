@@ -10,8 +10,8 @@ const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
 const DEFAULT_BEHAVIOR_2: String = "m_m"
 const DEFAULT_SEED: int = 310731
-const DEFAULT_BRANCH_POINTS: int = 3
-const DEFAULT_LEAF_POINTS: int = 1
+const DEFAULT_BRANCH_POINTS: float = 3.0
+const DEFAULT_LEAF_POINTS: float = 1.0
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
 const SCORE_LEVELS: Array[String] = [
 	"vh",
@@ -29,8 +29,8 @@ var last_rows: Array[Dictionary] = []
 @export var selected_behavior_2: String = DEFAULT_BEHAVIOR_2
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
-@export var branch_points: int = DEFAULT_BRANCH_POINTS
-@export var leaf_points: int = DEFAULT_LEAF_POINTS
+@export var branch_points: float = DEFAULT_BRANCH_POINTS
+@export var leaf_points: float = DEFAULT_LEAF_POINTS
 @export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
@@ -123,11 +123,11 @@ func _on_run_button_pressed() -> void:
 	var behavior_2: String = behavior_2_options.get_item_text(behavior_2_options.selected)
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
-	var selected_branch_points: int = int(branch_point_spin_box.value)
-	var selected_leaf_points: int = int(leaf_point_spin_box.value)
+	var selected_branch_points: float = branch_point_spin_box.value
+	var selected_leaf_points: float = leaf_point_spin_box.value
 	var selected_output_path: String = output_path_line_edit.text
 	_apply_score_level_points(selected_branch_points, selected_leaf_points)
-	var selected_score_band_dividers: Array[int] = _get_score_band_dividers_from_controls()
+	var selected_score_band_dividers: Array[float] = _get_score_band_dividers_from_controls()
 	var game_seeds: Array[int] = []
 
 	if random_seed_check_box.button_pressed:
@@ -137,7 +137,7 @@ func _on_run_button_pressed() -> void:
 
 	last_rows = await _run_dataset_with_progress(behavior, behavior_2, game_seeds)
 	_write_csv(selected_output_path, last_rows)
-	var score_axis_bound: int = _calculate_score_axis_bound()
+	var score_axis_bound: float = _calculate_score_axis_bound()
 	graph.call(
 		"set_series",
 		_build_frequency_series(last_rows),
@@ -227,8 +227,8 @@ func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
 
 func _on_level_points_changed(_value: float) -> void:
 	_apply_score_level_points(
-		int(branch_point_spin_box.value),
-		int(leaf_point_spin_box.value)
+		branch_point_spin_box.value,
+		leaf_point_spin_box.value
 	)
 	_update_band_divider_limits()
 
@@ -254,9 +254,9 @@ func _parse_options() -> Dictionary:
 		elif argument.begins_with("--seed="):
 			options["seed"] = argument.trim_prefix("--seed=").to_int()
 		elif argument.begins_with("--branch-points="):
-			options["branch_points"] = argument.trim_prefix("--branch-points=").to_int()
+			options["branch_points"] = argument.trim_prefix("--branch-points=").to_float()
 		elif argument.begins_with("--leaf-points="):
-			options["leaf_points"] = argument.trim_prefix("--leaf-points=").to_int()
+			options["leaf_points"] = argument.trim_prefix("--leaf-points=").to_float()
 		elif argument.begins_with("--output="):
 			options["output"] = argument.trim_prefix("--output=")
 
@@ -268,8 +268,8 @@ func run_dataset(
 	behavior_2: String,
 	selected_game_count: int,
 	selected_seed: int,
-	selected_branch_points: int = DEFAULT_BRANCH_POINTS,
-	selected_leaf_points: int = DEFAULT_LEAF_POINTS
+	selected_branch_points: float = DEFAULT_BRANCH_POINTS,
+	selected_leaf_points: float = DEFAULT_LEAF_POINTS
 ) -> Array[Dictionary]:
 	_apply_score_level_points(selected_branch_points, selected_leaf_points)
 
@@ -407,7 +407,7 @@ func _select_score_target(feature_cards: Array[FeatureCard], behavior: String) -
 	var behavior_parts: PackedStringArray = behavior.split("_")
 	var fun_level: String = behavior_parts[0]
 	var money_level: String = behavior_parts[1]
-	var best_key: Array[int] = []
+	var best_key: Array[float] = []
 	var best_card_uids: Array[String] = []
 
 	for selection_mask: int in range(1, 8):
@@ -417,11 +417,11 @@ func _select_score_target(feature_cards: Array[FeatureCard], behavior: String) -
 			if selection_mask & (1 << card_index):
 				selected_cards.append(feature_cards[card_index])
 
-		var fun_delta: int = _calculate_cards_points(selected_cards, "Fun")
-		var money_delta: int = _calculate_cards_points(selected_cards, "Money")
-		var fun_fit: int = _score_axis_delta(fun_delta, fun_level)
-		var money_fit: int = _score_axis_delta(money_delta, money_level)
-		var key: Array[int] = [
+		var fun_delta: float = _calculate_cards_points(selected_cards, "Fun")
+		var money_delta: float = _calculate_cards_points(selected_cards, "Money")
+		var fun_fit: float = _score_axis_delta(fun_delta, fun_level)
+		var money_fit: float = _score_axis_delta(money_delta, money_level)
+		var key: Array[float] = [
 			fun_fit + money_fit,
 			min(fun_fit, money_fit),
 			-abs(fun_fit - money_fit),
@@ -435,7 +435,7 @@ func _select_score_target(feature_cards: Array[FeatureCard], behavior: String) -
 	return best_card_uids
 
 
-func _score_axis_delta(delta: int, level: String) -> int:
+func _score_axis_delta(delta: float, level: String) -> float:
 	match level:
 		"vh":
 			return delta
@@ -473,7 +473,7 @@ func _get_supported_behaviors() -> Array[String]:
 	return behavior_names
 
 
-func _is_key_greater(left: Array[int], right: Array[int]) -> bool:
+func _is_key_greater(left: Array[float], right: Array[float]) -> bool:
 	for index: int in range(left.size()):
 		if left[index] > right[index]:
 			return true
@@ -493,9 +493,9 @@ func _get_card_uids(feature_cards: Array[FeatureCard]) -> Array[String]:
 	return card_uids
 
 
-func _calculate_cards_points(feature_cards: Array[FeatureCard], tree_name: String) -> int:
+func _calculate_cards_points(feature_cards: Array[FeatureCard], tree_name: String) -> float:
 	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
-	var points: int = 0
+	var points: float = 0.0
 
 	for feature_card: FeatureCard in feature_cards:
 		for effect: FeatureEffect in feature_card.get_effects():
@@ -507,7 +507,7 @@ func _calculate_cards_points(feature_cards: Array[FeatureCard], tree_name: Strin
 	return points
 
 
-func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> float:
 	var impact: int = 1
 
 	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:
@@ -516,13 +516,13 @@ func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> i
 	return score_tree.get_points(effect.get_node_uid()) * impact
 
 
-func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> int:
+func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> float:
 	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
 
 	return release_report.get_score_delta(score_tree.get_uid())
 
 
-func _get_game_score(game_run: GameRun, tree_name: String) -> int:
+func _get_game_score(game_run: GameRun, tree_name: String) -> float:
 	var score_tree: ScoreTree = score_tree_by_name.get(tree_name) as ScoreTree
 
 	return game_run.get_score(score_tree.get_uid())
@@ -538,7 +538,7 @@ func _build_frequency_series(rows: Array[Dictionary]) -> Dictionary[String, Dict
 			var tree_name: String = score_tree.get_display_name()
 			var column_name: String = "final_%s" % tree_name.to_lower()
 			var series_name: String = "%s %s" % [runner, tree_name]
-			var final_score: int = row[column_name]
+			var final_score: float = row[column_name]
 
 			if not series.has(series_name):
 				series[series_name] = {}
@@ -552,18 +552,25 @@ func _format_seed_summary(
 	selected_seed: int,
 	is_random_seed: bool,
 	game_seed_count: int,
-	selected_branch_points: int,
-	selected_leaf_points: int
+	selected_branch_points: float,
+	selected_leaf_points: float
 ) -> String:
-	var point_summary: String = "Branch: %d | Leaf: %d" % [
-		selected_branch_points,
-		selected_leaf_points,
+	var point_summary: String = "Branch: %s | Leaf: %s" % [
+		_format_points(selected_branch_points),
+		_format_points(selected_leaf_points),
 	]
 
 	if is_random_seed:
 		return "Random Seeds: %d | %s" % [game_seed_count, point_summary]
 
 	return "Seed: %d | %s" % [selected_seed, point_summary]
+
+
+func _format_points(points: float) -> String:
+	if is_equal_approx(points, round(points)):
+		return str(int(round(points)))
+
+	return "%.2f" % points
 
 
 func _generate_deterministic_game_seeds(selected_game_count: int, selected_seed: int) -> Array[int]:
@@ -586,13 +593,13 @@ func _generate_random_game_seeds(selected_game_count: int) -> Array[int]:
 	return game_seeds
 
 
-func _apply_score_level_points(selected_branch_points: int, selected_leaf_points: int) -> void:
+func _apply_score_level_points(selected_branch_points: float, selected_leaf_points: float) -> void:
 	for score_tree: ScoreTree in score_trees:
 		score_tree.set_points_for_level(score_tree.get_max_level() - 1, selected_branch_points)
 		score_tree.set_points_for_level(score_tree.get_max_level(), selected_leaf_points)
 
 
-func _get_branch_points() -> int:
+func _get_branch_points() -> float:
 	if score_trees.is_empty():
 		return DEFAULT_BRANCH_POINTS
 
@@ -600,7 +607,7 @@ func _get_branch_points() -> int:
 	return score_tree.get_points(score_tree.get_children(score_tree.get_root_uid())[0].get_uid())
 
 
-func _get_leaf_points() -> int:
+func _get_leaf_points() -> float:
 	if score_trees.is_empty():
 		return DEFAULT_LEAF_POINTS
 
@@ -609,8 +616,8 @@ func _get_leaf_points() -> int:
 	return score_tree.get_points(score_tree.get_children(branch_node.get_uid())[0].get_uid())
 
 
-func _calculate_score_axis_bound() -> int:
-	var strongest_node_points: int = 0
+func _calculate_score_axis_bound() -> float:
+	var strongest_node_points: float = 0.0
 
 	for score_tree: ScoreTree in score_trees:
 		for node: ScoreTreeNode in score_tree.nodes.values():
@@ -632,8 +639,8 @@ func _calculate_score_axis_bound() -> int:
 
 func _configure_band_divider_controls() -> void:
 	var band_divider_spin_boxes: Array[SpinBox] = _get_band_divider_spin_boxes()
-	var score_axis_bound: int = _calculate_score_axis_bound()
-	var dividers: Array[int] = _get_default_raw_score_dividers(score_axis_bound)
+	var score_axis_bound: float = _calculate_score_axis_bound()
+	var dividers: Array[float] = _get_default_raw_score_dividers(score_axis_bound)
 
 	for divider_index: int in range(band_divider_spin_boxes.size()):
 		var spin_box: SpinBox = band_divider_spin_boxes[divider_index]
@@ -644,30 +651,30 @@ func _configure_band_divider_controls() -> void:
 
 
 func _update_band_divider_limits() -> void:
-	var score_axis_bound: int = _calculate_score_axis_bound()
+	var score_axis_bound: float = _calculate_score_axis_bound()
 
 	for spin_box: SpinBox in _get_band_divider_spin_boxes():
 		spin_box.min_value = -score_axis_bound
 		spin_box.max_value = score_axis_bound
 
 
-func _get_default_raw_score_dividers(score_axis_bound: int) -> Array[int]:
-	var dividers: Array[int] = []
+func _get_default_raw_score_dividers(score_axis_bound: float) -> Array[float]:
+	var dividers: Array[float] = []
 
 	for divider_index: int in range(1, 5):
-		dividers.append(int(round(
+		dividers.append(
 			float(-score_axis_bound)
 			+ ((float(score_axis_bound * 2) / 5.0) * divider_index)
-		)))
+		)
 
 	return dividers
 
 
-func _get_score_band_dividers_from_controls() -> Array[int]:
-	var dividers: Array[int] = []
+func _get_score_band_dividers_from_controls() -> Array[float]:
+	var dividers: Array[float] = []
 
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
-		var divider: int = int(band_divider_spin_box.value)
+		var divider: float = band_divider_spin_box.value
 
 		if not dividers.has(divider):
 			dividers.append(divider)

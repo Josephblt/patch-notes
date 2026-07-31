@@ -7,7 +7,7 @@ const CARDS_PER_SPRINT: int = 3
 
 var _feature_deck: FeatureDeck
 var _score_trees: Dictionary[String, ScoreTree]
-var _scores: Dictionary[String, int]
+var _scores: Dictionary[String, float]
 var _releases: Array[Release]
 var _current_release: Release
 var _last_release_report: ReleaseReport
@@ -24,7 +24,7 @@ func _init(run_feature_deck: FeatureDeck, run_score_trees: Array[ScoreTree] = []
 
 	for score_tree: ScoreTree in run_score_trees:
 		_score_trees[score_tree.get_uid()] = score_tree
-		_scores[score_tree.get_uid()] = 0
+		_scores[score_tree.get_uid()] = 0.0
 
 
 func get_current_release() -> Release:
@@ -35,12 +35,12 @@ func get_release_count() -> int:
 	return _releases.size()
 
 
-func get_score(tree_uid: String) -> int:
-	return int(_scores.get(tree_uid, 0))
+func get_score(tree_uid: String) -> float:
+	return float(_scores.get(tree_uid, 0.0))
 
 
-func get_preview_score(tree_uid: String, pending_sprint: Sprint = null) -> int:
-	var preview_score: int = get_score(tree_uid)
+func get_preview_score(tree_uid: String, pending_sprint: Sprint = null) -> float:
+	var preview_score: float = get_score(tree_uid)
 
 	if _current_release != null:
 		preview_score += _calculate_cards_points(
@@ -109,7 +109,7 @@ func _apply_release_scores(release_report: ReleaseReport) -> void:
 
 
 func _build_release_report(release: Release) -> ReleaseReport:
-	var score_deltas: Dictionary[String, int] = {}
+	var score_deltas: Dictionary[String, float] = {}
 	var selected_cards: Array[FeatureCard] = release.get_selected_cards()
 
 	for score_tree_uid: String in _scores.keys():
@@ -126,8 +126,8 @@ func _build_release_report(release: Release) -> ReleaseReport:
 	)
 
 
-func _calculate_cards_points(cards: Array[FeatureCard], tree_uid: String) -> int:
-	var points: int = 0
+func _calculate_cards_points(cards: Array[FeatureCard], tree_uid: String) -> float:
+	var points: float = 0.0
 
 	for card: FeatureCard in cards:
 		for effect: FeatureEffect in card.get_effects():
@@ -144,7 +144,7 @@ func _calculate_cards_points(cards: Array[FeatureCard], tree_uid: String) -> int
 	return points
 
 
-func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> float:
 	var impact: int = 1
 
 	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:

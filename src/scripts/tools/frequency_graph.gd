@@ -31,17 +31,17 @@ const PADDING_RIGHT: float = 26.0
 const PADDING_BOTTOM: float = 48.0
 
 var series_by_behavior: Dictionary[String, Dictionary] = {}
-var min_score: int = 0
-var max_score: int = 0
+var min_score: float = 0.0
+var max_score: float = 0.0
 var max_frequency: int = 0
-var score_band_dividers: Array[int] = []
+var score_band_dividers: Array[float] = []
 
 
 func set_series(
 	next_series_by_behavior: Dictionary[String, Dictionary],
-	next_min_score: int,
-	next_max_score: int,
-	next_score_band_dividers: Array[int] = []
+	next_min_score: float,
+	next_max_score: float,
+	next_score_band_dividers: Array[float] = []
 ) -> void:
 	series_by_behavior = next_series_by_behavior
 	min_score = next_min_score
@@ -123,7 +123,7 @@ func _draw_grid(plot_rect: Rect2) -> void:
 
 
 func _draw_score_bands(plot_rect: Rect2) -> void:
-	var band_edges: Array[int] = _get_score_band_edges()
+	var band_edges: Array[float] = _get_score_band_edges()
 
 	for band_index: int in range(band_edges.size() - 1):
 		if band_index % 2 != 0:
@@ -141,7 +141,7 @@ func _draw_score_bands(plot_rect: Rect2) -> void:
 			true
 		)
 
-	for raw_score: int in score_band_dividers:
+	for raw_score: float in score_band_dividers:
 		var divider_x: float = _score_to_x(raw_score, plot_rect)
 
 		draw_line(
@@ -159,17 +159,17 @@ func _draw_axis_labels(plot_rect: Rect2) -> void:
 
 	draw_string(font, Vector2(plot_rect.position.x - 28, plot_rect.position.y + 5), str(max_frequency), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 	draw_string(font, Vector2(plot_rect.position.x - 16, plot_rect.position.y + plot_rect.size.y), "0", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
-	draw_string(font, Vector2(plot_rect.position.x, baseline_y), str(min_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
-	draw_string(font, Vector2(plot_rect.position.x + plot_rect.size.x - 30, baseline_y), str(max_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
+	draw_string(font, Vector2(plot_rect.position.x, baseline_y), _format_score(min_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
+	draw_string(font, Vector2(plot_rect.position.x + plot_rect.size.x - 30, baseline_y), _format_score(max_score), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 	draw_string(font, Vector2(plot_rect.position.x + 180, baseline_y + 16), "Final raw score", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
 
-	for raw_score: int in score_band_dividers:
+	for raw_score: float in score_band_dividers:
 		var divider_x: float = _score_to_x(raw_score, plot_rect)
 
 		draw_string(
 			font,
 			Vector2(divider_x - 8.0, baseline_y),
-			str(raw_score),
+			_format_score(raw_score),
 			HORIZONTAL_ALIGNMENT_LEFT,
 			-1,
 			font_size,
@@ -211,7 +211,14 @@ func _draw_behavior_series(plot_rect: Rect2, frequencies: Dictionary, color: Col
 	var previous_point: Vector2 = Vector2.ZERO
 	var has_previous_point: bool = false
 
-	for score: int in range(min_score, max_score + 1):
+	var scores: Array[float] = []
+
+	for score: Variant in frequencies.keys():
+		scores.append(float(score))
+
+	scores.sort()
+
+	for score: float in scores:
 		var frequency: int = frequencies.get(score, 0)
 		var point: Vector2 = Vector2(
 			_score_to_x(score, plot_rect),
@@ -224,8 +231,11 @@ func _draw_behavior_series(plot_rect: Rect2, frequencies: Dictionary, color: Col
 		previous_point = point
 		has_previous_point = true
 
+		if scores.size() == 1:
+			draw_circle(point, 3.0, color)
 
-func _score_to_x(score: int, plot_rect: Rect2) -> float:
+
+func _score_to_x(score: float, plot_rect: Rect2) -> float:
 	if min_score == max_score:
 		return plot_rect.position.x + (plot_rect.size.x / 2.0)
 
@@ -236,10 +246,10 @@ func _score_to_x(score: int, plot_rect: Rect2) -> float:
 	)
 
 
-func _get_score_band_edges() -> Array[int]:
-	var band_edges: Array[int] = [min_score]
+func _get_score_band_edges() -> Array[float]:
+	var band_edges: Array[float] = [min_score]
 
-	for divider: int in score_band_dividers:
+	for divider: float in score_band_dividers:
 		if divider > min_score and divider < max_score:
 			band_edges.append(divider)
 
@@ -274,6 +284,13 @@ func _get_series_names() -> Array[String]:
 
 func _get_series_color(series_name: String) -> Color:
 	return SERIES_COLORS.get(series_name, FALLBACK_SERIES_COLOR)
+
+
+func _format_score(score: float) -> String:
+	if is_equal_approx(score, round(score)):
+		return str(int(round(score)))
+
+	return "%.2f" % score
 
 
 func _recalculate_max_frequency() -> void:

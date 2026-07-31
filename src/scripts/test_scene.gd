@@ -262,7 +262,7 @@ func _format_scores() -> String:
 		if not output.is_empty():
 			output += " | "
 
-		var raw_score: int = game_run.get_score(score_tree.get_uid())
+		var raw_score: float = game_run.get_score(score_tree.get_uid())
 		var normalized_score: int = score_interpreter.normalize(
 			raw_score,
 			ScoreInterpreter.FINAL_MIN_RAW_SCORE,
@@ -270,9 +270,9 @@ func _format_scores() -> String:
 		)
 		var score_band: ScoreBand = score_interpreter.get_band(normalized_score)
 
-		output += "%s %d (%d%% %s)" % [
+		output += "%s %s (%d%% %s)" % [
 			score_tree.get_display_name(),
-			raw_score,
+			_format_points(raw_score),
 			normalized_score,
 			_format_score_band(score_band),
 		]
@@ -287,9 +287,9 @@ func _format_preview_scores() -> String:
 		if not output.is_empty():
 			output += " | "
 
-		output += "%s %d" % [
+		output += "%s %s" % [
 			score_tree.get_display_name(),
-			game_run.get_preview_score(score_tree.get_uid(), current_sprint),
+			_format_points(game_run.get_preview_score(score_tree.get_uid(), current_sprint)),
 		]
 
 	return output
@@ -303,8 +303,8 @@ func _format_status_detail() -> String:
 
 
 func _format_release_update(release_report: ReleaseReport) -> String:
-	var fun_delta: int = _get_report_score_delta(release_report, "Fun")
-	var money_delta: int = _get_report_score_delta(release_report, "Money")
+	var fun_delta: float = _get_report_score_delta(release_report, "Fun")
+	var money_delta: float = _get_report_score_delta(release_report, "Money")
 	var release_update: Dictionary = score_interpreter.evaluate_release_delta(
 		fun_delta,
 		money_delta
@@ -443,27 +443,34 @@ func _find_score_tree(tree_uid: String) -> ScoreTree:
 	return null
 
 
-func _get_score_by_tree_name(tree_name: String) -> int:
+func _get_score_by_tree_name(tree_name: String) -> float:
 	for score_tree: ScoreTree in score_trees:
 		if score_tree.get_display_name() == tree_name:
 			return game_run.get_score(score_tree.get_uid())
 
-	return 0
+	return 0.0
 
 
-func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> int:
+func _get_report_score_delta(release_report: ReleaseReport, tree_name: String) -> float:
 	for score_tree: ScoreTree in score_trees:
 		if score_tree.get_display_name() == tree_name:
 			return release_report.get_score_delta(score_tree.get_uid())
 
-	return 0
+	return 0.0
 
 
-func _format_signed_points(points: int) -> String:
-	if points >= 0:
-		return "+%d" % points
+func _format_signed_points(points: float) -> String:
+	if points >= 0.0:
+		return "+%s" % _format_points(points)
 
-	return "%d" % points
+	return "-%s" % _format_points(absf(points))
+
+
+func _format_points(points: float) -> String:
+	if is_equal_approx(points, round(points)):
+		return str(int(round(points)))
+
+	return "%.2f" % points
 
 
 func _format_score_band(score_band: ScoreBand) -> String:
@@ -473,7 +480,7 @@ func _format_score_band(score_band: ScoreBand) -> String:
 	return score_band.get_display_name()
 
 
-func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> int:
+func _calculate_effect_points(score_tree: ScoreTree, effect: FeatureEffect) -> float:
 	var impact: int = 1
 
 	if effect.get_impact() == FeatureEffect.Impact.NEGATIVE:

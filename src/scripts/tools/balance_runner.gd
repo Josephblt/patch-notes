@@ -4,12 +4,9 @@ extends CanvasLayer
 const SCORE_TREE_DIR: String = "res://data/score_trees"
 const BASELINE_BEHAVIOR: String = "random_count"
 const NONE_BEHAVIOR: String = "none"
-const RUNNER_B1: String = "B1"
-const RUNNER_B2: String = "B2"
 const RUNNER_RANDOM: String = "Random"
 const DEFAULT_GAME_COUNT: int = 200
 const DEFAULT_BEHAVIOR: String = "vh_vh"
-const DEFAULT_BEHAVIOR_2: String = "m_m"
 const DEFAULT_SEED: int = 310731
 const DEFAULT_BRANCH_POINTS: float = 3.0
 const DEFAULT_LEAF_POINTS: float = 1.0
@@ -26,8 +23,7 @@ var score_trees: Array[ScoreTree] = []
 var score_tree_by_name: Dictionary[String, ScoreTree] = {}
 var last_rows: Array[Dictionary] = []
 
-@export var selected_behavior: String = DEFAULT_BEHAVIOR
-@export var selected_behavior_2: String = DEFAULT_BEHAVIOR_2
+@export var selected_behaviors: Array[String] = [DEFAULT_BEHAVIOR]
 @export var selected_baseline: String = BASELINE_BEHAVIOR
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
@@ -36,8 +32,7 @@ var last_rows: Array[Dictionary] = []
 @export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
-@onready var behavior_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorOptions
-@onready var behavior_2_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/Behavior2Options
+@onready var behavior_menu_button: MenuButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorMenuButton
 @onready var baseline_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BaselineOptions
 @onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
@@ -67,8 +62,6 @@ func _ready() -> void:
 
 	_configure_controls()
 	run_button.pressed.connect(_on_run_button_pressed)
-	behavior_options.item_selected.connect(_on_lane_visibility_changed)
-	behavior_2_options.item_selected.connect(_on_lane_visibility_changed)
 	baseline_options.item_selected.connect(_on_lane_visibility_changed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
@@ -83,8 +76,7 @@ func _ready() -> void:
 func _run_from_command_line() -> void:
 	var options: Dictionary = _parse_options()
 	var rows: Array[Dictionary] = run_dataset(
-		options.get("behavior", selected_behavior),
-		options.get("behavior2", selected_behavior_2),
+		options.get("behaviors", selected_behaviors),
 		options.get("baseline", selected_baseline),
 		options.get("games", game_count),
 		options.get("seed", seed),
@@ -97,8 +89,7 @@ func _run_from_command_line() -> void:
 
 
 func _configure_controls() -> void:
-	_configure_behavior_options(behavior_options, selected_behavior)
-	_configure_behavior_options(behavior_2_options, selected_behavior_2)
+	_configure_behavior_menu()
 	_configure_baseline_options()
 	game_count_spin_box.value = game_count
 	seed_spin_box.value = seed
@@ -111,21 +102,53 @@ func _configure_controls() -> void:
 	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
 
 
-func _configure_behavior_options(option_button: OptionButton, behavior_to_select: String) -> void:
-	option_button.clear()
-	option_button.add_item(NONE_BEHAVIOR)
+func _configure_behavior_menu() -> void:
+	var popup: PopupMenu = behavior_menu_button.get_popup()
+	popup.clear()
 
+	var item_index: int = 0
 	for behavior: String in _get_score_behaviors():
-		option_button.add_item(behavior)
+		popup.add_check_item(_format_behavior_description(behavior), item_index)
+		popup.set_item_metadata(item_index, behavior)
+		popup.set_item_checked(item_index, selected_behaviors.has(behavior))
+		item_index += 1
 
-	var behavior_options_list: Array[String] = [NONE_BEHAVIOR]
-	behavior_options_list.append_array(_get_score_behaviors())
-	var selected_index: int = behavior_options_list.find(behavior_to_select)
+	if not popup.id_pressed.is_connected(_on_behavior_menu_id_pressed):
+		popup.id_pressed.connect(_on_behavior_menu_id_pressed)
 
-	if selected_index < 0:
-		selected_index = 0
+	_update_behavior_menu_text()
 
-	option_button.select(selected_index)
+
+func _on_behavior_menu_id_pressed(item_id: int) -> void:
+	var popup: PopupMenu = behavior_menu_button.get_popup()
+	var item_index: int = popup.get_item_index(item_id)
+
+	if item_index < 0:
+		return
+
+	popup.set_item_checked(item_index, not popup.is_item_checked(item_index))
+	_update_behavior_menu_text()
+	_on_lane_visibility_changed(item_index)
+
+
+func _update_behavior_menu_text() -> void:
+	var checked_count: int = _get_selected_behaviors().size()
+
+	if checked_count == 1:
+		behavior_menu_button.text = "1 Behavior"
+	else:
+		behavior_menu_button.text = "%d Behaviors" % checked_count
+
+
+func _get_selected_behaviors() -> Array[String]:
+	var behaviors: Array[String] = []
+	var popup: PopupMenu = behavior_menu_button.get_popup()
+
+	for item_index: int in range(popup.item_count):
+		if popup.is_item_checked(item_index):
+			behaviors.append(str(popup.get_item_metadata(item_index)))
+
+	return behaviors
 
 
 func _configure_baseline_options() -> void:
@@ -147,8 +170,7 @@ func _on_run_button_pressed() -> void:
 
 	await get_tree().process_frame
 
-	var behavior: String = behavior_options.get_item_text(behavior_options.selected)
-	var behavior_2: String = behavior_2_options.get_item_text(behavior_2_options.selected)
+	var behaviors: Array[String] = _get_selected_behaviors()
 	var baseline: String = str(baseline_options.get_item_metadata(baseline_options.selected))
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
@@ -164,7 +186,7 @@ func _on_run_button_pressed() -> void:
 	else:
 		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
-	last_rows = await _run_dataset_with_progress(behavior, behavior_2, baseline, game_seeds)
+	last_rows = await _run_dataset_with_progress(behaviors, baseline, game_seeds)
 	_write_csv(selected_output_path, last_rows)
 	_update_graph(selected_score_band_dividers)
 
@@ -179,20 +201,17 @@ func _on_run_button_pressed() -> void:
 
 
 func _run_dataset_with_progress(
-	behavior: String,
-	behavior_2: String,
+	behaviors: Array[String],
 	baseline: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
-	var runner_configs: Array[Dictionary] = _get_runner_configs(behavior, behavior_2, baseline)
-	var progress_by_runner: Dictionary[String, int] = {}
+	var runner_configs: Array[Dictionary] = _get_runner_configs(behaviors, baseline)
 	var selected_game_count: int = game_seeds.size()
+	var total_game_count: int = selected_game_count * runner_configs.size()
+	var completed_game_count: int = 0
 
-	for runner_config: Dictionary in runner_configs:
-		progress_by_runner[runner_config["runner"]] = 0
-
-	_render_runner_progress(runner_configs, selected_game_count, progress_by_runner)
+	_render_runner_progress(total_game_count, completed_game_count)
 	await get_tree().process_frame
 
 	for runner_config: Dictionary in runner_configs:
@@ -201,42 +220,35 @@ func _run_dataset_with_progress(
 
 		for game_number: int in range(1, selected_game_count + 1):
 			rows.append(_play_game(runner_name, behavior_name, game_number, game_seeds[game_number - 1]))
-			progress_by_runner[runner_name] = game_number
-			_render_runner_progress(runner_configs, selected_game_count, progress_by_runner)
+			completed_game_count += 1
+			_render_runner_progress(total_game_count, completed_game_count, runner_name)
 			await get_tree().process_frame
 
 	return rows
 
 
 func _render_runner_progress(
-	runner_configs: Array[Dictionary],
-	selected_game_count: int,
-	progress_by_runner: Dictionary[String, int]
+	total_game_count: int,
+	completed_game_count: int,
+	current_runner_name: String = ""
 ) -> void:
-	var parts: PackedStringArray = []
-
-	if runner_configs.is_empty():
+	if total_game_count == 0:
 		progress_label.text = "No behaviours selected."
 		return
 
-	for runner_config: Dictionary in runner_configs:
-		var runner_name: String = runner_config["runner"]
-		var completed_count: int = progress_by_runner.get(runner_name, 0)
-		var percent_complete: int = 0
+	var percent_complete: int = int(round(
+		(float(completed_game_count) / float(total_game_count)) * 100.0
+	))
+	var progress_text: String = "%d/%d - %d%%" % [
+		completed_game_count,
+		total_game_count,
+		percent_complete,
+	]
 
-		if selected_game_count > 0:
-			percent_complete = int(round(
-				(float(completed_count) / float(selected_game_count)) * 100.0
-			))
-
-		parts.append("%s - %d/%d - %d%%" % [
-			_format_runner_progress_name(runner_config),
-			selected_game_count,
-			completed_count,
-			percent_complete,
-		])
-
-	progress_label.text = " | ".join(parts)
+	if current_runner_name.is_empty():
+		progress_label.text = progress_text
+	else:
+		progress_label.text = "%s | %s" % [progress_text, current_runner_name]
 
 
 func _format_runner_progress_name(runner_config: Dictionary) -> String:
@@ -245,7 +257,7 @@ func _format_runner_progress_name(runner_config: Dictionary) -> String:
 	if runner_name == RUNNER_RANDOM:
 		return RUNNER_RANDOM
 
-	return "%s %s" % [runner_name, String(runner_config["behavior"]).to_upper()]
+	return runner_name
 
 
 func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
@@ -277,8 +289,7 @@ func _on_lane_visibility_changed(_index: int) -> void:
 func _parse_options() -> Dictionary:
 	var options: Dictionary = {
 		"games": game_count,
-		"behavior": selected_behavior,
-		"behavior2": selected_behavior_2,
+		"behaviors": selected_behaviors.duplicate(),
 		"baseline": selected_baseline,
 		"seed": seed,
 		"branch_points": branch_points,
@@ -289,10 +300,16 @@ func _parse_options() -> Dictionary:
 	for argument: String in OS.get_cmdline_user_args():
 		if argument.begins_with("--games="):
 			options["games"] = argument.trim_prefix("--games=").to_int()
+		elif argument.begins_with("--behaviors="):
+			options["behaviors"] = _parse_behavior_list(argument.trim_prefix("--behaviors="))
 		elif argument.begins_with("--behavior="):
-			options["behavior"] = argument.trim_prefix("--behavior=")
+			var behaviors: Array[String] = options["behaviors"]
+			_append_unique_behavior(behaviors, argument.trim_prefix("--behavior="))
+			options["behaviors"] = behaviors
 		elif argument.begins_with("--behavior2="):
-			options["behavior2"] = argument.trim_prefix("--behavior2=")
+			var behaviors: Array[String] = options["behaviors"]
+			_append_unique_behavior(behaviors, argument.trim_prefix("--behavior2="))
+			options["behaviors"] = behaviors
 		elif argument.begins_with("--baseline="):
 			options["baseline"] = _parse_baseline_argument(argument.trim_prefix("--baseline="))
 		elif argument.begins_with("--seed="):
@@ -307,6 +324,23 @@ func _parse_options() -> Dictionary:
 	return options
 
 
+func _parse_behavior_list(argument_value: String) -> Array[String]:
+	var behaviors: Array[String] = []
+
+	for behavior: String in argument_value.split(",", false):
+		_append_unique_behavior(behaviors, behavior.strip_edges())
+
+	return behaviors
+
+
+func _append_unique_behavior(behaviors: Array[String], behavior: String) -> void:
+	if behavior == NONE_BEHAVIOR or not _is_score_behavior(behavior):
+		return
+
+	if not behaviors.has(behavior):
+		behaviors.append(behavior)
+
+
 func _parse_baseline_argument(argument_value: String) -> String:
 	if argument_value == RUNNER_RANDOM.to_lower() or argument_value == BASELINE_BEHAVIOR:
 		return BASELINE_BEHAVIOR
@@ -315,8 +349,7 @@ func _parse_baseline_argument(argument_value: String) -> String:
 
 
 func run_dataset(
-	behavior: String,
-	behavior_2: String,
+	behaviors: Array[String],
 	baseline: String,
 	selected_game_count: int,
 	selected_seed: int,
@@ -326,22 +359,20 @@ func run_dataset(
 	_apply_score_level_points(selected_branch_points, selected_leaf_points)
 
 	return _run_dataset_with_game_seeds(
-		behavior,
-		behavior_2,
+		behaviors,
 		baseline,
 		_generate_deterministic_game_seeds(selected_game_count, selected_seed)
 	)
 
 
 func _run_dataset_with_game_seeds(
-	behavior: String,
-	behavior_2: String,
+	behaviors: Array[String],
 	baseline: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 
-	for runner_config: Dictionary in _get_runner_configs(behavior, behavior_2, baseline):
+	for runner_config: Dictionary in _get_runner_configs(behaviors, baseline):
 		rows.append_array(_play_behavior(
 			runner_config["runner"],
 			runner_config["behavior"],
@@ -351,14 +382,20 @@ func _run_dataset_with_game_seeds(
 	return rows
 
 
-func _get_runner_configs(behavior: String, behavior_2: String, baseline: String) -> Array[Dictionary]:
+func _get_runner_configs(behaviors: Array[String], baseline: String) -> Array[Dictionary]:
 	var runner_configs: Array[Dictionary] = []
 
-	if behavior != NONE_BEHAVIOR:
-		runner_configs.append({"runner": RUNNER_B1, "behavior": behavior})
+	for behavior: String in behaviors:
+		if behavior == NONE_BEHAVIOR:
+			continue
 
-	if behavior_2 != NONE_BEHAVIOR:
-		runner_configs.append({"runner": RUNNER_B2, "behavior": behavior_2})
+		if not _is_score_behavior(behavior):
+			continue
+
+		runner_configs.append({
+			"runner": _format_behavior_description(behavior),
+			"behavior": behavior,
+		})
 
 	if baseline != NONE_BEHAVIOR:
 		runner_configs.append({"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR})
@@ -522,6 +559,34 @@ func _is_score_behavior(behavior: String) -> bool:
 	)
 
 
+func _format_behavior_description(behavior: String) -> String:
+	var behavior_parts: PackedStringArray = behavior.split("_")
+
+	if behavior_parts.size() != 2:
+		return behavior
+
+	return "Fun - %s | Money - %s" % [
+		_format_score_level_description(behavior_parts[0]),
+		_format_score_level_description(behavior_parts[1]),
+	]
+
+
+func _format_score_level_description(score_level: String) -> String:
+	match score_level:
+		"vh":
+			return "Very High"
+		"h":
+			return "High"
+		"m":
+			return "Medium"
+		"l":
+			return "Low"
+		"vl":
+			return "Very Low"
+		_:
+			return score_level
+
+
 func _get_score_behaviors() -> Array[String]:
 	var behavior_names: Array[String] = []
 
@@ -633,8 +698,7 @@ func _get_visible_runner_configs(runner_configs: Array[Dictionary]) -> Dictionar
 
 func _get_selected_runner_configs() -> Array[Dictionary]:
 	return _get_runner_configs(
-		behavior_options.get_item_text(behavior_options.selected),
-		behavior_2_options.get_item_text(behavior_2_options.selected),
+		_get_selected_behaviors(),
 		str(baseline_options.get_item_metadata(baseline_options.selected))
 	)
 

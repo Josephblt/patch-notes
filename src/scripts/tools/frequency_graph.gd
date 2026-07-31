@@ -8,23 +8,10 @@ const GRID_COLOR: Color = Color(0.22, 0.24, 0.25, 1)
 const TEXT_COLOR: Color = Color(0.956863, 0.937255, 0.890196, 1)
 const BAND_COLOR: Color = Color(0.16, 0.17, 0.17, 1)
 const BAND_LINE_COLOR: Color = Color(0.38, 0.39, 0.39, 1)
-const SERIES_ORDER: Array[String] = [
-	"B1 Fun",
-	"B1 Money",
-	"B2 Fun",
-	"B2 Money",
-	"Random Fun",
-	"Random Money",
-]
 const SERIES_COLORS: Dictionary[String, Color] = {
-	"B1 Fun": Color(0.96, 0.30, 0.30, 1),
-	"B1 Money": Color(0.62, 0.08, 0.08, 1),
-	"B2 Fun": Color(0.29, 0.58, 0.96, 1),
-	"B2 Money": Color(0.08, 0.24, 0.70, 1),
 	"Random Fun": Color(0.72, 0.72, 0.72, 1),
 	"Random Money": Color(0.44, 0.44, 0.44, 1),
 }
-const FALLBACK_SERIES_COLOR: Color = Color(0.35, 0.85, 0.73, 1)
 const PADDING_LEFT: float = 58.0
 const PADDING_TOP: float = 28.0
 const PADDING_RIGHT: float = 26.0
@@ -261,21 +248,33 @@ func _frequency_to_y(frequency: int, plot_rect: Rect2) -> float:
 
 
 func _get_series_names() -> Array[String]:
-	var series_names: Array[String] = []
-	var remaining_names: Array[String] = series_by_behavior.keys()
-	remaining_names.sort()
-
-	for preferred_name: String in SERIES_ORDER:
-		if series_by_behavior.has(preferred_name):
-			series_names.append(preferred_name)
-			remaining_names.erase(preferred_name)
-
-	series_names.append_array(remaining_names)
+	var series_names: Array[String] = series_by_behavior.keys()
+	series_names.sort()
 	return series_names
 
 
 func _get_series_color(series_name: String) -> Color:
-	return SERIES_COLORS.get(series_name, FALLBACK_SERIES_COLOR)
+	if SERIES_COLORS.has(series_name):
+		return SERIES_COLORS[series_name]
+
+	var base_name: String = _get_series_base_name(series_name)
+	var hue: float = float(abs(base_name.hash()) % 360) / 360.0
+	var value: float = 0.92
+
+	if series_name.ends_with(" Money"):
+		value = 0.62
+
+	return Color.from_hsv(hue, 0.74, value, 1.0)
+
+
+func _get_series_base_name(series_name: String) -> String:
+	if series_name.ends_with(" Fun"):
+		return series_name.substr(0, series_name.length() - 4)
+
+	if series_name.ends_with(" Money"):
+		return series_name.substr(0, series_name.length() - 6)
+
+	return series_name
 
 
 func _format_score(score: float) -> String:

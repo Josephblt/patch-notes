@@ -6,7 +6,7 @@ In Patch Notes, you assume the role of C.L.U.T.T.E.R. — Content Launch and Upd
 
 As C.L.U.T.T.E.R., you decide which proposed updates make it into each release. Every card is a possible improvement, at least according to someone in the meeting. Some updates are better for players, some are better for investors, and some make the word “better” depend entirely on who is reading the report.
 
-Each sprint, choose which updates to include in the release and which to discard. After 10 releases, Patch Notes reflects on the impact of your decisions, then presents an ending that a product team would describe as "a learning opportunity."
+Each sprint, choose which updates to include in the release and which to discard. Every 4 sprints, the release ships, Fun and Money update, and the game presents a release report that a product team would describe as "actionable learning." After 4 releases, Patch Notes reflects on the final impact of your decisions.
 
 ## Play
 

@@ -98,6 +98,94 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Run"
 
+[node name="PointRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(124, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Level Points"
+vertical_alignment = 1
+
+[node name="BranchPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(58, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Branch"
+vertical_alignment = 1
+
+[node name="BranchPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+min_value = 0.0
+max_value = 20.0
+step = 0.1
+value = 3.0
+
+[node name="LeafPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(38, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Leaf"
+vertical_alignment = 1
+
+[node name="LeafPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+allow_greater = true
+allow_lesser = true
+min_value = 0.0
+max_value = 20.0
+step = 0.1
+value = 1.0
+
+[node name="BandRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BandLabel" type="Label" parent="MarginContainer/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(124, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "Result Dividers"
+vertical_alignment = 1
+
+[node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = -144.0
+max_value = 144.0
+value = -86.0
+
+[node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = -144.0
+max_value = 144.0
+value = -29.0
+
+[node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = -144.0
+max_value = 144.0
+value = 29.0
+
+[node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
+custom_minimum_size = Vector2(86, 36)
+layout_mode = 2
+min_value = -144.0
+max_value = 144.0
+value = 86.0
+
 [node name="GraphDatasetRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -166,94 +254,6 @@ edit_alpha = false
 custom_minimum_size = Vector2(220, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
-
-[node name="BandRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="BandLabel" type="Label" parent="MarginContainer/VBoxContainer/BandRow"]
-custom_minimum_size = Vector2(124, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Result Dividers"
-vertical_alignment = 1
-
-[node name="BandDivider1SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-min_value = -144.0
-max_value = 144.0
-value = -86.0
-
-[node name="BandDivider2SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-min_value = -144.0
-max_value = 144.0
-value = -29.0
-
-[node name="BandDivider3SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-min_value = -144.0
-max_value = 144.0
-value = 29.0
-
-[node name="BandDivider4SpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/BandRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-min_value = -144.0
-max_value = 144.0
-value = 86.0
-
-[node name="PointRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="PointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
-custom_minimum_size = Vector2(124, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Level Points"
-vertical_alignment = 1
-
-[node name="BranchPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
-custom_minimum_size = Vector2(58, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Branch"
-vertical_alignment = 1
-
-[node name="BranchPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-allow_greater = true
-allow_lesser = true
-min_value = 0.0
-max_value = 20.0
-step = 0.1
-value = 3.0
-
-[node name="LeafPointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
-custom_minimum_size = Vector2(38, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Leaf"
-vertical_alignment = 1
-
-[node name="LeafPointSpinBox" type="SpinBox" parent="MarginContainer/VBoxContainer/PointRow"]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-allow_greater = true
-allow_lesser = true
-min_value = 0.0
-max_value = 20.0
-step = 0.1
-value = 1.0
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
 custom_minimum_size = Vector2(1000, 28)

@@ -130,7 +130,8 @@ func _on_viewport_size_changed() -> void:
 
 
 func _apply_responsive_ui_scale() -> void:
-	var ui_scale: float = _calculate_responsive_ui_scale(_get_layout_viewport_size())
+	var layout_viewport_size: Vector2i = _get_layout_viewport_size()
+	var ui_scale: float = _calculate_responsive_ui_scale(layout_viewport_size) * _get_backing_pixel_scale(layout_viewport_size)
 
 	_apply_font_size_to_children(main_container, BODY_FONT_SIZE, ui_scale)
 	_apply_font_size(title_label, TITLE_FONT_SIZE, ui_scale)
@@ -166,6 +167,17 @@ func _get_layout_viewport_size() -> Vector2i:
 			return Vector2i(css_width, css_height)
 
 	return Vector2i(get_viewport().get_visible_rect().size)
+
+
+func _get_backing_pixel_scale(layout_viewport_size: Vector2i) -> float:
+	if not OS.has_feature("web"):
+		return 1.0
+
+	if layout_viewport_size.x <= 0:
+		return 1.0
+
+	var visible_width: float = get_viewport().get_visible_rect().size.x
+	return maxf(1.0, visible_width / float(layout_viewport_size.x))
 
 
 func _apply_font_size_to_children(root_control: Control, font_size: int, ui_scale: float) -> void:

@@ -16,7 +16,6 @@ const DEFAULT_SCORE_BAND_DIVIDERS: Array[float] = [-60.0, -20.0, 20.0, 60.0]
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
 const BEHAVIOR_MENU_CHECK_ALL_ID: int = 100000
 const BEHAVIOR_MENU_CLEAR_ALL_ID: int = 100001
-const BEHAVIOR_DESCRIPTION_LEFT_WIDTH: int = 15
 const SCORE_LEVELS: Array[String] = [
 	"vh",
 	"h",
@@ -672,17 +671,7 @@ func _format_behavior_description(behavior: String) -> String:
 	var fun_description: String = "Fun - %s" % _format_score_level_description(behavior_parts[0])
 	var money_description: String = "%s - Money" % _format_score_level_description(behavior_parts[1])
 
-	return "%s | %s" % [
-		_pad_right(fun_description, BEHAVIOR_DESCRIPTION_LEFT_WIDTH),
-		money_description,
-	]
-
-
-func _pad_right(value: String, width: int) -> String:
-	while value.length() < width:
-		value += " "
-
-	return value
+	return "%s | %s" % [fun_description, money_description]
 
 
 func _format_score_level_description(score_level: String) -> String:

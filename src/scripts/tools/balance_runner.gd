@@ -130,7 +130,7 @@ func _on_viewport_size_changed() -> void:
 
 
 func _apply_responsive_ui_scale() -> void:
-	var ui_scale: float = _calculate_responsive_ui_scale(DisplayServer.window_get_size())
+	var ui_scale: float = _calculate_responsive_ui_scale(_get_layout_viewport_size())
 
 	_apply_font_size_to_children(main_container, BODY_FONT_SIZE, ui_scale)
 	_apply_font_size(title_label, TITLE_FONT_SIZE, ui_scale)
@@ -154,6 +154,18 @@ func _calculate_responsive_ui_scale(window_size: Vector2i) -> float:
 		return TABLET_UI_SCALE
 
 	return DESKTOP_UI_SCALE
+
+
+func _get_layout_viewport_size() -> Vector2i:
+	if OS.has_feature("web") and Engine.has_singleton("JavaScriptBridge"):
+		var js_bridge: Object = Engine.get_singleton("JavaScriptBridge")
+		var css_width: int = int(js_bridge.eval("window.innerWidth", true))
+		var css_height: int = int(js_bridge.eval("window.innerHeight", true))
+
+		if css_width > 0 and css_height > 0:
+			return Vector2i(css_width, css_height)
+
+	return Vector2i(get_viewport().get_visible_rect().size)
 
 
 func _apply_font_size_to_children(root_control: Control, font_size: int, ui_scale: float) -> void:

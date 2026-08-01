@@ -52,6 +52,11 @@ var available_runner_configs: Array[Dictionary] = []
 @onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
 @onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
 @onready var graph: Control = $MarginContainer/VBoxContainer/Graph
+@onready var main_container: VBoxContainer = $MarginContainer/VBoxContainer
+@onready var control_row: HBoxContainer = $MarginContainer/VBoxContainer/ControlRow
+@onready var point_row: HBoxContainer = $MarginContainer/VBoxContainer/PointRow
+@onready var band_row: HBoxContainer = $MarginContainer/VBoxContainer/BandRow
+@onready var graph_dataset_row: HBoxContainer = $MarginContainer/VBoxContainer/GraphDatasetRow
 
 
 func _ready() -> void:
@@ -65,6 +70,7 @@ func _ready() -> void:
 		return
 
 	_configure_controls()
+	_order_control_rows()
 	run_button.pressed.connect(_on_run_button_pressed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
@@ -80,6 +86,12 @@ func _ready() -> void:
 		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
 
 	summary_label.text = "Ready."
+
+
+func _order_control_rows() -> void:
+	main_container.move_child(point_row, control_row.get_index() + 1)
+	main_container.move_child(band_row, point_row.get_index() + 1)
+	main_container.move_child(graph_dataset_row, band_row.get_index() + 1)
 
 
 func _run_from_command_line() -> void:

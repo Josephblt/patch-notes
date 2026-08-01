@@ -72,10 +72,10 @@ var stop_requested: bool = false
 @onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
 @onready var graph: Control = $MarginContainer/VBoxContainer/Graph
 @onready var main_container: VBoxContainer = $MarginContainer/VBoxContainer
-@onready var control_row: HBoxContainer = $MarginContainer/VBoxContainer/ControlRow
-@onready var point_row: HBoxContainer = $MarginContainer/VBoxContainer/PointRow
-@onready var band_row: HBoxContainer = $MarginContainer/VBoxContainer/BandRow
-@onready var graph_dataset_row: HBoxContainer = $MarginContainer/VBoxContainer/GraphDatasetRow
+@onready var control_row: Container = $MarginContainer/VBoxContainer/ControlRow
+@onready var point_row: Container = $MarginContainer/VBoxContainer/PointRow
+@onready var band_row: Container = $MarginContainer/VBoxContainer/BandRow
+@onready var graph_dataset_row: Container = $MarginContainer/VBoxContainer/GraphDatasetRow
 
 
 func _ready() -> void:

@@ -38,16 +38,18 @@ theme_override_font_sizes/font_size = 24
 text = "Balance Runner"
 
 [node name="ProgressLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(1000, 26)
+custom_minimum_size = Vector2(0, 26)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 16
 text = "Ready."
 autowrap_mode = 3
 
-[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2088022378]
+[node name="ControlRow" type="HFlowContainer" parent="MarginContainer/VBoxContainer" unique_id=2088022378]
 layout_mode = 2
 theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
 [node name="BehaviorMenuButton" type="MenuButton" parent="MarginContainer/VBoxContainer/ControlRow"]
 custom_minimum_size = Vector2(260, 36)
@@ -105,9 +107,11 @@ theme_override_font_sizes/font_size = 15
 disabled = true
 text = "Stop"
 
-[node name="PointRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PointRow" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
 [node name="PointLabel" type="Label" parent="MarginContainer/VBoxContainer/PointRow"]
 custom_minimum_size = Vector2(124, 36)
@@ -155,9 +159,11 @@ step = 0.1
 rounded = false
 value = 1.0
 
-[node name="BandRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="BandRow" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
 [node name="BandLabel" type="Label" parent="MarginContainer/VBoxContainer/BandRow"]
 custom_minimum_size = Vector2(124, 36)
@@ -211,9 +217,11 @@ step = 0.1
 rounded = false
 value = 60.0
 
-[node name="GraphDatasetRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="GraphDatasetRow" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 
 [node name="GraphDatasetLabel" type="Label" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
 custom_minimum_size = Vector2(124, 36)
@@ -281,7 +289,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
 [node name="SummaryLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1813098771]
-custom_minimum_size = Vector2(1000, 28)
+custom_minimum_size = Vector2(0, 28)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.74902, 0.776471, 0.811765, 1)
 theme_override_font_sizes/font_size = 16

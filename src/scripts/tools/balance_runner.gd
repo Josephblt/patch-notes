@@ -14,6 +14,8 @@ const UNBOUNDED_SCORE_MIN: float = -999999999.0
 const UNBOUNDED_SCORE_MAX: float = 999999999.0
 const DEFAULT_SCORE_BAND_DIVIDERS: Array[float] = [-60.0, -20.0, 20.0, 60.0]
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
+const BEHAVIOR_MENU_CHECK_ALL_ID: int = -1
+const BEHAVIOR_MENU_CLEAR_ALL_ID: int = -2
 const SCORE_LEVELS: Array[String] = [
 	"vh",
 	"h",
@@ -141,6 +143,13 @@ func _configure_behavior_menu() -> void:
 	popup.hide_on_checkable_item_selection = false
 
 	var item_index: int = 0
+	popup.add_item("Check All", BEHAVIOR_MENU_CHECK_ALL_ID)
+	item_index += 1
+	popup.add_item("Clear All", BEHAVIOR_MENU_CLEAR_ALL_ID)
+	item_index += 1
+	popup.add_separator()
+	item_index += 1
+
 	popup.add_check_item(RUNNER_RANDOM, item_index)
 	popup.set_item_metadata(item_index, BASELINE_BEHAVIOR)
 	popup.set_item_checked(item_index, selected_behaviors.has(BASELINE_BEHAVIOR))
@@ -160,6 +169,15 @@ func _configure_behavior_menu() -> void:
 
 func _on_behavior_menu_id_pressed(item_id: int) -> void:
 	var popup: PopupMenu = behavior_menu_button.get_popup()
+
+	if item_id == BEHAVIOR_MENU_CHECK_ALL_ID:
+		_set_all_behavior_menu_items_checked(true)
+		return
+
+	if item_id == BEHAVIOR_MENU_CLEAR_ALL_ID:
+		_set_all_behavior_menu_items_checked(false)
+		return
+
 	var item_index: int = popup.get_item_index(item_id)
 
 	if item_index < 0:
@@ -168,6 +186,17 @@ func _on_behavior_menu_id_pressed(item_id: int) -> void:
 	popup.set_item_checked(item_index, not popup.is_item_checked(item_index))
 	_update_behavior_menu_text()
 	_on_lane_visibility_changed(item_index)
+
+
+func _set_all_behavior_menu_items_checked(is_checked: bool) -> void:
+	var popup: PopupMenu = behavior_menu_button.get_popup()
+
+	for item_index: int in range(popup.item_count):
+		if popup.is_item_checkable(item_index):
+			popup.set_item_checked(item_index, is_checked)
+
+	_update_behavior_menu_text()
+	_on_lane_visibility_changed(-1)
 
 
 func _update_behavior_menu_text() -> void:

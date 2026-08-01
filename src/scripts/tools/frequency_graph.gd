@@ -163,7 +163,7 @@ func _draw_axis_labels(plot_rect: Rect2) -> void:
 			TEXT_COLOR
 		)
 
-	var legend_x: float = plot_rect.position.x + plot_rect.size.x - 260.0
+	var legend_x: float = plot_rect.position.x + 12.0
 	var legend_y: float = plot_rect.position.y + 18.0
 	var behavior_names: Array[String] = _get_series_names()
 

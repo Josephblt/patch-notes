@@ -22,9 +22,9 @@ const SCORE_LEVELS: Array[String] = [
 var score_trees: Array[ScoreTree] = []
 var score_tree_by_name: Dictionary[String, ScoreTree] = {}
 var last_rows: Array[Dictionary] = []
+var available_runner_configs: Array[Dictionary] = []
 
 @export var selected_behaviors: Array[String] = [DEFAULT_BEHAVIOR]
-@export var selected_baseline: String = BASELINE_BEHAVIOR
 @export var game_count: int = DEFAULT_GAME_COUNT
 @export var seed: int = DEFAULT_SEED
 @export var branch_points: float = DEFAULT_BRANCH_POINTS
@@ -33,11 +33,12 @@ var last_rows: Array[Dictionary] = []
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
 @onready var behavior_menu_button: MenuButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorMenuButton
-@onready var baseline_options: OptionButton = $MarginContainer/VBoxContainer/ControlRow/BaselineOptions
 @onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
 @onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
-@onready var output_path_line_edit: LineEdit = $MarginContainer/VBoxContainer/OutputRow/OutputPathLineEdit
+@onready var graph_dataset_1_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset1Options
+@onready var graph_dataset_2_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset2Options
+@onready var graph_dataset_3_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset3Options
 @onready var band_divider_1_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider1SpinBox
 @onready var band_divider_2_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider2SpinBox
 @onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
@@ -62,10 +63,12 @@ func _ready() -> void:
 
 	_configure_controls()
 	run_button.pressed.connect(_on_run_button_pressed)
-	baseline_options.item_selected.connect(_on_lane_visibility_changed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
 	leaf_point_spin_box.value_changed.connect(_on_level_points_changed)
+
+	for graph_dataset_options: OptionButton in _get_graph_dataset_options():
+		graph_dataset_options.item_selected.connect(_on_graph_dataset_selection_changed)
 
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
 		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
@@ -77,7 +80,6 @@ func _run_from_command_line() -> void:
 	var options: Dictionary = _parse_options()
 	var rows: Array[Dictionary] = run_dataset(
 		options.get("behaviors", selected_behaviors),
-		options.get("baseline", selected_baseline),
 		options.get("games", game_count),
 		options.get("seed", seed),
 		options.get("branch_points", branch_points),
@@ -90,13 +92,12 @@ func _run_from_command_line() -> void:
 
 func _configure_controls() -> void:
 	_configure_behavior_menu()
-	_configure_baseline_options()
+	_populate_graph_dataset_options([])
 	game_count_spin_box.value = game_count
 	seed_spin_box.value = seed
 	branch_point_spin_box.value = branch_points
 	leaf_point_spin_box.value = leaf_points
 	random_seed_check_box.button_pressed = random_seed
-	output_path_line_edit.text = output_path
 	_apply_score_level_points(branch_points, leaf_points)
 	_configure_band_divider_controls()
 	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
@@ -105,8 +106,14 @@ func _configure_controls() -> void:
 func _configure_behavior_menu() -> void:
 	var popup: PopupMenu = behavior_menu_button.get_popup()
 	popup.clear()
+	popup.hide_on_item_selection = false
 
 	var item_index: int = 0
+	popup.add_check_item(RUNNER_RANDOM, item_index)
+	popup.set_item_metadata(item_index, BASELINE_BEHAVIOR)
+	popup.set_item_checked(item_index, selected_behaviors.has(BASELINE_BEHAVIOR))
+	item_index += 1
+
 	for behavior: String in _get_score_behaviors():
 		popup.add_check_item(_format_behavior_description(behavior), item_index)
 		popup.set_item_metadata(item_index, behavior)
@@ -151,19 +158,6 @@ func _get_selected_behaviors() -> Array[String]:
 	return behaviors
 
 
-func _configure_baseline_options() -> void:
-	baseline_options.clear()
-	baseline_options.add_item(RUNNER_RANDOM)
-	baseline_options.set_item_metadata(0, BASELINE_BEHAVIOR)
-	baseline_options.add_item(NONE_BEHAVIOR)
-	baseline_options.set_item_metadata(1, NONE_BEHAVIOR)
-
-	if selected_baseline == NONE_BEHAVIOR:
-		baseline_options.select(1)
-	else:
-		baseline_options.select(0)
-
-
 func _on_run_button_pressed() -> void:
 	run_button.disabled = true
 	summary_label.text = "Running..."
@@ -171,12 +165,10 @@ func _on_run_button_pressed() -> void:
 	await get_tree().process_frame
 
 	var behaviors: Array[String] = _get_selected_behaviors()
-	var baseline: String = str(baseline_options.get_item_metadata(baseline_options.selected))
 	var selected_game_count: int = int(game_count_spin_box.value)
 	var selected_seed: int = int(seed_spin_box.value)
 	var selected_branch_points: float = branch_point_spin_box.value
 	var selected_leaf_points: float = leaf_point_spin_box.value
-	var selected_output_path: String = output_path_line_edit.text
 	_apply_score_level_points(selected_branch_points, selected_leaf_points)
 	var selected_score_band_dividers: Array[float] = _get_score_band_dividers_from_controls()
 	var game_seeds: Array[int] = []
@@ -186,8 +178,10 @@ func _on_run_button_pressed() -> void:
 	else:
 		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
-	last_rows = await _run_dataset_with_progress(behaviors, baseline, game_seeds)
-	_write_csv(selected_output_path, last_rows)
+	available_runner_configs = _get_runner_configs(behaviors)
+	last_rows = await _run_dataset_with_progress(available_runner_configs, game_seeds)
+	_write_csv(output_path, last_rows)
+	_populate_graph_dataset_options(available_runner_configs)
 	_update_graph(selected_score_band_dividers)
 
 	summary_label.text = _format_seed_summary(
@@ -201,12 +195,10 @@ func _on_run_button_pressed() -> void:
 
 
 func _run_dataset_with_progress(
-	behaviors: Array[String],
-	baseline: String,
+	runner_configs: Array[Dictionary],
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
-	var runner_configs: Array[Dictionary] = _get_runner_configs(behaviors, baseline)
 	var selected_game_count: int = game_seeds.size()
 	var total_game_count: int = selected_game_count * runner_configs.size()
 	var completed_game_count: int = 0
@@ -251,15 +243,6 @@ func _render_runner_progress(
 		progress_label.text = "%s | %s" % [progress_text, current_runner_name]
 
 
-func _format_runner_progress_name(runner_config: Dictionary) -> String:
-	var runner_name: String = runner_config["runner"]
-
-	if runner_name == RUNNER_RANDOM:
-		return RUNNER_RANDOM
-
-	return runner_name
-
-
 func _on_random_seed_check_box_toggled(is_random_seed: bool) -> void:
 	seed_spin_box.editable = not is_random_seed
 
@@ -286,11 +269,17 @@ func _on_lane_visibility_changed(_index: int) -> void:
 	_update_graph()
 
 
+func _on_graph_dataset_selection_changed(_index: int) -> void:
+	if last_rows.is_empty():
+		return
+
+	_update_graph()
+
+
 func _parse_options() -> Dictionary:
 	var options: Dictionary = {
 		"games": game_count,
 		"behaviors": selected_behaviors.duplicate(),
-		"baseline": selected_baseline,
 		"seed": seed,
 		"branch_points": branch_points,
 		"leaf_points": leaf_points,
@@ -311,7 +300,9 @@ func _parse_options() -> Dictionary:
 			_append_unique_behavior(behaviors, argument.trim_prefix("--behavior2="))
 			options["behaviors"] = behaviors
 		elif argument.begins_with("--baseline="):
-			options["baseline"] = _parse_baseline_argument(argument.trim_prefix("--baseline="))
+			var behaviors: Array[String] = options["behaviors"]
+			_append_unique_behavior(behaviors, _parse_baseline_argument(argument.trim_prefix("--baseline=")))
+			options["behaviors"] = behaviors
 		elif argument.begins_with("--seed="):
 			options["seed"] = argument.trim_prefix("--seed=").to_int()
 		elif argument.begins_with("--branch-points="):
@@ -334,7 +325,10 @@ func _parse_behavior_list(argument_value: String) -> Array[String]:
 
 
 func _append_unique_behavior(behaviors: Array[String], behavior: String) -> void:
-	if behavior == NONE_BEHAVIOR or not _is_score_behavior(behavior):
+	if behavior == NONE_BEHAVIOR:
+		return
+
+	if behavior != BASELINE_BEHAVIOR and not _is_score_behavior(behavior):
 		return
 
 	if not behaviors.has(behavior):
@@ -350,7 +344,6 @@ func _parse_baseline_argument(argument_value: String) -> String:
 
 func run_dataset(
 	behaviors: Array[String],
-	baseline: String,
 	selected_game_count: int,
 	selected_seed: int,
 	selected_branch_points: float = DEFAULT_BRANCH_POINTS,
@@ -360,19 +353,17 @@ func run_dataset(
 
 	return _run_dataset_with_game_seeds(
 		behaviors,
-		baseline,
 		_generate_deterministic_game_seeds(selected_game_count, selected_seed)
 	)
 
 
 func _run_dataset_with_game_seeds(
 	behaviors: Array[String],
-	baseline: String,
 	game_seeds: Array[int]
 ) -> Array[Dictionary]:
 	var rows: Array[Dictionary] = []
 
-	for runner_config: Dictionary in _get_runner_configs(behaviors, baseline):
+	for runner_config: Dictionary in _get_runner_configs(behaviors):
 		rows.append_array(_play_behavior(
 			runner_config["runner"],
 			runner_config["behavior"],
@@ -382,11 +373,15 @@ func _run_dataset_with_game_seeds(
 	return rows
 
 
-func _get_runner_configs(behaviors: Array[String], baseline: String) -> Array[Dictionary]:
+func _get_runner_configs(behaviors: Array[String]) -> Array[Dictionary]:
 	var runner_configs: Array[Dictionary] = []
 
 	for behavior: String in behaviors:
 		if behavior == NONE_BEHAVIOR:
+			continue
+
+		if behavior == BASELINE_BEHAVIOR:
+			runner_configs.append({"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR})
 			continue
 
 		if not _is_score_behavior(behavior):
@@ -396,9 +391,6 @@ func _get_runner_configs(behaviors: Array[String], baseline: String) -> Array[Di
 			"runner": _format_behavior_description(behavior),
 			"behavior": behavior,
 		})
-
-	if baseline != NONE_BEHAVIOR:
-		runner_configs.append({"runner": RUNNER_RANDOM, "behavior": BASELINE_BEHAVIOR})
 
 	return runner_configs
 
@@ -697,10 +689,56 @@ func _get_visible_runner_configs(runner_configs: Array[Dictionary]) -> Dictionar
 
 
 func _get_selected_runner_configs() -> Array[Dictionary]:
-	return _get_runner_configs(
-		_get_selected_behaviors(),
-		str(baseline_options.get_item_metadata(baseline_options.selected))
-	)
+	var runner_configs: Array[Dictionary] = []
+	var selected_runner_names: Array[String] = []
+
+	for graph_dataset_options: OptionButton in _get_graph_dataset_options():
+		if graph_dataset_options.selected < 0:
+			continue
+
+		var runner_config: Variant = graph_dataset_options.get_item_metadata(
+			graph_dataset_options.selected
+		)
+
+		if not runner_config is Dictionary:
+			continue
+
+		var runner_name: String = str((runner_config as Dictionary).get("runner", ""))
+
+		if runner_name.is_empty() or selected_runner_names.has(runner_name):
+			continue
+
+		selected_runner_names.append(runner_name)
+		runner_configs.append(runner_config as Dictionary)
+
+	return runner_configs
+
+
+func _populate_graph_dataset_options(runner_configs: Array[Dictionary]) -> void:
+	var graph_dataset_options_list: Array[OptionButton] = _get_graph_dataset_options()
+
+	for slot_index: int in range(graph_dataset_options_list.size()):
+		var graph_dataset_options: OptionButton = graph_dataset_options_list[slot_index]
+		graph_dataset_options.clear()
+		graph_dataset_options.add_item(NONE_BEHAVIOR)
+		graph_dataset_options.set_item_metadata(0, {})
+
+		for runner_config: Dictionary in runner_configs:
+			graph_dataset_options.add_item(runner_config["runner"])
+			graph_dataset_options.set_item_metadata(graph_dataset_options.item_count - 1, runner_config)
+
+		if slot_index + 1 < graph_dataset_options.item_count:
+			graph_dataset_options.select(slot_index + 1)
+		else:
+			graph_dataset_options.select(0)
+
+
+func _get_graph_dataset_options() -> Array[OptionButton]:
+	return [
+		graph_dataset_1_options,
+		graph_dataset_2_options,
+		graph_dataset_3_options,
+	]
 
 
 func _update_graph(score_band_dividers: Array[float] = []) -> void:

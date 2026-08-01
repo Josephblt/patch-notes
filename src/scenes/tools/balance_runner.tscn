@@ -49,32 +49,12 @@ autowrap_mode = 3
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BehaviorLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1848555817]
-custom_minimum_size = Vector2(86, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Behaviors"
-vertical_alignment = 1
-
 [node name="BehaviorMenuButton" type="MenuButton" parent="MarginContainer/VBoxContainer/ControlRow"]
 custom_minimum_size = Vector2(260, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Behaviors"
-
-[node name="BaselineLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow"]
-custom_minimum_size = Vector2(66, 36)
-layout_mode = 2
-theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
-theme_override_font_sizes/font_size = 15
-text = "Baseline"
-vertical_alignment = 1
-
-[node name="BaselineOptions" type="OptionButton" parent="MarginContainer/VBoxContainer/ControlRow"]
-custom_minimum_size = Vector2(108, 36)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
+flat = false
 
 [node name="GameCountLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=310750827]
 custom_minimum_size = Vector2(70, 36)
@@ -118,24 +98,56 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 15
 text = "Run"
 
-[node name="OutputRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=937254494]
+[node name="GraphDatasetRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="OutputPathLabel" type="Label" parent="MarginContainer/VBoxContainer/OutputRow" unique_id=1883809893]
-custom_minimum_size = Vector2(76, 34)
+[node name="GraphDatasetLabel" type="Label" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(124, 36)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 15
-text = "CSV"
+text = "Graph Data"
 vertical_alignment = 1
 
-[node name="OutputPathLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/OutputRow" unique_id=197390422]
-custom_minimum_size = Vector2(820, 34)
+[node name="GraphDataset1Label" type="Label" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(24, 36)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 14
-text = "user://balance_runner_results.csv"
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "B1"
+vertical_alignment = 1
+
+[node name="GraphDataset1Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(260, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="GraphDataset2Label" type="Label" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "B2"
+vertical_alignment = 1
+
+[node name="GraphDataset2Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(260, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+
+[node name="GraphDataset3Label" type="Label" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(24, 36)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
+theme_override_font_sizes/font_size = 15
+text = "B3"
+vertical_alignment = 1
+
+[node name="GraphDataset3Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(260, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
 
 [node name="BandRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

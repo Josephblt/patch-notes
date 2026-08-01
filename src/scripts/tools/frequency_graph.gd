@@ -12,6 +12,11 @@ const SERIES_COLORS: Dictionary[String, Color] = {
 	"Random Fun": Color(0.72, 0.72, 0.72, 1),
 	"Random Money": Color(0.44, 0.44, 0.44, 1),
 }
+const DEFAULT_SLOT_COLORS: Dictionary[String, Color] = {
+	"B1": Color(0.96, 0.30, 0.30, 1),
+	"B2": Color(0.35, 0.78, 0.44, 1),
+	"B3": Color(0.29, 0.58, 0.96, 1),
+}
 const PADDING_LEFT: float = 58.0
 const PADDING_TOP: float = 28.0
 const PADDING_RIGHT: float = 26.0
@@ -22,6 +27,7 @@ var min_score: float = 0.0
 var max_score: float = 0.0
 var max_frequency: int = 0
 var score_band_dividers: Array[float] = []
+var slot_colors: Dictionary[String, Color] = DEFAULT_SLOT_COLORS.duplicate()
 
 
 func set_series(
@@ -36,6 +42,14 @@ func set_series(
 	score_band_dividers = next_score_band_dividers.duplicate()
 	score_band_dividers.sort()
 	_recalculate_max_frequency()
+	queue_redraw()
+
+
+func set_slot_colors(next_slot_colors: Dictionary) -> void:
+	for slot_name: String in DEFAULT_SLOT_COLORS.keys():
+		if next_slot_colors.has(slot_name):
+			slot_colors[slot_name] = next_slot_colors[slot_name]
+
 	queue_redraw()
 
 
@@ -257,6 +271,10 @@ func _get_series_color(series_name: String) -> Color:
 	if SERIES_COLORS.has(series_name):
 		return SERIES_COLORS[series_name]
 
+	for slot_name: String in slot_colors.keys():
+		if series_name.begins_with("%s " % slot_name):
+			return _get_slot_series_color(slot_name, series_name)
+
 	var base_name: String = _get_series_base_name(series_name)
 	var hue: float = float(abs(base_name.hash()) % 360) / 360.0
 	var value: float = 0.92
@@ -265,6 +283,15 @@ func _get_series_color(series_name: String) -> Color:
 		value = 0.62
 
 	return Color.from_hsv(hue, 0.74, value, 1.0)
+
+
+func _get_slot_series_color(slot_name: String, series_name: String) -> Color:
+	var base_color: Color = slot_colors.get(slot_name, DEFAULT_SLOT_COLORS[slot_name])
+
+	if series_name.ends_with(" Money"):
+		return Color(base_color.r * 0.62, base_color.g * 0.62, base_color.b * 0.62, 1.0)
+
+	return base_color
 
 
 func _get_series_base_name(series_name: String) -> String:

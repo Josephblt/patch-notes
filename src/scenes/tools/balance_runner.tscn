@@ -118,8 +118,14 @@ theme_override_font_sizes/font_size = 15
 text = "B1"
 vertical_alignment = 1
 
+[node name="GraphDataset1ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.96, 0.3, 0.3, 1)
+edit_alpha = false
+
 [node name="GraphDataset1Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
-custom_minimum_size = Vector2(260, 36)
+custom_minimum_size = Vector2(220, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
@@ -131,8 +137,14 @@ theme_override_font_sizes/font_size = 15
 text = "B2"
 vertical_alignment = 1
 
+[node name="GraphDataset2ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.35, 0.78, 0.44, 1)
+edit_alpha = false
+
 [node name="GraphDataset2Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
-custom_minimum_size = Vector2(260, 36)
+custom_minimum_size = Vector2(220, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 
@@ -144,8 +156,14 @@ theme_override_font_sizes/font_size = 15
 text = "B3"
 vertical_alignment = 1
 
+[node name="GraphDataset3ColorPickerButton" type="ColorPickerButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+color = Color(0.29, 0.58, 0.96, 1)
+edit_alpha = false
+
 [node name="GraphDataset3Options" type="OptionButton" parent="MarginContainer/VBoxContainer/GraphDatasetRow"]
-custom_minimum_size = Vector2(260, 36)
+custom_minimum_size = Vector2(220, 36)
 layout_mode = 2
 theme_override_font_sizes/font_size = 15
 

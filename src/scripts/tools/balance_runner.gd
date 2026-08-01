@@ -39,6 +39,9 @@ var available_runner_configs: Array[Dictionary] = []
 @onready var graph_dataset_1_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset1Options
 @onready var graph_dataset_2_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset2Options
 @onready var graph_dataset_3_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset3Options
+@onready var graph_dataset_1_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset1ColorPickerButton
+@onready var graph_dataset_2_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset2ColorPickerButton
+@onready var graph_dataset_3_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset3ColorPickerButton
 @onready var band_divider_1_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider1SpinBox
 @onready var band_divider_2_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider2SpinBox
 @onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
@@ -69,6 +72,9 @@ func _ready() -> void:
 
 	for graph_dataset_options: OptionButton in _get_graph_dataset_options():
 		graph_dataset_options.item_selected.connect(_on_graph_dataset_selection_changed)
+
+	for graph_slot_color_picker: ColorPickerButton in _get_graph_slot_color_pickers():
+		graph_slot_color_picker.color_changed.connect(_on_graph_slot_color_changed)
 
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
 		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
@@ -238,6 +244,10 @@ func _render_runner_progress(
 		percent_complete,
 	]
 
+	if completed_game_count >= total_game_count:
+		progress_label.text = "%s | Done" % progress_text
+		return
+
 	if current_runner_name.is_empty():
 		progress_label.text = progress_text
 	else:
@@ -271,6 +281,15 @@ func _on_lane_visibility_changed(_index: int) -> void:
 
 
 func _on_graph_dataset_selection_changed(_index: int) -> void:
+	if last_rows.is_empty():
+		return
+
+	_update_graph()
+
+
+func _on_graph_slot_color_changed(_color: Color) -> void:
+	_update_graph_slot_colors()
+
 	if last_rows.is_empty():
 		return
 
@@ -651,49 +670,55 @@ func _build_frequency_series(
 	use_runner_filter: bool = false
 ) -> Dictionary[String, Dictionary]:
 	var series: Dictionary[String, Dictionary] = {}
-	var visible_runner_configs: Dictionary[String, String] = _get_visible_runner_configs(runner_configs)
+
+	if use_runner_filter:
+		for runner_config: Dictionary in runner_configs:
+			for row: Dictionary in rows:
+				if str(row.get("runner", row["behavior"])) != runner_config["runner"]:
+					continue
+
+				if str(row.get("behavior", "")) != runner_config["behavior"]:
+					continue
+
+				_add_row_to_frequency_series(
+					series,
+					row,
+					"%s %s" % [runner_config["plot_slot"], runner_config["runner"]]
+				)
+
+		return series
 
 	for row: Dictionary in rows:
-		var runner: String = str(row.get("runner", row["behavior"]))
-		var behavior: String = str(row.get("behavior", ""))
-
-		if use_runner_filter:
-			if not visible_runner_configs.has(runner):
-				continue
-
-			if visible_runner_configs[runner] != behavior:
-				continue
-
-		for score_tree: ScoreTree in score_trees:
-			var tree_name: String = score_tree.get_display_name()
-			var column_name: String = "final_%s" % tree_name.to_lower()
-			var series_name: String = "%s %s" % [runner, tree_name]
-			var final_score_bucket: int = int(round(float(row[column_name])))
-
-			if not series.has(series_name):
-				series[series_name] = {}
-
-			series[series_name][final_score_bucket] = (
-				series[series_name].get(final_score_bucket, 0) + 1
-			)
+		_add_row_to_frequency_series(series, row, str(row.get("runner", row["behavior"])))
 
 	return series
 
 
-func _get_visible_runner_configs(runner_configs: Array[Dictionary]) -> Dictionary[String, String]:
-	var visible_runner_configs: Dictionary[String, String] = {}
+func _add_row_to_frequency_series(
+	series: Dictionary[String, Dictionary],
+	row: Dictionary,
+	series_runner_name: String
+) -> void:
+	for score_tree: ScoreTree in score_trees:
+		var tree_name: String = score_tree.get_display_name()
+		var column_name: String = "final_%s" % tree_name.to_lower()
+		var series_name: String = "%s %s" % [series_runner_name, tree_name]
+		var final_score_bucket: int = int(round(float(row[column_name])))
 
-	for runner_config: Dictionary in runner_configs:
-		visible_runner_configs[runner_config["runner"]] = runner_config["behavior"]
+		if not series.has(series_name):
+			series[series_name] = {}
 
-	return visible_runner_configs
+		series[series_name][final_score_bucket] = (
+			series[series_name].get(final_score_bucket, 0) + 1
+		)
 
 
 func _get_selected_runner_configs() -> Array[Dictionary]:
 	var runner_configs: Array[Dictionary] = []
-	var selected_runner_names: Array[String] = []
+	var graph_dataset_options_list: Array[OptionButton] = _get_graph_dataset_options()
 
-	for graph_dataset_options: OptionButton in _get_graph_dataset_options():
+	for graph_dataset_index: int in range(graph_dataset_options_list.size()):
+		var graph_dataset_options: OptionButton = graph_dataset_options_list[graph_dataset_index]
 		if graph_dataset_options.selected < 0:
 			continue
 
@@ -706,11 +731,12 @@ func _get_selected_runner_configs() -> Array[Dictionary]:
 
 		var runner_name: String = str((runner_config as Dictionary).get("runner", ""))
 
-		if runner_name.is_empty() or selected_runner_names.has(runner_name):
+		if runner_name.is_empty():
 			continue
 
-		selected_runner_names.append(runner_name)
-		runner_configs.append(runner_config as Dictionary)
+		var selected_runner_config: Dictionary = (runner_config as Dictionary).duplicate()
+		selected_runner_config["plot_slot"] = "B%d" % (graph_dataset_index + 1)
+		runner_configs.append(selected_runner_config)
 
 	return runner_configs
 
@@ -748,6 +774,7 @@ func _update_graph(score_band_dividers: Array[float] = []) -> void:
 	if graph_dividers.is_empty():
 		graph_dividers = _get_score_band_dividers_from_controls()
 
+	_update_graph_slot_colors()
 	var score_axis_bound: float = _calculate_score_axis_bound()
 	graph.call(
 		"set_series",
@@ -756,6 +783,22 @@ func _update_graph(score_band_dividers: Array[float] = []) -> void:
 		score_axis_bound,
 		graph_dividers
 	)
+
+
+func _update_graph_slot_colors() -> void:
+	graph.call("set_slot_colors", {
+		"B1": graph_dataset_1_color_picker_button.color,
+		"B2": graph_dataset_2_color_picker_button.color,
+		"B3": graph_dataset_3_color_picker_button.color,
+	})
+
+
+func _get_graph_slot_color_pickers() -> Array[ColorPickerButton]:
+	return [
+		graph_dataset_1_color_picker_button,
+		graph_dataset_2_color_picker_button,
+		graph_dataset_3_color_picker_button,
+	]
 
 
 func _format_seed_summary(

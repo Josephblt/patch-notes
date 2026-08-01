@@ -668,7 +668,7 @@ func _format_behavior_description(behavior: String) -> String:
 	if behavior_parts.size() != 2:
 		return behavior
 
-	return "Fun - %s | Money - %s" % [
+	return "%s - Fun | %s - Money" % [
 		_format_score_level_description(behavior_parts[0]),
 		_format_score_level_description(behavior_parts[1]),
 	]

@@ -107,6 +107,7 @@ func _configure_behavior_menu() -> void:
 	var popup: PopupMenu = behavior_menu_button.get_popup()
 	popup.clear()
 	popup.hide_on_item_selection = false
+	popup.hide_on_checkable_item_selection = false
 
 	var item_index: int = 0
 	popup.add_check_item(RUNNER_RANDOM, item_index)

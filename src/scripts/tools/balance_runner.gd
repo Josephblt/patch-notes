@@ -28,6 +28,8 @@ var score_trees: Array[ScoreTree] = []
 var score_tree_by_name: Dictionary[String, ScoreTree] = {}
 var last_rows: Array[Dictionary] = []
 var available_runner_configs: Array[Dictionary] = []
+var is_runner_active: bool = false
+var stop_requested: bool = false
 
 @export var selected_behaviors: Array[String] = [DEFAULT_BEHAVIOR]
 @export var game_count: int = DEFAULT_GAME_COUNT
@@ -54,6 +56,7 @@ var available_runner_configs: Array[Dictionary] = []
 @onready var branch_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/BranchPointSpinBox
 @onready var leaf_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/LeafPointSpinBox
 @onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
+@onready var stop_button: Button = $MarginContainer/VBoxContainer/ControlRow/StopButton
 @onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
 @onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
 @onready var graph: Control = $MarginContainer/VBoxContainer/Graph
@@ -78,6 +81,7 @@ func _ready() -> void:
 	_order_control_rows()
 	_order_control_rows_deferred()
 	run_button.pressed.connect(_on_run_button_pressed)
+	stop_button.pressed.connect(_on_stop_button_pressed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
 	branch_point_spin_box.value_changed.connect(_on_level_points_changed)
 	leaf_point_spin_box.value_changed.connect(_on_level_points_changed)
@@ -91,6 +95,7 @@ func _ready() -> void:
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
 		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
 
+	_set_runner_buttons_active(false)
 	summary_label.text = "Ready."
 
 
@@ -220,7 +225,12 @@ func _get_selected_behaviors() -> Array[String]:
 
 
 func _on_run_button_pressed() -> void:
-	run_button.disabled = true
+	if is_runner_active:
+		return
+
+	is_runner_active = true
+	stop_requested = false
+	_set_runner_buttons_active(true)
 	summary_label.text = "Running..."
 
 	await get_tree().process_frame
@@ -240,7 +250,16 @@ func _on_run_button_pressed() -> void:
 		game_seeds = _generate_deterministic_game_seeds(selected_game_count, selected_seed)
 
 	available_runner_configs = _get_runner_configs(behaviors)
-	last_rows = await _run_dataset_with_progress(available_runner_configs, game_seeds)
+	var next_rows: Array[Dictionary] = await _run_dataset_with_progress(available_runner_configs, game_seeds)
+
+	if stop_requested:
+		summary_label.text = "Stopped."
+		is_runner_active = false
+		stop_requested = false
+		_set_runner_buttons_active(false)
+		return
+
+	last_rows = next_rows
 	_write_csv(output_path, last_rows)
 	_populate_graph_dataset_options(available_runner_configs)
 	_update_graph(selected_score_band_dividers)
@@ -252,7 +271,17 @@ func _on_run_button_pressed() -> void:
 		selected_branch_points,
 		selected_leaf_points
 	)
-	run_button.disabled = false
+	is_runner_active = false
+	_set_runner_buttons_active(false)
+
+
+func _on_stop_button_pressed() -> void:
+	if not is_runner_active:
+		return
+
+	stop_requested = true
+	stop_button.disabled = true
+	summary_label.text = "Stopping..."
 
 
 func _run_dataset_with_progress(
@@ -272,12 +301,21 @@ func _run_dataset_with_progress(
 		var behavior_name: String = runner_config["behavior"]
 
 		for game_number: int in range(1, selected_game_count + 1):
+			if stop_requested:
+				_render_runner_progress(total_game_count, completed_game_count, "Stopped")
+				return rows
+
 			rows.append(_play_game(runner_name, behavior_name, game_number, game_seeds[game_number - 1]))
 			completed_game_count += 1
 			_render_runner_progress(total_game_count, completed_game_count, runner_name)
 			await get_tree().process_frame
 
 	return rows
+
+
+func _set_runner_buttons_active(is_active: bool) -> void:
+	run_button.disabled = is_active
+	stop_button.disabled = not is_active
 
 
 func _render_runner_progress(

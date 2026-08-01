@@ -58,6 +58,19 @@ theme_override_font_sizes/font_size = 15
 text = "Behaviors"
 flat = false
 
+[node name="RunButton" type="Button" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1037028322]
+custom_minimum_size = Vector2(82, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Run"
+
+[node name="StopButton" type="Button" parent="MarginContainer/VBoxContainer/ControlRow"]
+custom_minimum_size = Vector2(82, 36)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+disabled = true
+text = "Stop"
+
 [node name="GameCountLabel" type="Label" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=310750827]
 custom_minimum_size = Vector2(70, 36)
 layout_mode = 2
@@ -93,19 +106,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.956863, 0.937255, 0.890196, 1)
 theme_override_font_sizes/font_size = 15
 text = "Random Seed"
-
-[node name="RunButton" type="Button" parent="MarginContainer/VBoxContainer/ControlRow" unique_id=1037028322]
-custom_minimum_size = Vector2(82, 36)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-text = "Run"
-
-[node name="StopButton" type="Button" parent="MarginContainer/VBoxContainer/ControlRow"]
-custom_minimum_size = Vector2(82, 36)
-layout_mode = 2
-theme_override_font_sizes/font_size = 15
-disabled = true
-text = "Stop"
 
 [node name="PointRow" type="HFlowContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

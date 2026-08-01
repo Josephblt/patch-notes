@@ -668,10 +668,27 @@ func _format_behavior_description(behavior: String) -> String:
 	if behavior_parts.size() != 2:
 		return behavior
 
-	var fun_description: String = "Fun - %s" % _format_score_level_description(behavior_parts[0])
-	var money_description: String = "%s - Money" % _format_score_level_description(behavior_parts[1])
+	var fun_level_description: String = _format_score_level_description(behavior_parts[0])
+	var money_level_description: String = _format_score_level_description(behavior_parts[1])
 
-	return "%s | %s" % [fun_description, money_description]
+	return "Fun - %s | %s - Money" % [
+		_pad_left(fun_level_description, 9),
+		_pad_right(money_level_description, 9),
+	]
+
+
+func _pad_left(value: String, width: int) -> String:
+	while value.length() < width:
+		value = " " + value
+
+	return value
+
+
+func _pad_right(value: String, width: int) -> String:
+	while value.length() < width:
+		value += " "
+
+	return value
 
 
 func _format_score_level_description(score_level: String) -> String:

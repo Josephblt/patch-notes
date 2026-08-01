@@ -16,6 +16,16 @@ const DEFAULT_SCORE_BAND_DIVIDERS: Array[float] = [-60.0, -20.0, 20.0, 60.0]
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
 const BEHAVIOR_MENU_CHECK_ALL_ID: int = 100000
 const BEHAVIOR_MENU_CLEAR_ALL_ID: int = 100001
+const PHONE_WIDTH: float = 700.0
+const TABLET_WIDTH: float = 1000.0
+const PHONE_UI_SCALE: float = 1.55
+const TABLET_UI_SCALE: float = 1.2
+const DESKTOP_UI_SCALE: float = 1.0
+const TITLE_FONT_SIZE: int = 24
+const BODY_FONT_SIZE: int = 15
+const PROGRESS_FONT_SIZE: int = 16
+const CONTROL_HEIGHT: float = 36.0
+const PROGRESS_HEIGHT: float = 26.0
 const SCORE_LEVELS: Array[String] = [
 	"vh",
 	"h",
@@ -40,6 +50,7 @@ var stop_requested: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
 @onready var behavior_menu_button: MenuButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorMenuButton
+@onready var title_label: Label = $MarginContainer/VBoxContainer/TitleLabel
 @onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
 @onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
 @onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
@@ -80,6 +91,7 @@ func _ready() -> void:
 	_configure_controls()
 	_order_control_rows()
 	_order_control_rows_deferred()
+	_apply_responsive_ui_scale()
 	run_button.pressed.connect(_on_run_button_pressed)
 	stop_button.pressed.connect(_on_stop_button_pressed)
 	random_seed_check_box.toggled.connect(_on_random_seed_check_box_toggled)
@@ -95,6 +107,9 @@ func _ready() -> void:
 	for band_divider_spin_box: SpinBox in _get_band_divider_spin_boxes():
 		band_divider_spin_box.value_changed.connect(_on_band_dividers_changed)
 
+	if not get_viewport().size_changed.is_connected(_on_viewport_size_changed):
+		get_viewport().size_changed.connect(_on_viewport_size_changed)
+
 	_set_runner_buttons_active(false)
 	summary_label.text = "Ready."
 
@@ -108,6 +123,56 @@ func _order_control_rows() -> void:
 func _order_control_rows_deferred() -> void:
 	await get_tree().process_frame
 	_order_control_rows()
+
+
+func _on_viewport_size_changed() -> void:
+	_apply_responsive_ui_scale()
+
+
+func _apply_responsive_ui_scale() -> void:
+	var ui_scale: float = _calculate_responsive_ui_scale(DisplayServer.window_get_size())
+
+	_apply_font_size_to_children(main_container, BODY_FONT_SIZE, ui_scale)
+	_apply_font_size(title_label, TITLE_FONT_SIZE, ui_scale)
+	_apply_font_size(progress_label, PROGRESS_FONT_SIZE, ui_scale)
+	_apply_font_size(summary_label, BODY_FONT_SIZE, ui_scale)
+	_apply_control_height_to_children(control_row, ui_scale)
+	_apply_control_height_to_children(point_row, ui_scale)
+	_apply_control_height_to_children(band_row, ui_scale)
+	_apply_control_height_to_children(graph_dataset_row, ui_scale)
+	progress_label.custom_minimum_size.y = round(PROGRESS_HEIGHT * ui_scale)
+	graph.call("set_ui_scale", ui_scale)
+
+
+func _calculate_responsive_ui_scale(window_size: Vector2i) -> float:
+	var window_width: float = window_size.x
+
+	if window_width <= PHONE_WIDTH:
+		return PHONE_UI_SCALE
+
+	if window_width <= TABLET_WIDTH:
+		return TABLET_UI_SCALE
+
+	return DESKTOP_UI_SCALE
+
+
+func _apply_font_size_to_children(root_control: Control, font_size: int, ui_scale: float) -> void:
+	for child: Node in root_control.get_children():
+		if child is Control:
+			var child_control: Control = child as Control
+			_apply_font_size(child_control, font_size, ui_scale)
+			_apply_font_size_to_children(child_control, font_size, ui_scale)
+
+
+func _apply_font_size(control: Control, font_size: int, ui_scale: float) -> void:
+	control.add_theme_font_size_override("font_size", int(round(float(font_size) * ui_scale)))
+
+
+func _apply_control_height_to_children(row: Control, ui_scale: float) -> void:
+	for child: Node in row.get_children():
+		if child is Control:
+			var child_control: Control = child as Control
+			child_control.custom_minimum_size.y = round(CONTROL_HEIGHT * ui_scale)
 
 
 func _run_from_command_line() -> void:

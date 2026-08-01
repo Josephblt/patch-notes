@@ -28,6 +28,7 @@ var max_score: float = 0.0
 var max_frequency: int = 0
 var score_band_dividers: Array[float] = []
 var slot_colors: Dictionary[String, Color] = DEFAULT_SLOT_COLORS.duplicate()
+var ui_scale: float = 1.0
 
 
 func set_series(
@@ -53,6 +54,11 @@ func set_slot_colors(next_slot_colors: Dictionary) -> void:
 	queue_redraw()
 
 
+func set_ui_scale(next_ui_scale: float) -> void:
+	ui_scale = next_ui_scale
+	queue_redraw()
+
+
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, size), BACKGROUND_COLOR, true)
 
@@ -75,7 +81,7 @@ func _draw() -> void:
 
 func _draw_empty_state() -> void:
 	var font: Font = get_theme_default_font()
-	var font_size: int = get_theme_default_font_size()
+	var font_size: int = _scale_font_size(get_theme_default_font_size())
 
 	draw_string(
 		font,
@@ -155,7 +161,7 @@ func _draw_score_bands(plot_rect: Rect2) -> void:
 
 func _draw_axis_labels(plot_rect: Rect2) -> void:
 	var font: Font = get_theme_default_font()
-	var font_size: int = 13
+	var font_size: int = _scale_font_size(13)
 	var baseline_y: float = plot_rect.position.y + plot_rect.size.y + 24.0
 
 	draw_string(font, Vector2(plot_rect.position.x - 28, plot_rect.position.y + 5), str(max_frequency), HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
@@ -323,6 +329,10 @@ func _format_score(score: float) -> String:
 		return str(int(round(score)))
 
 	return "%.2f" % score
+
+
+func _scale_font_size(font_size: int) -> int:
+	return maxi(1, int(round(float(font_size) * ui_scale)))
 
 
 func _recalculate_max_frequency() -> void:

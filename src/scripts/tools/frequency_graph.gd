@@ -191,9 +191,23 @@ func _draw_axis_labels(plot_rect: Rect2) -> void:
 		)
 
 
-func _draw_legend_item(font: Font, font_size: int, position: Vector2, label: String, color: Color) -> void:
-	draw_line(position, position + Vector2(34, 0), color, 3.0)
-	draw_string(font, position + Vector2(42, 5), label, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, TEXT_COLOR)
+func _draw_legend_item(
+	font: Font,
+	font_size: int,
+	legend_position: Vector2,
+	label: String,
+	color: Color
+) -> void:
+	draw_line(legend_position, legend_position + Vector2(34, 0), color, 3.0)
+	draw_string(
+		font,
+		legend_position + Vector2(42, 5),
+		label,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		font_size,
+		TEXT_COLOR
+	)
 
 
 func _draw_series(plot_rect: Rect2) -> void:

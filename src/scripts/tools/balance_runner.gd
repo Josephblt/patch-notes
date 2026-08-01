@@ -10,6 +10,9 @@ const DEFAULT_BEHAVIOR: String = "vh_vh"
 const DEFAULT_SEED: int = 310731
 const DEFAULT_BRANCH_POINTS: float = 3.0
 const DEFAULT_LEAF_POINTS: float = 1.0
+const UNBOUNDED_SCORE_MIN: float = -999999999.0
+const UNBOUNDED_SCORE_MAX: float = 999999999.0
+const DEFAULT_SCORE_BAND_DIVIDERS: Array[float] = [-60.0, -20.0, 20.0, 60.0]
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
 const SCORE_LEVELS: Array[String] = [
 	"vh",
@@ -26,7 +29,7 @@ var available_runner_configs: Array[Dictionary] = []
 
 @export var selected_behaviors: Array[String] = [DEFAULT_BEHAVIOR]
 @export var game_count: int = DEFAULT_GAME_COUNT
-@export var seed: int = DEFAULT_SEED
+@export var run_seed: int = DEFAULT_SEED
 @export var branch_points: float = DEFAULT_BRANCH_POINTS
 @export var leaf_points: float = DEFAULT_LEAF_POINTS
 @export var random_seed: bool = false
@@ -105,7 +108,7 @@ func _run_from_command_line() -> void:
 	var rows: Array[Dictionary] = run_dataset(
 		options.get("behaviors", selected_behaviors),
 		options.get("games", game_count),
-		options.get("seed", seed),
+		options.get("seed", run_seed),
 		options.get("branch_points", branch_points),
 		options.get("leaf_points", leaf_points)
 	)
@@ -117,13 +120,17 @@ func _run_from_command_line() -> void:
 func _configure_controls() -> void:
 	_configure_behavior_menu()
 	_populate_graph_dataset_options([])
+	_configure_unbounded_spin_box(game_count_spin_box, 1.0)
+	_configure_unbounded_spin_box(seed_spin_box, 0.0)
+	_configure_unbounded_spin_box(branch_point_spin_box, UNBOUNDED_SCORE_MIN, 0.1, false)
+	_configure_unbounded_spin_box(leaf_point_spin_box, UNBOUNDED_SCORE_MIN, 0.1, false)
+	_configure_band_divider_controls()
 	game_count_spin_box.value = game_count
-	seed_spin_box.value = seed
+	seed_spin_box.value = run_seed
 	branch_point_spin_box.value = branch_points
 	leaf_point_spin_box.value = leaf_points
 	random_seed_check_box.button_pressed = random_seed
 	_apply_score_level_points(branch_points, leaf_points)
-	_configure_band_divider_controls()
 	_on_random_seed_check_box_toggled(random_seed_check_box.button_pressed)
 
 
@@ -317,7 +324,7 @@ func _parse_options() -> Dictionary:
 	var options: Dictionary = {
 		"games": game_count,
 		"behaviors": selected_behaviors.duplicate(),
-		"seed": seed,
+		"seed": run_seed,
 		"branch_points": branch_points,
 		"leaf_points": leaf_points,
 		"output": output_path,
@@ -909,27 +916,25 @@ func _calculate_score_axis_bound() -> float:
 
 func _configure_band_divider_controls() -> void:
 	var band_divider_spin_boxes: Array[SpinBox] = _get_band_divider_spin_boxes()
-	var score_axis_bound: float = _calculate_score_axis_bound()
-	var dividers: Array[float] = _get_default_raw_score_dividers(score_axis_bound)
 
 	for divider_index: int in range(band_divider_spin_boxes.size()):
 		var spin_box: SpinBox = band_divider_spin_boxes[divider_index]
-
-		spin_box.min_value = -score_axis_bound
-		spin_box.max_value = score_axis_bound
-		spin_box.value = dividers[divider_index]
+		_configure_unbounded_spin_box(spin_box, UNBOUNDED_SCORE_MIN, 0.1, false)
+		spin_box.value = DEFAULT_SCORE_BAND_DIVIDERS[divider_index]
 
 
-func _get_default_raw_score_dividers(score_axis_bound: float) -> Array[float]:
-	var dividers: Array[float] = []
-
-	for divider_index: int in range(1, 5):
-		dividers.append(
-			float(-score_axis_bound)
-			+ ((float(score_axis_bound * 2) / 5.0) * divider_index)
-		)
-
-	return dividers
+func _configure_unbounded_spin_box(
+	spin_box: SpinBox,
+	minimum_value: float = UNBOUNDED_SCORE_MIN,
+	step_value: float = 1.0,
+	rounded_value: bool = true
+) -> void:
+	spin_box.allow_greater = true
+	spin_box.allow_lesser = true
+	spin_box.min_value = minimum_value
+	spin_box.max_value = UNBOUNDED_SCORE_MAX
+	spin_box.step = step_value
+	spin_box.rounded = rounded_value
 
 
 func _get_score_band_dividers_from_controls() -> Array[float]:

@@ -14,8 +14,8 @@ const UNBOUNDED_SCORE_MIN: float = -999999999.0
 const UNBOUNDED_SCORE_MAX: float = 999999999.0
 const DEFAULT_SCORE_BAND_DIVIDERS: Array[float] = [-60.0, -20.0, 20.0, 60.0]
 const DEFAULT_OUTPUT_PATH: String = "user://balance_runner_results.csv"
-const BEHAVIOR_MENU_CHECK_ALL_ID: int = -1
-const BEHAVIOR_MENU_CLEAR_ALL_ID: int = -2
+const BEHAVIOR_MENU_CHECK_ALL_ID: int = 100000
+const BEHAVIOR_MENU_CLEAR_ALL_ID: int = 100001
 const SCORE_LEVELS: Array[String] = [
 	"vh",
 	"h",

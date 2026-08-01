@@ -671,22 +671,22 @@ func _format_behavior_description(behavior: String) -> String:
 	var fun_level_description: String = _format_score_level_description(behavior_parts[0])
 	var money_level_description: String = _format_score_level_description(behavior_parts[1])
 
-	return "Fun - %s | %s - Money" % [
-		_pad_left(fun_level_description, 9),
-		_pad_right(money_level_description, 9),
+	return "%s_|_%s" % [
+		_pad_left(fun_level_description, 9, "_"),
+		_pad_right(money_level_description, 9, "_"),
 	]
 
 
-func _pad_left(value: String, width: int) -> String:
+func _pad_left(value: String, width: int, padding: String = " ") -> String:
 	while value.length() < width:
-		value = " " + value
+		value = padding + value
 
 	return value
 
 
-func _pad_right(value: String, width: int) -> String:
+func _pad_right(value: String, width: int, padding: String = " ") -> String:
 	while value.length() < width:
-		value += " "
+		value += padding
 
 	return value
 

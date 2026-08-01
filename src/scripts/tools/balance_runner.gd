@@ -668,8 +668,8 @@ func _format_behavior_description(behavior: String) -> String:
 	if behavior_parts.size() != 2:
 		return behavior
 
-	var fun_level_description: String = _format_score_level_description(behavior_parts[0])
-	var money_level_description: String = _format_score_level_description(behavior_parts[1])
+	var fun_level_description: String = _format_behavior_level_label(behavior_parts[0])
+	var money_level_description: String = _format_behavior_level_label(behavior_parts[1])
 
 	return "%s_|_%s" % [
 		_pad_left(fun_level_description, 9, "_"),
@@ -689,6 +689,10 @@ func _pad_right(value: String, width: int, padding: String = " ") -> String:
 		value += padding
 
 	return value
+
+
+func _format_behavior_level_label(score_level: String) -> String:
+	return _format_score_level_description(score_level).replace(" ", "_")
 
 
 func _format_score_level_description(score_level: String) -> String:

@@ -26,6 +26,7 @@ const BODY_FONT_SIZE: int = 15
 const PROGRESS_FONT_SIZE: int = 16
 const CONTROL_HEIGHT: float = 36.0
 const PROGRESS_HEIGHT: float = 26.0
+const GRAPH_MIN_HEIGHT: float = 300.0
 const SCORE_LEVELS: Array[String] = [
 	"vh",
 	"h",
@@ -49,33 +50,33 @@ var stop_requested: bool = false
 @export var random_seed: bool = false
 @export var output_path: String = DEFAULT_OUTPUT_PATH
 
-@onready var behavior_menu_button: MenuButton = $MarginContainer/VBoxContainer/ControlRow/BehaviorMenuButton
-@onready var title_label: Label = $MarginContainer/VBoxContainer/TitleLabel
-@onready var game_count_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/GameCountSpinBox
-@onready var seed_spin_box: SpinBox = $MarginContainer/VBoxContainer/ControlRow/SeedSpinBox
-@onready var random_seed_check_box: CheckBox = $MarginContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
-@onready var graph_dataset_1_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset1Options
-@onready var graph_dataset_2_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset2Options
-@onready var graph_dataset_3_options: OptionButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset3Options
-@onready var graph_dataset_1_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset1ColorPickerButton
-@onready var graph_dataset_2_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset2ColorPickerButton
-@onready var graph_dataset_3_color_picker_button: ColorPickerButton = $MarginContainer/VBoxContainer/GraphDatasetRow/GraphDataset3ColorPickerButton
-@onready var band_divider_1_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider1SpinBox
-@onready var band_divider_2_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider2SpinBox
-@onready var band_divider_3_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider3SpinBox
-@onready var band_divider_4_spin_box: SpinBox = $MarginContainer/VBoxContainer/BandRow/BandDivider4SpinBox
-@onready var branch_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/BranchPointSpinBox
-@onready var leaf_point_spin_box: SpinBox = $MarginContainer/VBoxContainer/PointRow/LeafPointSpinBox
-@onready var run_button: Button = $MarginContainer/VBoxContainer/ControlRow/RunButton
-@onready var stop_button: Button = $MarginContainer/VBoxContainer/ControlRow/StopButton
-@onready var progress_label: Label = $MarginContainer/VBoxContainer/ProgressLabel
-@onready var summary_label: Label = $MarginContainer/VBoxContainer/SummaryLabel
-@onready var graph: Control = $MarginContainer/VBoxContainer/Graph
-@onready var main_container: VBoxContainer = $MarginContainer/VBoxContainer
-@onready var control_row: Container = $MarginContainer/VBoxContainer/ControlRow
-@onready var point_row: Container = $MarginContainer/VBoxContainer/PointRow
-@onready var band_row: Container = $MarginContainer/VBoxContainer/BandRow
-@onready var graph_dataset_row: Container = $MarginContainer/VBoxContainer/GraphDatasetRow
+@onready var behavior_menu_button: MenuButton = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/BehaviorMenuButton
+@onready var title_label: Label = $MarginContainer/ScrollContainer/VBoxContainer/TitleLabel
+@onready var game_count_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/GameCountSpinBox
+@onready var seed_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/SeedSpinBox
+@onready var random_seed_check_box: CheckBox = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/RandomSeedCheckBox
+@onready var graph_dataset_1_options: OptionButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset1Options
+@onready var graph_dataset_2_options: OptionButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset2Options
+@onready var graph_dataset_3_options: OptionButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset3Options
+@onready var graph_dataset_1_color_picker_button: ColorPickerButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset1ColorPickerButton
+@onready var graph_dataset_2_color_picker_button: ColorPickerButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset2ColorPickerButton
+@onready var graph_dataset_3_color_picker_button: ColorPickerButton = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow/GraphDataset3ColorPickerButton
+@onready var band_divider_1_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/BandRow/BandDivider1SpinBox
+@onready var band_divider_2_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/BandRow/BandDivider2SpinBox
+@onready var band_divider_3_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/BandRow/BandDivider3SpinBox
+@onready var band_divider_4_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/BandRow/BandDivider4SpinBox
+@onready var branch_point_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/PointRow/BranchPointSpinBox
+@onready var leaf_point_spin_box: SpinBox = $MarginContainer/ScrollContainer/VBoxContainer/PointRow/LeafPointSpinBox
+@onready var run_button: Button = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/RunButton
+@onready var stop_button: Button = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow/StopButton
+@onready var progress_label: Label = $MarginContainer/ScrollContainer/VBoxContainer/ProgressLabel
+@onready var summary_label: Label = $MarginContainer/ScrollContainer/VBoxContainer/SummaryLabel
+@onready var graph: Control = $MarginContainer/ScrollContainer/VBoxContainer/Graph
+@onready var main_container: VBoxContainer = $MarginContainer/ScrollContainer/VBoxContainer
+@onready var control_row: Container = $MarginContainer/ScrollContainer/VBoxContainer/ControlRow
+@onready var point_row: Container = $MarginContainer/ScrollContainer/VBoxContainer/PointRow
+@onready var band_row: Container = $MarginContainer/ScrollContainer/VBoxContainer/BandRow
+@onready var graph_dataset_row: Container = $MarginContainer/ScrollContainer/VBoxContainer/GraphDatasetRow
 
 
 func _ready() -> void:
@@ -142,6 +143,7 @@ func _apply_responsive_ui_scale() -> void:
 	_apply_control_height_to_children(band_row, ui_scale)
 	_apply_control_height_to_children(graph_dataset_row, ui_scale)
 	progress_label.custom_minimum_size.y = round(PROGRESS_HEIGHT * ui_scale)
+	graph.custom_minimum_size.y = round(GRAPH_MIN_HEIGHT * ui_scale)
 	graph.call("set_ui_scale", ui_scale)
 
 

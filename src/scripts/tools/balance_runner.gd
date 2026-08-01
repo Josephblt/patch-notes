@@ -281,7 +281,6 @@ func _on_level_points_changed(_value: float) -> void:
 		branch_point_spin_box.value,
 		leaf_point_spin_box.value
 	)
-	_update_band_divider_limits()
 
 
 func _on_band_dividers_changed(_value: float) -> void:
@@ -919,14 +918,6 @@ func _configure_band_divider_controls() -> void:
 		spin_box.min_value = -score_axis_bound
 		spin_box.max_value = score_axis_bound
 		spin_box.value = dividers[divider_index]
-
-
-func _update_band_divider_limits() -> void:
-	var score_axis_bound: float = _calculate_score_axis_bound()
-
-	for spin_box: SpinBox in _get_band_divider_spin_boxes():
-		spin_box.min_value = -score_axis_bound
-		spin_box.max_value = score_axis_bound
 
 
 func _get_default_raw_score_dividers(score_axis_bound: float) -> Array[float]:

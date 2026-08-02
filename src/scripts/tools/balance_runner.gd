@@ -728,19 +728,25 @@ func _select_score_target(feature_cards: Array[FeatureCard], behavior: String) -
 
 
 func _score_axis_delta(delta: float, level: String) -> float:
+	var moderate_target: float = _get_moderate_axis_target()
+
 	match level:
 		"vh":
 			return delta
 		"h":
-			return -abs(delta - 3)
+			return -abs(delta - moderate_target)
 		"m":
 			return -abs(delta)
 		"l":
-			return -abs(delta + 3)
+			return -abs(delta + moderate_target)
 		"vl":
 			return -delta
 		_:
 			return 0
+
+
+func _get_moderate_axis_target() -> float:
+	return maxf(absf(_get_branch_points()) * 0.67, absf(_get_leaf_points()))
 
 
 func _is_score_behavior(behavior: String) -> bool:

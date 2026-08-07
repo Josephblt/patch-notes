@@ -11,17 +11,20 @@ config_version=5
 [application]
 
 config/name="Patch Notes"
-run/main_scene="res://scenes/scene_launcher.tscn"
+run/main_scene="uid://cbqyni481py2c"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.078431375, 0.078431375, 0.078431375, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cn15nkhantyef"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=900
-window/dpi/allow_hidpi=false
-window/stretch/mode="disabled"
-window/stretch/aspect="expand"
+window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
 
 [physics]
 
@@ -32,3 +35,4 @@ window/stretch/aspect="expand"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.078431375, 0.078431375, 0.078431375, 1)

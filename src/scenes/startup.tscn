@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://cbqyni481py2c"]
+
+[ext_resource type="Script" uid="uid://31pbsjrukfnd" path="res://scripts/scenes/startup.gd" id="1_j40w7"]
+[ext_resource type="Texture2D" uid="uid://be73jb5hbvrsj" path="res://resources/images/startup_logo.png" id="1_tpfpu"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="3_j40w7"]
+[ext_resource type="AudioStream" uid="uid://o0q8c6t4h7ce" path="res://resources/sfx/startup_chime.wav" id="3_ybs1l"]
+
+[sub_resource type="Animation" id="Animation_ybs1l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/InterruptMessage:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_j40w7"]
+resource_name = "fade_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tpfpu"]
+resource_name = "startup_sequence"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/InterruptMessage:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.249, 0.25, 2.95, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.9, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"enable_bios"
+}, {
+"args": [],
+"method": &"disable_bios"
+}, {
+"args": [],
+"method": &"change_to_login"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybs1l"]
+_data = {
+&"RESET": SubResource("Animation_ybs1l"),
+&"fade_out": SubResource("Animation_j40w7"),
+&"startup_sequence": SubResource("Animation_tpfpu")
+}
+
+[node name="Startup" type="CanvasLayer" unique_id=1848871603]
+script = ExtResource("1_j40w7")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=678648085]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1182798087]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1629890101]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture = ExtResource("1_tpfpu")
+
+[node name="InterruptMessage" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1481436722]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_j40w7")
+theme_override_font_sizes/font_size = 20
+text = "To interrupt normal startup, press ENTER.
+JosephBLT Games (tm), JOSEPHBLT Games, 2026"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1266203277]
+unique_name_in_owner = true
+deterministic = true
+libraries/ = SubResource("AnimationLibrary_ybs1l")
+autoplay = &"startup_sequence"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=572265736]
+stream = ExtResource("3_ybs1l")
+autoplay = true
+bus = &"SFX"

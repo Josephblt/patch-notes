@@ -1,0 +1,990 @@
+[gd_scene format=3 uid="uid://cs0ndb8p2joey"]
+
+[ext_resource type="Script" uid="uid://duiqeu1qoxgnh" path="res://scripts/scenes/bios.gd" id="1_4w5jx"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="2_4w5jx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etr6w"]
+bg_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w5jx"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo25m"]
+bg_color = Color(0, 0, 0.9882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xw7d"]
+bg_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyah"]
+bg_color = Color(0, 1, 1, 1)
+
+[node name="BIOS" type="CanvasLayer" unique_id=1460317489]
+script = ExtResource("1_4w5jx")
+
+[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=1389000177]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Header" type="Label" parent="MainVBoxContainer" unique_id=780111980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_etr6w")
+text = "JosephBLT Games(tm) Setup Utility"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="TabsPanelContainer" type="PanelContainer" parent="MainVBoxContainer" unique_id=188559915]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w5jx")
+
+[node name="TabsMarginContainer" type="MarginContainer" parent="MainVBoxContainer/TabsPanelContainer" unique_id=63247734]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="TabsHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer" unique_id=1812425695]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VersionPanelContainer" type="PanelContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer" unique_id=215527097]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo25m")
+
+[node name="VersionMarginContainer" type="MarginContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/VersionPanelContainer" unique_id=1788919600]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="VersionLabel" type="Label" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/VersionPanelContainer/VersionMarginContainer" unique_id=223965304]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="CreditsPanelContainer" type="PanelContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer" unique_id=1246902433]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo25m")
+
+[node name="CreditsMarginContainer" type="MarginContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/CreditsPanelContainer" unique_id=2017277942]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="CreditsLabel" type="Label" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/CreditsPanelContainer/CreditsMarginContainer" unique_id=1046945512]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="ExitPanelContainer" type="PanelContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer" unique_id=549947100]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo25m")
+
+[node name="ExitMarginContainer" type="MarginContainer" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/ExitPanelContainer" unique_id=513146308]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="ExitLabel" type="Label" parent="MainVBoxContainer/TabsPanelContainer/TabsMarginContainer/TabsHBoxContainer/ExitPanelContainer/ExitMarginContainer" unique_id=222660812]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="MainPanelContainer" type="PanelContainer" parent="MainVBoxContainer" unique_id=1201306329]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xw7d")
+
+[node name="BGVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=2082082453]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=4119002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "┌───────────────────────────────────────────────────────────────────────────┬──────────────────────────┐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1413504463]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │    Item Specific Help    │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line3" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2132200324]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           ├──────────────────────────┤"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line4" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1723477155]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line5" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=112748058]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line6" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=131101403]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line7" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1836401626]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=541187152]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=815475018]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=962254518]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=801913702]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1877783040]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=476351365]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=167768716]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1891356696]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1716517038]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1267801348]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=670053980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2089820092]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1742901969]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=800101775]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1383835490]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=201570219]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=112016189]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=132642525]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2044375891]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=991292630]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1846283810]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "└───────────────────────────────────────────────────────────────────────────┴──────────────────────────┘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=519414777]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitLeftVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer" unique_id=645158458]
+custom_minimum_size = Vector2(845, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=307872286]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1773049911]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="ExitSavingChangesLabel" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1353403965]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "    Exit Saving Changes"
+vertical_alignment = 1
+
+[node name="ExitDiscardingChangesLabel" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=2082458178]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "    Exit Discarding Changes"
+vertical_alignment = 1
+
+[node name="LoadSetupDefaultsLabel" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1045759115]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "    Load Setup Defaults"
+vertical_alignment = 1
+
+[node name="DiscardChangesLabel" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1732260843]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "    Discard Changes"
+vertical_alignment = 1
+
+[node name="SaveChangesLabel" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=970069149]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "    Save Changes"
+vertical_alignment = 1
+
+[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=765141980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=628655001]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=2001682216]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1465047389]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1768066825]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1616075095]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=72633246]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1938341227]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1749806087]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=165300911]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1265901301]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1570554694]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1749232111]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1989652498]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=699286896]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1628719736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=670284605]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1677767974]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=64351897]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=618684863]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=325038439]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="ExitRightVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer" unique_id=2025157111]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1519951066]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1994544629]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line3" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=180665376]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line4" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1119863032]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   "
+vertical_alignment = 1
+
+[node name="ExitHelpLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=297648178]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Exit System Setup and"
+vertical_alignment = 1
+
+[node name="ExitHelpLine2" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1430418676]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   save your changes to"
+vertical_alignment = 1
+
+[node name="ExitHelpLine3" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1131101888]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   CMOS."
+vertical_alignment = 1
+
+[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=532544885]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1884373090]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1132259812]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1749809446]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=798998766]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=525498709]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1901197593]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1553269556]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1380647622]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=72891145]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=569802720]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=2144163818]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=698346178]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1532057048]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=950081821]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1483672548]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=879985799]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=433617341]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1519320932]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1931877392]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1506032500]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="FooterPanelContainer" type="PanelContainer" parent="MainVBoxContainer" unique_id=1134303986]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4eyah")
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="MainVBoxContainer/FooterPanelContainer" unique_id=2104609734]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer" unique_id=629220267]
+layout_mode = 2
+
+[node name="FooterLine1HBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer" unique_id=140135117]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HelpHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer" unique_id=1205857332]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F1Label" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/HelpHBoxContainer" unique_id=552993466]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "F1"
+vertical_alignment = 1
+
+[node name="HelpLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/HelpHBoxContainer" unique_id=1532229959]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Help"
+vertical_alignment = 1
+
+[node name="SelectItemHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer" unique_id=933768099]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ArrowsLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/SelectItemHBoxContainer" unique_id=1056787445]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = ""
+vertical_alignment = 1
+
+[node name="SelectItemLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/SelectItemHBoxContainer" unique_id=1004851405]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Select Item"
+vertical_alignment = 1
+
+[node name="ChangeValuesHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer" unique_id=717075794]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="+-Label" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/ChangeValuesHBoxContainer" unique_id=740129452]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "-/+"
+vertical_alignment = 1
+
+[node name="ChangeValuesLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/ChangeValuesHBoxContainer" unique_id=867334587]
+custom_minimum_size = Vector2(169, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Change Values"
+vertical_alignment = 1
+
+[node name="SetupDefaultsHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer" unique_id=1630634616]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F9Label" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/SetupDefaultsHBoxContainer" unique_id=1641885778]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "F9"
+vertical_alignment = 1
+
+[node name="SetupDefaultsLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/SetupDefaultsHBoxContainer" unique_id=1266658636]
+custom_minimum_size = Vector2(157, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Setup Defaults"
+vertical_alignment = 1
+
+[node name="FooterLine2HBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer" unique_id=1376542405]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="ExitHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer" unique_id=209963448]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ESCLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/ExitHBoxContainer" unique_id=43317320]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "ESC"
+vertical_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/ExitHBoxContainer" unique_id=181618644]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+vertical_alignment = 1
+
+[node name="SelectMenuHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer" unique_id=1667848785]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ArrowsLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/SelectMenuHBoxContainer" unique_id=564998732]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = ""
+vertical_alignment = 1
+
+[node name="SelectMenuLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/SelectMenuHBoxContainer" unique_id=124641300]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Select Menu"
+vertical_alignment = 1
+
+[node name="ExecuteCommandHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer" unique_id=1902071724]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="EnterLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/ExecuteCommandHBoxContainer" unique_id=1284995689]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Enter"
+vertical_alignment = 1
+
+[node name="ExecuteCommandLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/ExecuteCommandHBoxContainer" unique_id=33579110]
+custom_minimum_size = Vector2(169, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Execute Command"
+vertical_alignment = 1
+
+[node name="SaveExitHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer" unique_id=44310149]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F10Label" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/SaveExitHBoxContainer" unique_id=2089676613]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "F10"
+vertical_alignment = 1
+
+[node name="SaveExitLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine2HBoxContainer/SaveExitHBoxContainer" unique_id=1889617257]
+custom_minimum_size = Vector2(157, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Save and Exit"
+vertical_alignment = 1

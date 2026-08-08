@@ -378,8 +378,760 @@ text = "└───────────────────────
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="VersionHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=67688972]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VersionLeftVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer" unique_id=1045790412]
+custom_minimum_size = Vector2(845, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="VersionLineTop" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=1948322422]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+vertical_alignment = 2
+
+[node name="VersionLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=1828161297]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Studio: JOSEPHBLT Games"
+vertical_alignment = 1
+
+[node name="VersionLine2" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=862766739]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Project: Patch Notes"
+vertical_alignment = 1
+
+[node name="VersionLine3" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=1495625362]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Version: Development Build (a1b2c3d)"
+vertical_alignment = 1
+
+[node name="VersionLine4" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=1750039999]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Build Data: 2026-08-25 01:05:56"
+vertical_alignment = 1
+
+[node name="VersionLine5" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=1542096364]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Build Type: Development"
+vertical_alignment = 1
+
+[node name="VersionLineBottom" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionLeftVBoxContainer" unique_id=430049343]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+
+[node name="VersionRightVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer" unique_id=1285099552]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="VersionTop" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=627904266]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="VersionHelpLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=1856743759]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Current system version"
+vertical_alignment = 1
+
+[node name="VersionHelpLine2" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=615685787]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   information."
+vertical_alignment = 1
+
+[node name="VersionHelpLine3" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=1575598474]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="VersionHelpLine4" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=423693074]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Useful for determining"
+vertical_alignment = 1
+
+[node name="VersionHelpLine5" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=435382411]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   this system is "
+vertical_alignment = 1
+
+[node name="VersionHelpLine6" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=1112943645]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   current, outdated,"
+vertical_alignment = 1
+
+[node name="VersionHelpLine7" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=2009742378]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   or simply confident."
+vertical_alignment = 1
+
+[node name="VersionBottom" type="Label" parent="MainVBoxContainer/MainPanelContainer/VersionHBoxContainer/VersionRightVBoxContainer" unique_id=1770426957]
+custom_minimum_size = Vector2(0, 340)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="CreditsHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=693542142]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CreditsLeftVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer" unique_id=79248106]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(845, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="TopCreditsLine" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2112312428]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+vertical_alignment = 2
+
+[node name="TopCreditsLineArrow" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=685157204]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+vertical_alignment = 2
+
+[node name="CreditsLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2045396095]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "PATCH NOTES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine2" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1059739486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine3" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1648396734]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "A JosephBLT Games project."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine4" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1427605242]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine5" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1068732235]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "A modest little project, "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine6" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1381925945]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "in the way a tiny leak"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine7" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=25563519]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "is technically just water with ambition."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine8" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2048440368]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine9" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1395389123]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Logo art"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine10" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=347068187]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine11" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1823987356]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Alisson Laschuk"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine12" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1175663777]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine13" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=205285850]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Alisson gave the studio its mark:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine14" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1904000893]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "sharp, strange, and exactly the kind of face"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine15" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1196393918]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "this operation needed."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine16" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1670421128]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine17" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=28939161]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "UI assets"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine18" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=975735474]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine19" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1141100320]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Kenney UI Pack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine20" type="LinkButton" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1621698024]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "kenney.nl/assets/ui-pack"
+uri = "https://kenney.nl/assets/ui-pack"
+
+[node name="CreditsLine21" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=702746243]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Creative Commons CC0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine22" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1372350170]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine23" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1854541418]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Kenney's work made the interface cleaner,"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine24" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1724702318]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "faster, and considerably less dependent"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine25" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=491621524]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "on my ability to draw a button under pressure."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine26" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1605610773]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine27" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2040242262]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Typeface"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine28" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1496662541]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine29" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1257104068]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "IBM VGA 9x16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine30" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=709649374]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "from The Ultimate Oldschool PC Font Pack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine31" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=314605795]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "by VileR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine32" type="LinkButton" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1868904042]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "int10h.org/oldschool-pc-fonts"
+uri = "https://int10h.org/oldschool-pc-fonts/"
+
+[node name="CreditsLine33" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1511308425]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Creative Commons BY-SA 4.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine34" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=630083799]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine35" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=645771938]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "VileR preserved the old machine language beautifully:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine36" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1073352322]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "the hard edges, the strange charm,"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine37" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1048320358]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "the feeling that the computer knows something"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine38" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1335705074]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "and has decided not to explain it."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine39" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=981002968]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine40" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1321028735]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Special thanks to"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine41" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=675036180]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "every “final pass”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine42" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1832753919]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "every “one more thing”"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine43" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=532385898]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "and every feature that behaved perfectly"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine44" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=241373991]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "right up until witnesses were present."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine45" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=920337370]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine46" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2032436690]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Built by Wagner Scholl Lemos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine47" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2144761362]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "for JOSEPHBLT Games,"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine48" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=2136050526]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "against several better scheduling instincts."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine49" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1640639179]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsLine50" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1589590348]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "Thanks for playing."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomCreditsLine" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1390860355]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+
+[node name="BottomCreditsLineArrow" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsLeftVBoxContainer" unique_id=1629521513]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "  "
+
+[node name="CreditsRightVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer" unique_id=314792360]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Top" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=852579014]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="CreditsHelpLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=798042336]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Project credits and"
+vertical_alignment = 1
+
+[node name="CreditsHelpLine2" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=1455711313]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   third-party"
+vertical_alignment = 1
+
+[node name="CreditsHelpLine3" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=883861398]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   acknowledgments."
+vertical_alignment = 1
+
+[node name="CreditsHelpLine4" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=1400479898]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="CreditsHelpLine5" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=481540372]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   Use this screen to"
+vertical_alignment = 1
+
+[node name="CreditsHelpLine6" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=1704280437]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   review contributors,"
+vertical_alignment = 1
+
+[node name="CreditsHelpLine7" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=1364380757]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   asset sources, and"
+vertical_alignment = 1
+
+[node name="CreditsHelpLine8" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=11900228]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+text = "   license information."
+vertical_alignment = 1
+
+[node name="CreditsHelpLine9" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=1718803655]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="Bottom" type="Label" parent="MainVBoxContainer/MainPanelContainer/CreditsHBoxContainer/CreditsRightVBoxContainer" unique_id=628186048]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_4w5jx")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
 [node name="ExitHBoxContainer" type="HBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=519414777]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
@@ -389,14 +1141,8 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=307872286]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1773049911]
+[node name="Top" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=307872286]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
@@ -448,147 +1194,8 @@ theme_override_font_sizes/font_size = 20
 text = "    Save Changes"
 vertical_alignment = 1
 
-[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=765141980]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=628655001]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=2001682216]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1465047389]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1768066825]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1616075095]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=72633246]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1938341227]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1749806087]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=165300911]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1265901301]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1570554694]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1749232111]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1989652498]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=699286896]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1628719736]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=670284605]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=1677767974]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=64351897]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=618684863]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=325038439]
+[node name="Bottom" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitLeftVBoxContainer" unique_id=765141980]
+custom_minimum_size = Vector2(0, 420)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
@@ -600,33 +1207,12 @@ layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1519951066]
+[node name="Top" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1519951066]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
 theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1994544629]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line3" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=180665376]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line4" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1119863032]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-text = "   "
 vertical_alignment = 1
 
 [node name="ExitHelpLine1" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=297648178]
@@ -656,147 +1242,8 @@ theme_override_font_sizes/font_size = 20
 text = "   CMOS."
 vertical_alignment = 1
 
-[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=532544885]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1884373090]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1132259812]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1749809446]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=798998766]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=525498709]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1901197593]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1553269556]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1380647622]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=72891145]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=569802720]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=2144163818]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=698346178]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1532057048]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=950081821]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1483672548]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=879985799]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=433617341]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1519320932]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1931877392]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_4w5jx")
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-
-[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=1506032500]
+[node name="Bottom" type="Label" parent="MainVBoxContainer/MainPanelContainer/ExitHBoxContainer/ExitRightVBoxContainer" unique_id=532544885]
+custom_minimum_size = Vector2(0, 420)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
@@ -826,6 +1273,7 @@ theme_override_constants/separation = 15
 [node name="F1Label" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/HelpHBoxContainer" unique_id=552993466]
 custom_minimum_size = Vector2(34, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
 theme_override_font_sizes/font_size = 20
 text = "F1"
@@ -834,7 +1282,7 @@ vertical_alignment = 1
 [node name="HelpLabel" type="Label" parent="MainVBoxContainer/FooterPanelContainer/FooterMarginContainer/VBoxContainer/FooterLine1HBoxContainer/HelpHBoxContainer" unique_id=1532229959]
 custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
 theme_override_fonts/font = ExtResource("2_4w5jx")
 theme_override_font_sizes/font_size = 20
 text = "Help"

@@ -51,7 +51,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _accept_event() -> void:
-	get_viewport().set_input_as_handled()
+	var viewport = get_viewport()
+	if viewport:
+		viewport.set_input_as_handled()
 
 
 func _exit() -> bool:

@@ -5,13 +5,16 @@ extends BiosItem
 @export var _bios_scene: BiosScene = get_parent() as BiosScene
 
 
-func _exit() -> void:
+func _exit() -> bool:
 	_bios_scene.open_exit_discarding_dialog()
+	return true
 
 
-func _setup_defaults() -> void:
+func _setup_defaults() -> bool:
 	_bios_scene.open_load_setup_defaults_dialog()
+	return true
 
 
-func _save_exit() -> void:
+func _save_exit() -> bool:
 	_bios_scene.open_exit_saving_dialog()
+	return true

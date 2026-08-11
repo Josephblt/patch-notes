@@ -28,13 +28,14 @@ const DESELECTED_ITEM_TEXT_COLOR: Color = Color.BLUE
 var _current_exit_option: ExitOptions = ExitOptions.EXIT_SAVING
 
 
-func _select_item(direction: int) -> void:
+func _select_item(direction: int) -> bool:
 	_current_exit_option = posmod(int(_current_exit_option) + direction, ExitOptions.size()) as ExitOptions
 	_update_selection(_current_exit_option)
 	_update_help_lines(_current_exit_option)
+	return true
 
 
-func _execute_command() -> void:
+func _execute_command() -> bool:
 	match _current_exit_option:
 		ExitOptions.EXIT_SAVING:
 			_bios.open_exit_saving_dialog()
@@ -46,6 +47,7 @@ func _execute_command() -> void:
 			_bios.open_discard_changes_dialog()
 		ExitOptions.SAVE:
 			_bios.open_save_changes_dialog()
+	return true
 
 
 func _update_selection(exit_option: ExitOptions) -> void:

@@ -22,14 +22,16 @@ const DESELECTED_OPTION_TEXT_COLOR: Color = Color.BLUE
 var _current_option: DialogOptions = DialogOptions.NO
 
 
-func _select() -> void:
+func _select() -> bool:
 	_current_option = posmod(int(_current_option) + 1, DialogOptions.size()) as DialogOptions
 	_update_option(_current_option)
+	return true
 
 
-func _accept() -> void:
+func _accept() -> bool:
 	deactivate()
 	emit_signal("dialog_closed", _current_option)
+	return true
 
 
 func _update_option(option: DialogOptions) -> void:

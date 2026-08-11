@@ -28,7 +28,7 @@ func _load_credits_lines() -> void:
 	_credits_hidden_lines = _credits_lines.size() - _credits_visible_lines
 
 
-func _select_item(direction: int) -> void:
+func _select_item(direction: int) -> bool:
 	_current_credits_position += direction
 	_current_credits_position = clamp(_current_credits_position, 0, _credits_hidden_lines)
 
@@ -54,3 +54,4 @@ func _select_item(direction: int) -> void:
 	
 	_bottom_credits_line.visible = bottom == _credits_lines.size() - 1
 	_bottom_credits_line_arrow.visible = bottom < _credits_lines.size() - 1
+	return true

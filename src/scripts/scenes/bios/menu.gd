@@ -27,7 +27,7 @@ const DESELECTED_TAB_TEXT_COLOR: Color = Color(0xc0c0c0ff)
 var _current_menu: Menus = Menus.VERSION
 
 
-func _select_menu(direction: int) -> void:
+func _select_menu(direction: int) -> bool:
 	_current_menu = posmod(int(_current_menu) + direction, Menus.size()) as Menus
 	emit_signal("menu_changed", _current_menu)
 		
@@ -44,6 +44,7 @@ func _select_menu(direction: int) -> void:
 			_unhilight(_version_panel_container, _version_label)
 			_unhilight(_credits_panel_container, _credits_label)
 			_highlight(_exit_panel_container, _exit_label)
+	return true
 
 
 func _highlight(panel_container: PanelContainer, label: Label) -> void:

@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://y68gcp0545ja" path="res://scenes/bios/normal_keys.tscn" id="7_5ou4k"]
 [ext_resource type="PackedScene" uid="uid://b3c01w2enqoys" path="res://scenes/bios/dialogs/dialog_keys.tscn" id="7_7thf1"]
 [ext_resource type="PackedScene" uid="uid://dfodeibreehno" path="res://scenes/bios/dialogs/exit_discarding_dialog.tscn" id="7_b7pe8"]
+[ext_resource type="PackedScene" uid="uid://c5w8v0kpy3jqa" path="res://scenes/bios/dialogs/load_setup_defaults_dialog.tscn" id="8_g2724"]
 [ext_resource type="PackedScene" uid="uid://bu52b872q07kf" path="res://scenes/bios/dialogs/exit_saving_dialog.tscn" id="10_kblm1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etr6w"]
@@ -336,6 +337,10 @@ unique_name_in_owner = true
 visible = false
 
 [node name="ExitSavingDialog" parent="." unique_id=1116567208 instance=ExtResource("10_kblm1")]
+unique_name_in_owner = true
+visible = false
+
+[node name="LoadSetupDefaultsDialog" parent="." unique_id=1423246225 instance=ExtResource("8_g2724")]
 unique_name_in_owner = true
 visible = false
 

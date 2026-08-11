@@ -8,7 +8,7 @@ const STARTUP_SCENE: String = "uid://cbqyni481py2c"
 @onready var _bios_version: BiosVersion = %Version
 @onready var _bios_credits: BiosCredits = %Credits
 @onready var _bios_exit: BiosExit = %Exit
-@onready var _bios_keys: BiosNormalKeys = %NormalKeys
+@onready var _bios_normal_keys: BiosNormalKeys = %NormalKeys
 @onready var _bios_dialog_keys: BiosDialogKeys = %DialogKeys
 
 @onready var _bios_exit_saving_dialog: BiosDialog = %ExitSavingDialog
@@ -27,7 +27,7 @@ func _enter_dialog_mode() -> void:
 	_bios_version.pause()
 	_bios_credits.pause()
 	_bios_exit.pause()
-	_bios_keys.deactivate()
+	_bios_normal_keys.deactivate()
 	_bios_dialog_keys.activate()
 
 
@@ -36,7 +36,7 @@ func _enter_normal_mode() -> void:
 	_bios_version.resume()
 	_bios_credits.resume()
 	_bios_exit.resume()
-	_bios_keys.activate()
+	_bios_normal_keys.activate()
 	_bios_dialog_keys.deactivate()
 
 

@@ -2,7 +2,7 @@ class_name BiosNormalKeys
 extends BiosItem
 
 
-@export var _bios_scene: BiosScene = get_parent() as BiosScene
+@export var _bios_scene: BiosScene
 
 
 func _exit() -> bool:

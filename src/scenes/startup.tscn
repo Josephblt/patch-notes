@@ -132,7 +132,7 @@ size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("3_j40w7")
 theme_override_font_sizes/font_size = 20
 text = "To interrupt normal startup, press ENTER.
-JosephBLT Games (tm), JOSEPHBLT Games, 2026"
+JosephBLT Games (tm), 2026"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1266203277]
 unique_name_in_owner = true

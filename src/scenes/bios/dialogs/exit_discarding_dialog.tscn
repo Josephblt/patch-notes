@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://dfodeibreehno"]
+
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="1_5odqh"]
+[ext_resource type="Script" uid="uid://bv3c7tyqokam2" path="res://scripts/scenes/bios/dialogs/dialog.gd" id="1_e6b3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7cxi"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4t7yi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuvg4"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsi3e"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqy1o"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="ExitDiscardingDialogVBoxContainer" type="VBoxContainer" unique_id=1216854761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.5
+offset_top = -80.0
+offset_right = 357.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_e6b3u")
+
+[node name="ExitDiscardingLine1" type="HBoxContainer" parent="." unique_id=1387906528]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLine1" type="Label" parent="ExitDiscardingLine1" unique_id=1894597114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m7cxi")
+text = "┌──────────────────────────────────────────────────────────────┐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine1Space" type="Label" parent="ExitDiscardingLine1" unique_id=5655625]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4t7yi")
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineTitle" type="HBoxContainer" parent="." unique_id=2117706983]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLineTitle" type="Label" parent="ExitDiscardingLineTitle" unique_id=275484974]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│                       Setup Confirmation                     │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineTitleShadow" type="Label" parent="ExitDiscardingLineTitle" unique_id=1988571294]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine3" type="HBoxContainer" parent="." unique_id=47797606]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLine3" type="Label" parent="ExitDiscardingLine3" unique_id=244534423]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "├──────────────────────────────────────────────────────────────┤"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine3Shadow" type="Label" parent="ExitDiscardingLine3" unique_id=994252218]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineMessage" type="HBoxContainer" parent="." unique_id=1951460405]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLineMessage" type="Label" parent="ExitDiscardingLineMessage" unique_id=373369141]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│    Configuration has not been saved! Save before exiting?    │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineShadow" type="Label" parent="ExitDiscardingLineMessage" unique_id=2005360073]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine5" type="HBoxContainer" parent="." unique_id=1797605311]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLine5" type="Label" parent="ExitDiscardingLine5" unique_id=689978286]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│                                                              │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine5Shadow" type="Label" parent="ExitDiscardingLine5" unique_id=1793895114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineOptions" type="HBoxContainer" parent="." unique_id=1778830557]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ExitDiscardingLeftHBoxContainer" type="HBoxContainer" parent="ExitDiscardingLineOptions" unique_id=2146363090]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="YesLabel4" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingLeftHBoxContainer" unique_id=1753405159]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "│"
+vertical_alignment = 1
+
+[node name="YesLabel1" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingLeftHBoxContainer" unique_id=1197417121]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "["
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingLeftHBoxContainer" unique_id=1673292859]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel2" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingLeftHBoxContainer" unique_id=257499529]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel5" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingLeftHBoxContainer" unique_id=308563501]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingRightHBoxContainer" type="HBoxContainer" parent="ExitDiscardingLineOptions" unique_id=1212046585]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NoLabel5" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingRightHBoxContainer" unique_id=899331493]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel1" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingRightHBoxContainer" unique_id=1946633635]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "["
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingRightHBoxContainer" unique_id=684778727]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel3" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingRightHBoxContainer" unique_id=718145748]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel4" type="Label" parent="ExitDiscardingLineOptions/ExitDiscardingRightHBoxContainer" unique_id=984611763]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "│"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ExitDiscardingLineOptionsShadow" type="Label" parent="ExitDiscardingLineOptions" unique_id=1619054857]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine7" type="HBoxContainer" parent="." unique_id=917423368]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ExitDiscardingLine7" type="Label" parent="ExitDiscardingLine7" unique_id=17437264]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "└──────────────────────────────────────────────────────────────┘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine7Shadow" type="Label" parent="ExitDiscardingLine7" unique_id=1888149285]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitDiscardingLine8Shadow" type="Label" parent="." unique_id=2043355522]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_5odqh")
+theme_override_font_sizes/font_size = 20
+text = " ████████████████████████████████████████████████████████████████"
+vertical_alignment = 1

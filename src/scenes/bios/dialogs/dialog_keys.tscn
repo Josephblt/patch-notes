@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://b3c01w2enqoys"]
+
+[ext_resource type="Script" uid="uid://dn2hpo2uy8ne7" path="res://scripts/scenes/bios/dialogs/dialog_keys.gd" id="1_po6qi"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="2_mgda5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyah"]
+bg_color = Color(0, 1, 1, 1)
+
+[node name="FooterPanelContainer" type="PanelContainer" unique_id=2089050039]
+theme_override_styles/panel = SubResource("StyleBoxFlat_4eyah")
+script = ExtResource("1_po6qi")
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="." unique_id=1716057081]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="DialogKeysVBoxContainer" type="VBoxContainer" parent="FooterMarginContainer" unique_id=1741914453]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+
+[node name="DialogKeysLine1HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/DialogKeysVBoxContainer" unique_id=1356662739]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="HelpHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer" unique_id=15114868]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="SpaceLabel" type="Label" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer/HelpHBoxContainer" unique_id=615738042]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_mgda5")
+theme_override_font_sizes/font_size = 20
+text = "Space"
+vertical_alignment = 1
+
+[node name="SelectLabel" type="Label" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer/HelpHBoxContainer" unique_id=629570517]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mgda5")
+theme_override_font_sizes/font_size = 20
+text = "Select"
+vertical_alignment = 1
+
+[node name="SelectItemHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer" unique_id=1044185861]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="EnterLabel" type="Label" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer/SelectItemHBoxContainer" unique_id=1114642081]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mgda5")
+theme_override_font_sizes/font_size = 20
+text = "Enter"
+vertical_alignment = 1
+
+[node name="AcceptLabel" type="Label" parent="FooterMarginContainer/DialogKeysVBoxContainer/DialogKeysLine1HBoxContainer/SelectItemHBoxContainer" unique_id=2002956157]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_mgda5")
+theme_override_font_sizes/font_size = 20
+text = "Accept"
+vertical_alignment = 1

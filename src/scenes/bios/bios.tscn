@@ -1,0 +1,342 @@
+[gd_scene format=3 uid="uid://cs0ndb8p2joey"]
+
+[ext_resource type="Script" uid="uid://duiqeu1qoxgnh" path="res://scripts/scenes/bios/bios.gd" id="1_7hubr"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="2_6wkon"]
+[ext_resource type="PackedScene" uid="uid://dd1k20y7xvn6h" path="res://scenes/bios/menu.tscn" id="3_6wkon"]
+[ext_resource type="PackedScene" uid="uid://dq0varben16tj" path="res://scenes/bios/version.tscn" id="4_bsi3e"]
+[ext_resource type="PackedScene" uid="uid://42n8m1mepxak" path="res://scenes/bios/credits.tscn" id="5_63llp"]
+[ext_resource type="PackedScene" uid="uid://bs8x1clwh1gai" path="res://scenes/bios/exit.tscn" id="6_b7pe8"]
+[ext_resource type="PackedScene" uid="uid://y68gcp0545ja" path="res://scenes/bios/normal_keys.tscn" id="7_5ou4k"]
+[ext_resource type="PackedScene" uid="uid://b3c01w2enqoys" path="res://scenes/bios/dialogs/dialog_keys.tscn" id="7_7thf1"]
+[ext_resource type="PackedScene" uid="uid://dfodeibreehno" path="res://scenes/bios/dialogs/exit_discarding_dialog.tscn" id="7_b7pe8"]
+[ext_resource type="PackedScene" uid="uid://bu52b872q07kf" path="res://scenes/bios/dialogs/exit_saving_dialog.tscn" id="10_kblm1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etr6w"]
+bg_color = Color(0, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xw7d"]
+bg_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+
+[node name="BIOS" type="CanvasLayer" unique_id=1460317489]
+script = ExtResource("1_7hubr")
+
+[node name="MainVBoxContainer" type="VBoxContainer" parent="." unique_id=1389000177]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Header" type="Label" parent="MainVBoxContainer" unique_id=780111980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_etr6w")
+text = "JosephBLT Games(tm) Setup Utility"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="Menu" parent="MainVBoxContainer" unique_id=1015801801 instance=ExtResource("3_6wkon")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainPanelContainer" type="PanelContainer" parent="MainVBoxContainer" unique_id=1201306329]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xw7d")
+
+[node name="BGVBoxContainer" type="VBoxContainer" parent="MainVBoxContainer/MainPanelContainer" unique_id=2082082453]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="Line1" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=4119002]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "┌───────────────────────────────────────────────────────────────────────────┬──────────────────────────┐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1413504463]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │    Item Specific Help    │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line3" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2132200324]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           ├──────────────────────────┤"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line4" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1723477155]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line5" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=112748058]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line6" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=131101403]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line7" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1836401626]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line8" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=541187152]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line9" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=815475018]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line10" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=962254518]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line11" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=801913702]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line12" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1877783040]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line13" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=476351365]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line14" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=167768716]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line15" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1891356696]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line16" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1716517038]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line17" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1267801348]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line18" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=670053980]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line19" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2089820092]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line20" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1742901969]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line21" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=800101775]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line22" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1383835490]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line23" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=201570219]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line24" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=112016189]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line25" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=132642525]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line26" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=2044375891]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line27" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=991292630]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "│                                                                           │                          │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line28" type="Label" parent="MainVBoxContainer/MainPanelContainer/BGVBoxContainer" unique_id=1846283810]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6wkon")
+theme_override_font_sizes/font_size = 20
+text = "└───────────────────────────────────────────────────────────────────────────┴──────────────────────────┘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" parent="MainVBoxContainer/MainPanelContainer" unique_id=1883899621 instance=ExtResource("4_bsi3e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Credits" parent="MainVBoxContainer/MainPanelContainer" unique_id=2039957452 instance=ExtResource("5_63llp")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Exit" parent="MainVBoxContainer/MainPanelContainer" unique_id=365960980 node_paths=PackedStringArray("_bios") instance=ExtResource("6_b7pe8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+_bios = NodePath("../../..")
+
+[node name="DialogKeys" parent="MainVBoxContainer" unique_id=2089050039 instance=ExtResource("7_7thf1")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="NormalKeys" parent="MainVBoxContainer" unique_id=374611717 node_paths=PackedStringArray("_bios_scene") instance=ExtResource("7_5ou4k")]
+unique_name_in_owner = true
+layout_mode = 2
+_bios_scene = NodePath("../..")
+
+[node name="ExitDiscardingDialog" parent="." unique_id=1216854761 instance=ExtResource("7_b7pe8")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ExitSavingDialog" parent="." unique_id=1116567208 instance=ExtResource("10_kblm1")]
+unique_name_in_owner = true
+visible = false
+
+[connection signal="menu_changed" from="MainVBoxContainer/Menu" to="." method="_on_menu_changed"]

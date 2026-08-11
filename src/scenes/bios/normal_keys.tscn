@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://y68gcp0545ja"]
+
+[ext_resource type="Script" uid="uid://5ejvd0hafwxj" path="res://scripts/scenes/bios/normal_keys.gd" id="1_wwemm"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="1_ysmv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eyah"]
+bg_color = Color(0, 1, 1, 1)
+
+[node name="FooterPanelContainer" type="PanelContainer" unique_id=2089050039]
+theme_override_styles/panel = SubResource("StyleBoxFlat_4eyah")
+script = ExtResource("1_wwemm")
+
+[node name="FooterMarginContainer" type="MarginContainer" parent="." unique_id=1716057081]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="MainKeysVBoxContainer" type="VBoxContainer" parent="FooterMarginContainer" unique_id=1503956022]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MainKeysLine1HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer" unique_id=1957085405]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="HelpHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer" unique_id=1880589063]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F1Label" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/HelpHBoxContainer" unique_id=1445351779]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "F1"
+vertical_alignment = 1
+
+[node name="HelpLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/HelpHBoxContainer" unique_id=139004446]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Help"
+vertical_alignment = 1
+
+[node name="SelectItemHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer" unique_id=1090886445]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ArrowsLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/SelectItemHBoxContainer" unique_id=190013583]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = ""
+vertical_alignment = 1
+
+[node name="SelectItemLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/SelectItemHBoxContainer" unique_id=604425779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Select Item"
+vertical_alignment = 1
+
+[node name="ChangeValuesHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer" unique_id=1157407429]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="+-Label" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/ChangeValuesHBoxContainer" unique_id=1991699894]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "-/+"
+vertical_alignment = 1
+
+[node name="ChangeValuesLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/ChangeValuesHBoxContainer" unique_id=1479975327]
+custom_minimum_size = Vector2(169, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Change Values"
+vertical_alignment = 1
+
+[node name="SetupDefaultsHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer" unique_id=1049827658]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F9Label" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/SetupDefaultsHBoxContainer" unique_id=1723389413]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "F9"
+vertical_alignment = 1
+
+[node name="SetupDefaultsLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine1HBoxContainer/SetupDefaultsHBoxContainer" unique_id=698027777]
+custom_minimum_size = Vector2(157, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Setup Defaults"
+vertical_alignment = 1
+
+[node name="MainKeysLine2HBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer" unique_id=804074915]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="ExitHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer" unique_id=330374802]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ESCLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/ExitHBoxContainer" unique_id=284682249]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "ESC"
+vertical_alignment = 1
+
+[node name="ExitLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/ExitHBoxContainer" unique_id=75842751]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+vertical_alignment = 1
+
+[node name="SelectMenuHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer" unique_id=1070179947]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ArrowsLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/SelectMenuHBoxContainer" unique_id=1173518518]
+custom_minimum_size = Vector2(23, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = ""
+vertical_alignment = 1
+
+[node name="SelectMenuLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/SelectMenuHBoxContainer" unique_id=893638052]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Select Menu"
+vertical_alignment = 1
+
+[node name="ExecuteCommandHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer" unique_id=1849308853]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="EnterLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/ExecuteCommandHBoxContainer" unique_id=823608566]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Enter"
+vertical_alignment = 1
+
+[node name="ExecuteCommandLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/ExecuteCommandHBoxContainer" unique_id=1968398262]
+custom_minimum_size = Vector2(169, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Execute Command"
+vertical_alignment = 1
+
+[node name="SaveExitHBoxContainer" type="HBoxContainer" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer" unique_id=590558473]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="F10Label" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/SaveExitHBoxContainer" unique_id=952527621]
+custom_minimum_size = Vector2(34, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "F10"
+vertical_alignment = 1
+
+[node name="SaveExitLabel" type="Label" parent="FooterMarginContainer/MainKeysVBoxContainer/MainKeysLine2HBoxContainer/SaveExitHBoxContainer" unique_id=1870494007]
+custom_minimum_size = Vector2(157, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ysmv2")
+theme_override_font_sizes/font_size = 20
+text = "Save and Exit"
+vertical_alignment = 1

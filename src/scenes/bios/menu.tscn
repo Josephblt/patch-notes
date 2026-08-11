@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://dd1k20y7xvn6h"]
+
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="1_jxgx2"]
+[ext_resource type="Script" uid="uid://qjsoj6g45ijq" path="res://scripts/scenes/bios/menu.gd" id="1_rv2jc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w5jx"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rv2jc"]
+bg_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4srki"]
+bg_color = Color(0, 0, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo25m"]
+bg_color = Color(0, 0, 1, 1)
+
+[node name="MenuPanelContainer" type="PanelContainer" unique_id=1015801801]
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w5jx")
+script = ExtResource("1_rv2jc")
+
+[node name="MenuMarginContainer" type="MarginContainer" parent="." unique_id=1561324129]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="MenuHBoxContainer" type="HBoxContainer" parent="MenuMarginContainer" unique_id=1884985013]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VersionPanelContainer" type="PanelContainer" parent="MenuMarginContainer/MenuHBoxContainer" unique_id=193251424]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rv2jc")
+
+[node name="VersionMarginContainer" type="MarginContainer" parent="MenuMarginContainer/MenuHBoxContainer/VersionPanelContainer" unique_id=1466391606]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="VersionLabel" type="Label" parent="MenuMarginContainer/MenuHBoxContainer/VersionPanelContainer/VersionMarginContainer" unique_id=1749311873]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_jxgx2")
+theme_override_font_sizes/font_size = 20
+text = "Version"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="CreditsPanelContainer" type="PanelContainer" parent="MenuMarginContainer/MenuHBoxContainer" unique_id=535479672]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4srki")
+
+[node name="CreditsMarginContainer" type="MarginContainer" parent="MenuMarginContainer/MenuHBoxContainer/CreditsPanelContainer" unique_id=1971984920]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="CreditsLabel" type="Label" parent="MenuMarginContainer/MenuHBoxContainer/CreditsPanelContainer/CreditsMarginContainer" unique_id=1227070526]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_jxgx2")
+theme_override_font_sizes/font_size = 20
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128
+
+[node name="ExitPanelContainer" type="PanelContainer" parent="MenuMarginContainer/MenuHBoxContainer" unique_id=1337115109]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo25m")
+
+[node name="ExitMarginContainer" type="MarginContainer" parent="MenuMarginContainer/MenuHBoxContainer/ExitPanelContainer" unique_id=1729556367]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 30
+
+[node name="ExitLabel" type="Label" parent="MenuMarginContainer/MenuHBoxContainer/ExitPanelContainer/ExitMarginContainer" unique_id=1345504966]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7529412, 0.7529412, 0.7529412, 1)
+theme_override_fonts/font = ExtResource("1_jxgx2")
+theme_override_font_sizes/font_size = 20
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 128

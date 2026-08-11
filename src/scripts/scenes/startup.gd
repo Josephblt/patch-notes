@@ -2,8 +2,8 @@ class_name StartupScene
 extends CanvasLayer
 
 
-const BIOS_SCENE: String = "res://scenes/bios.tscn"
-const LOGIN_SCENE: String = "res://scenes/login.tscn"
+const BIOS_SCENE: String = "uid://cs0ndb8p2joey"
+const LOGIN_SCENE: String = "uid://bfpufq7f4feqv"
 
 @onready var _animation_player: AnimationPlayer = %AnimationPlayer
 

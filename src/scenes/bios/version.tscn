@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://dq0varben16tj"]
+
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="1_f65hb"]
+[ext_resource type="Script" uid="uid://35s8vsgkl8hj" path="res://scripts/scenes/bios/version.gd" id="1_wwtri"]
+
+[node name="VersionHBoxContainer" type="HBoxContainer" unique_id=1883899621]
+theme_override_constants/separation = 0
+script = ExtResource("1_wwtri")
+
+[node name="VersionLeftVBoxContainer" type="VBoxContainer" parent="." unique_id=535019676]
+custom_minimum_size = Vector2(845, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="VersionLineTop" type="Label" parent="VersionLeftVBoxContainer" unique_id=801689785]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "  "
+vertical_alignment = 2
+
+[node name="VersionLine1" type="Label" parent="VersionLeftVBoxContainer" unique_id=1159119169]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Studio: JOSEPHBLT Games"
+vertical_alignment = 1
+
+[node name="VersionLine2" type="Label" parent="VersionLeftVBoxContainer" unique_id=1365266467]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Project: Patch Notes"
+vertical_alignment = 1
+
+[node name="VersionLine3" type="Label" parent="VersionLeftVBoxContainer" unique_id=386392075]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Version: Development Build (a1b2c3d)"
+vertical_alignment = 1
+
+[node name="VersionLine4" type="Label" parent="VersionLeftVBoxContainer" unique_id=1458550292]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Build Data: 2026-08-25 01:05:56"
+vertical_alignment = 1
+
+[node name="VersionLine5" type="Label" parent="VersionLeftVBoxContainer" unique_id=1820342736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Build Type: Development"
+vertical_alignment = 1
+
+[node name="VersionLineBottom" type="Label" parent="VersionLeftVBoxContainer" unique_id=991449391]
+custom_minimum_size = Vector2(0, 420)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "  "
+
+[node name="VersionRightVBoxContainer" type="VBoxContainer" parent="." unique_id=2098978719]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="VersionTop" type="Label" parent="VersionRightVBoxContainer" unique_id=603350660]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="VersionHelpLine1" type="Label" parent="VersionRightVBoxContainer" unique_id=371487688]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   Current system version"
+vertical_alignment = 1
+
+[node name="VersionHelpLine2" type="Label" parent="VersionRightVBoxContainer" unique_id=886013930]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   information."
+vertical_alignment = 1
+
+[node name="VersionHelpLine3" type="Label" parent="VersionRightVBoxContainer" unique_id=422409609]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="VersionHelpLine4" type="Label" parent="VersionRightVBoxContainer" unique_id=1016399173]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   Useful for determining"
+vertical_alignment = 1
+
+[node name="VersionHelpLine5" type="Label" parent="VersionRightVBoxContainer" unique_id=603044905]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   this system is "
+vertical_alignment = 1
+
+[node name="VersionHelpLine6" type="Label" parent="VersionRightVBoxContainer" unique_id=249493644]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   current, outdated,"
+vertical_alignment = 1
+
+[node name="VersionHelpLine7" type="Label" parent="VersionRightVBoxContainer" unique_id=1032673666]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "   or simply confident."
+vertical_alignment = 1
+
+[node name="VersionBottom" type="Label" parent="VersionRightVBoxContainer" unique_id=162807587]
+custom_minimum_size = Vector2(0, 340)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1

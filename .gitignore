@@ -2,6 +2,7 @@
 .godot/
 .nomedia
 /build/
+/src/data/build_metadata.json
 
 # Godot-specific ignores
 .import/

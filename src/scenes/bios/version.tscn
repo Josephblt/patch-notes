@@ -62,40 +62,29 @@ theme_override_font_sizes/font_size = 20
 text = "    Build Type: Development"
 vertical_alignment = 1
 
-[node name="VersionLine6" type="Label" parent="VersionLeftVBoxContainer" unique_id=455594801]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 1, 1)
-theme_override_fonts/font = ExtResource("1_f65hb")
-theme_override_font_sizes/font_size = 20
-text = "    Channel: Unavailable"
-vertical_alignment = 1
-
-[node name="VersionLine7" type="Label" parent="VersionLeftVBoxContainer" unique_id=1840571315]
+[node name="VersionLine6" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=455594801]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")
 theme_override_font_sizes/font_size = 20
 text = "    Git Ref: Unavailable"
-vertical_alignment = 1
 
-[node name="VersionLine8" type="Label" parent="VersionLeftVBoxContainer" unique_id=2079533215]
+[node name="VersionLine7" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=1840571315]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")
 theme_override_font_sizes/font_size = 20
 text = "    Commit: Unavailable"
-vertical_alignment = 1
 
-[node name="VersionLine9" type="Label" parent="VersionLeftVBoxContainer" unique_id=1028052629]
+[node name="VersionLine8" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=2079533215]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")
 theme_override_font_sizes/font_size = 20
 text = "    Run: #Unavailable (Unavailable)"
-vertical_alignment = 1
 
 [node name="VersionLineBottom" type="Label" parent="VersionLeftVBoxContainer" unique_id=991449391]
-custom_minimum_size = Vector2(0, 340)
+custom_minimum_size = Vector2(0, 360)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")

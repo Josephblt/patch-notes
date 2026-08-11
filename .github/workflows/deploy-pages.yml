@@ -21,7 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       WEB_BUILD_DIR: build/web
-      BUILD_CHANNEL: github-pages
 
     steps:
       - name: Checkout

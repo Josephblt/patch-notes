@@ -3,6 +3,7 @@ extends RefCounted
 
 
 const DEFAULT_PATH: String = "res://data/build_metadata.json"
+const REPOSITORY_URL: String = "https://github.com/Josephblt/patch-notes"
 const UNAVAILABLE: String = "Unavailable"
 const LOCAL_VERSION_LABEL: String = "Local Editor"
 const LOCAL_BUILD_TYPE: String = "Local"
@@ -10,7 +11,6 @@ const LOCAL_BUILD_TYPE: String = "Local"
 var version_label: String = LOCAL_VERSION_LABEL
 var built_at: String = UNAVAILABLE
 var build_type: String = LOCAL_BUILD_TYPE
-var build_channel: String = UNAVAILABLE
 var git_ref: String = UNAVAILABLE
 var commit_sha: String = UNAVAILABLE
 var short_sha: String = UNAVAILABLE
@@ -48,16 +48,40 @@ func get_run_display() -> String:
 	return "#%s (%s)" % [run_number, run_id]
 
 
+func get_git_ref_url() -> String:
+	if _is_unavailable(git_ref):
+		return ""
+
+	return "%s/tree/%s" % [REPOSITORY_URL, git_ref]
+
+
+func get_commit_url() -> String:
+	if _is_unavailable(commit_sha):
+		return ""
+
+	return "%s/commit/%s" % [REPOSITORY_URL, commit_sha]
+
+
+func get_run_url() -> String:
+	if _is_unavailable(run_id):
+		return ""
+
+	return "%s/actions/runs/%s" % [REPOSITORY_URL, run_id]
+
+
 func _load_from_dictionary(metadata: Dictionary) -> void:
 	version_label = _metadata_value(metadata, "version_label", LOCAL_VERSION_LABEL)
 	built_at = _metadata_value(metadata, "built_at")
 	build_type = _metadata_value(metadata, "build_type", LOCAL_BUILD_TYPE)
-	build_channel = _metadata_value(metadata, "build_channel")
 	git_ref = _metadata_value(metadata, "git_ref")
 	commit_sha = _metadata_value(metadata, "commit_sha")
 	short_sha = _metadata_value(metadata, "short_sha")
 	run_number = _metadata_value(metadata, "run_number")
 	run_id = _metadata_value(metadata, "run_id")
+
+
+func _is_unavailable(value: String) -> bool:
+	return value == UNAVAILABLE or value.strip_edges().is_empty()
 
 
 func _metadata_value(metadata: Dictionary, key: String, fallback: String = UNAVAILABLE) -> String:

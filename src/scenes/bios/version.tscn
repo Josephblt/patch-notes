@@ -62,26 +62,61 @@ theme_override_font_sizes/font_size = 20
 text = "    Build Type: Development"
 vertical_alignment = 1
 
-[node name="VersionLine6" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=455594801]
+[node name="VersionVBoxContainerLine6" type="HBoxContainer" parent="VersionLeftVBoxContainer" unique_id=477759601]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 1, 1)
-theme_override_fonts/font = ExtResource("1_f65hb")
-theme_override_font_sizes/font_size = 20
-text = "    Git Ref: Unavailable"
+theme_override_constants/separation = 0
 
-[node name="VersionLine7" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=1840571315]
+[node name="StartVersionLine6" type="Label" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine6" unique_id=1580463222]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")
 theme_override_font_sizes/font_size = 20
-text = "    Commit: Unavailable"
+text = "    Git Ref: "
 
-[node name="VersionLine8" type="LinkButton" parent="VersionLeftVBoxContainer" unique_id=2079533215]
+[node name="VersionLine6" type="LinkButton" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine6" unique_id=455594801]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "Unavailable"
+
+[node name="VersionVBoxContainerLine7" type="HBoxContainer" parent="VersionLeftVBoxContainer" unique_id=843705156]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StartVersionLine7" type="Label" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine7" unique_id=1056071933]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 1, 1)
 theme_override_fonts/font = ExtResource("1_f65hb")
 theme_override_font_sizes/font_size = 20
-text = "    Run: #Unavailable (Unavailable)"
+text = "    Commit: "
+
+[node name="VersionLine7" type="LinkButton" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine7" unique_id=1840571315]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "Unavailable"
+
+[node name="VersionVBoxContainerLine8" type="HBoxContainer" parent="VersionLeftVBoxContainer" unique_id=2045070596]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="StartVersionLine8" type="Label" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine8" unique_id=1480887027]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "    Run: "
+
+[node name="VersionLine8" type="LinkButton" parent="VersionLeftVBoxContainer/VersionVBoxContainerLine8" unique_id=2079533215]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_f65hb")
+theme_override_font_sizes/font_size = 20
+text = "#Unavailable (Unavailable)"
 
 [node name="VersionLineBottom" type="Label" parent="VersionLeftVBoxContainer" unique_id=991449391]
 custom_minimum_size = Vector2(0, 360)

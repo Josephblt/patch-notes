@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b3c01w2enqoys" path="res://scenes/bios/dialogs/dialog_keys.tscn" id="7_7thf1"]
 [ext_resource type="PackedScene" uid="uid://dfodeibreehno" path="res://scenes/bios/dialogs/exit_discarding_dialog.tscn" id="7_b7pe8"]
 [ext_resource type="PackedScene" uid="uid://c5w8v0kpy3jqa" path="res://scenes/bios/dialogs/load_setup_defaults_dialog.tscn" id="8_g2724"]
+[ext_resource type="PackedScene" uid="uid://b4dsr3niq17hv" path="res://scenes/bios/dialogs/discard_changes_dialog.tscn" id="9_g2724"]
 [ext_resource type="PackedScene" uid="uid://bu52b872q07kf" path="res://scenes/bios/dialogs/exit_saving_dialog.tscn" id="10_kblm1"]
+[ext_resource type="PackedScene" uid="uid://drq6ti4k7n3aw" path="res://scenes/bios/dialogs/save_changes_dialog.tscn" id="11_kblm1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etr6w"]
 bg_color = Color(0, 1, 1, 1)
@@ -341,6 +343,14 @@ unique_name_in_owner = true
 visible = false
 
 [node name="LoadSetupDefaultsDialog" parent="." unique_id=1423246225 instance=ExtResource("8_g2724")]
+unique_name_in_owner = true
+visible = false
+
+[node name="DiscardChangesDialog" parent="." unique_id=1231231503 instance=ExtResource("9_g2724")]
+unique_name_in_owner = true
+visible = false
+
+[node name="SaveChangesDialog" parent="." unique_id=1054657306 instance=ExtResource("11_kblm1")]
 unique_name_in_owner = true
 visible = false
 

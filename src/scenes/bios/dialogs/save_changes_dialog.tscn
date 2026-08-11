@@ -1,0 +1,325 @@
+[gd_scene format=3 uid="uid://drq6ti4k7n3aw"]
+
+[ext_resource type="Script" uid="uid://bv3c7tyqokam2" path="res://scripts/scenes/bios/dialogs/dialog.gd" id="1_72q18"]
+[ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="2_meylx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7cxi"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4t7yi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iuvg4"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsi3e"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqy1o"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="SaveChangesDialogVBoxContainer" type="VBoxContainer" unique_id=1216854761]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -230.0
+offset_top = -80.0
+offset_right = 230.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+script = ExtResource("1_72q18")
+
+[node name="SaveChangesLine1" type="HBoxContainer" parent="." unique_id=1387906528]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLine1" type="Label" parent="SaveChangesLine1" unique_id=1894597114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_m7cxi")
+text = "┌───────────────────────────────────────┐"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine1Space" type="Label" parent="SaveChangesLine1" unique_id=5655625]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4t7yi")
+text = " "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLineTitle" type="HBoxContainer" parent="." unique_id=2117706983]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLineTitle" type="Label" parent="SaveChangesLineTitle" unique_id=275484974]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│          Setup Confirmation           │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLineTitleShadow" type="Label" parent="SaveChangesLineTitle" unique_id=1988571294]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine3" type="HBoxContainer" parent="." unique_id=47797606]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLine3" type="Label" parent="SaveChangesLine3" unique_id=244534423]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "├───────────────────────────────────────┤"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine3Shadow" type="Label" parent="SaveChangesLine3" unique_id=994252218]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLineMessage" type="HBoxContainer" parent="." unique_id=1951460405]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLineMessage" type="Label" parent="SaveChangesLineMessage" unique_id=373369141]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│    Save configuration changes now?     │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLineMessageShadow" type="Label" parent="SaveChangesLineMessage" unique_id=2005360073]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine5" type="HBoxContainer" parent="." unique_id=1797605311]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLine5" type="Label" parent="SaveChangesLine5" unique_id=689978286]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "│                                       │"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine5Shadow" type="Label" parent="SaveChangesLine5" unique_id=1793895114]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLineOptions" type="HBoxContainer" parent="." unique_id=1778830557]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="SaveChangesLeftHBoxContainer" type="HBoxContainer" parent="SaveChangesLineOptions" unique_id=2146363090]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="YesLabel4" type="Label" parent="SaveChangesLineOptions/SaveChangesLeftHBoxContainer" unique_id=1753405159]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "│"
+vertical_alignment = 1
+
+[node name="YesLabel1" type="Label" parent="SaveChangesLineOptions/SaveChangesLeftHBoxContainer" unique_id=1197417121]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "["
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel" type="Label" parent="SaveChangesLineOptions/SaveChangesLeftHBoxContainer" unique_id=1673292859]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "Yes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel2" type="Label" parent="SaveChangesLineOptions/SaveChangesLeftHBoxContainer" unique_id=257499529]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+text = "]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YesLabel5" type="Label" parent="SaveChangesLineOptions/SaveChangesLeftHBoxContainer" unique_id=308563501]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bsi3e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesRightHBoxContainer" type="HBoxContainer" parent="SaveChangesLineOptions" unique_id=1212046585]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="NoLabel5" type="Label" parent="SaveChangesLineOptions/SaveChangesRightHBoxContainer" unique_id=899331493]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel1" type="Label" parent="SaveChangesLineOptions/SaveChangesRightHBoxContainer" unique_id=1946633635]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "["
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel" type="Label" parent="SaveChangesLineOptions/SaveChangesRightHBoxContainer" unique_id=684778727]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "No"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel3" type="Label" parent="SaveChangesLineOptions/SaveChangesRightHBoxContainer" unique_id=718145748]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NoLabel4" type="Label" parent="SaveChangesLineOptions/SaveChangesRightHBoxContainer" unique_id=984611763]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqy1o")
+text = "│"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SaveChangesLineOptionsShadow" type="Label" parent="SaveChangesLineOptions" unique_id=1619054857]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine7" type="HBoxContainer" parent="." unique_id=917423368]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="SaveChangesLine7" type="Label" parent="SaveChangesLine7" unique_id=17437264]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "└───────────────────────────────────────┘"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine7Shadow" type="Label" parent="SaveChangesLine7" unique_id=1888149285]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_iuvg4")
+text = "█"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveChangesLine8Shadow" type="Label" parent="." unique_id=2043355522]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_meylx")
+theme_override_font_sizes/font_size = 20
+text = " ████████████████████████████████████████"
+vertical_alignment = 1

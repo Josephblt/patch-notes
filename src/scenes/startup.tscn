@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://31pbsjrukfnd" path="res://scripts/scenes/startup.gd" id="1_j40w7"]
 [ext_resource type="Texture2D" uid="uid://be73jb5hbvrsj" path="res://resources/images/startup_logo.png" id="1_tpfpu"]
 [ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="3_j40w7"]
-[ext_resource type="AudioStream" uid="uid://o0q8c6t4h7ce" path="res://resources/sfx/startup_chime.wav" id="3_ybs1l"]
+[ext_resource type="AudioStream" path="res://resources/sfx/startup_chime.ogg" id="3_ybs1l"]
 
 [sub_resource type="Animation" id="Animation_ybs1l"]
 length = 0.001

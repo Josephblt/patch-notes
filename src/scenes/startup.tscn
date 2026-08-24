@@ -176,6 +176,7 @@ size_flags_vertical = 0
 texture = ExtResource("1_tpfpu")
 
 [node name="InterruptMessage" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1481436722]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_fonts/font = ExtResource("3_j40w7")

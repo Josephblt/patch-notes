@@ -35,6 +35,8 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v6
+        with:
+          enablement: true
 
       - name: Validate Godot Web export
         run: bash .github/scripts/validate-godot-web-export.sh "$WEB_BUILD_DIR"

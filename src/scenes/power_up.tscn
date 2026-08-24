@@ -118,3 +118,4 @@ bus = &"SFX"
 
 [connection signal="button_down" from="ButtonTextureButton" to="." method="_on_button_down"]
 [connection signal="button_up" from="ButtonTextureButton" to="." method="_on_button_up"]
+[connection signal="toggled" from="ButtonTextureButton" to="." method="_on_button_toggled"]

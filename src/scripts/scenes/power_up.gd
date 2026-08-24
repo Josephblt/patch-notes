@@ -48,8 +48,12 @@ func _power_up() -> void:
 
 func _on_button_up() -> void:
 	_button_up_click_player.play()
-	_power_up()
 
 
 func _on_button_down() -> void:
 	_button_down_click_player.play()
+
+
+func _on_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		_power_up()

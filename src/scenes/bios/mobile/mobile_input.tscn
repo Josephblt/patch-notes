@@ -111,6 +111,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -120,6 +121,7 @@ script = ExtResource("1_g4u0o")
 [node name="OpenCloseInputButton" type="Button" parent="." unique_id=1495636293]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_bco42")
@@ -135,18 +137,21 @@ icon_alignment = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+mouse_filter = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubtdc")
 
 [node name="GridContainer" type="GridContainer" parent="InputPanelContainer" unique_id=525405723]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 3
 
 [node name="ESCButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=363759673]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
@@ -158,6 +163,7 @@ icon_alignment = 1
 
 [node name="F9Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1550725212]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
@@ -169,6 +175,7 @@ icon_alignment = 1
 
 [node name="F10Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1688000945]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
@@ -180,6 +187,7 @@ icon_alignment = 1
 
 [node name="MinusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1061238929]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
@@ -192,6 +200,7 @@ icon_alignment = 1
 
 [node name="UpButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=2122744259]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
@@ -204,6 +213,7 @@ icon_alignment = 1
 
 [node name="PlusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1670754763]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
@@ -216,6 +226,7 @@ icon_alignment = 1
 
 [node name="LeftButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=67508915]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
@@ -228,6 +239,7 @@ icon_alignment = 1
 
 [node name="DownButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1538503625]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
@@ -240,6 +252,7 @@ icon_alignment = 1
 
 [node name="RightButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=203440223]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
@@ -252,6 +265,7 @@ icon_alignment = 1
 
 [node name="SpaceButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=577048885]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
@@ -264,10 +278,12 @@ icon_alignment = 1
 
 [node name="Empty" type="Control" parent="InputPanelContainer/GridContainer" unique_id=1414029378]
 layout_mode = 2
+mouse_filter = 2
 size_flags_horizontal = 4
 
 [node name="EnterButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1537164623]
 layout_mode = 2
+focus_mode = 0
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.8, 0.4, 1)

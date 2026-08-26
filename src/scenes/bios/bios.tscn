@@ -355,7 +355,8 @@ visible = false
 unique_name_in_owner = true
 visible = false
 
-[node name="MobileInput" parent="." unique_id=195560190 instance=ExtResource("14_cak7w")]
+[node name="MobileInput" parent="." unique_id=195560190 node_paths=PackedStringArray("_bios") instance=ExtResource("14_cak7w")]
 unique_name_in_owner = true
+_bios = NodePath("..")
 
 [connection signal="menu_changed" from="MainVBoxContainer/Menu" to="." method="_on_menu_changed"]

@@ -2,6 +2,12 @@ class_name BiosScene
 extends CanvasLayer
 
 
+enum Modes {
+	NORMAL,
+	DIALOG
+}
+
+
 const STARTUP_SCENE: String = "uid://cbqyni481py2c"
 
 @onready var _bios_menu: BiosMenu = %Menu
@@ -19,9 +25,11 @@ const STARTUP_SCENE: String = "uid://cbqyni481py2c"
 
 @onready var _mobile_input: MobileInput = %MobileInput
 
+var mode: Modes = Modes.NORMAL
+
 
 func _ready() -> void:
-	_mobile_input.visible = Web.is_touch_web()
+	_mobile_input.visible = !Web.is_touch_web()
 	_enter_normal_mode()
 
 
@@ -32,6 +40,7 @@ func _enter_dialog_mode() -> void:
 	_bios_exit.pause()
 	_bios_normal_keys.deactivate()
 	_bios_dialog_keys.activate()
+	mode = Modes.DIALOG
 
 
 func _enter_normal_mode() -> void:
@@ -41,6 +50,7 @@ func _enter_normal_mode() -> void:
 	_bios_exit.resume()
 	_bios_normal_keys.activate()
 	_bios_dialog_keys.deactivate()
+	mode = Modes.NORMAL
 
 
 func _exit() -> void:

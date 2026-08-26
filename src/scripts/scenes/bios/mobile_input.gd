@@ -11,6 +11,10 @@ func _ready() -> void:
 
 
 func _trigger_input_action(action_name: String) -> void:
+	call_deferred("_parse_input_action", action_name)
+
+
+func _parse_input_action(action_name: String) -> void:
 	var event := InputEventAction.new()
 	event.action = action_name
 	event.pressed = true

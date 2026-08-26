@@ -42,7 +42,6 @@ func _power_up() -> void:
 	_animation_player.play_backwards("fade")
 	await _animation_player.animation_finished
 	
-	print("Power up complete, returning to startup scene.")
 	get_tree().change_scene_to_file(STARTUP_SCENE)
 
 

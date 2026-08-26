@@ -17,8 +17,11 @@ const STARTUP_SCENE: String = "uid://cbqyni481py2c"
 @onready var _bios_discard_changes_dialog: BiosDialog = %DiscardChangesDialog
 @onready var _bios_save_changes_dialog: BiosDialog = %SaveChangesDialog
 
+@onready var _mobile_input: MobileInput = %MobileInput
+
 
 func _ready() -> void:
+	_mobile_input.visible = Web.is_touch_web()
 	_enter_normal_mode()
 
 

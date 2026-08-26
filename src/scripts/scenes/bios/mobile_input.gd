@@ -2,23 +2,19 @@ class_name MobileInput
 extends Node
 
 
-@onready var _open_close_input_button: Button = %OpenCloseInputButton
 @onready var _input_panel_container: Control = %InputPanelContainer
 
 
-func _ready() -> void:
-	_open_close_input_button.visible = Web.is_touch_web()
-
-
 func _trigger_input_action(action_name: String) -> void:
-	call_deferred("_parse_input_action", action_name)
-
-
-func _parse_input_action(action_name: String) -> void:
 	var event := InputEventAction.new()
 	event.action = action_name
 	event.pressed = true
 	Input.parse_input_event(event)
+
+	var release := InputEventAction.new()
+	release.action = action_name
+	release.pressed = false
+	Input.parse_input_event(release)
 
 
 func _on_open_close_input_button_up() -> void:

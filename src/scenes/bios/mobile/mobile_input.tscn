@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://drgverwa2d2yy"]
 
-[ext_resource type="Texture2D" uid="uid://dwve1p51vd2rc" path="res://resources/images/bios/keyboard.png" id="1_atawf"]
 [ext_resource type="Script" uid="uid://nt6mbmhqoes8" path="res://scripts/scenes/bios/mobile_input.gd" id="1_g4u0o"]
 [ext_resource type="Texture2D" uid="uid://bxp2htf6yao3f" path="res://resources/images/bios/keyboard_escape.png" id="2_btkky"]
 [ext_resource type="Texture2D" uid="uid://ccl878lhgkyqs" path="res://resources/images/bios/keyboard_f9.png" id="3_3cymr"]
@@ -13,74 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://blhjfq6hybkbg" path="res://resources/images/bios/keyboard_arrow_right.png" id="8_dxoqf"]
 [ext_resource type="Texture2D" uid="uid://g64nvkme8e5h" path="res://resources/images/bios/keyboard_space.png" id="11_wp5kt"]
 [ext_resource type="Texture2D" uid="uid://bj1xt3jro7dlp" path="res://resources/images/bios/keyboard_enter.png" id="12_ojbvo"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bco42"]
-bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-corner_detail = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cymr"]
-bg_color = Color(0.6651851, 0.6651851, 0.66668326, 0.6)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-corner_detail = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4u0o"]
-bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-corner_detail = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trv7j"]
-bg_color = Color(0.6651851, 0.6651851, 0.6651851, 0.6)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-corner_detail = 20
-expand_margin_left = 10.0
-expand_margin_top = 10.0
-expand_margin_right = 10.0
-expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubtdc"]
 bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
@@ -113,32 +44,17 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 90
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 script = ExtResource("1_g4u0o")
 
-[node name="OpenCloseInputButton" type="Button" parent="." unique_id=1495636293]
+[node name="InputPanelContainer" type="PanelContainer" parent="." unique_id=564655858]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_bco42")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3cymr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_g4u0o")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_trv7j")
-toggle_mode = true
-action_mode = 0
-icon = ExtResource("1_atawf")
-icon_alignment = 1
-
-[node name="InputPanelContainer" type="PanelContainer" parent="." unique_id=564655858]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ubtdc")
 
 [node name="GridContainer" type="GridContainer" parent="InputPanelContainer" unique_id=525405723]
@@ -207,7 +123,7 @@ icon_alignment = 1
 [node name="PlusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1670754763]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
@@ -281,7 +197,6 @@ action_mode = 0
 icon = ExtResource("12_ojbvo")
 icon_alignment = 1
 
-[connection signal="button_up" from="OpenCloseInputButton" to="." method="_on_open_close_input_button_up"]
 [connection signal="button_up" from="InputPanelContainer/GridContainer/ESCButton" to="." method="_on_esc_button_pressed"]
 [connection signal="button_up" from="InputPanelContainer/GridContainer/F9Button" to="." method="_on_f9_button_pressed"]
 [connection signal="button_up" from="InputPanelContainer/GridContainer/F10Button" to="." method="_on_f10_button_pressed"]

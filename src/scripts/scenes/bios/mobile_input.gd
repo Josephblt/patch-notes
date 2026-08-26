@@ -20,14 +20,9 @@ func _parse_input_action(action_name: String) -> void:
 	event.pressed = true
 	Input.parse_input_event(event)
 
-	var release := InputEventAction.new()
-	release.action = action_name
-	release.pressed = false
-	Input.parse_input_event(release)
 
-
-func _on_button_toggled(toggled_on: bool) -> void:
-	_input_panel_container.visible = toggled_on
+func _on_open_close_input_button_up() -> void:
+	_input_panel_container.visible = !_input_panel_container.visible
 
 
 func _on_esc_button_pressed() -> void:

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnjnfdr7pt8r2"]
 
-[ext_resource type="Script" uid="uid://c3pyyxtbiow6s" path="res://scripts/tools/balance_runner.gd" id="1"]
-[ext_resource type="Script" uid="uid://oka0c8yibh4t" path="res://scripts/tools/frequency_graph.gd" id="2"]
+[ext_resource type="Script" uid="uid://c3pyyxtbiow6s" path="res://tests/scripts/tools/balance_runner.gd" id="1"]
+[ext_resource type="Script" uid="uid://oka0c8yibh4t" path="res://tests/scripts/tools/frequency_graph.gd" id="2"]
 
 [node name="BalanceRunner" type="CanvasLayer" unique_id=1648812995]
 script = ExtResource("1")

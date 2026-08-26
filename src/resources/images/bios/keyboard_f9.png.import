@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be73jb5hbvrsj"
-path="res://.godot/imported/startup_logo.png-da2aac243a62105d8ebc2cbf4ab8ceec.ctex"
+uid="uid://ccl878lhgkyqs"
+path="res://.godot/imported/keyboard_f9.png-fd94e568a629cae42f781098be4c76c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/startup_logo.png"
-dest_files=["res://.godot/imported/startup_logo.png-da2aac243a62105d8ebc2cbf4ab8ceec.ctex"]
+source_file="res://resources/images/bios/keyboard_f9.png"
+dest_files=["res://.godot/imported/keyboard_f9.png-fd94e568a629cae42f781098be4c76c2.ctex"]
 
 [params]
 

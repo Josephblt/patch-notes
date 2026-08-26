@@ -2,17 +2,18 @@
 
 [ext_resource type="Script" uid="uid://duiqeu1qoxgnh" path="res://scripts/scenes/bios/bios.gd" id="1_7hubr"]
 [ext_resource type="FontFile" uid="uid://nbdmcuya1pw8" path="res://resources/fonts/bios.ttf" id="2_6wkon"]
-[ext_resource type="PackedScene" uid="uid://dd1k20y7xvn6h" path="res://scenes/bios/menu.tscn" id="3_6wkon"]
-[ext_resource type="PackedScene" uid="uid://dq0varben16tj" path="res://scenes/bios/version.tscn" id="4_bsi3e"]
-[ext_resource type="PackedScene" uid="uid://42n8m1mepxak" path="res://scenes/bios/credits.tscn" id="5_63llp"]
-[ext_resource type="PackedScene" uid="uid://bs8x1clwh1gai" path="res://scenes/bios/exit.tscn" id="6_b7pe8"]
-[ext_resource type="PackedScene" uid="uid://y68gcp0545ja" path="res://scenes/bios/normal_keys.tscn" id="7_5ou4k"]
-[ext_resource type="PackedScene" uid="uid://b3c01w2enqoys" path="res://scenes/bios/dialogs/dialog_keys.tscn" id="7_7thf1"]
+[ext_resource type="PackedScene" uid="uid://dd1k20y7xvn6h" path="res://scenes/bios/menus/menu.tscn" id="3_6wkon"]
+[ext_resource type="PackedScene" uid="uid://dq0varben16tj" path="res://scenes/bios/menus/version.tscn" id="4_bsi3e"]
+[ext_resource type="PackedScene" uid="uid://42n8m1mepxak" path="res://scenes/bios/menus/credits.tscn" id="5_63llp"]
+[ext_resource type="PackedScene" uid="uid://bs8x1clwh1gai" path="res://scenes/bios/menus/exit.tscn" id="6_b7pe8"]
+[ext_resource type="PackedScene" uid="uid://y68gcp0545ja" path="res://scenes/bios/keys/normal_keys.tscn" id="7_5ou4k"]
+[ext_resource type="PackedScene" uid="uid://b3c01w2enqoys" path="res://scenes/bios/keys/dialog_keys.tscn" id="7_7thf1"]
 [ext_resource type="PackedScene" uid="uid://dfodeibreehno" path="res://scenes/bios/dialogs/exit_discarding_dialog.tscn" id="7_b7pe8"]
 [ext_resource type="PackedScene" uid="uid://c5w8v0kpy3jqa" path="res://scenes/bios/dialogs/load_setup_defaults_dialog.tscn" id="8_g2724"]
 [ext_resource type="PackedScene" uid="uid://b4dsr3niq17hv" path="res://scenes/bios/dialogs/discard_changes_dialog.tscn" id="9_g2724"]
 [ext_resource type="PackedScene" uid="uid://bu52b872q07kf" path="res://scenes/bios/dialogs/exit_saving_dialog.tscn" id="10_kblm1"]
 [ext_resource type="PackedScene" uid="uid://drq6ti4k7n3aw" path="res://scenes/bios/dialogs/save_changes_dialog.tscn" id="11_kblm1"]
+[ext_resource type="PackedScene" uid="uid://drgverwa2d2yy" path="res://scenes/bios/mobile/mobile_input.tscn" id="14_cak7w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etr6w"]
 bg_color = Color(0, 1, 1, 1)
@@ -353,5 +354,7 @@ visible = false
 [node name="SaveChangesDialog" parent="." unique_id=1054657306 instance=ExtResource("11_kblm1")]
 unique_name_in_owner = true
 visible = false
+
+[node name="MobileInput" parent="." unique_id=195560190 instance=ExtResource("14_cak7w")]
 
 [connection signal="menu_changed" from="MainVBoxContainer/Menu" to="." method="_on_menu_changed"]

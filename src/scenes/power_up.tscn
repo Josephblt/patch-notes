@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bucf22rihhp83"]
 
-[ext_resource type="Texture2D" uid="uid://newa6n1bip2t" path="res://resources/images/button_off.png" id="1_ig136"]
+[ext_resource type="Texture2D" uid="uid://newa6n1bip2t" path="res://resources/images/power_up/button_off.png" id="1_ig136"]
 [ext_resource type="Script" uid="uid://ck2bl125gotba" path="res://scripts/scenes/power_up.gd" id="1_uk6or"]
-[ext_resource type="Texture2D" uid="uid://d3w76wdj7joo7" path="res://resources/images/button_on.png" id="2_6iuya"]
-[ext_resource type="Texture2D" uid="uid://cejeyn7piqe40" path="res://resources/images/button_pressed.png" id="2_uk6or"]
-[ext_resource type="Texture2D" uid="uid://d4gnr5uwk4f2v" path="res://resources/images/finger.png" id="5_bmfpq"]
-[ext_resource type="AudioStream" uid="uid://cenb2rudnrqrf" path="res://resources/sfx/power_button/power_button_down_click_01.wav" id="6_0lif3"]
-[ext_resource type="AudioStream" uid="uid://q8isn0k48h0q" path="res://resources/sfx/power_button/power_button_down_click_02.wav" id="7_o2k2r"]
-[ext_resource type="AudioStream" uid="uid://dhr07pwbdjes" path="res://resources/sfx/power_button/power_button_up_click_01.wav" id="8_fglio"]
-[ext_resource type="AudioStream" uid="uid://dhin4wlsdbeco" path="res://resources/sfx/power_button/power_button_up_click_02.wav" id="9_3sjf4"]
+[ext_resource type="Texture2D" uid="uid://d3w76wdj7joo7" path="res://resources/images/power_up/button_on.png" id="2_6iuya"]
+[ext_resource type="Texture2D" uid="uid://cejeyn7piqe40" path="res://resources/images/power_up/button_pressed.png" id="2_uk6or"]
+[ext_resource type="Texture2D" uid="uid://d4gnr5uwk4f2v" path="res://resources/images/power_up/finger.png" id="5_bmfpq"]
+[ext_resource type="AudioStream" uid="uid://cenb2rudnrqrf" path="res://resources/sfx/power_up/power_button/power_button_down_click_01.wav" id="6_0lif3"]
+[ext_resource type="AudioStream" uid="uid://q8isn0k48h0q" path="res://resources/sfx/power_up/power_button/power_button_down_click_02.wav" id="7_o2k2r"]
+[ext_resource type="AudioStream" uid="uid://dhr07pwbdjes" path="res://resources/sfx/power_up/power_button/power_button_up_click_01.wav" id="8_fglio"]
+[ext_resource type="AudioStream" uid="uid://dhin4wlsdbeco" path="res://resources/sfx/power_up/power_button/power_button_up_click_02.wav" id="9_3sjf4"]
 
 [sub_resource type="Animation" id="Animation_bmfpq"]
 length = 0.001

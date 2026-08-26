@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://drgverwa2d2yy"]
+
+[ext_resource type="Texture2D" uid="uid://dwve1p51vd2rc" path="res://resources/images/bios/keyboard.png" id="1_atawf"]
+[ext_resource type="Script" uid="uid://nt6mbmhqoes8" path="res://scripts/scenes/bios/mobile_input.gd" id="1_g4u0o"]
+[ext_resource type="Texture2D" uid="uid://bxp2htf6yao3f" path="res://resources/images/bios/keyboard_escape.png" id="2_btkky"]
+[ext_resource type="Texture2D" uid="uid://ccl878lhgkyqs" path="res://resources/images/bios/keyboard_f9.png" id="3_3cymr"]
+[ext_resource type="Texture2D" uid="uid://mv5dt2vvh5a4" path="res://resources/images/bios/keyboard_f10.png" id="4_5uenu"]
+[ext_resource type="Texture2D" uid="uid://xnihfctkta14" path="res://resources/images/bios/keyboard_minus.png" id="5_g4u0o"]
+[ext_resource type="Texture2D" uid="uid://bfjf2vbu764yl" path="res://resources/images/bios/keyboard_arrow_up.png" id="5_ubtdc"]
+[ext_resource type="Texture2D" uid="uid://b8y4dfr1cjnj7" path="res://resources/images/bios/keyboard_arrow_left.png" id="6_kg2n2"]
+[ext_resource type="Texture2D" uid="uid://qkgaxllt1m6q" path="res://resources/images/bios/keyboard_arrow_down.png" id="7_e6xk3"]
+[ext_resource type="Texture2D" uid="uid://v2sn8dlk5omr" path="res://resources/images/bios/keyboard_plus.png" id="7_trv7j"]
+[ext_resource type="Texture2D" uid="uid://blhjfq6hybkbg" path="res://resources/images/bios/keyboard_arrow_right.png" id="8_dxoqf"]
+[ext_resource type="Texture2D" uid="uid://g64nvkme8e5h" path="res://resources/images/bios/keyboard_space.png" id="11_wp5kt"]
+[ext_resource type="Texture2D" uid="uid://bj1xt3jro7dlp" path="res://resources/images/bios/keyboard_enter.png" id="12_ojbvo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bco42"]
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cymr"]
+bg_color = Color(0.6651851, 0.6651851, 0.6651851, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4u0o"]
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trv7j"]
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubtdc"]
+bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 20
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cymr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjdqh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5uenu"]
+
+[node name="MobileInput" type="MarginContainer" unique_id=195560190]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 90
+script = ExtResource("1_g4u0o")
+
+[node name="OpenCloseInputButton" type="Button" parent="." unique_id=1495636293]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_bco42")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3cymr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g4u0o")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_trv7j")
+toggle_mode = true
+icon = ExtResource("1_atawf")
+icon_alignment = 1
+
+[node name="InputPanelContainer" type="PanelContainer" parent="." unique_id=564655858]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ubtdc")
+
+[node name="GridContainer" type="GridContainer" parent="InputPanelContainer" unique_id=525405723]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 3
+
+[node name="ESCButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=363759673]
+layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_colors/icon_hover_color = Color(0.8, 0.56078434, 0.56078434, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("2_btkky")
+icon_alignment = 1
+
+[node name="F9Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1550725212]
+layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("3_3cymr")
+icon_alignment = 1
+
+[node name="F10Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1688000945]
+layout_mode = 2
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("4_5uenu")
+icon_alignment = 1
+
+[node name="MinusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1061238929]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_colors/icon_hover_color = Color(0.8, 0.56, 0.56, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("5_g4u0o")
+icon_alignment = 1
+
+[node name="UpButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=2122744259]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("5_ubtdc")
+icon_alignment = 1
+
+[node name="PlusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1670754763]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.8, 0.56, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("7_trv7j")
+icon_alignment = 1
+
+[node name="LeftButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=67508915]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("6_kg2n2")
+icon_alignment = 1
+
+[node name="DownButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1538503625]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("7_e6xk3")
+icon_alignment = 1
+
+[node name="RightButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=203440223]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("8_dxoqf")
+icon_alignment = 1
+
+[node name="SpaceButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=577048885]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("11_wp5kt")
+icon_alignment = 1
+
+[node name="Empty" type="Control" parent="InputPanelContainer/GridContainer" unique_id=1414029378]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="EnterButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1537164623]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_colors/icon_hover_color = Color(0.56, 0.8, 0.56, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+icon = ExtResource("12_ojbvo")
+icon_alignment = 1
+
+[connection signal="toggled" from="OpenCloseInputButton" to="." method="_on_button_toggled"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/ESCButton" to="." method="_on_esc_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/F9Button" to="." method="_on_f_9_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/F10Button" to="." method="_on_f_10_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/PlusButton" to="." method="_on_plus_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/SpaceButton" to="." method="_on_space_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/EnterButton" to="." method="_on_enter_button_pressed"]

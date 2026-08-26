@@ -59,7 +59,7 @@ func _is_bios_interrupt_event(event: InputEvent) -> bool:
 		return event.pressed
 
 	if event is InputEventMouseButton:
-		return _is_touch_web() and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+		return Web.is_touch_web() and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
 
 	return false
 
@@ -68,7 +68,7 @@ func _update_interrupt_message() -> void:
 	if _interrupt_message == null:
 		return
 
-	if _is_touch_web():
+	if Web.is_touch_web():
 		_interrupt_message.text = _translate_or_fallback(BIOS_SETUP_PROMPT_TOUCH, BIOS_SETUP_PROMPT_TOUCH_FALLBACK)
 	else:
 		_interrupt_message.text = _translate_or_fallback(BIOS_SETUP_PROMPT_KEYBOARD, BIOS_SETUP_PROMPT_KEYBOARD_FALLBACK)
@@ -80,14 +80,3 @@ func _translate_or_fallback(key: StringName, fallback: String) -> String:
 		return fallback
 
 	return translated_text
-
-
-func _is_touch_web() -> bool:
-	if not OS.has_feature("web"):
-		return false
-
-	if DisplayServer.is_touchscreen_available():
-		return true
-
-	var max_touch_points: Variant = JavaScriptBridge.eval("navigator.maxTouchPoints || 0")
-	return int(max_touch_points) > 0

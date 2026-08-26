@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3w76wdj7joo7"
-path="res://.godot/imported/button_on.png-03b5a7e4dfabb04ceb542ff1e46d6e8d.ctex"
+uid="uid://dwve1p51vd2rc"
+path="res://.godot/imported/keyboard.png-61c93fc1ddae5c869ff3a7bfa61e657e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/button_on.png"
-dest_files=["res://.godot/imported/button_on.png-03b5a7e4dfabb04ceb542ff1e46d6e8d.ctex"]
+source_file="res://resources/images/bios/keyboard.png"
+dest_files=["res://.godot/imported/keyboard.png-61c93fc1ddae5c869ff3a7bfa61e657e.ctex"]
 
 [params]
 

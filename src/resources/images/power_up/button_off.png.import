@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqt8f2usf3lk2"
-path="res://.godot/imported/finger.svg-58d2798faeb8eeccd04eb5f868b70f4a.ctex"
+uid="uid://newa6n1bip2t"
+path="res://.godot/imported/button_off.png-0b3334d8a361be70950e7e30425c91ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/finger.svg"
-dest_files=["res://.godot/imported/finger.svg-58d2798faeb8eeccd04eb5f868b70f4a.ctex"]
+source_file="res://resources/images/power_up/button_off.png"
+dest_files=["res://.godot/imported/button_off.png-0b3334d8a361be70950e7e30425c91ee.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://newa6n1bip2t"
-path="res://.godot/imported/button_off.png-557987c2de2e143ad19fa890bd8a9f6a.ctex"
+uid="uid://xnihfctkta14"
+path="res://.godot/imported/keyboard_minus.png-3c609acde323ae6e01585b9a30e4a6c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/button_off.png"
-dest_files=["res://.godot/imported/button_off.png-557987c2de2e143ad19fa890bd8a9f6a.ctex"]
+source_file="res://resources/images/bios/keyboard_minus.png"
+dest_files=["res://.godot/imported/keyboard_minus.png-3c609acde323ae6e01585b9a30e4a6c1.ctex"]
 
 [params]
 

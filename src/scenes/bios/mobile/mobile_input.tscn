@@ -280,8 +280,8 @@ icon_alignment = 1
 
 [connection signal="toggled" from="OpenCloseInputButton" to="." method="_on_button_toggled"]
 [connection signal="pressed" from="InputPanelContainer/GridContainer/ESCButton" to="." method="_on_esc_button_pressed"]
-[connection signal="pressed" from="InputPanelContainer/GridContainer/F9Button" to="." method="_on_f_9_button_pressed"]
-[connection signal="pressed" from="InputPanelContainer/GridContainer/F10Button" to="." method="_on_f_10_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/F9Button" to="." method="_on_f9_button_pressed"]
+[connection signal="pressed" from="InputPanelContainer/GridContainer/F10Button" to="." method="_on_f10_button_pressed"]
 [connection signal="pressed" from="InputPanelContainer/GridContainer/MinusButton" to="." method="_on_minus_button_pressed"]
 [connection signal="pressed" from="InputPanelContainer/GridContainer/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="InputPanelContainer/GridContainer/PlusButton" to="." method="_on_plus_button_pressed"]

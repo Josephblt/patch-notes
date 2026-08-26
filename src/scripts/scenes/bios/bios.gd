@@ -29,7 +29,7 @@ var mode: Modes = Modes.NORMAL
 
 
 func _ready() -> void:
-	_mobile_input.visible = !Web.is_touch_web()
+	_mobile_input.visible = Web.is_touch_web()
 	_enter_normal_mode()
 
 

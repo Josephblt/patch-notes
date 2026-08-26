@@ -3,9 +3,6 @@ extends Node
 
 @export var _bios: BiosScene
 
-# func _trigger_input_action(action_name: String) -> void:
-# 	call_deferred("_parse_input_action", action_name)
-
 
 func _trigger_input_action(action_name: String) -> void:
 	var event := InputEventAction.new()

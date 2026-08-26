@@ -32,7 +32,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cymr"]
-bg_color = Color(0.6651851, 0.6651851, 0.6651851, 0.6)
+bg_color = Color(0.6651851, 0.6651851, 0.66668326, 0.6)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -66,7 +66,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trv7j"]
-bg_color = Color(0.3491902, 0.3491902, 0.3491902, 0.6)
+bg_color = Color(0.6651851, 0.6651851, 0.6651851, 0.6)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -127,6 +127,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3cymr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_g4u0o")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_trv7j")
 toggle_mode = true
+action_mode = 0
 icon = ExtResource("1_atawf")
 icon_alignment = 1
 
@@ -147,30 +148,33 @@ columns = 3
 [node name="ESCButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=363759673]
 layout_mode = 2
 theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
-theme_override_colors/icon_hover_color = Color(0.8, 0.56078434, 0.56078434, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("2_btkky")
 icon_alignment = 1
 
 [node name="F9Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1550725212]
 layout_mode = 2
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("3_3cymr")
 icon_alignment = 1
 
 [node name="F10Button" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1688000945]
 layout_mode = 2
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("4_5uenu")
 icon_alignment = 1
 
@@ -178,10 +182,11 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
-theme_override_colors/icon_hover_color = Color(0.8, 0.56, 0.56, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("5_g4u0o")
 icon_alignment = 1
 
@@ -189,21 +194,23 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("5_ubtdc")
 icon_alignment = 1
 
 [node name="PlusButton" type="Button" parent="InputPanelContainer/GridContainer" unique_id=1670754763]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.8, 0.56, 1)
+theme_override_colors/icon_pressed_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.8, 0.4, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("7_trv7j")
 icon_alignment = 1
 
@@ -211,10 +218,11 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("6_kg2n2")
 icon_alignment = 1
 
@@ -222,10 +230,11 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("7_e6xk3")
 icon_alignment = 1
 
@@ -233,10 +242,11 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("8_dxoqf")
 icon_alignment = 1
 
@@ -244,10 +254,11 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.4, 0.8, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.56, 0.8, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.4, 0.8, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("11_wp5kt")
 icon_alignment = 1
 
@@ -259,10 +270,11 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/icon_pressed_color = Color(0.4, 0.8, 0.4, 1)
-theme_override_colors/icon_hover_color = Color(0.56, 0.8, 0.56, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.4, 0.8, 0.4, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3cymr")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_vjdqh")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_5uenu")
+action_mode = 0
 icon = ExtResource("12_ojbvo")
 icon_alignment = 1
 

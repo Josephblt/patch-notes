@@ -63,8 +63,9 @@ func _on_minus_button_pressed() -> void:
 	_trigger_input_action("bios_subtract")
 
 
-func _on_f_10_button_pressed() -> void:
+func _on_f10_button_pressed() -> void:
 	_trigger_input_action("bios_save_exit")
 
-func _on_f_9_button_pressed() -> void:
+
+func _on_f9_button_pressed() -> void:
 	_trigger_input_action("bios_setup_defaults")

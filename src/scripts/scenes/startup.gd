@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 const BIOS_SCENE: String = "uid://cs0ndb8p2joey"
-const LOGIN_SCENE: String = "uid://bfpufq7f4feqv"
+const OS_LOAD_SCENE: String = "res://scenes/os_load.tscn"
 const BIOS_SETUP_PROMPT_KEYBOARD: StringName = &"BIOS_SETUP_PROMPT_KEYBOARD"
 const BIOS_SETUP_PROMPT_TOUCH: StringName = &"BIOS_SETUP_PROMPT_TOUCH"
 const BIOS_SETUP_PROMPT_KEYBOARD_FALLBACK: String = "To interrupt normal startup, press ENTER.\nJosephBLT Games (tm), 2026"
@@ -39,8 +39,8 @@ func change_to_bios() -> void:
 	get_tree().change_scene_to_file(BIOS_SCENE)
 
 
-func change_to_login() -> void:
-	get_tree().change_scene_to_file(LOGIN_SCENE)
+func change_to_os_load() -> void:
+	get_tree().change_scene_to_file(OS_LOAD_SCENE)
 
 
 func enable_bios() -> void:

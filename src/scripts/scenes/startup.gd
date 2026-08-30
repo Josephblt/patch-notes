@@ -3,7 +3,7 @@ extends CanvasLayer
 
 
 const BIOS_SCENE: String = "uid://cs0ndb8p2joey"
-const OS_LOAD_SCENE: String = "res://scenes/os_load.tscn"
+const OS_LOAD_SCENE: String = "uid://ddk5w2icivnki"
 const BIOS_SETUP_PROMPT_KEYBOARD: StringName = &"BIOS_SETUP_PROMPT_KEYBOARD"
 const BIOS_SETUP_PROMPT_TOUCH: StringName = &"BIOS_SETUP_PROMPT_TOUCH"
 const BIOS_SETUP_PROMPT_KEYBOARD_FALLBACK: String = "To interrupt normal startup, press ENTER.\nJosephBLT Games (tm), 2026"

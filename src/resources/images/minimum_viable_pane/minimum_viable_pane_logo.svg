@@ -14,18 +14,22 @@
       <stop stop-color="#FFD266"/>
       <stop offset="1" stop-color="#C07A16"/>
     </linearGradient>
-    <filter id="soft-shadow" x="28" y="0" width="286" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="8" dy="10" stdDeviation="5" flood-color="#000000" flood-opacity="0.35"/>
-    </filter>
   </defs>
 
   <rect width="720" height="520" fill="transparent"/>
 
-  <g transform="translate(224 70) scale(0.72) skewY(-6)" filter="url(#soft-shadow)">
+  <g transform="translate(224 70) scale(0.72) skewY(-6)">
+    <g transform="translate(8 10)" opacity="0.28">
+      <path d="M64 52L166 35V119H64V52Z" fill="#000000"/>
+      <path d="M177 33L278 16V119H177V33Z" fill="#000000"/>
+      <path d="M64 132H166V218L64 201V132Z" fill="#000000"/>
+      <path d="M177 132H278V184L247 189L229 174L209 200L177 205V132Z" fill="#000000"/>
+    </g>
+
     <path d="M64 52L166 35V119H64V52Z" fill="url(#pane-blue)" stroke="#EAF6FF" stroke-width="4"/>
     <path d="M177 33L278 16V119H177V33Z" fill="url(#pane-green)" stroke="#EAF6FF" stroke-width="4"/>
     <path d="M64 132H166V218L64 201V132Z" fill="url(#pane-amber)" stroke="#EAF6FF" stroke-width="4"/>
-    <path d="M177 132H278V184L247 189L229 174L209 200L177 205V132Z" fill="#D7DCE2" stroke="#EAF6FF" stroke-width="4"/>
+    <path d="M177 132H278V184L247 189L229 174L209 200L177 205V132Z" fill="#E1E7ED" stroke="#EAF6FF" stroke-width="4"/>
 
     <path d="M206 151L229 174M229 174L247 189M229 174L219 188M229 174L240 159" stroke="#66707A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M177 132H278" stroke="#18324F" stroke-width="5" stroke-opacity="0.3"/>

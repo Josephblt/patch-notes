@@ -1,3 +1,189 @@
 [gd_scene format=3 uid="uid://ddk5w2icivnki"]
 
-[node name="OSLoad" type="CanvasLayer"]
+[ext_resource type="Texture2D" uid="uid://bdg4naq2om6m1" path="res://resources/images/os_load/minimum_viable_pane_logo.png" id="1_4jb1x"]
+[ext_resource type="Texture2D" uid="uid://br2b22b63x4da" path="res://resources/images/os_load/loading_spinner.png" id="1_5wkg7"]
+[ext_resource type="Script" uid="uid://cdn13au4bm45c" path="res://scripts/scenes/os_load.gd" id="1_xvne1"]
+[ext_resource type="FontFile" uid="uid://d260idrf31pls" path="res://resources/fonts/kenney_future.ttf" id="2_vbm8u"]
+[ext_resource type="Texture2D" uid="uid://iy65lkr7jlkl" path="res://resources/images/os_load/studio_logo_letters.png" id="3_1vanm"]
+
+[sub_resource type="Animation" id="Animation_vbm8u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/LoadingSpinner:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1vanm"]
+resource_name = "Spin"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/LoadingSpinner:offset_transform_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4jb1x"]
+_data = {
+&"RESET": SubResource("Animation_vbm8u"),
+&"Spin": SubResource("Animation_1vanm")
+}
+
+[sub_resource type="Animation" id="Animation_4jb1x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xvne1"]
+resource_name = "fade_in"
+length = 4.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_to_login"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ex4lg"]
+resource_name = "fade_out"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0ar0"]
+_data = {
+&"RESET": SubResource("Animation_4jb1x"),
+&"fade_in": SubResource("Animation_xvne1"),
+&"fade_out": SubResource("Animation_ex4lg")
+}
+
+[node name="OSLoad" type="CanvasLayer" unique_id=1384872360]
+script = ExtResource("1_xvne1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=931222384]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1063528342]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MVPLogo" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=2119626897]
+layout_mode = 2
+texture = ExtResource("1_4jb1x")
+stretch_mode = 2
+
+[node name="LoadingSpinner" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=715965364]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+texture = ExtResource("1_5wkg7")
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/LoadingSpinner" unique_id=1029012957]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_4jb1x")
+autoplay = &"Spin"
+
+[node name="StudioLogo" type="TextureRect" parent="MarginContainer" unique_id=7988780]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("3_1vanm")
+stretch_mode = 2
+
+[node name="CopyrightContainer" type="VBoxContainer" parent="MarginContainer" unique_id=225500008]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="OSName" type="Label" parent="MarginContainer/CopyrightContainer" unique_id=809604760]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vbm8u")
+theme_override_font_sizes/font_size = 16
+text = "Minimum Viable Pane (TM)"
+
+[node name="Copyright" type="Label" parent="MarginContainer/CopyrightContainer" unique_id=1349684555]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_vbm8u")
+theme_override_font_sizes/font_size = 16
+text = "Copyright (C) 2026."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=778192577]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_y0ar0")
+autoplay = &"fade_in"

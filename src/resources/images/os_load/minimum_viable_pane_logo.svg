@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="220"
+   height="220"
+   viewBox="0 0 220 220"
+   fill="none"
+   version="1.1"
+   id="svg19"
+   sodipodi:docname="minimum_viable_pane_logo.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:export-filename="minimum_viable_pane_logo.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.0885476"
+     inkscape:cx="129.99464"
+     inkscape:cy="182.18402"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="2552"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19" />
+  <title
+     id="title1">Minimum Viable Pane XP logo</title>
+  <defs
+     id="defs6">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ba70e8;stop-opacity:1;"
+         offset="0"
+         id="stop7" />
+      <stop
+         style="stop-color:#8b347d;stop-opacity:1;"
+         offset="1"
+         id="stop8" />
+    </linearGradient>
+    <linearGradient
+       id="pane-blue"
+       x1="70"
+       y1="48"
+       x2="220"
+       y2="196"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#6EC6FF"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#1D5FA8"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="pane-green"
+       x1="230"
+       y1="46"
+       x2="250"
+       y2="186"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#9FE870"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#348B42"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="pane-amber"
+       x1="76"
+       y1="162"
+       x2="220"
+       y2="214"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#FFD266"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#C07A16"
+         id="stop6" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient8"
+       x1="190.3768"
+       y1="132.01936"
+       x2="264.62302"
+       y2="206.26558"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     transform="matrix(0.72,-0.07567505,0,0.72,-16,40.189552)"
+     id="g16">
+    <g
+       transform="translate(8,10)"
+       opacity="0.28"
+       id="g9"
+       style="display:inline">
+      <path
+         d="m 179,134.42051 h 101 v 52 L 266.82246,199.83624 249.3312,187.67899 239.17177,194.80476 221,175.15466 v 0 0 l -2.38641,23.00074 -8.48479,-1.05364 -5.38641,5.66289 L 194.1288,199.60176 179,207.42051 Z"
+         fill="#e1e7ed"
+         stroke-width="4"
+         id="path13-0"
+         sodipodi:nodetypes="ccccccccccccccc"
+         style="fill:#000000;fill-opacity:1"
+         inkscape:label="path6" />
+      <path
+         d="M 64,52 166,35 v 84 H 64 Z"
+         fill="#000000"
+         id="path6" />
+      <path
+         d="M 177,33 278,16 V 119 H 177 Z"
+         fill="#000000"
+         id="path7" />
+      <path
+         d="m 64,132 h 102 v 86 L 64,201 Z"
+         fill="#000000"
+         id="path8" />
+    </g>
+    <path
+       d="M 64,52 166,35 v 84 H 64 Z"
+       fill="url(#pane-blue)"
+       stroke="#eaf6ff"
+       stroke-width="4"
+       id="path10"
+       style="fill:url(#pane-blue)" />
+    <path
+       d="M 177,33 278,16 V 119 H 177 Z"
+       fill="url(#pane-green)"
+       stroke="#eaf6ff"
+       stroke-width="4"
+       id="path11"
+       style="fill:url(#pane-green)" />
+    <path
+       d="m 64,132 h 102 v 86 L 64,201 Z"
+       fill="url(#pane-amber)"
+       stroke="#eaf6ff"
+       stroke-width="4"
+       id="path12"
+       style="fill:url(#pane-amber)" />
+    <path
+       d="m 177,132 h 101 v 52 L 264.82246,197.41573 247.3312,185.25848 237.17177,192.38425 219,172.73415 l -2.24903,-12.41041 7.9047,-0.3218 1.58977,5.13849 6.77632,-0.90486 -6.77632,0.90486 -1.58977,-5.13849 0.79826,-5.28309 4.54777,-2.49983 -4.54777,2.49983 -0.79826,5.28309 -7.9047,0.3218 2.24903,12.41041 -9.069,-2.52723 -8.19491,-3.85357 8.19491,3.85357 -1.54493,-9.79409 1.54493,9.79409 -8.19491,-3.85357 8.19491,3.85357 9.069,2.52723 v 0 l -2.38641,23.00074 -8.48479,-1.05364 -5.38641,5.66289 L 192.1288,197.18125 177,205 Z"
+       fill="#e1e7ed"
+       stroke="#eaf6ff"
+       stroke-width="4"
+       id="path13"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccc"
+       style="fill:url(#linearGradient8)" />
+  </g>
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Minimum Viable Pane XP logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

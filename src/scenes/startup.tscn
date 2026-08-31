@@ -74,7 +74,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tpfpu"]
 resource_name = "startup_sequence"
-length = 8.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

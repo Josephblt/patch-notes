@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3p5h28owuttt"
-path="res://.godot/imported/minimum_viable_pane_logo.svg-e9c5a3a1a44900b2123f5c165c6e586b.ctex"
+uid="uid://br2b22b63x4da"
+path="res://.godot/imported/loading_spinner.png-0b7e56e64b6b0bdc2a31adbf9ddd6c13.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/images/minimum_viable_pane/minimum_viable_pane_logo.svg"
-dest_files=["res://.godot/imported/minimum_viable_pane_logo.svg-e9c5a3a1a44900b2123f5c165c6e586b.ctex"]
+source_file="res://resources/images/os_load/loading_spinner.png"
+dest_files=["res://.godot/imported/loading_spinner.png-0b7e56e64b6b0bdc2a31adbf9ddd6c13.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
